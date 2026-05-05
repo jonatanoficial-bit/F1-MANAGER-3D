@@ -1,6 +1,6 @@
 (() => {
   const DATA = window.F1M_DATA;
-  const SAVE_KEYS = ['f1_manager_career_2026_v030', 'f1_manager_career_2026_v020'];
+  const SAVE_KEYS = ['f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
   const ACTIVE_SAVE_KEY = SAVE_KEYS[0];
   const ASSET_ROOTS = ['assets/'];
   for(let i=1;i<=15;i++) ASSET_ROOTS.push(`f1_assets_part_${String(i).padStart(2,'0')}/assets/`);
@@ -261,6 +261,7 @@
         <article class="dash-card glass-panel bg" data-asset-bg="${bg}"><div class="dash-overlay"></div><div class="dash-card-top">${teamVisual(team,true)}</div><h3>${team.name}</h3><p>${team.objective || 'Construir reputação e alcançar a Fórmula 1.'}</p><p>Próxima: ${currentRace.name}</p></article>
         <article class="dash-card glass-panel"><h3>Patrocinadores</h3><p>${state.sponsor ? state.sponsor.name : 'Nenhum contrato principal ativo.'}</p>${sponsorButtons()}</article>
         <article class="dash-card glass-panel"><h3>Metas da Diretoria</h3><p>${team.objective || 'Pontuar e evoluir a equipe.'}</p><div class="progress"><i style="width:${Math.min(100,state.reputation)}%"></i></div><p>Reputação ${Math.round(state.reputation)}/100</p></article>
+        <article class="dash-card glass-panel career-card"><h3>Carreira do Gestor</h3><p><b>Você começou na F2.</b> Cumpra metas, evolua pilotos e mantenha as finanças saudáveis para receber convites de equipes pequenas da F1.</p><p>Escada: F2 fraca → F2 média → F2 forte → F1 baixa → F1 média → equipe grande.</p></article>
       </div>`;
     }
     if(tab === 'drivers'){
@@ -359,17 +360,121 @@
       this.renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false}); this.renderer.setSize(canvas.clientWidth,canvas.clientHeight,false); this.renderer.setPixelRatio(Math.min(1.6,window.devicePixelRatio||1));
       this.clock=new THREE.Clock(); this.cars=[]; this.trackPoints=this.createTrackPoints(); this.addLights(); this.addTrack(); this.addEnvironment(); this.addCars(); window.addEventListener('resize',()=>this.resize());
     }
-    createTrackPoints(){ const pts=[]; for(let i=0;i<160;i++){ const a=i/160*Math.PI*2; const r=12 + Math.sin(a*3)*3 + Math.cos(a*2)*1.8; pts.push(new THREE.Vector3(Math.cos(a)*r,0,Math.sin(a)*r*.72)); } return pts; }
-    addLights(){ this.scene.add(new THREE.AmbientLight(0xffffff,.8)); const d=new THREE.DirectionalLight(0xffffff,1.8); d.position.set(-10,30,15); this.scene.add(d); }
+    createTrackPoints(){
+      // Miami-inspired compact street layout: long sweepers, marina-side straight and tight complex.
+      const raw = [
+        [-16,-7],[-12,-10],[-6,-11],[1,-10],[8,-7],[14,-4],[17,1],[14,6],[8,8],[2,7],[-3,4],[-8,3],[-14,5],[-18,2],[-19,-3]
+      ];
+      const pts=[];
+      for(let i=0;i<raw.length;i++){
+        const a=raw[i], b=raw[(i+1)%raw.length];
+        for(let j=0;j<12;j++){
+          const t=j/12;
+          const x=a[0]*(1-t)+b[0]*t;
+          const z=a[1]*(1-t)+b[1]*t;
+          pts.push(new THREE.Vector3(x,0,z));
+        }
+      }
+      // Smooth with a Catmull-Rom curve so the road becomes a ribbon, not separated planks.
+      const curve = new THREE.CatmullRomCurve3(pts, true, 'centripetal', 0.45);
+      return curve.getPoints(260);
+    }
+    addLights(){
+      this.scene.add(new THREE.HemisphereLight(0xcfeaff,0x19332e,1.25));
+      const d=new THREE.DirectionalLight(0xffffff,2.2); d.position.set(-18,34,20); this.scene.add(d);
+      const fill=new THREE.DirectionalLight(0xff4b4b,.55); fill.position.set(18,12,-16); this.scene.add(fill);
+    }
     addTrack(){
-      const floor=new THREE.Mesh(new THREE.PlaneGeometry(70,45), new THREE.MeshStandardMaterial({color:0x0b4b56,roughness:.7})); floor.rotation.x=-Math.PI/2; floor.position.y=-.04; this.scene.add(floor);
-      const roadMat=new THREE.MeshStandardMaterial({color:0x17191d,roughness:.45}); const curbMat=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.3});
-      for(let i=0;i<this.trackPoints.length;i++){ const p=this.trackPoints[i], n=this.trackPoints[(i+1)%this.trackPoints.length]; const mid=p.clone().lerp(n,.5); const len=p.distanceTo(n); const seg=new THREE.Mesh(new THREE.BoxGeometry(4.4,.08,len+.18),roadMat); seg.position.copy(mid); seg.position.y=0; seg.rotation.y=Math.atan2(n.x-p.x,n.z-p.z); this.scene.add(seg); if(i%3===0){ const c=new THREE.Mesh(new THREE.BoxGeometry(5.1,.09,.18),curbMat); c.position.copy(mid); c.position.y=.03; c.rotation.y=seg.rotation.y; this.scene.add(c); } }
+      const grass=new THREE.Mesh(new THREE.PlaneGeometry(82,54), new THREE.MeshStandardMaterial({color:0x14534d,roughness:.9}));
+      grass.rotation.x=-Math.PI/2; grass.position.y=-.08; this.scene.add(grass);
+      const water=new THREE.Mesh(new THREE.PlaneGeometry(22,58), new THREE.MeshStandardMaterial({color:0x0097bd,roughness:.28,metalness:.08}));
+      water.rotation.x=-Math.PI/2; water.position.set(-31,-.06,0); this.scene.add(water);
+      const roadMat=new THREE.MeshStandardMaterial({color:0x16181d,roughness:.38,metalness:.04});
+      const edgeMat=new THREE.MeshStandardMaterial({color:0xdfe7ef,roughness:.52});
+      const curbRed=new THREE.MeshStandardMaterial({color:0xd10012,roughness:.42});
+      const curbWhite=new THREE.MeshStandardMaterial({color:0xf5f5f0,roughness:.42});
+      const barrierMat=new THREE.MeshStandardMaterial({color:0x9aa3b3,roughness:.5,metalness:.15});
+      const width=4.85, edgeWidth=.18;
+      const roadVerts=[], roadIdx=[], leftEdge=[], rightEdge=[];
+      for(let i=0;i<this.trackPoints.length;i++){
+        const p=this.trackPoints[i];
+        const prev=this.trackPoints[(i-1+this.trackPoints.length)%this.trackPoints.length];
+        const next=this.trackPoints[(i+1)%this.trackPoints.length];
+        const dir=next.clone().sub(prev).normalize();
+        const normal=new THREE.Vector3(-dir.z,0,dir.x).normalize();
+        const l=p.clone().add(normal.clone().multiplyScalar(width/2));
+        const r=p.clone().add(normal.clone().multiplyScalar(-width/2));
+        roadVerts.push(l.x,.02,l.z,r.x,.02,r.z);
+        leftEdge.push(l); rightEdge.push(r);
+      }
+      for(let i=0;i<this.trackPoints.length;i++){
+        const a=i*2,b=((i+1)%this.trackPoints.length)*2;
+        roadIdx.push(a,b,a+1,b,b+1,a+1);
+      }
+      const roadGeo=new THREE.BufferGeometry(); roadGeo.setAttribute('position',new THREE.Float32BufferAttribute(roadVerts,3)); roadGeo.setIndex(roadIdx); roadGeo.computeVertexNormals();
+      this.scene.add(new THREE.Mesh(roadGeo, roadMat));
+
+      const addRibbon=(edge,offset,mat,y=.05,w=edgeWidth)=>{
+        const verts=[],idx=[];
+        for(let i=0;i<edge.length;i++){
+          const p=this.trackPoints[i], e=edge[i];
+          const outward=e.clone().sub(p).normalize();
+          const a=e.clone().add(outward.clone().multiplyScalar(offset));
+          const b=e.clone().add(outward.clone().multiplyScalar(offset+w));
+          verts.push(a.x,y,a.z,b.x,y,b.z);
+        }
+        for(let i=0;i<edge.length;i++){ const a=i*2,b=((i+1)%edge.length)*2; idx.push(a,b,a+1,b,b+1,a+1); }
+        const geo=new THREE.BufferGeometry(); geo.setAttribute('position',new THREE.Float32BufferAttribute(verts,3)); geo.setIndex(idx); geo.computeVertexNormals();
+        this.scene.add(new THREE.Mesh(geo,mat));
+      };
+      addRibbon(leftEdge,.06,edgeMat); addRibbon(rightEdge,.06,edgeMat);
+
+      // Curbs and safety barriers as individual blocks following the road tangent.
+      for(let i=0;i<this.trackPoints.length;i+=6){
+        const p=this.trackPoints[i], next=this.trackPoints[(i+1)%this.trackPoints.length];
+        const prev=this.trackPoints[(i-1+this.trackPoints.length)%this.trackPoints.length];
+        const dir=next.clone().sub(prev).normalize();
+        const normal=new THREE.Vector3(-dir.z,0,dir.x).normalize();
+        [-1,1].forEach(side=>{
+          const base=p.clone().add(normal.clone().multiplyScalar(side*(width/2+.22)));
+          const curb=new THREE.Mesh(new THREE.BoxGeometry(.32,.08,1.08), (Math.floor(i/6)%2===0)?curbRed:curbWhite);
+          curb.position.set(base.x,.09,base.z); curb.rotation.y=Math.atan2(dir.x,dir.z); this.scene.add(curb);
+          if(i%18===0){
+            const barPos=p.clone().add(normal.clone().multiplyScalar(side*(width/2+1.25)));
+            const bar=new THREE.Mesh(new THREE.BoxGeometry(.22,.42,1.35),barrierMat);
+            bar.position.set(barPos.x,.26,barPos.z); bar.rotation.y=Math.atan2(dir.x,dir.z); this.scene.add(bar);
+          }
+        });
+      }
+
+      // Start/finish line and pit lane.
+      const sf=this.trackPoints[2], sfNext=this.trackPoints[5];
+      const sfDir=sfNext.clone().sub(sf).normalize();
+      const line=new THREE.Mesh(new THREE.BoxGeometry(width+.7,.09,.22),new THREE.MeshStandardMaterial({color:0xffffff,roughness:.2}));
+      line.position.set(sf.x,.12,sf.z); line.rotation.y=Math.atan2(sfDir.x,sfDir.z); this.scene.add(line);
+      const pitMat=new THREE.MeshStandardMaterial({color:0x2a2d36,roughness:.45});
+      for(let i=0;i<20;i++){
+        const t=i/20;
+        const p=new THREE.Vector3(3+t*17,0,-12.8+t*2.4);
+        const seg=new THREE.Mesh(new THREE.BoxGeometry(3.0,.07,.8),pitMat);
+        seg.position.set(p.x,.05,p.z); seg.rotation.y=1.42; this.scene.add(seg);
+      }
     }
     addEnvironment(){
-      const water=new THREE.Mesh(new THREE.PlaneGeometry(18,48), new THREE.MeshStandardMaterial({color:0x009ac8,roughness:.35,metalness:.1})); water.rotation.x=-Math.PI/2; water.position.set(-27,-.02,0); this.scene.add(water);
-      const matB=new THREE.MeshStandardMaterial({color:0xd6d9df,roughness:.7}); for(let i=0;i<18;i++){ const b=new THREE.Mesh(new THREE.BoxGeometry(rnd(1.2,2.8),rnd(1.2,5),rnd(1.2,2.8)),matB); b.position.set(rnd(18,31),b.geometry.parameters.height/2,rnd(-18,18)); this.scene.add(b); }
-      const palmMat=new THREE.MeshStandardMaterial({color:0x0f7738}); const trunkMat=new THREE.MeshStandardMaterial({color:0x6b4329}); for(let i=0;i<28;i++){ const x=rnd(-23,23), z=rnd(-16,16); if(Math.abs(x)<17 && Math.abs(z)<12) continue; const tr=new THREE.Mesh(new THREE.CylinderGeometry(.08,.12,1.3,6),trunkMat); tr.position.set(x,.65,z); this.scene.add(tr); const top=new THREE.Mesh(new THREE.ConeGeometry(.55,1,7),palmMat); top.position.set(x,1.45,z); this.scene.add(top); }
+      const matB=new THREE.MeshStandardMaterial({color:0xc8ccd4,roughness:.65});
+      const darkB=new THREE.MeshStandardMaterial({color:0x4a5361,roughness:.55});
+      for(let i=0;i<24;i++){
+        const b=new THREE.Mesh(new THREE.BoxGeometry(rnd(1.4,3.2),rnd(1.0,5.2),rnd(1.3,3.1)), i%3===0?darkB:matB);
+        b.position.set(rnd(22,36),b.geometry.parameters.height/2-.05,rnd(-20,19)); this.scene.add(b);
+      }
+      const grandMat=new THREE.MeshStandardMaterial({color:0xbec6d8,roughness:.55});
+      for(let i=0;i<7;i++){
+        const g=new THREE.Mesh(new THREE.BoxGeometry(4.8,.75,1.2),grandMat); g.position.set(-8+i*3.8,.34,12.8+rnd(-.5,.5)); g.rotation.y=.08; this.scene.add(g);
+      }
+      const palmMat=new THREE.MeshStandardMaterial({color:0x0f7738}); const trunkMat=new THREE.MeshStandardMaterial({color:0x6b4329});
+      for(let i=0;i<34;i++){ const x=rnd(-30,25), z=rnd(-19,19); if(Math.abs(x)<21 && Math.abs(z)<13) continue; const tr=new THREE.Mesh(new THREE.CylinderGeometry(.08,.12,1.45,6),trunkMat); tr.position.set(x,.65,z); this.scene.add(tr); const top=new THREE.Mesh(new THREE.ConeGeometry(.58,1.08,7),palmMat); top.position.set(x,1.48,z); this.scene.add(top); }
+      const boxMat=new THREE.MeshStandardMaterial({color:0x293142,roughness:.45});
+      for(let i=0;i<10;i++){ const pitBox=new THREE.Mesh(new THREE.BoxGeometry(2.1,1.25,1.9),boxMat); pitBox.position.set(12+i*2.25,.58,-15.5); pitBox.rotation.y=.02; this.scene.add(pitBox); }
     }
     addCars(){ this.race.entries.forEach((e,i)=>{ const car=this.makeCar(e.color,e.secondary); this.scene.add(car); this.cars.push(car); this.placeCar(car,e,i); }); }
     makeCar(color,secondary){

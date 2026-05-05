@@ -1,6 +1,6 @@
-# F1 Manager Career 2026 — Build v0.3.0
+# F1 Manager Career 2026 — Build v0.4.0
 
-Build focada em **integração visual dos assets**.
+Build focada em melhoria da corrida 3D, clareza do modo carreira e integração visual dos assets.
 
 ## Melhorias desta versão
 - ajuste dos caminhos que estavam quebrados;

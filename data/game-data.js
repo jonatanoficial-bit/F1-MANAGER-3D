@@ -1,7 +1,7 @@
 window.F1M_DATA = {
   "build": {
-    "version": "0.3.0",
-    "label": "Build v0.3.0 • 2026-05-05 16:45"
+    "version": "0.4.0",
+    "label": "Build v0.4.0 • 2026-05-05 17:20"
   },
   "assetPaths": {
     "menu": "backgrounds/ui/global_lobby.png",

@@ -1,4 +1,4 @@
-# F1 Manager Career 2026 — Asset Paths Used (Build v0.3.0)
+# F1 Manager Career 2026 — Asset Paths Used (Build v0.4.0)
 
 ## Correções aplicadas nesta build
 - Corrigidos caminhos dos backgrounds de UI.
