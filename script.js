@@ -1,6 +1,6 @@
 (() => {
   const DATA = window.F1M_DATA;
-  const SAVE_KEYS = ['f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
+  const SAVE_KEYS = ['f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
   const ACTIVE_SAVE_KEY = SAVE_KEYS[0];
   const ASSET_ROOTS = ['assets/'];
   for(let i=1;i<=15;i++) ASSET_ROOTS.push(`f1_assets_part_${String(i).padStart(2,'0')}/assets/`);
@@ -155,7 +155,7 @@
       startQualifying(){ simulateQualifying(); },
       startRaceDirect(){ setupRace(true); showScreen('race'); },
       startRace(){ setupRace(false); showScreen('race'); },
-      setPace(){ if(race) race.playerPace[Number(el.dataset.driver)] = el.dataset.pace; },
+      setPace(){ if(race){ race.playerPace[Number(el.dataset.driver)] = el.dataset.pace; updateRaceHud(); } },
       pitDriver(){ if(race) requestPit(Number(el.dataset.driver)); },
       toggleRaceSpeed(){ if(race){ race.speed = race.speed === 1 ? 3 : race.speed === 3 ? 8 : 1; $('#speedLabel').textContent = race.speed; } },
       finishRaceNow(){ if(race) finishRace(); },
@@ -334,17 +334,17 @@
     const grid = (state.lastQualifying && state.lastQualifying.length) ? state.lastQualifying : generateGridPreview();
     const allDrivers = generateRaceDrivers();
     const driverMap = new Map(allDrivers.map(d=>[d.short,d]));
-    const entries = grid.map((g,i)=> {
+    const entries = grid.slice(0,22).map((g,i)=> {
       const d = driverMap.get(g.driver) || allDrivers[i]; const t = teamById(d.team);
       const car = d.team === state.currentTeam ? state.car : (t.car || estimateCar(t));
       return { driver:d, team:t, pos:i+1, lap:1, progress:i*-0.01, distance:0, tyre:100, fuel:100, condition:100, pits:0, pace:'normal', baseSpeed:baseRaceSpeed(d,car), color:t.color, secondary:t.secondary, finished:false, totalTime:0 };
     });
-    race = { quick, entries, laps:22, speed:1, playerPace:['normal','normal'], started:Date.now(), weather:'dry', tick:0 };
+    race = { quick, entries, laps:22, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:'dry', tick:0 }; 
     updateRaceHud();
   }
   function estimateCar(t){ const tier = t.tier==='top'?88:t.tier==='mid'?78:68; return { aero:tier, engine:tier, chassis:tier, reliability:tier, tyreWear:tier, pitStop:tier, fuel:tier }; }
   function baseRaceSpeed(d,car){ return 0.00042 + ((d.speed+d.consistency+d.overall)/3 + (car.aero+car.engine+car.chassis)/3)/100000; }
-  function requestPit(idx){ const ds = driversForTeam(state.currentTeam); const target = ds[idx]; if(!target) return; const e = race.entries.find(x=>x.driver.short===target.short); if(e){ e.tyre = 100; e.condition = Math.min(100,e.condition+8); e.pits++; e.progress -= 0.035; } }
+  function requestPit(idx){ const ds = driversForTeam(state.currentTeam); const target = ds[idx]; if(!target || !race) return; const e = race.entries.find(x=>x.driver.short===target.short); if(e && !e.pitCooldown){ e.tyre = 100; e.condition = Math.min(100,e.condition+8); e.pits++; e.progress -= 0.055; e.pitCooldown = 8; e.lastAction = 'PIT'; updateRaceHud(); } }
 
   function startRaceRenderer(){
     if(!race) setupRace(true);
@@ -501,7 +501,7 @@
       e.distance = e.progress;
       e.tyre = Math.max(0,e.tyre - dt*race.speed*(e.pace==='attack'?0.16:e.pace==='save'?0.07:0.1));
       e.fuel = Math.max(0,e.fuel - dt*race.speed*(e.pace==='attack'?0.13:e.pace==='save'?0.07:0.1));
-      e.condition = Math.max(0,e.condition - dt*race.speed*(100-(state.car.reliability||70))/2500);
+      e.condition = Math.max(0,e.condition - dt*race.speed*(100-(state.car.reliability||70))/2500); if(e.pitCooldown) e.pitCooldown = Math.max(0, e.pitCooldown - dt*race.speed);
       e.lap = Math.min(race.laps, Math.floor(e.progress)+1);
       e.totalTime += dt*race.speed*(1 + (100-e.tyre)/650);
     });
@@ -509,11 +509,15 @@
     updateRaceHud();
     if(race.entries.some(e=>e.progress>=race.laps)) finishRace();
   }
+  function driverAvatarHTML(d){
+    return `<span class="race-avatar"><img data-asset-src="${d.portrait||''}" alt="${d.short}"/><b class="fallback-badge">${initials(d.short)}</b></span>`;
+  }
   function updateRaceHud(){
     if(!race) return;
     $('#lapLabel').textContent = `VOLTA ${Math.max(...race.entries.map(e=>e.lap))}/${race.laps}`;
-    $('#raceLeaderboard').innerHTML = race.entries.slice(0,22).map((e,i)=>`<div class="row ${isPlayerDriver(e.driver.short)?'highlight':''}"><span>${i+1}</span><span>${e.driver.short}</span><span>${Math.round(e.tyre)}%</span><span>${e.pits}P</span></div>`).join('');
-    const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const name=$(`#controlDriver${i+1}`), cond=$(`#cond${i+1}`); if(e){ name.textContent = `${e.pos}º | ${d.short}`; cond.style.width = `${Math.round(e.condition)}%`; } });
+    $('#raceLeaderboard').innerHTML = race.entries.slice(0,22).map((e,i)=>`<div class="race-row ${isPlayerDriver(e.driver.short)?'highlight':''}"><span class="race-pos">${i+1}</span>${driverAvatarHTML(e.driver)}<span class="race-name"><b>${e.driver.short}</b><small>${e.team.name}</small></span><span class="race-tyre">${Math.round(e.tyre)}%</span><span class="race-pits">${e.pits}P</span></div>`).join('');
+    hydrateAssets($('#raceLeaderboard'));
+    const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const card=$(`#controlDriver${i+1}`)?.closest('.driver-control'), name=$(`#controlDriver${i+1}`), cond=$(`#cond${i+1}`); if(e){ name.textContent = `${e.pos}º | ${d.short}`; cond.style.width = `${Math.round(e.condition)}%`; if(card){ card.querySelectorAll('[data-pace]').forEach(btn=>btn.classList.toggle('active', btn.dataset.pace === (race.playerPace[i]||'normal'))); const status=card.querySelector('.pilot-status') || document.createElement('div'); status.className='pilot-status'; status.textContent = `Modo: ${(race.playerPace[i]||'normal').toUpperCase()} • Pneu ${Math.round(e.tyre)}% • Pit ${e.pits}`; if(!status.parentElement) card.appendChild(status); } } });
   }
   function finishRace(){
     if(!race) return;
