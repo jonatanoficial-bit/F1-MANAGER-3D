@@ -1,0 +1,9 @@
+./FILE_LIST.txt
+./README.md
+./assets/COLOQUE_ASSETS_AQUI.txt
+./data/game-data.js
+./docs/ASSET_MAP_REQUIRED.md
+./docs/ROADMAP.md
+./index.html
+./script.js
+./style.css
