@@ -86,7 +86,7 @@
 
     <section id="screen-race" class="screen race-screen">
       <div id="raceCanvasWrap"><canvas id="raceCanvas"></canvas></div>
-      <aside class="race-left glass-panel"><h3>CORRIDA</h3><div id="raceLeaderboard"></div></aside>
+      <aside class="race-left glass-panel"><h3 id="raceTitle">CORRIDA</h3><div id="raceLeaderboard"></div></aside>
       <aside class="race-right">
         <article class="driver-control glass-panel"><h4 id="controlDriver1">Piloto 1</h4><div class="condition-bar"><span id="cond1"></span></div><button data-action="setPace" data-driver="0" data-pace="attack">⚡ ATAQUE</button><button data-action="setPace" data-driver="0" data-pace="save">🛞 POUPAR</button><button data-action="pitDriver" data-driver="0" class="primary">PIT STOP</button></article>
         <article class="driver-control glass-panel"><h4 id="controlDriver2">Piloto 2</h4><div class="condition-bar"><span id="cond2"></span></div><button data-action="setPace" data-driver="1" data-pace="attack">⚡ ATAQUE</button><button data-action="setPace" data-driver="1" data-pace="save">🛞 POUPAR</button><button data-action="pitDriver" data-driver="1" class="primary">PIT STOP</button></article>
@@ -113,6 +113,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script src="data/game-data.js"></script>
+  <script src="data/track-layouts.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

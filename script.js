@@ -1,6 +1,6 @@
 (() => {
   const DATA = window.F1M_DATA;
-  const SAVE_KEYS = ['f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
+  const SAVE_KEYS = ['f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
   const ACTIVE_SAVE_KEY = SAVE_KEYS[0];
   const ASSET_ROOTS = ['assets/'];
   for(let i=1;i<=15;i++) ASSET_ROOTS.push(`f1_assets_part_${String(i).padStart(2,'0')}/assets/`);
@@ -331,6 +331,7 @@
   function isPlayerDriver(short){ return driversForTeam(state.currentTeam).some(d=>d.short===short); }
 
   function setupRace(quick){
+    const currentRace = DATA.calendar2026[state.roundIndex] || DATA.calendar2026[0];
     const grid = (state.lastQualifying && state.lastQualifying.length) ? state.lastQualifying : generateGridPreview();
     const allDrivers = generateRaceDrivers();
     const driverMap = new Map(allDrivers.map(d=>[d.short,d]));
@@ -339,7 +340,7 @@
       const car = d.team === state.currentTeam ? state.car : (t.car || estimateCar(t));
       return { driver:d, team:t, pos:i+1, lap:1, progress:i*-0.01, distance:0, tyre:100, fuel:100, condition:100, pits:0, pace:'normal', baseSpeed:baseRaceSpeed(d,car), color:t.color, secondary:t.secondary, finished:false, totalTime:0 };
     });
-    race = { quick, entries, laps:22, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:'dry', tick:0 }; 
+    race = { quick, entries, laps:currentRace.laps || 22, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:currentRace.weather || 'dry', tick:0, trackInfo:currentRace }; 
     updateRaceHud();
   }
   function estimateCar(t){ const tier = t.tier==='top'?88:t.tier==='mid'?78:68; return { aero:tier, engine:tier, chassis:tier, reliability:tier, tyreWear:tier, pitStop:tier, fuel:tier }; }
@@ -361,21 +362,23 @@
       this.clock=new THREE.Clock(); this.cars=[]; this.trackPoints=this.createTrackPoints(); this.addLights(); this.addTrack(); this.addEnvironment(); this.addCars(); window.addEventListener('resize',()=>this.resize());
     }
     createTrackPoints(){
-      // Miami-inspired compact street layout: long sweepers, marina-side straight and tight complex.
-      const raw = [
-        [-16,-7],[-12,-10],[-6,-11],[1,-10],[8,-7],[14,-4],[17,1],[14,6],[8,8],[2,7],[-3,4],[-8,3],[-14,5],[-18,2],[-19,-3]
-      ];
+      const info = this.race.trackInfo || DATA.calendar2026[state.roundIndex] || {};
+      const key = info.svgLayout || info.id;
+      const layouts = window.F1M_TRACK_LAYOUTS || {};
+      const layout = layouts[key];
+      if(layout && Array.isArray(layout.points) && layout.points.length > 20){
+        this.svgLayout = layout;
+        return layout.points.map(p => new THREE.Vector3(p[0], 0, p[1]));
+      }
+      // Fallback: Miami-inspired compact street layout.
+      const raw = [[-16,-7],[-12,-10],[-6,-11],[1,-10],[8,-7],[14,-4],[17,1],[14,6],[8,8],[2,7],[-3,4],[-8,3],[-14,5],[-18,2],[-19,-3]];
       const pts=[];
       for(let i=0;i<raw.length;i++){
         const a=raw[i], b=raw[(i+1)%raw.length];
         for(let j=0;j<12;j++){
-          const t=j/12;
-          const x=a[0]*(1-t)+b[0]*t;
-          const z=a[1]*(1-t)+b[1]*t;
-          pts.push(new THREE.Vector3(x,0,z));
+          const t=j/12; pts.push(new THREE.Vector3(a[0]*(1-t)+b[0]*t,0,a[1]*(1-t)+b[1]*t));
         }
       }
-      // Smooth with a Catmull-Rom curve so the road becomes a ribbon, not separated planks.
       const curve = new THREE.CatmullRomCurve3(pts, true, 'centripetal', 0.45);
       return curve.getPoints(260);
     }
@@ -385,7 +388,10 @@
       const fill=new THREE.DirectionalLight(0xff4b4b,.55); fill.position.set(18,12,-16); this.scene.add(fill);
     }
     addTrack(){
-      const grass=new THREE.Mesh(new THREE.PlaneGeometry(82,54), new THREE.MeshStandardMaterial({color:0x14534d,roughness:.9}));
+      const info = this.race.trackInfo || {};
+      const theme = info.track || 'classic';
+      const groundColor = theme === 'desert' ? 0x8a6a3a : theme === 'street' ? 0x174a4b : theme === 'park' ? 0x1d6336 : 0x22513f;
+      const grass=new THREE.Mesh(new THREE.PlaneGeometry(82,54), new THREE.MeshStandardMaterial({color:groundColor,roughness:.9}));
       grass.rotation.x=-Math.PI/2; grass.position.y=-.08; this.scene.add(grass);
       const water=new THREE.Mesh(new THREE.PlaneGeometry(22,58), new THREE.MeshStandardMaterial({color:0x0097bd,roughness:.28,metalness:.08}));
       water.rotation.x=-Math.PI/2; water.position.set(-31,-.06,0); this.scene.add(water);
@@ -461,6 +467,11 @@
       }
     }
     addEnvironment(){
+      const info = this.race.trackInfo || {};
+      const theme = info.track || 'classic';
+      const isStreet = theme === 'street';
+      const isDesert = theme === 'desert';
+      const isPark = theme === 'park';
       const matB=new THREE.MeshStandardMaterial({color:0xc8ccd4,roughness:.65});
       const darkB=new THREE.MeshStandardMaterial({color:0x4a5361,roughness:.55});
       for(let i=0;i<24;i++){
@@ -515,6 +526,8 @@
   function updateRaceHud(){
     if(!race) return;
     $('#lapLabel').textContent = `VOLTA ${Math.max(...race.entries.map(e=>e.lap))}/${race.laps}`;
+    if($('#raceTitle')) $('#raceTitle').textContent = race.trackInfo ? race.trackInfo.name : 'CORRIDA';
+    if($('#weatherLabel')) $('#weatherLabel').textContent = race.weather === 'variable' ? '☁ Variável' : '☀ Seco';
     $('#raceLeaderboard').innerHTML = race.entries.slice(0,22).map((e,i)=>`<div class="race-row ${isPlayerDriver(e.driver.short)?'highlight':''}"><span class="race-pos">${i+1}</span>${driverAvatarHTML(e.driver)}<span class="race-name"><b>${e.driver.short}</b><small>${e.team.name}</small></span><span class="race-tyre">${Math.round(e.tyre)}%</span><span class="race-pits">${e.pits}P</span></div>`).join('');
     hydrateAssets($('#raceLeaderboard'));
     const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const card=$(`#controlDriver${i+1}`)?.closest('.driver-control'), name=$(`#controlDriver${i+1}`), cond=$(`#cond${i+1}`); if(e){ name.textContent = `${e.pos}º | ${d.short}`; cond.style.width = `${Math.round(e.condition)}%`; if(card){ card.querySelectorAll('[data-pace]').forEach(btn=>btn.classList.toggle('active', btn.dataset.pace === (race.playerPace[i]||'normal'))); const status=card.querySelector('.pilot-status') || document.createElement('div'); status.className='pilot-status'; status.textContent = `Modo: ${(race.playerPace[i]||'normal').toUpperCase()} • Pneu ${Math.round(e.tyre)}% • Pit ${e.pits}`; if(!status.parentElement) card.appendChild(status); } } });

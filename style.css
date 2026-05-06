@@ -46,3 +46,6 @@
 .driver-control button.active{background:linear-gradient(135deg,#c9ff4b,#4ade80);color:#071018;box-shadow:0 0 0 2px #eaff8a55 inset}
 .pilot-status{font-size:10px;font-family:system-ui,sans-serif;font-weight:900;color:#dce8ff;background:#061022;padding:6px 8px;border-radius:8px;border:1px solid #ffffff14}
 @media(max-height:560px){.race-row{min-height:41px;padding:5px 7px}.race-avatar{width:30px;height:30px}.race-left{width:310px}.race-right{width:244px}.driver-control{gap:6px}.driver-control button{padding:8px}}
+
+#raceTitle{font-size:18px;line-height:1.1;color:#fff;letter-spacing:.08em}
+.race-toolbar span{white-space:nowrap}

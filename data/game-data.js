@@ -1,7 +1,7 @@
 window.F1M_DATA = {
   "build": {
-    "version": "0.5.0",
-    "label": "Build v0.5.0 • 2026-05-05 18:40"
+    "version": "0.6.0",
+    "label": "Build v0.6.0 • 2026-05-06 18:35"
   },
   "assetPaths": {
     "menu": "backgrounds/ui/global_lobby.png",
@@ -1233,6 +1233,8 @@ window.F1M_DATA = {
   "calendar2026": [
     {
       "id": "bahrain",
+      "svgLayout": "bahrein",
+      "svgPath": "assets/tracks/svg/bahrein.svg",
       "name": "GP do Bahrein",
       "laps": 22,
       "country": "BH",
@@ -1241,6 +1243,8 @@ window.F1M_DATA = {
     },
     {
       "id": "saudi",
+      "svgLayout": "arabia_saudita",
+      "svgPath": "assets/tracks/svg/arabia_saudita.svg",
       "name": "GP da Arábia Saudita",
       "laps": 22,
       "country": "SA",
@@ -1249,6 +1253,8 @@ window.F1M_DATA = {
     },
     {
       "id": "australia",
+      "svgLayout": "australia",
+      "svgPath": "assets/tracks/svg/australia.svg",
       "name": "GP da Austrália",
       "laps": 22,
       "country": "AU",
@@ -1257,6 +1263,8 @@ window.F1M_DATA = {
     },
     {
       "id": "japan",
+      "svgLayout": "japao",
+      "svgPath": "assets/tracks/svg/japao.svg",
       "name": "GP do Japão",
       "laps": 22,
       "country": "JP",
@@ -1265,6 +1273,8 @@ window.F1M_DATA = {
     },
     {
       "id": "china",
+      "svgLayout": "china",
+      "svgPath": "assets/tracks/svg/china.svg",
       "name": "GP da China",
       "laps": 22,
       "country": "CN",
@@ -1273,6 +1283,8 @@ window.F1M_DATA = {
     },
     {
       "id": "miami",
+      "svgLayout": "miami",
+      "svgPath": "assets/tracks/svg/miami.svg",
       "name": "GP de Miami",
       "laps": 22,
       "country": "US",
@@ -1282,6 +1294,8 @@ window.F1M_DATA = {
     },
     {
       "id": "monaco",
+      "svgLayout": "monaco",
+      "svgPath": "assets/tracks/svg/monaco.svg",
       "name": "GP de Mônaco",
       "laps": 22,
       "country": "MC",
@@ -1290,6 +1304,8 @@ window.F1M_DATA = {
     },
     {
       "id": "canada",
+      "svgLayout": "canada",
+      "svgPath": "assets/tracks/svg/canada.svg",
       "name": "GP do Canadá",
       "laps": 22,
       "country": "CA",
@@ -1298,6 +1314,8 @@ window.F1M_DATA = {
     },
     {
       "id": "spain",
+      "svgLayout": "espanha",
+      "svgPath": "assets/tracks/svg/espanha.svg",
       "name": "GP da Espanha",
       "laps": 22,
       "country": "ES",
@@ -1306,6 +1324,8 @@ window.F1M_DATA = {
     },
     {
       "id": "austria",
+      "svgLayout": "austria",
+      "svgPath": "assets/tracks/svg/austria.svg",
       "name": "GP da Áustria",
       "laps": 22,
       "country": "AT",
@@ -1314,6 +1334,8 @@ window.F1M_DATA = {
     },
     {
       "id": "britain",
+      "svgLayout": "inglaterra",
+      "svgPath": "assets/tracks/svg/inglaterra.svg",
       "name": "GP da Grã-Bretanha",
       "laps": 22,
       "country": "GB",
@@ -1322,6 +1344,8 @@ window.F1M_DATA = {
     },
     {
       "id": "belgium",
+      "svgLayout": "belgica",
+      "svgPath": "assets/tracks/svg/belgica.svg",
       "name": "GP da Bélgica",
       "laps": 22,
       "country": "BE",
@@ -1330,6 +1354,8 @@ window.F1M_DATA = {
     },
     {
       "id": "hungary",
+      "svgLayout": "hungria",
+      "svgPath": "assets/tracks/svg/hungria.svg",
       "name": "GP da Hungria",
       "laps": 22,
       "country": "HU",
@@ -1338,6 +1364,8 @@ window.F1M_DATA = {
     },
     {
       "id": "netherlands",
+      "svgLayout": "holanda",
+      "svgPath": "assets/tracks/svg/holanda.svg",
       "name": "GP da Holanda",
       "laps": 22,
       "country": "NL",
@@ -1346,6 +1374,8 @@ window.F1M_DATA = {
     },
     {
       "id": "italy",
+      "svgLayout": "italia_monza",
+      "svgPath": "assets/tracks/svg/italia_monza.svg",
       "name": "GP da Itália",
       "laps": 22,
       "country": "IT",
@@ -1354,6 +1384,8 @@ window.F1M_DATA = {
     },
     {
       "id": "azerbaijan",
+      "svgLayout": "azerbaijao",
+      "svgPath": "assets/tracks/svg/azerbaijao.svg",
       "name": "GP do Azerbaijão",
       "laps": 22,
       "country": "AZ",
@@ -1362,6 +1394,8 @@ window.F1M_DATA = {
     },
     {
       "id": "singapore",
+      "svgLayout": "singapura",
+      "svgPath": "assets/tracks/svg/singapura.svg",
       "name": "GP de Singapura",
       "laps": 22,
       "country": "SG",
@@ -1370,6 +1404,8 @@ window.F1M_DATA = {
     },
     {
       "id": "usa",
+      "svgLayout": "estados_unidos",
+      "svgPath": "assets/tracks/svg/estados_unidos.svg",
       "name": "GP dos Estados Unidos",
       "laps": 22,
       "country": "US",
@@ -1378,6 +1414,8 @@ window.F1M_DATA = {
     },
     {
       "id": "mexico",
+      "svgLayout": "mexico",
+      "svgPath": "assets/tracks/svg/mexico.svg",
       "name": "GP do México",
       "laps": 22,
       "country": "MX",
@@ -1386,6 +1424,8 @@ window.F1M_DATA = {
     },
     {
       "id": "brazil",
+      "svgLayout": "sao_paulo",
+      "svgPath": "assets/tracks/svg/sao_paulo.svg",
       "name": "GP do Brasil",
       "laps": 22,
       "country": "BR",
@@ -1394,6 +1434,8 @@ window.F1M_DATA = {
     },
     {
       "id": "las_vegas",
+      "svgLayout": "las_vegas",
+      "svgPath": "assets/tracks/svg/las_vegas.svg",
       "name": "GP de Las Vegas",
       "laps": 22,
       "country": "US",
@@ -1402,6 +1444,8 @@ window.F1M_DATA = {
     },
     {
       "id": "qatar",
+      "svgLayout": "catar",
+      "svgPath": "assets/tracks/svg/catar.svg",
       "name": "GP do Catar",
       "laps": 22,
       "country": "QA",
@@ -1410,6 +1454,8 @@ window.F1M_DATA = {
     },
     {
       "id": "abu_dhabi",
+      "svgLayout": "abu_dhabi",
+      "svgPath": "assets/tracks/svg/abu_dhabi.svg",
       "name": "GP de Abu Dhabi",
       "laps": 22,
       "country": "AE",
