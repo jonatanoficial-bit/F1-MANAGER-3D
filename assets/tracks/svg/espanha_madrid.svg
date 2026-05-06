@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700" role="img" aria-label="Madrid schematic circuit">
+  <rect width="1200" height="700" rx="40" fill="#0b1322"/>
+  <path d="M192 524 L206 258 C210 186 264 144 330 144 L626 144 C710 144 752 114 764 86 C782 48 834 44 862 82 L938 184 C962 216 1002 246 1044 252 C1090 258 1110 296 1096 340 L1030 554 C1016 602 982 628 934 628 L290 628 C224 628 188 592 192 524 Z
+           M446 476 L444 304 C444 264 476 236 516 236 L722 236 C754 236 780 214 792 188"
+        fill="none" stroke="#f8fafc" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M192 524 L206 258 C210 186 264 144 330 144 L626 144 C710 144 752 114 764 86 C782 48 834 44 862 82 L938 184 C962 216 1002 246 1044 252 C1090 258 1110 296 1096 340 L1030 554 C1016 602 982 628 934 628 L290 628 C224 628 188 592 192 524 Z
+           M446 476 L444 304 C444 264 476 236 516 236 L722 236 C754 236 780 214 792 188"
+        fill="none" stroke="#f97316" stroke-width="8" stroke-dasharray="24 16" opacity="0.55"/>
+</svg>
