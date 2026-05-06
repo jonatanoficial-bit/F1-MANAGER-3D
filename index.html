@@ -1,175 +1,120 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#08111f" />
-  <title>Vale Chess 3D Career - Build v0.5.1</title>
-  <link rel="stylesheet" href="style-v051.css?v=20260506-1918" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#100000" />
+  <title>F1 Manager Career 2026</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="orientationGate" class="orientation-gate">
-    <div class="phone-icon">▭</div>
-    <strong>Gire o celular</strong>
-    <span>O jogo foi pensado para mobile em modo deitado.</span>
+  <div id="orientationLock" class="orientation-lock">
+    <div class="phone-icon">↻</div>
+    <h1>Vire o celular</h1>
+    <p>F1 Manager Career 2026 foi projetado para jogar na horizontal.</p>
   </div>
 
-
-  <button id="fullscreenFab" class="fullscreen-fab" type="button">⛶ Tela cheia</button>
-  <div id="mobileCoach" class="mobile-coach hidden">
-    <div class="mobile-coach-card glass">
-      <strong>Controles rápidos</strong>
-      <span>Toque curto seleciona e joga. Arraste no tabuleiro para girar a câmera.</span>
-      <button id="mobileCoachOk" class="primary" type="button">Entendi</button>
-    </div>
-  </div>
-
-  <main id="app" class="app">
-    <header class="topbar glass">
-      <div>
-        <span class="brand-kicker">VALE GAMES</span>
-        <h1>Chess 3D Career</h1>
+  <main id="app" class="app shell-bg">
+    <section id="screen-home" class="screen active home-screen asset-bg" data-bg="assets/backgrounds/ui/global_lobby.png">
+      <div class="dark-gradient"></div>
+      <div id="homeBuildPill" class="build-pill">Build v0.9.0 • 06/05/2026 • 16:39 BRT</div>
+      <div class="home-logo-block">
+        <div class="game-kicker">Vale Games apresenta</div>
+        <h1>F1 MANAGER<br><span>CAREER 2026</span></h1>
+        <p>Seu legado. Sua equipe. Sua vitória.</p>
       </div>
-      <div id="buildInfo" class="build-pill"></div>
-    </header>
-
-    <section id="coverScreen" class="screen active cover-screen bg-cover">
-      <div class="hero-panel glass">
-        <img class="crest" src="assets/branding/chess_crest_logo.png" alt="Logo do jogo" onerror="this.style.display='none'" />
-        <div>
-          <span class="brand-kicker">Mobile-first • Landscape</span>
-          <h2>Construa sua carreira no xadrez mundial</h2>
-          <p>Comece no circuito amador, suba para o profissional, conquiste seu continente e desafie a elite mundial.</p>
-        </div>
-        <div class="actions row-actions">
-          <button id="newGameBtn" class="primary">Novo jogo</button>
-          <button id="continueBtn" class="secondary">Continuar</button>
-        </div>
+      <div class="home-actions glass-panel">
+        <button class="primary big" data-action="continueCareer">CONTINUAR</button>
+        <button class="secondary big" data-nav="career-create">NOVO JOGO</button>
+        <button class="secondary" data-nav="single-race">CORRIDA RÁPIDA</button>
+        <button class="secondary" data-nav="assets-check">CHECK ASSETS</button>
       </div>
     </section>
 
-    <section id="modeScreen" class="screen bg-lobby">
-      <div class="section-shell">
-        <div class="section-title glass">
-          <button class="ghost" data-go="coverScreen">← Capa</button>
-          <div><span class="brand-kicker">MODO DE JOGO</span><h2>Escolha como jogar</h2></div>
-        </div>
-        <div class="mode-grid">
-          <button class="mode-card glass" data-mode="single">
-            <strong>Single Player</strong><span>Modo carreira evolutivo com campeonatos, pontos, promoções e recompensas.</span>
-          </button>
-          <button class="mode-card glass" data-mode="duo">
-            <strong>Duo Player</strong><span>Dois jogadores no mesmo dispositivo, um joga depois o outro.</span>
-          </button>
-          <button class="mode-card glass" data-mode="online">
-            <strong>Multiplayer Online</strong><span>Estrutura pronta para Firebase, ranking online, missões e desafios.</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section id="profileScreen" class="screen bg-profile">
-      <div class="profile-shell glass">
-        <div class="section-title compact"><button class="ghost" data-go="modeScreen">← Modos</button><div><span class="brand-kicker">PERFIL</span><h2>Crie seu jogador</h2></div></div>
-        <div class="profile-layout">
-          <div>
-            <label>Nome do jogador</label>
-            <input id="playerName" maxlength="18" placeholder="Seu nome" />
-            <label>País</label>
-            <input id="countrySearch" class="country-search" placeholder="Pesquisar país" autocomplete="off" />
-            <div id="countryCount" class="country-count"></div>
-            <select id="playerCountry" size="8"></select>
-            <div class="row-actions"><button id="saveProfileBtn" class="primary">Entrar no lobby</button></div>
+    <section id="screen-career-create" class="screen form-screen asset-bg" data-bg="assets/backgrounds/ui/lobby_global.png">
+      <header class="topbar"><button class="back" data-nav="home">‹</button><h2>CRIAR CARREIRA</h2><button class="next" data-action="createProfile">PRÓXIMA</button></header>
+      <div class="creator-grid">
+        <article class="glass-panel avatar-picker">
+          <h3>Escolha seu avatar</h3>
+          <div id="avatarList" class="avatar-list"></div>
+        </article>
+        <article class="glass-panel form-card">
+          <h3>Insira seus detalhes</h3>
+          <label>Nome do gestor<input id="managerName" maxlength="18" placeholder="Jonatan Vale" /></label>
+          <label>País<select id="managerCountry"></select></label>
+          <h3>Modo de jogo</h3>
+          <div class="mode-row">
+            <button class="mode-card selected" data-mode="realistic"><b>REALISTA</b><span>Metas duras, convites por reputação e finanças restritas.</span></button>
+            <button class="mode-card" data-mode="sandbox"><b>SANDBOX</b><span>Mais orçamento, liberdade e evolução acelerada.</span></button>
           </div>
-          <div>
-            <label>Avatar</label>
-            <div id="avatarGrid" class="avatar-grid"></div>
-            <small>Os avatares reais ficam nos caminhos do manifesto; estes botões usam as imagens quando disponíveis e fallback visual quando não estiverem no ZIP.</small>
-          </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section id="lobbyScreen" class="screen bg-lobby">
-      <div class="lobby-layout">
-        <aside class="side-panel glass">
-          <div id="playerCard" class="player-card"></div>
-          <button id="careerBtn" class="primary wide">Modo carreira</button>
-          <button id="quickMatchBtn" class="secondary wide">Partida rápida</button>
-          <button id="resetSaveBtn" class="danger wide">Reiniciar perfil</button>
-        </aside>
-        <section class="main-panel glass">
-          <span class="brand-kicker">LOBBY</span>
-          <h2 id="lobbyTitle">Bem-vindo</h2>
-          <p id="lobbyText"></p>
-          <div id="modeNotice" class="notice"></div>
-          <div class="stat-grid" id="careerStats"></div>
-        </section>
+    <section id="screen-team-select" class="screen asset-bg" data-bg="assets/backgrounds/ui/lobby_global.png">
+      <header class="topbar"><button class="back" data-nav="career-create">‹</button><h2>ESCOLHA SUA EQUIPE DE F2</h2><button class="next" data-action="startCareer">COMEÇAR</button></header>
+      <div class="career-path glass-panel"><b>Plano de carreira:</b> Fórmula 2 equipe fraca → F2 média → F2 forte → convite para F1 baixa → F1 média → equipe grande. No modo realista você só pode começar por equipes menores.</div>
+      <div id="teamSelectGrid" class="team-select-grid"></div>
+    </section>
+
+    <section id="screen-lobby" class="screen dashboard asset-bg" data-bg="assets/backgrounds/ui/lobby_global.png">
+      <div class="side-nav">
+        <button data-tab="dashboard" class="active">⌂</button>
+        <button data-tab="drivers">♟</button>
+        <button data-tab="garage">⚙</button>
+        <button data-tab="staff">☷</button>
+        <button data-tab="facilities">⌂</button>
+        <button data-tab="calendar">▦</button>
+      </div>
+      <div class="dash-main">
+        <header class="hudbar">
+          <div><b id="hudTeam">Equipe</b><span id="hudManager">Gestor</span></div>
+          <div class="hud-stats"><span id="hudRep">REP 0</span><span id="hudMoney">$0</span><span id="hudRound">Corrida 1/24</span></div>
+          <button class="primary" data-action="goQualifying">PRÓXIMA CORRIDA</button>
+        </header>
+        <div id="tabContent" class="tab-content"></div>
       </div>
     </section>
 
-    <section id="careerScreen" class="screen bg-career">
-      <div class="career-shell">
-        <div class="section-title glass"><button class="ghost" data-go="lobbyScreen">← Lobby</button><div><span class="brand-kicker">CARREIRA SINGLE PLAYER</span><h2>Calendário de competições</h2></div></div>
-        <div id="tournamentGrid" class="tournament-grid"></div>
+    <section id="screen-qualifying" class="screen race-prep asset-bg" data-bg="assets/backgrounds/ui/classification.png">
+      <header class="topbar"><button class="back" data-nav="lobby">‹</button><h2 id="qualifyingHeaderTitle">CLASSIFICAÇÃO</h2><button class="next" data-action="startQualifying">SIMULAR Q</button></header>
+      <div class="split-layout">
+        <article class="glass-panel"><h3>Preparação</h3><p>Escolha composto inicial e modo de volta rápida. A classificação define o grid da corrida.</p><div class="strategy-pills"><button class="selected" data-compound="soft">Macio</button><button data-compound="medium">Médio</button><button data-compound="hard">Duro</button></div><button class="primary big" data-action="startQualifying">INICIAR CLASSIFICAÇÃO</button></article>
+        <article class="glass-panel"><h3>Grid provisório</h3><div id="qualifyingTable" class="standings-list"></div></article>
       </div>
     </section>
 
-    <section id="onlineLobbyScreen" class="screen bg-lobby">
-      <div class="section-shell">
-        <div class="section-title glass"><button class="ghost" data-go="modeScreen">← Modos</button><div><span class="brand-kicker">FIREBASE FUTURO</span><h2>Lobby online preparado</h2></div></div>
-        <div class="main-panel glass">
-          <p>O multiplayer online ainda não inicia partidas reais nesta build. A camada <strong>GameState</strong> já contém createGame(), joinGame(gameId), sendMove(move) e onGameUpdate(callback).</p>
-          <div class="code-box">Ranking online, missões e desafios entrarão quando o Firebase/Firestore for conectado.</div>
-          <button id="onlinePreviewBtn" class="secondary">Ver tabuleiro em modo demonstração</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="gameScreen" class="screen game-screen">
-      <aside class="match-hud glass">
-        <button id="backFromGameBtn" class="secondary wide">← Lobby</button>
-        <span class="brand-kicker">PARTIDA</span>
-        <h2 id="matchTitle">Partida</h2>
-        <div id="versusBox" class="versus-box"></div>
-        <div id="turnBox" class="turn-box">Turno</div>
-        <div class="row-actions stacked">
-          <button id="resetGameBtn" class="primary">Reiniciar</button>
-          <button id="rotateCameraBtn" class="secondary">Girar câmera</button>
-        </div>
-        <div id="historyBox" class="history-box"></div>
+    <section id="screen-race" class="screen race-screen">
+      <div id="raceCanvasWrap"><canvas id="raceCanvas"></canvas></div>
+      <aside class="race-left glass-panel"><h3 id="raceTitle">CORRIDA</h3><div id="raceBuildStamp" class="race-debug-stamp"></div><div id="raceLeaderboard"></div></aside>
+      <aside class="race-right">
+        <article class="driver-control glass-panel" id="controlCard1"><h4 id="controlDriver1">Piloto 1</h4><div class="condition-bar"><span id="cond1"></span></div><button data-action="setPace" data-driver="0" data-pace="attack">⚡ ATAQUE</button><button data-action="setPace" data-driver="0" data-pace="save">🛞 POUPAR</button><button data-action="pitDriver" data-driver="0" class="primary">PIT STOP</button></article>
+        <article class="driver-control glass-panel" id="controlCard2"><h4 id="controlDriver2">Piloto 2</h4><div class="condition-bar"><span id="cond2"></span></div><button data-action="setPace" data-driver="1" data-pace="attack">⚡ ATAQUE</button><button data-action="setPace" data-driver="1" data-pace="save">🛞 POUPAR</button><button data-action="pitDriver" data-driver="1" class="primary">PIT STOP</button></article>
       </aside>
-      <div class="board-wrap">
-        <canvas id="gameCanvas"></canvas>
-        <div id="fallbackBoard" class="fallback-board"></div>
-      </div>
+      <footer class="race-toolbar glass-panel"><button data-nav="lobby">☰</button><button data-action="toggleRaceSpeed">▶ x<span id="speedLabel">1</span></button><span id="lapLabel">VOLTA 1/22</span><span id="weatherLabel">☀ Seco</span><button data-action="finishRaceNow">FINALIZAR</button></footer>
     </section>
 
-    <section id="resultScreen" class="screen result-screen bg-victory">
-      <div class="result-panel glass premium-result-panel">
-        <div class="result-hero">
-          <img id="resultTrophy" class="trophy trophy-premium" src="assets/competitions/trophies/amateur_trophy.png" alt="Troféu" onerror="this.style.display='none'" />
-          <div>
-            <span class="brand-kicker">RESULTADO DA PARTIDA</span>
-            <h2 id="resultTitle">Vitória</h2>
-            <p id="resultSubtitle" class="result-subtitle">Resumo da partida</p>
-          </div>
-        </div>
-        <p id="resultText" class="result-main-text"></p>
-        <div id="resultRewardGrid" class="result-reward-grid"></div>
-        <div id="resultSeasonBox" class="result-season-box"></div>
-        <div class="row-actions result-actions">
-          <button id="nextCareerMatchBtn" class="primary">Próxima partida</button>
-          <button data-go="careerScreen" class="secondary">Voltar à carreira</button>
-          <button data-go="lobbyScreen" class="secondary">Lobby</button>
-        </div>
-      </div>
+    <section id="screen-results" class="screen asset-bg" data-bg="assets/backgrounds/podium/podium_base.png">
+      <div class="dark-gradient"></div>
+      <header class="topbar"><h2>RESULTADO DA CORRIDA</h2><button class="next" data-action="returnLobbyAfterRace">CONTINUAR</button></header>
+      <div id="podiumHighlights" class="podium-strip"></div><div class="results-grid"><article class="glass-panel"><h3>Resultado</h3><div id="resultList" class="standings-list rich-standings"></div></article><article class="glass-panel"><h3>Campeonato</h3><div id="championshipList" class="standings-list rich-standings"></div></article></div>
     </section>
+
+    <section id="screen-single-race" class="screen asset-bg" data-bg="assets/backgrounds/race/tracks/miami_base_isometric.png">
+      <div class="dark-gradient"></div><header class="topbar"><button class="back" data-nav="home">‹</button><h2>CORRIDA RÁPIDA</h2><button class="next" data-action="startRaceDirect">INICIAR</button></header>
+      <div class="center-card glass-panel"><h3>Teste da corrida 3D</h3><p>Escolha qualquer pista SVG enviada. Todas estão jogáveis nesta build.</p><label class="quick-label">Pista<select id="quickRaceSelect"></select></label><button class="primary big" data-action="startRaceDirect">INICIAR TESTE 3D</button></div>
+    </section>
+
+    <section id="screen-assets-check" class="screen asset-bg" data-bg="assets/backgrounds/ui/lobby_global.png">
+      <header class="topbar"><button class="back" data-nav="home">‹</button><h2>CHECKLIST DE CHECK ASSETS</h2></header>
+      <div class="asset-check glass-panel"><p>Este build não inclui assets pesados. Extraia os ZIPs de assets na raiz do projeto para formar a pasta <b>assets/</b>.</p><div id="assetChecklist"></div></div>
+    </section>
+      <div id="globalBuildStamp" class="global-build-stamp">Build v0.9.0 • 06/05/2026 • 16:39 BRT</div>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
-  <script src="assets/chess-local.js"></script>
-  <script src="firebaseConfig.js"></script>
-  <script src="script-v051.js?v=20260506-1918"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="data/game-data.js"></script>
+  <script src="data/track-layouts.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

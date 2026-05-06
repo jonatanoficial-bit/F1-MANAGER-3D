@@ -1,329 +1,711 @@
-/*
-  Vale Chess 3D Career
-  Build: v0.3.1 - 2026-05-05 10:42 BRT
-  Mobile-first landscape, GitHub Pages, assets externos via manifesto.
-*/
-const BUILD={version:'v0.3.1',datetime:'2026-05-05 10:42 BRT',label:'Build v0.3.1 - 2026-05-05 10:42 BRT'};
-const SAVE_KEY='vale_chess_3d_career_save_v031';
-const LEGACY_SAVE_KEYS=['vale_chess_3d_career_save_v030','vale_chess_3d_career_save_v029','vale_chess_3d_career_save_v028','vale_chess_3d_career_save_v027','vale_chess_3d_career_save_v026','vale_chess_3d_career_save_v025','vale_chess_3d_career_save_v024','vale_chess_3d_career_save_v023','vale_chess_3d_career_save_v022','vale_chess_3d_career_save_v021','vale_chess_3d_career_save_v020'];
-const ASSET={
-  cover:'assets/backgrounds/lobby/lobby_main_16x9.png', lobby:'assets/backgrounds/lobby/lobby_main_16x9.png', profile:'assets/backgrounds/profile/profile_creation_16x9.png', career:'assets/backgrounds/career/career_dashboard_16x9.png', victory:'assets/backgrounds/results/victory_16x9.png', defeat:'assets/backgrounds/results/defeat_16x9.png',
-  card:'assets/ui/cards/player_card_horizontal.png',
-  avatars:['assets/avatars/player/avatar_01.png','assets/avatars/player/avatar_02.png','assets/avatars/player/avatar_03.png','assets/avatars/player/avatar_04.png','assets/avatars/player/avatar_05.png','assets/avatars/player/avatar_06.png','assets/avatars/player/avatar_07.png','assets/avatars/player/avatar_08.png'],
-  flags:{Brasil:'assets/flags/world/brazil.png','Estados Unidos':'assets/flags/world/usa.png',Mexico:'assets/flags/world/mexico.png',Espanha:'assets/flags/world/spain.png',China:'assets/flags/world/china.png',Japao:'assets/flags/world/japan.png',Italia:'assets/flags/world/italy.png','Reino Unido':'assets/flags/world/uk.png',Australia:'assets/flags/world/australia.png',Canada:'assets/flags/world/canada.png',Belgica:'assets/flags/world/belgium.png'},
-  logos:{amateur:'assets/competitions/logos/amateur_league_logo.png',professional:'assets/competitions/logos/professional_league_logo.png',continental:'assets/competitions/logos/continental_logo.png',world:'assets/competitions/logos/world_championship_logo.png'},
-  trophies:{amateur:'assets/competitions/trophies/amateur_trophy.png',professional:'assets/competitions/trophies/professional_trophy.png',continental:'assets/competitions/trophies/continental_trophy.png',world:'assets/competitions/trophies/world_trophy.png'}
-};
-const COUNTRY_DATA=[["Afeganistão", "Asia", "afghanistan"], ["África do Sul", "Africa", "south_africa"], ["Albânia", "Europa", "albania"], ["Alemanha", "Europa", "germany"], ["Andorra", "Europa", "andorra"], ["Angola", "Africa", "angola"], ["Antígua e Barbuda", "America", "antigua_and_barbuda"], ["Arábia Saudita", "Asia", "saudi_arabia"], ["Argélia", "Africa", "algeria"], ["Argentina", "America", "argentina"], ["Armênia", "Asia", "armenia"], ["Austrália", "Oceania", "australia"], ["Áustria", "Europa", "austria"], ["Azerbaijão", "Asia", "azerbaijan"], ["Bahamas", "America", "bahamas"], ["Bahrein", "Asia", "bahrain"], ["Bangladesh", "Asia", "bangladesh"], ["Barbados", "America", "barbados"], ["Belarus", "Europa", "belarus"], ["Bélgica", "Europa", "belgium"], ["Belize", "America", "belize"], ["Benin", "Africa", "benin"], ["Butão", "Asia", "bhutan"], ["Bolívia", "America", "bolivia"], ["Bósnia e Herzegovina", "Europa", "bosnia_and_herzegovina"], ["Botsuana", "Africa", "botswana"], ["Brasil", "America", "brazil"], ["Brunei", "Asia", "brunei"], ["Bulgária", "Europa", "bulgaria"], ["Burkina Faso", "Africa", "burkina_faso"], ["Burundi", "Africa", "burundi"], ["Cabo Verde", "Africa", "cape_verde"], ["Camboja", "Asia", "cambodia"], ["Camarões", "Africa", "cameroon"], ["Canadá", "America", "canada"], ["Catar", "Asia", "qatar"], ["Cazaquistão", "Asia", "kazakhstan"], ["Chade", "Africa", "chad"], ["Chile", "America", "chile"], ["China", "Asia", "china"], ["Chipre", "Europa", "cyprus"], ["Colômbia", "America", "colombia"], ["Comores", "Africa", "comoros"], ["Congo", "Africa", "congo"], ["Coreia do Norte", "Asia", "north_korea"], ["Coreia do Sul", "Asia", "south_korea"], ["Costa do Marfim", "Africa", "ivory_coast"], ["Costa Rica", "America", "costa_rica"], ["Croácia", "Europa", "croatia"], ["Cuba", "America", "cuba"], ["Dinamarca", "Europa", "denmark"], ["Djibuti", "Africa", "djibouti"], ["Dominica", "America", "dominica"], ["Egito", "Africa", "egypt"], ["El Salvador", "America", "el_salvador"], ["Emirados Árabes Unidos", "Asia", "uae"], ["Equador", "America", "ecuador"], ["Eritreia", "Africa", "eritrea"], ["Eslováquia", "Europa", "slovakia"], ["Eslovênia", "Europa", "slovenia"], ["Espanha", "Europa", "spain"], ["Estados Unidos", "America", "usa"], ["Estônia", "Europa", "estonia"], ["Etiópia", "Africa", "ethiopia"], ["Fiji", "Oceania", "fiji"], ["Filipinas", "Asia", "philippines"], ["Finlândia", "Europa", "finland"], ["França", "Europa", "france"], ["Gabão", "Africa", "gabon"], ["Gâmbia", "Africa", "gambia"], ["Gana", "Africa", "ghana"], ["Geórgia", "Asia", "georgia"], ["Granada", "America", "grenada"], ["Grécia", "Europa", "greece"], ["Guatemala", "America", "guatemala"], ["Guiana", "America", "guyana"], ["Guiné", "Africa", "guinea"], ["Guiné Equatorial", "Africa", "equatorial_guinea"], ["Guiné-Bissau", "Africa", "guinea_bissau"], ["Haiti", "America", "haiti"], ["Honduras", "America", "honduras"], ["Hungria", "Europa", "hungary"], ["Iêmen", "Asia", "yemen"], ["Ilhas Marshall", "Oceania", "marshall_islands"], ["Ilhas Salomão", "Oceania", "solomon_islands"], ["Índia", "Asia", "india"], ["Indonésia", "Asia", "indonesia"], ["Irã", "Asia", "iran"], ["Iraque", "Asia", "iraq"], ["Irlanda", "Europa", "ireland"], ["Islândia", "Europa", "iceland"], ["Israel", "Asia", "israel"], ["Itália", "Europa", "italy"], ["Jamaica", "America", "jamaica"], ["Japão", "Asia", "japan"], ["Jordânia", "Asia", "jordan"], ["Kiribati", "Oceania", "kiribati"], ["Kosovo", "Europa", "kosovo"], ["Kuwait", "Asia", "kuwait"], ["Laos", "Asia", "laos"], ["Lesoto", "Africa", "lesotho"], ["Letônia", "Europa", "latvia"], ["Líbano", "Asia", "lebanon"], ["Libéria", "Africa", "liberia"], ["Líbia", "Africa", "libya"], ["Liechtenstein", "Europa", "liechtenstein"], ["Lituânia", "Europa", "lithuania"], ["Luxemburgo", "Europa", "luxembourg"], ["Macedônia do Norte", "Europa", "north_macedonia"], ["Madagascar", "Africa", "madagascar"], ["Malásia", "Asia", "malaysia"], ["Malawi", "Africa", "malawi"], ["Maldivas", "Asia", "maldives"], ["Mali", "Africa", "mali"], ["Malta", "Europa", "malta"], ["Marrocos", "Africa", "morocco"], ["Maurício", "Africa", "mauritius"], ["Mauritânia", "Africa", "mauritania"], ["México", "America", "mexico"], ["Micronésia", "Oceania", "micronesia"], ["Moçambique", "Africa", "mozambique"], ["Moldávia", "Europa", "moldova"], ["Mônaco", "Europa", "monaco"], ["Mongólia", "Asia", "mongolia"], ["Montenegro", "Europa", "montenegro"], ["Myanmar", "Asia", "myanmar"], ["Namíbia", "Africa", "namibia"], ["Nauru", "Oceania", "nauru"], ["Nepal", "Asia", "nepal"], ["Nicarágua", "America", "nicaragua"], ["Níger", "Africa", "niger"], ["Nigéria", "Africa", "nigeria"], ["Noruega", "Europa", "norway"], ["Nova Zelândia", "Oceania", "new_zealand"], ["Omã", "Asia", "oman"], ["Países Baixos", "Europa", "netherlands"], ["Palau", "Oceania", "palau"], ["Palestina", "Asia", "palestine"], ["Panamá", "America", "panama"], ["Papua-Nova Guiné", "Oceania", "papua_new_guinea"], ["Paquistão", "Asia", "pakistan"], ["Paraguai", "America", "paraguay"], ["Peru", "America", "peru"], ["Polônia", "Europa", "poland"], ["Portugal", "Europa", "portugal"], ["Quênia", "Africa", "kenya"], ["Quirguistão", "Asia", "kyrgyzstan"], ["Reino Unido", "Europa", "uk"], ["República Centro-Africana", "Africa", "central_african_republic"], ["República Democrática do Congo", "Africa", "democratic_republic_of_congo"], ["República Dominicana", "America", "dominican_republic"], ["República Tcheca", "Europa", "czech_republic"], ["Romênia", "Europa", "romania"], ["Ruanda", "Africa", "rwanda"], ["Rússia", "Europa", "russia"], ["Samoa", "Oceania", "samoa"], ["San Marino", "Europa", "san_marino"], ["Santa Lúcia", "America", "saint_lucia"], ["São Cristóvão e Névis", "America", "saint_kitts_and_nevis"], ["São Tomé e Príncipe", "Africa", "sao_tome_and_principe"], ["São Vicente e Granadinas", "America", "saint_vincent_and_the_grenadines"], ["Seicheles", "Africa", "seychelles"], ["Senegal", "Africa", "senegal"], ["Serra Leoa", "Africa", "sierra_leone"], ["Sérvia", "Europa", "serbia"], ["Singapura", "Asia", "singapore"], ["Síria", "Asia", "syria"], ["Somália", "Africa", "somalia"], ["Sri Lanka", "Asia", "sri_lanka"], ["Suazilândia", "Africa", "eswatini"], ["Sudão", "Africa", "sudan"], ["Sudão do Sul", "Africa", "south_sudan"], ["Suécia", "Europa", "sweden"], ["Suíça", "Europa", "switzerland"], ["Suriname", "America", "suriname"], ["Tailândia", "Asia", "thailand"], ["Taiwan", "Asia", "taiwan"], ["Tajiquistão", "Asia", "tajikistan"], ["Tanzânia", "Africa", "tanzania"], ["Timor-Leste", "Asia", "timor_leste"], ["Togo", "Africa", "togo"], ["Tonga", "Oceania", "tonga"], ["Trinidad e Tobago", "America", "trinidad_and_tobago"], ["Tunísia", "Africa", "tunisia"], ["Turcomenistão", "Asia", "turkmenistan"], ["Turquia", "Asia", "turkey"], ["Tuvalu", "Oceania", "tuvalu"], ["Ucrânia", "Europa", "ukraine"], ["Uganda", "Africa", "uganda"], ["Uruguai", "America", "uruguay"], ["Uzbequistão", "Asia", "uzbekistan"], ["Vanuatu", "Oceania", "vanuatu"], ["Vaticano", "Europa", "vatican"], ["Venezuela", "America", "venezuela"], ["Vietnã", "Asia", "vietnam"], ["Zâmbia", "Africa", "zambia"], ["Zimbábue", "Africa", "zimbabwe"]];
-const COUNTRY_CODE={"Afeganistão":"AF","África do Sul":"ZA","Albânia":"AL","Alemanha":"DE","Andorra":"AD","Angola":"AO","Antígua e Barbuda":"AG","Arábia Saudita":"SA","Argélia":"DZ","Argentina":"AR","Armênia":"AM","Austrália":"AU","Áustria":"AT","Azerbaijão":"AZ","Bahamas":"BS","Bahrein":"BH","Bangladesh":"BD","Barbados":"BB","Belarus":"BY","Bélgica":"BE","Belize":"BZ","Benin":"BJ","Butão":"BT","Bolívia":"BO","Bósnia e Herzegovina":"BA","Botsuana":"BW","Brasil":"BR","Brunei":"BN","Bulgária":"BG","Burkina Faso":"BF","Burundi":"BI","Cabo Verde":"CV","Camboja":"KH","Camarões":"CM","Canadá":"CA","Catar":"QA","Cazaquistão":"KZ","Chade":"TD","Chile":"CL","China":"CN","Chipre":"CY","Colômbia":"CO","Comores":"KM","Congo":"CG","Coreia do Norte":"KP","Coreia do Sul":"KR","Costa do Marfim":"CI","Costa Rica":"CR","Croácia":"HR","Cuba":"CU","Dinamarca":"DK","Djibuti":"DJ","Dominica":"DM","Egito":"EG","El Salvador":"SV","Emirados Árabes Unidos":"AE","Equador":"EC","Eritreia":"ER","Eslováquia":"SK","Eslovênia":"SI","Espanha":"ES","Estados Unidos":"US","Estônia":"EE","Etiópia":"ET","Fiji":"FJ","Filipinas":"PH","Finlândia":"FI","França":"FR","Gabão":"GA","Gâmbia":"GM","Gana":"GH","Geórgia":"GE","Granada":"GD","Grécia":"GR","Guatemala":"GT","Guiana":"GY","Guiné":"GN","Guiné Equatorial":"GQ","Guiné-Bissau":"GW","Haiti":"HT","Honduras":"HN","Hungria":"HU","Iêmen":"YE","Ilhas Marshall":"MH","Ilhas Salomão":"SB","Índia":"IN","Indonésia":"ID","Irã":"IR","Iraque":"IQ","Irlanda":"IE","Islândia":"IS","Israel":"IL","Itália":"IT","Jamaica":"JM","Japão":"JP","Jordânia":"JO","Kiribati":"KI","Kosovo":"XK","Kuwait":"KW","Laos":"LA","Lesoto":"LS","Letônia":"LV","Líbano":"LB","Libéria":"LR","Líbia":"LY","Liechtenstein":"LI","Lituânia":"LT","Luxemburgo":"LU","Macedônia do Norte":"MK","Madagascar":"MG","Malásia":"MY","Malawi":"MW","Maldivas":"MV","Mali":"ML","Malta":"MT","Marrocos":"MA","Maurício":"MU","Mauritânia":"MR","México":"MX","Micronésia":"FM","Moçambique":"MZ","Moldávia":"MD","Mônaco":"MC","Mongólia":"MN","Montenegro":"ME","Myanmar":"MM","Namíbia":"NA","Nauru":"NR","Nepal":"NP","Nicarágua":"NI","Níger":"NE","Nigéria":"NG","Noruega":"NO","Nova Zelândia":"NZ","Omã":"OM","Países Baixos":"NL","Palau":"PW","Palestina":"PS","Panamá":"PA","Papua-Nova Guiné":"PG","Paquistão":"PK","Paraguai":"PY","Peru":"PE","Polônia":"PL","Portugal":"PT","Quênia":"KE","Quirguistão":"KG","Reino Unido":"GB","República Centro-Africana":"CF","República Democrática do Congo":"CD","República Dominicana":"DO","República Tcheca":"CZ","Romênia":"RO","Ruanda":"RW","Rússia":"RU","Samoa":"WS","San Marino":"SM","Santa Lúcia":"LC","São Cristóvão e Névis":"KN","São Tomé e Príncipe":"ST","São Vicente e Granadinas":"VC","Seicheles":"SC","Senegal":"SN","Serra Leoa":"SL","Sérvia":"RS","Singapura":"SG","Síria":"SY","Somália":"SO","Sri Lanka":"LK","Suazilândia":"SZ","Sudão":"SD","Sudão do Sul":"SS","Suécia":"SE","Suíça":"CH","Suriname":"SR","Tailândia":"TH","Taiwan":"TW","Tajiquistão":"TJ","Tanzânia":"TZ","Timor-Leste":"TL","Togo":"TG","Tonga":"TO","Trinidad e Tobago":"TT","Tunísia":"TN","Turcomenistão":"TM","Turquia":"TR","Tuvalu":"TV","Ucrânia":"UA","Uganda":"UG","Uruguai":"UY","Uzbequistão":"UZ","Vanuatu":"VU","Vaticano":"VA","Venezuela":"VE","Vietnã":"VN","Zâmbia":"ZM","Zimbábue":"ZW"};
-function normalizeAssetSlug(value){return String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_+|_+$/g,'')}
-function flagPathsFor(name,slug){const base=slug||normalizeAssetSlug(name); const code=(COUNTRY_CODE[name]||'').toLowerCase(); const hyphen=base.replace(/_/g,'-'); const compact=base.replace(/_/g,''); const known={Brasil:'brazil','Estados Unidos':'usa','Reino Unido':'uk','Emirados Árabes Unidos':'uae','Arábia Saudita':'saudi_arabia','Países Baixos':'netherlands','Bélgica':'belgium','Canadá':'canada','China':'china','Japão':'japan','México':'mexico','Espanha':'spain','Itália':'italy','Austrália':'australia','Bahrein':'bahrain','Hungria':'hungary','Mônaco':'monaco','Catar':'qatar','Singapura':'singapore'}; const first=known[name]||base; const names=[first,base,hyphen,compact,code].filter(Boolean); const exts=['png','webp','jpg','jpeg','svg']; const roots=['assets/flags/world','assets/flags','assets/flags/countries','assets/flags/flat']; const paths=[]; roots.forEach(root=>names.forEach(n=>exts.forEach(ext=>paths.push(`${root}/${n}.${ext}`)))); return [...new Set(paths)]}
-const COUNTRIES=COUNTRY_DATA.map(([name,continent,slug])=>({name,continent,slug,flag:flagPathsFor(name,slug)[0],flagCandidates:flagPathsFor(name,slug)}));
-const TOURNAMENTS=[
- {id:'amateur',name:'Liga Nacional Amadora',scope:'Divisão local do seu país',geo:'national',min:0,prize:55,rep:35,aiRange:[0.14,0.36],ratingRange:[650,890],logo:ASSET.logos.amateur,trophy:ASSET.trophies.amateur,bg:ASSET.career},
- {id:'professional',name:'Liga Nacional Profissional',scope:'Promoção para circuito profissional',geo:'national',min:900,prize:85,rep:55,aiRange:[0.36,0.58],ratingRange:[900,1120],logo:ASSET.logos.professional,trophy:ASSET.trophies.professional,bg:ASSET.career},
- {id:'continental',name:'Campeonato Continental',scope:'Rivais do mesmo continente',geo:'continental',min:1080,prize:120,rep:75,aiRange:[0.58,0.78],ratingRange:[1120,1380],logo:ASSET.logos.continental,trophy:ASSET.trophies.continental,bg:ASSET.career},
- {id:'world',name:'Campeonato Mundial',scope:'Elite global do xadrez',geo:'world',min:1320,prize:180,rep:110,aiRange:[0.78,0.94],ratingRange:[1380,1680],logo:ASSET.logos.world,trophy:ASSET.trophies.world,bg:ASSET.career}
-];
-const OPPONENTS=[
- ['Rafael Torres','Brasil',790,'amateur'],['Ana Costa','Brasil',850,'amateur'],['Carlos Vega','Mexico',920,'professional'],['Sofia Miller','Estados Unidos',1040,'professional'],['Isabel Rojas','Espanha',1140,'continental'],['Aiko Tanaka','Japao',1280,'continental'],['Chen Wei','China',1440,'world'],['Oliver Smith','Reino Unido',1570,'world'],['Elena Rossi','Italia',1390,'world']
-].map((o,i)=>({name:o[0],country:o[1],rating:o[2],tier:o[3],avatar:ASSET.avatars[i%ASSET.avatars.length],flag:ASSET.flags[o[1]]||''}));
-const $=id=>document.getElementById(id);
-function safeText(id,text){const el=$(id); if(el) el.textContent=text;}
-function bindClick(id,fn){const el=$(id); if(el) el.addEventListener('click',fn); else console.warn('[ValeChess] Elemento nao encontrado:',id);}
-let save=null, activeMode='single', selectedAvatar=0, selectedCountry='Brasil', chess=null, selectedSq=null, legal=[], pieces=new Map(), squares=new Map(), highlights=[], renderer,scene,camera,raycaster,pointer,boardGroup,pieceGroup,highlightGroup,environmentGroup,autoRotate=false,currentTournament=TOURNAMENTS[0],currentOpponent=OPPONENTS[0],playerColor='w',aiBusy=false,moveHistory=[],resultShown=false;
-let cameraOrbit={radius:10.9,theta:.62,phi:.92},dragState={active:false,moved:false,startX:0,startY:0,lastX:0,lastY:0,pointerId:null};
-const GameState={gameId:null,createGame(){this.gameId='future-'+Date.now(); console.log('[Firebase futuro] createGame cria sala remota com FEN, jogadores e status.'); return this.gameId},joinGame(gameId){this.gameId=gameId; console.log('[Firebase futuro] joinGame:',gameId)},sendMove(move){console.log('[Firebase futuro] sendMove gravaria jogada e FEN:',move)},onGameUpdate(callback){console.log('[Firebase futuro] onGameUpdate escutaria sala.'); this.callback=callback}}; window.GameState=GameState;
-function init(){ safeText('buildInfo',BUILD.label); hydrateProfile(); bind(); load(); const cb=$('continueBtn'); if(save){show('coverScreen'); if(cb) cb.disabled=false}else{if(cb) cb.disabled=true; show('coverScreen')} }
-function bind(){document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{show(b.dataset.go); if(b.dataset.go==='lobbyScreen') renderLobby(); if(b.dataset.go==='careerScreen') renderCareer();})); bindClick('newGameBtn',()=>{tryEnterFullscreen(); save=null; localStorage.removeItem(SAVE_KEY); show('modeScreen')}); bindClick('continueBtn',()=>{load(); activeMode=save?.mode||'single'; show('lobbyScreen'); renderLobby()}); document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{tryEnterFullscreen(); selectMode(b.dataset.mode)})); bindClick('saveProfileBtn',saveProfile); bindClick('careerBtn',()=>{tryEnterFullscreen(); show(activeMode==='online'?'onlineLobbyScreen':'careerScreen'); if(activeMode!=='online') renderCareer()}); bindClick('quickMatchBtn',()=>{tryEnterFullscreen(); startMatch(TOURNAMENTS[0], activeMode)}); bindClick('resetSaveBtn',()=>{if(confirm('Reiniciar perfil e progresso?')){localStorage.removeItem(SAVE_KEY); location.reload()}}); bindClick('backFromGameBtn',()=>{show('lobbyScreen'); renderLobby()}); bindClick('resetGameBtn',()=>startMatch(currentTournament, activeMode)); bindClick('rotateCameraBtn',()=>autoRotate=!autoRotate); bindClick('onlinePreviewBtn',()=>startMatch(TOURNAMENTS[0],'online-preview')); window.addEventListener('resize',resizeRenderer)}
-function selectMode(mode){activeMode=mode; if(save?.profile){save.mode=mode; persist(); if(mode==='online') show('onlineLobbyScreen'); else {show('lobbyScreen'); renderLobby();}} else show('profileScreen')}
-function hydrateProfile(){
-  const c=$('playerCountry');
-  const search=$('countrySearch');
-  const count=$('countryCount');
-  function fillCountries(filter=''){
-    const q=normalizeAssetSlug(filter).replaceAll('_',' ');
-    const list=COUNTRIES.filter(x=>!q||normalizeAssetSlug(x.name).replaceAll('_',' ').includes(q)||normalizeAssetSlug(x.continent).includes(q));
-    c.innerHTML=list.map(x=>`<option value="${x.name}">${x.name} • ${x.continent}</option>`).join('');
-    if(list.some(x=>x.name===selectedCountry)) c.value=selectedCountry;
-    else if(list[0]){c.value=list[0].name; selectedCountry=list[0].name;}
-    if(count) count.textContent=`${list.length} de ${COUNTRIES.length} países disponíveis. Role a lista ou pesquise pelo nome.`;
+(() => {
+  const DATA = window.F1M_DATA;
+  const SAVE_KEYS = ['f1_manager_career_2026_v090', 'f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
+  const ACTIVE_SAVE_KEY = SAVE_KEYS[0];
+  const ASSET_ROOTS = ['assets/'];
+  for(let i=1;i<=15;i++) ASSET_ROOTS.push(`f1_assets_part_${String(i).padStart(2,'0')}/assets/`);
+
+  let state = loadState() || createInitialState();
+  let selectedAvatar = 0;
+  let selectedMode = 'realistic';
+  let selectedTeam = DATA.f2Teams[0].id;
+  let selectedCompound = 'soft';
+  let race = null;
+  let renderer3d = null;
+
+  const $ = (q) => document.querySelector(q);
+  const $$ = (q) => Array.from(document.querySelectorAll(q));
+
+  function money(n){ return '$ ' + Math.round(n).toLocaleString('pt-BR'); }
+  function teamById(id){ return DATA.f1Teams2026.concat(DATA.f2Teams).find(t => t.id === id); }
+  function driversForTeam(id){ return DATA.f1Drivers2026.concat(DATA.f2Drivers).filter(d => d.team === id); }
+  function rnd(min,max){ return min + Math.random()*(max-min); }
+  function cleanAssetPath(p){ return String(p||'').replace(/^\.?\//,'').replace(/^assets\//,''); }
+  function assetCandidates(p){ const rel = cleanAssetPath(p); return ASSET_ROOTS.map(root => root + rel); }
+  function asset(p){ return assetCandidates(p)[0]; }
+  function initials(text){ return String(text||'').split(/\s+/).filter(Boolean).slice(0,2).map(s=>s[0]).join('').toUpperCase() || 'VG'; }
+  function flagPath(code){ return `flags/all/${String(code||'').toLowerCase()}.png`; }
+
+  function driverByShort(short){ return DATA.f1Drivers2026.concat(DATA.f2Drivers).find(d => d.short === short) || null; }
+  function teamLogoHTML(team, cls='team-logo-inline'){
+    if(!team) return `<span class="team-logo-inline fallback-logo">?</span>`;
+    return `<span class="${cls} wrap">${team.logo ? `<img data-asset-src="${team.logo}" alt="${team.name}" />` : ''}<b class="fallback-badge" style="display:${team.logo ? 'none':'flex'}">${initials(team.name)}</b></span>`;
   }
-  fillCountries('');
-  if(search){search.value=''; search.oninput=()=>fillCountries(search.value);}
-  c.onchange=()=>selectedCountry=c.value;
-  const grid=$('avatarGrid'); grid.innerHTML=''; ASSET.avatars.forEach((src,i)=>{const b=document.createElement('button'); b.className='avatar-option'+(i===0?' active':''); b.innerHTML=`<img src="${src}" onerror="this.outerHTML='<span class=avatar-fallback>♟</span>'">`; b.onclick=()=>{selectedAvatar=i; document.querySelectorAll('.avatar-option').forEach(x=>x.classList.remove('active')); b.classList.add('active')}; grid.appendChild(b)})
-}
-function load(){try{save=JSON.parse(localStorage.getItem(SAVE_KEY)||'null'); if(!save){for(const k of LEGACY_SAVE_KEYS){const old=localStorage.getItem(k); if(old){save=JSON.parse(old); save.build=BUILD.label; localStorage.setItem(SAVE_KEY,JSON.stringify(save)); break;}}}}catch{save=null}}
-function persist(){localStorage.setItem(SAVE_KEY,JSON.stringify(save))}
-function defaultSave(name,country,avatar){return{build:BUILD.label,mode:activeMode,profile:{name,country,avatar},career:{rating:800,money:100,reputation:0,wins:0,losses:0,titles:[],mission:'Vença 2 partidas na Liga Amadora para ganhar reputação.'}}}
-function saveProfile(){const name=($('playerName').value||'Jogador').trim().slice(0,18); save=defaultSave(name,selectedCountry,selectedAvatar); persist(); show('lobbyScreen'); renderLobby()}
-function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); $(id).classList.add('active'); if(id==='gameScreen') setTimeout(resizeRenderer,60)}
-function flagCode(name){return (COUNTRY_CODE[name]||'--').toUpperCase()}
-function flagEmoji(name){const code=flagCode(name); if(!code||code.length!==2||code==='--')return '🏳️'; return [...code].map(c=>String.fromCodePoint(127397+c.charCodeAt(0))).join('')}
-function cycleImageFallback(el){const list=(el.dataset.fallbacks||'').split('|').filter(Boolean); const i=Number(el.dataset.fallbackIndex||0); if(i<list.length){el.dataset.fallbackIndex=String(i+1); el.src=list[i]; return;} const code=el.dataset.code||''; if(code){const span=document.createElement('span'); span.className=(el.className||'')+' flag-code'; span.textContent=code; span.title=el.alt||'Bandeira'; el.replaceWith(span); return;} el.style.display='none'; const fb=el.nextElementSibling; if(fb&&fb.classList.contains('fallback-avatar')) fb.style.display='grid';}
-function img(src,cls='',alt=''){return `<img class="${cls}" src="${src}" alt="${alt}" onerror="cycleImageFallback(this)">`}
-function flagImg(countryName,cls='flag-img'){const c=countryObj(countryName); const [first,...rest]=c.flagCandidates||[c.flag]; return `<img class="${cls}" src="${first}" alt="Bandeira ${c.name}" data-code="${flagCode(c.name)}" data-fallbacks="${rest.join('|')}" onerror="cycleImageFallback(this)">`}
-function countryObj(name){return COUNTRIES.find(c=>c.name===name)||COUNTRIES.find(c=>c.name==='Brasil')||COUNTRIES[0]}
-function renderLobby(){if(!save)return; const p=save.profile,c=countryObj(p.country),car=save.career; const total=car.wins+car.losses; const winRate=total?Math.round((car.wins/total)*100):0; const level=car.rating>=1400?'Mestre mundial':car.rating>=1150?'Profissional':car.rating>=950?'Competidor nacional':'Amador em evolução'; $('playerCard').innerHTML=`<div class="avatar-stack">${img(ASSET.avatars[p.avatar]||ASSET.avatars[0],'','avatar')}<div class="fallback-avatar">♟</div></div><div class="player-info"><span class="brand-kicker">${activeMode.toUpperCase()}</span><h3>${p.name}</h3><div class="country-chip">${flagImg(p.country,'chip-flag')}<span>${p.country}</span></div><p>${c.continent} • ${level}</p><p>Rating ${car.rating} • Reputação ${car.reputation} • Moedas ${car.money}</p></div>`; const fb=$('playerCard').querySelector('.fallback-avatar'); if(fb) fb.style.display='none'; $('lobbyTitle').textContent=`Olá, ${p.name}`; $('lobbyText').textContent=activeMode==='single'?'Entre no modo carreira, conquiste pontos, suba de divisão e avance dos torneios nacionais até o campeonato mundial.':activeMode==='duo'?'Modo local para dois jogadores no mesmo dispositivo. Um joga com as brancas e o outro com as pretas.': 'Modo online preparado para Firebase, ranking global, missões e desafios futuros.'; $('modeNotice').textContent=activeMode==='single'?car.mission: activeMode==='duo'?'Duo Player: ambos jogam no mesmo aparelho, sem IA.':'Online: estrutura pronta, aguardando Firebase.'; $('careerStats').innerHTML=`<div class="stat country-stat"><span class="stat-country-head">${flagImg(p.country,'stat-flag')}</span><strong>${p.country}</strong>País escolhido</div><div class=stat><strong>${c.continent}</strong>Continente</div><div class=stat><strong>${car.rating}</strong>Rating</div><div class=stat><strong>${car.wins}</strong>Vitórias</div><div class=stat><strong>${car.losses}</strong>Derrotas</div><div class=stat><strong>${winRate}%</strong>Aproveitamento</div><div class=stat><strong>${car.money}</strong>Moedas</div><div class=stat><strong>${car.reputation}</strong>Reputação</div><div class=stat><strong>${car.titles.length}</strong>Títulos</div><div class=stat><strong>${COUNTRIES.length}</strong>Países na base</div>`}
+  function driverAvatarChip(d, cls='driver-avatar-inline'){
+    if(!d) return `<span class="${cls} fallback-avatar">?</span>`;
+    return `<span class="${cls}">${d.portrait ? `<img data-asset-src="${d.portrait}" alt="${d.short||d.name}" />` : ''}<b class="fallback-badge" style="display:${d.portrait ? 'none':'flex'}">${initials(d.short||d.name)}</b></span>`;
+  }
 
+  function createInitialState(){
+    const standings = {};
+    DATA.f1Drivers2026.forEach(d => standings[d.short] = { driver:d.short, team:d.team, points:0, wins:0, podiums:0 });
+    return {
+      profile:null,
+      mode:'realistic',
+      currentSeries:'F2',
+      currentTeam:null,
+      roundIndex:5,
+      money:0,
+      reputation:0,
+      sponsor:null,
+      staff:{ designers:1, mechanics:1, strategists:1 },
+      facilities:{ hq:1, simulator:1, factory:1, scouting:0 },
+      car:{ aero:50, engine:50, chassis:50, reliability:55, tyreWear:55, pitStop:55, fuel:55 },
+      f1Standings:standings,
+      lastQualifying:[],
+      lastRace:[],
+      offers:[],
+      completedRaces:0,
+      createdAt:new Date().toISOString()
+    };
+  }
+  function saveState(){ localStorage.setItem(ACTIVE_SAVE_KEY, JSON.stringify(state)); }
+  function loadState(){
+    for(const key of SAVE_KEYS){
+      try {
+        const raw = localStorage.getItem(key);
+        if(raw) return JSON.parse(raw);
+      } catch(e){}
+    }
+    return null;
+  }
 
+  function loadImgWithFallback(img, relPath){
+    if(!img || !relPath || img.dataset.assetBound === '1') return;
+    img.dataset.assetBound = '1';
+    const tries = assetCandidates(relPath);
+    let idx = 0;
+    const fallback = () => {
+      const fb = img.parentElement && img.parentElement.querySelector('.fallback-badge');
+      img.style.display = 'none';
+      if(fb) fb.style.display = 'flex';
+    };
+    img.onerror = () => {
+      idx++;
+      if(idx < tries.length) img.src = tries[idx];
+      else fallback();
+    };
+    img.src = tries[idx];
+  }
+  function loadBgWithFallback(el, relPath){
+    if(!el || !relPath || el.dataset.bgBound === '1') return;
+    el.dataset.bgBound = '1';
+    const tries = assetCandidates(relPath);
+    let idx = 0;
+    const tester = new Image();
+    tester.onload = () => { el.style.backgroundImage = `url('${tries[idx]}')`; };
+    tester.onerror = () => { idx++; if(idx < tries.length) tester.src = tries[idx]; };
+    tester.src = tries[idx];
+  }
+  function hydrateAssets(root=document){
+    root.querySelectorAll('[data-asset-src]').forEach(img => loadImgWithFallback(img, img.dataset.assetSrc));
+    root.querySelectorAll('[data-asset-bg]').forEach(el => loadBgWithFallback(el, el.dataset.assetBg));
+  }
+  function setScreenBg(screenId, relPath){
+    const el = document.getElementById(screenId);
+    if(!el) return;
+    if(el.dataset.assetBg !== relPath){ el.dataset.assetBg = relPath; delete el.dataset.bgBound; }
+    loadBgWithFallback(el, relPath);
+  }
+  function screenBackgrounds(){
+    setScreenBg('screen-home', DATA.assetPaths.menu);
+    setScreenBg('screen-career-create', DATA.assetPaths.lobbyGlobal);
+    setScreenBg('screen-team-select', DATA.assetPaths.lobbyGlobal);
+    setScreenBg('screen-lobby', DATA.assetPaths.lobbyGlobal);
+    setScreenBg('screen-qualifying', DATA.assetPaths.classification);
+    setScreenBg('screen-results', DATA.assetPaths.podium);
+    setScreenBg('screen-single-race', DATA.assetPaths.miami);
+    setScreenBg('screen-assets-check', DATA.assetPaths.lobbyGlobal);
+  }
 
+  function showScreen(name){
+    $$('.screen').forEach(s => s.classList.remove('active'));
+    const el = $('#screen-' + name);
+    if(el) el.classList.add('active');
+    if(name === 'lobby') renderLobby();
+    if(name === 'qualifying') renderQualifying(false);
+    if(name === 'race') setTimeout(startRaceRenderer, 60);
+    if(name === 'assets-check') renderAssetChecklist();
+    if(name === 'results') renderResults();
+  }
 
-function tryEnterFullscreen(){
-  const el=document.documentElement;
-  const isSmall=Math.min(window.innerWidth,window.innerHeight)<=900;
-  if(!isSmall && !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) return;
-  try{
-    if(!document.fullscreenElement && el.requestFullscreen){ el.requestFullscreen().catch(()=>{}); }
-    if(screen.orientation && screen.orientation.lock){ screen.orientation.lock('landscape').catch(()=>{}); }
-  }catch(e){ console.log('[ValeChess] Fullscreen/landscape nao suportado neste navegador.', e); }
-}
-function continentLabel(continent){return {America:'América',Asia:'Ásia',Africa:'África',Europa:'Europa',Oceania:'Oceania'}[continent]||continent}
-function playerCountryObj(){return countryObj(save?.profile?.country||'Brasil')}
-function tournamentGeoLabel(t){
-  const pc=playerCountryObj();
-  if(t.geo==='national') return `${pc.name} • adversários nacionais`;
-  if(t.geo==='continental') return `${continentLabel(pc.continent)} • países do mesmo continente`;
-  return `Mundial • adversários de todos os continentes`;
-}
-function tournamentCountryPool(t){
-  const pc=playerCountryObj();
-  if(t.geo==='national') return [pc];
-  if(t.geo==='continental') return COUNTRIES.filter(c=>c.continent===pc.continent);
-  return COUNTRIES;
-}
-function renderCareer(){
-  if(!save) return;
-  const car=save.career;
-  const grid=$('tournamentGrid');
-  if(!grid) return;
-  const unlocked=TOURNAMENTS.filter(t=>car.rating>=t.min).length;
-  const pc=playerCountryObj();
-  grid.innerHTML=TOURNAMENTS.map((t,idx)=>{
-    const locked=car.rating<t.min;
-    const status=locked?`Bloqueado • exige rating ${t.min}`:(idx<unlocked-1?'Aberto':'Próximo desafio');
-    const trophy=t.trophy||ASSET.trophies.amateur;
-    const logo=t.logo||ASSET.logos.amateur;
-    const pool=tournamentCountryPool(t);
-    const preview=pool.slice(0,5).map(c=>flagImg(c.name,'tiny-flag')).join('');
-    const geo=tournamentGeoLabel(t);
-    const detail=t.geo==='national'
-      ? `Se você escolheu ${pc.name}, seus primeiros rivais são do próprio país.`
-      : t.geo==='continental'
-        ? `Classificação continental: rivais da ${continentLabel(pc.continent)}.`
-        : `Fase mundial: mistura global com jogadores de todos os continentes.`;
-    return `<button class="tournament-card glass ${locked?'locked':''}" data-tournament="${t.id}" ${locked?'disabled':''}>
-      <span class="badge">${status}</span>
-      <h3>${t.name}</h3>
-      <p class="geo-line"><strong>${geo}</strong></p>
-      <p>${detail}</p>
-      <div class="flag-preview">${preview}<span>${pool.length} país${pool.length>1?'es':''}</span></div>
-      <p><strong>Prêmio:</strong> +${t.prize} moedas • +${t.rep} reputação</p>
-      <p><strong>Seu rating:</strong> ${car.rating}</p>
-      <img src="${logo}" alt="${t.name}" onerror="this.src='${trophy}';this.onerror=null">
-    </button>`;
-  }).join('');
-  grid.querySelectorAll('[data-tournament]').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const t=TOURNAMENTS.find(x=>x.id===btn.dataset.tournament);
-      if(t && car.rating>=t.min){ tryEnterFullscreen(); startMatch(t, activeMode); }
+  function updateBuildBadges(){
+    const b = DATA.build || {};
+    const label = b.label || 'Build v0.9.0 • 06/05/2026 • 16:39 BRT';
+    const home = document.getElementById('homeBuildPill');
+    const global = document.getElementById('globalBuildStamp');
+    if(home) home.textContent = label;
+    if(global) global.textContent = label;
+    document.title = `F1 Manager Career 2026 — ${label}`;
+  }
+
+  function init(){
+    updateBuildBadges();
+    screenBackgrounds();
+    bindGlobalActions();
+    renderCreator();
+    renderTeamSelect();
+    renderQuickRaceSelect();
+    updateHud();
+    showScreen('home');
+    hydrateAssets(document);
+  }
+
+  function bindGlobalActions(){
+    document.body.addEventListener('click', (ev) => {
+      const nav = ev.target.closest('[data-nav]');
+      if(nav){ showScreen(nav.dataset.nav); return; }
+      const act = ev.target.closest('[data-action]');
+      if(act) handleAction(act.dataset.action, act);
+      const tab = ev.target.closest('[data-tab]');
+      if(tab){ $$('.side-nav button').forEach(b=>b.classList.remove('active')); tab.classList.add('active'); renderTab(tab.dataset.tab); }
+      const mode = ev.target.closest('[data-mode]');
+      if(mode){ selectedMode = mode.dataset.mode; $$('.mode-card').forEach(b=>b.classList.remove('selected')); mode.classList.add('selected'); }
+      const comp = ev.target.closest('[data-compound]');
+      if(comp){ selectedCompound = comp.dataset.compound; $$('.strategy-pills button').forEach(b=>b.classList.remove('selected')); comp.classList.add('selected'); }
+      const teamChoice = ev.target.closest('[data-team]');
+      if(teamChoice){ selectedTeam = teamChoice.dataset.team; renderTeamSelect(); }
     });
-  });
-}
-const NAME_POOLS={
-  Asia:{first:['Aiko','Hiro','Kenji','Mei','Ren','Sora','Yuki','Chen','Min','Arjun'],last:['Tanaka','Sato','Suzuki','Wang','Li','Kim','Patel','Nguyen','Khan','Rahman']},
-  Europa:{first:['Luca','Elena','Sofia','Nikolai','Oliver','Isabel','Hans','Marta','Ivan','Amelia'],last:['Rossi','Smith','Garcia','Muller','Petrov','Dubois','Kowalski','Novak','Bianchi','Silva']},
-  America:{first:['Rafael','Ana','Carlos','Sofia','Lucas','Valentina','Diego','Maya','Mateo','Isabella'],last:['Torres','Costa','Vega','Miller','Santos','Rojas','Johnson','Silva','Martinez','Ferreira']},
-  Africa:{first:['Kwame','Amina','Kofi','Nala','Thabo','Zuri','Amari','Imani','Malik','Ayana'],last:['Mensah','Okafor','Diallo','Mbeki','Ndiaye','Abebe','Hassan','Adeyemi','Kamara','Traore']},
-  Oceania:{first:['Jack','Mia','Noah','Ava','Liam','Isla','Kai','Talia','Ethan','Ruby'],last:['Wilson','Brown','Taylor','Smith','Jones','Williams','Walker','Cooper','Murray','King']}
-};
-const COUNTRY_NAME_POOLS={
-  'Brasil':{first:['Rafael','Ana','João','Marina','Lucas','Bianca'],last:['Torres','Costa','Souza','Oliveira','Santos','Lima']},
-  'Japão':{first:['Aiko','Haruto','Ren','Yuki','Sora','Mei'],last:['Tanaka','Sato','Suzuki','Yamamoto','Kobayashi','Nakamura']},
-  'China':{first:['Chen','Wei','Lin','Ming','Li','Hao'],last:['Wang','Zhang','Liu','Li','Zhao','Chen']},
-  'Estados Unidos':{first:['Oliver','Sophia','Ethan','Ava','Mason','Emma'],last:['Miller','Johnson','Smith','Davis','Wilson','Brown']},
-  'México':{first:['Carlos','Sofia','Diego','Lucia','Mateo','Valeria'],last:['Vega','Rojas','Garcia','Lopez','Hernandez','Martinez']},
-  'Alemanha':{first:['Hans','Lena','Felix','Greta','Jonas','Mila'],last:['Muller','Schmidt','Weber','Fischer','Wagner','Becker']},
-  'Afeganistão':{first:['Farid','Laila','Omar','Mina','Nadir','Zara'],last:['Khan','Ahmadi','Rahimi','Hosseini','Noori','Karimi']}
-};
-function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
-function opponentNameFor(country){const pool=COUNTRY_NAME_POOLS[country.name]||NAME_POOLS[country.continent]||NAME_POOLS.Europa; return `${pick(pool.first)} ${pick(pool.last)}`}
-function chooseOpponent(tournament){
-  const countries=tournamentCountryPool(tournament);
-  const playerCountry=playerCountryObj();
-  let possible=countries;
-  if(tournament.geo==='continental' && countries.length>1) possible=countries.filter(c=>c.name!==playerCountry.name);
-  const country=pick(possible.length?possible:countries);
-  const rr=tournament.ratingRange||[760,980];
-  const ar=tournament.aiRange||[.25,.55];
-  const rating=Math.round(rr[0]+Math.random()*(rr[1]-rr[0]));
-  const aiSkill=+(ar[0]+Math.random()*(ar[1]-ar[0])).toFixed(2);
-  const style=aiSkill>.86?'Elite mundial':aiSkill>.72?'Mestre tático':aiSkill>.56?'Tático':aiSkill>.38?'Competitivo':'Iniciante';
-  return {name:opponentNameFor(country),country:country.name,continent:country.continent,rating,tier:tournament.id,avatar:ASSET.avatars[Math.floor(Math.random()*ASSET.avatars.length)],flag:country.flag,aiSkill,style};
-}
+  }
 
-function startMatch(tournament=TOURNAMENTS[0],mode=activeMode){
-  tryEnterFullscreen();
-  currentTournament=tournament; currentOpponent=chooseOpponent(tournament); resultShown=false; aiBusy=false; moveHistory=[]; selectedSq=null; legal=[]; playerColor='w';
-  chess=new Chess();
-  show('gameScreen');
-  safeText('matchTitle',tournament.name);
-  const p=save?.profile||{name:'Jogador',country:'Brasil',avatar:0};
-  const opp=currentOpponent;
-  const vb=$('versusBox');
-  if(vb) vb.innerHTML=`<div class="mini-player">${img(ASSET.avatars[p.avatar]||ASSET.avatars[0],'','Jogador')}<strong>${p.name}</strong><small>${flagImg(p.country,'mini-flag')}</small></div><strong>VS</strong><div class="mini-player">${img(opp.avatar,'','Adversario')}<strong>${opp.name}</strong><small>${flagImg(opp.country,'mini-flag')}<br>${opp.country} • ${continentLabel(opp.continent)}<br>IA ${opp.style||'Competitiva'} • ${opp.rating}</small></div>`;
-  setup3D(); updateBoard(); updateHUD(); animate();
-}
-function setup3D(){
-  const canvas=$('gameCanvas'); if(!canvas) return;
-  if(!window.THREE){ renderFallbackBoard(); return; }
-  if(renderer){ renderer.dispose(); }
-  scene=new THREE.Scene(); scene.background=null;
-  camera=new THREE.PerspectiveCamera(42,1,.1,100);
-  renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'}); renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.7));
-  renderer.setClearColor(0x000000,0);
-  scene.add(new THREE.AmbientLight(0xfff4df,.72)); const light=new THREE.DirectionalLight(0xfff0c8,1.25); light.position.set(4,9,6); scene.add(light); const rim=new THREE.DirectionalLight(0x7fb2ff,.45); rim.position.set(-5,4,-6); scene.add(rim);
-  boardGroup=new THREE.Group(); pieceGroup=new THREE.Group(); highlightGroup=new THREE.Group(); environmentGroup=new THREE.Group(); scene.add(environmentGroup); scene.add(boardGroup); scene.add(pieceGroup); scene.add(highlightGroup);
-  build3DEnvironment();
-  const edge=new THREE.MeshStandardMaterial({color:0x0c1422,metalness:.25,roughness:.48});
-  const trim=new THREE.MeshStandardMaterial({color:0xc79a32,metalness:.55,roughness:.28});
-  const base=new THREE.Mesh(new THREE.BoxGeometry(8.95,.34,8.95),edge); base.position.y=-.24; boardGroup.add(base);
-  const trim1=new THREE.Mesh(new THREE.BoxGeometry(9.15,.10,.20),trim); trim1.position.set(0,-.03,4.58); boardGroup.add(trim1);
-  const trim2=trim1.clone(); trim2.position.z=-4.58; boardGroup.add(trim2);
-  const trim3=new THREE.Mesh(new THREE.BoxGeometry(.20,.10,9.15),trim); trim3.position.set(4.58,-.03,0); boardGroup.add(trim3);
-  const trim4=trim3.clone(); trim4.position.x=-4.58; boardGroup.add(trim4);
-  squares.clear();
-  for(let r=0;r<8;r++) for(let f=0;f<8;f++){
-    const isDark=(r+f)%2;
-    const mat=new THREE.MeshStandardMaterial({color:isDark?0x263650:0xbda36b,metalness:isDark?.08:.18,roughness:isDark?.52:.43,emissive:0x000000});
-    const m=new THREE.Mesh(new THREE.BoxGeometry(1,.085,1),mat); m.position.set(f-3.5,0,r-3.5); m.userData.square='abcdefgh'[f]+(8-r); boardGroup.add(m); squares.set(m.userData.square,m);
+  function handleAction(action, el){
+    const actions = {
+      continueCareer(){ if(state.profile) showScreen('lobby'); else showScreen('career-create'); },
+      createProfile(){ createProfile(); },
+      startCareer(){ startCareer(); },
+      goQualifying(){ showScreen('qualifying'); },
+      startQualifying(){ simulateQualifying(); },
+      startRaceDirect(){ const sel=document.getElementById('quickRaceSelect'); if(sel) state.roundIndex=Number(sel.value)||0; setupRace(true); showScreen('race'); },
+      startRace(){ setupRace(false); showScreen('race'); },
+      setPace(){ if(race){ race.playerPace[Number(el.dataset.driver)] = el.dataset.pace; updateRaceHud(); } },
+      pitDriver(){ if(race) requestPit(Number(el.dataset.driver)); },
+      toggleRaceSpeed(){ if(race){ race.speed = race.speed === 1 ? 4 : race.speed === 4 ? 12 : race.speed === 12 ? 24 : 1; $('#speedLabel').textContent = race.speed; } },
+      finishRaceNow(){ if(race) finishRace(); },
+      returnLobbyAfterRace(){ showScreen('lobby'); },
+      upgradePart(){ upgradePart(el.dataset.part); },
+      signSponsor(){ signSponsor(el.dataset.sponsor); },
+      hireStaff(){ hireStaff(el.dataset.role); }
+    };
+    if(actions[action]) actions[action]();
   }
-  raycaster=new THREE.Raycaster(); pointer=new THREE.Vector2();
-  applyCameraOrbit(); resizeRenderer();
-  canvas.onpointerdown=onPointerDown; canvas.onpointermove=onPointerMove; canvas.onpointerup=onPointerUp; canvas.onpointercancel=onPointerUp;
-}
-function build3DEnvironment(){
-  if(!environmentGroup||!window.THREE) return;
-  const floorMat=new THREE.MeshStandardMaterial({color:0x07101d,metalness:.15,roughness:.58});
-  const floor=new THREE.Mesh(new THREE.CircleGeometry(8.2,64),floorMat); floor.rotation.x=-Math.PI/2; floor.position.y=-.42; environmentGroup.add(floor);
-  const ringMat=new THREE.MeshStandardMaterial({color:0xb8862f,metalness:.45,roughness:.30});
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(5.05,.035,12,96),ringMat); ring.rotation.x=Math.PI/2; ring.position.y=-.37; environmentGroup.add(ring);
-  const wallMat=new THREE.MeshStandardMaterial({color:0x0b1424,metalness:.08,roughness:.62,transparent:true,opacity:.55});
-  const back=new THREE.Mesh(new THREE.PlaneGeometry(13,6),wallMat); back.position.set(0,2.2,5.25); back.rotation.x=-.18; environmentGroup.add(back);
-  for(const x of [-5.1,5.1]){ const col=new THREE.Mesh(new THREE.CylinderGeometry(.14,.22,3.2,18),ringMat); col.position.set(x,1.05,4.65); environmentGroup.add(col); const cap=new THREE.Mesh(new THREE.SphereGeometry(.24,18,12),ringMat); cap.position.set(x,2.75,4.65); environmentGroup.add(cap); }
-}
-function applyCameraOrbit(){
-  if(!camera) return; const o=cameraOrbit; const x=Math.sin(o.theta)*o.radius; const z=Math.cos(o.theta)*o.radius; const y=Math.max(4.2,Math.sin(o.phi)*8.8); camera.position.set(x,y,z); camera.lookAt(0,0,0);
-}
-function resizeRenderer(){
-  if(!renderer||!camera) return; const wrap=document.querySelector('.board-wrap'); const w=(wrap?.clientWidth||window.innerWidth); const h=(wrap?.clientHeight||window.innerHeight); renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
-}
-function onPointerDown(e){dragState={active:true,moved:false,startX:e.clientX,startY:e.clientY,lastX:e.clientX,lastY:e.clientY,pointerId:e.pointerId}; try{e.currentTarget.setPointerCapture(e.pointerId)}catch{} }
-function onPointerMove(e){ if(!dragState.active) return; const dx=e.clientX-dragState.lastX, dy=e.clientY-dragState.lastY; if(Math.abs(e.clientX-dragState.startX)+Math.abs(e.clientY-dragState.startY)>10) dragState.moved=true; cameraOrbit.theta-=dx*.006; cameraOrbit.phi=Math.max(.45,Math.min(1.15,cameraOrbit.phi-dy*.003)); dragState.lastX=e.clientX; dragState.lastY=e.clientY; applyCameraOrbit(); }
-function onPointerUp(e){ const moved=dragState.moved; dragState.active=false; try{e.currentTarget.releasePointerCapture(e.pointerId)}catch{} if(!moved) handleBoardClick(e); }
-function handleBoardClick(e){
-  if(!renderer||!camera||!raycaster||!chess) return; const rect=renderer.domElement.getBoundingClientRect(); pointer.x=((e.clientX-rect.left)/rect.width)*2-1; pointer.y=-((e.clientY-rect.top)/rect.height)*2+1; raycaster.setFromCamera(pointer,camera);
-  const objs=[...pieces.values(),...squares.values()]; const hits=raycaster.intersectObjects(objs,true); if(!hits.length) return;
-  let obj=hits[0].object; while(obj && !obj.userData.square && obj.parent) obj=obj.parent;
-  const sq=obj?.userData?.square; if(sq) selectOrMove(sq);
-}
-function selectOrMove(sq){
-  if(!chess || aiBusy) return; const piece=chess.get(sq);
-  if(selectedSq){ const mv=legal.find(m=>m.to===sq); if(mv){ const done=chess.move({from:selectedSq,to:sq,promotion:'q'}); if(done){ moveHistory.push(done.san||`${selectedSq}-${sq}`); selectedSq=null; legal=[]; updateBoard(); updateHUD(); afterMove(); return; }} }
-  if(piece && piece.color===chess.turn() && (activeMode==='duo' || chess.turn()==='w')){ selectedSq=sq; legal=chess.moves({square:sq,verbose:true}); updateHighlights(); }
-}
-function afterMove(){
-  if(checkGameEnd()) return;
-  if(activeMode==='single' || activeMode==='online-preview') setTimeout(makeAiMove,450);
-}
-function pieceValue(t){return {p:100,n:310,b:320,r:500,q:900,k:20000}[t]||0}
-function evaluateBoard(){
-  if(!chess) return 0; const b=chess.board(); let score=0;
-  for(let r=0;r<8;r++)for(let f=0;f<8;f++){const p=b[r][f]; if(!p) continue; const v=pieceValue(p.type); const center=(3.5-Math.abs(3.5-f))+(3.5-Math.abs(3.5-r)); score+=(p.color==='b'?1:-1)*(v+center*3);}
-  return score;
-}
-function scoreMove(m,skill){
-  let score=Math.random()*70*(1-skill); if(m.captured) score+=pieceValue(m.captured)+35; if(m.promotion) score+=760; if(m.san&&m.san.includes('+')) score+=65; if(m.san&&m.san.includes('#')) score+=99999;
-  const centerFiles={d:18,e:18,c:8,f:8}; score+=centerFiles[m.to?.[0]]||0;
-  try{chess.move({from:m.from,to:m.to,promotion:m.promotion||'q'}); score+=evaluateBoard()*skill*.025; const replies=chess.moves({verbose:true}); const dangerous=replies.some(r=>r.captured&&r.to===m.to&&pieceValue(r.captured||'p')>=pieceValue(m.piece)); if(dangerous&&skill>.45) score-=pieceValue(m.piece)*.55*skill; chess.undo();}catch(e){}
-  return score;
-}
-function chooseAiMove(moves){
-  const skill=currentOpponent?.aiSkill ?? .35;
-  if(Math.random()>(skill+.12)) return moves[Math.floor(Math.random()*moves.length)];
-  const ranked=moves.map(m=>({m,score:scoreMove(m,skill)})).sort((a,b)=>b.score-a.score);
-  const spread=skill>.8?2:skill>.6?3:skill>.4?5:8;
-  return ranked[Math.floor(Math.random()*Math.min(spread,ranked.length))].m;
-}
-function makeAiMove(){ if(!chess||chess.turn()!=='b') return; aiBusy=true; const moves=chess.moves({verbose:true}); const mv=chooseAiMove(moves); if(mv){ const done=chess.move({from:mv.from,to:mv.to,promotion:mv.promotion||'q'}); moveHistory.push(done.san||`${mv.from}-${mv.to}`); } aiBusy=false; updateBoard(); updateHUD(); checkGameEnd(); }
-function checkGameEnd(){
-  if(!chess) return false; const over=chess.isGameOver?chess.isGameOver():chess.game_over(); if(!over) return false;
-  const mate=chess.isCheckmate?chess.isCheckmate():chess.in_checkmate(); let won=false; if(mate) won=chess.turn()==='b';
-  showResult(won,mate?'Xeque-mate.':'Partida encerrada.'); return true;
-}
-function showResult(won,reason){
-  if(resultShown) return; resultShown=true; const car=save?.career; if(car){ if(won){car.wins++; car.rating+=32; car.money+=currentTournament.prize; car.reputation+=currentTournament.rep; if(!car.titles.includes(currentTournament.name)) car.titles.push(currentTournament.name); car.mission='Continue vencendo para liberar torneios maiores.';} else {car.losses++; car.rating=Math.max(600,car.rating-12); car.mission='Treine novamente e busque a próxima vitória.';} persist(); }
-  const screen=$('resultScreen'); if(screen){screen.classList.toggle('bg-victory',won); screen.classList.toggle('bg-defeat',!won);} const tr=$('resultTrophy'); if(tr) tr.src=currentTournament.trophy; safeText('resultTitle',won?'Vitória!':'Derrota'); safeText('resultText',`${reason} ${won?'Você ganhou pontos, reputação e prêmio na carreira.':'Você perdeu rating, mas pode tentar novamente.'}`); show('resultScreen');
-}
-function updateHUD(){ const turn=chess?.turn()==='w'?'Brancas':'Pretas'; safeText('turnBox',`Turno: ${turn}${chess?.in_check&&chess.in_check()?' • Xeque':''}`); const h=$('historyBox'); if(h) h.innerHTML='<strong>Histórico</strong><br>'+moveHistory.map((m,i)=>`${i+1}. ${m}`).join('<br>'); }
-function updateBoard(){ if(!scene||!pieceGroup||!chess){ renderFallbackBoard(); return; } pieceGroup.clear(); pieces.clear(); const b=chess.board(); for(let r=0;r<8;r++)for(let f=0;f<8;f++){ const p=b[r][f]; if(!p) continue; const sq='abcdefgh'[f]+(8-r); const mesh=createPieceMesh(p); mesh.position.set(f-3.5,.28,r-3.5); mesh.userData.square=sq; mesh.traverse(o=>{if(o.isMesh)o.userData.square=sq}); pieceGroup.add(mesh); pieces.set(sq,mesh); } updateHighlights(); renderFallbackBoard(false); }
-function createPieceMesh(p){
-  const g=new THREE.Group(); g.userData.piece=true;
-  const white=p.color==='w';
-  const bodyMat=new THREE.MeshStandardMaterial({color:white?0xf3ead7:0x111825,metalness:white?.28:.42,roughness:white?.32:.36});
-  const goldMat=new THREE.MeshStandardMaterial({color:white?0xd5a846:0x356fb7,metalness:.62,roughness:.24});
-  const jewelMat=new THREE.MeshStandardMaterial({color:white?0x6ea8ff:0xf0c24f,metalness:.45,roughness:.18,emissive:white?0x07112a:0x221200});
-  function add(mesh,x,y,z){mesh.position.set(x||0,y||0,z||0); g.add(mesh); return mesh;}
-  add(new THREE.Mesh(new THREE.CylinderGeometry(.34,.42,.14,28),goldMat),0,.07,0);
-  add(new THREE.Mesh(new THREE.CylinderGeometry(.27,.34,.16,28),bodyMat),0,.21,0);
-  add(new THREE.Mesh(new THREE.CylinderGeometry(.20,.27,.38,28),bodyMat),0,.48,0);
-  add(new THREE.Mesh(new THREE.TorusGeometry(.225,.026,8,28),goldMat),0,.68,0).rotation.x=Math.PI/2;
-  const type=p.type;
-  if(type==='p'){
-    add(new THREE.Mesh(new THREE.SphereGeometry(.22,24,16),bodyMat),0,.86,0);
-  }else if(type==='r'){
-    add(new THREE.Mesh(new THREE.CylinderGeometry(.28,.30,.24,6),goldMat),0,.84,0);
-    for(let i=0;i<4;i++){const a=i*Math.PI/2; add(new THREE.Mesh(new THREE.BoxGeometry(.11,.12,.11),goldMat),Math.cos(a)*.18,1.02,Math.sin(a)*.18);}
-  }else if(type==='n'){
-    const neck=add(new THREE.Mesh(new THREE.CylinderGeometry(.16,.23,.42,16),goldMat),0,.82,0); neck.rotation.z=-.28;
-    const head=add(new THREE.Mesh(new THREE.SphereGeometry(.20,18,12),goldMat),.08,1.05,-.05);
-    const snout=add(new THREE.Mesh(new THREE.BoxGeometry(.24,.13,.16),goldMat),.20,1.03,-.07); snout.rotation.y=.2;
-    add(new THREE.Mesh(new THREE.ConeGeometry(.09,.22,4),jewelMat),-.02,1.22,-.02);
-  }else if(type==='b'){
-    add(new THREE.Mesh(new THREE.SphereGeometry(.24,24,16),goldMat),0,.88,0);
-    const cut=add(new THREE.Mesh(new THREE.BoxGeometry(.055,.32,.18),jewelMat),.05,.98,0); cut.rotation.z=.38;
-  }else if(type==='q'){
-    add(new THREE.Mesh(new THREE.SphereGeometry(.22,24,16),bodyMat),0,.86,0);
-    for(let i=0;i<6;i++){const a=i*Math.PI/3; add(new THREE.Mesh(new THREE.ConeGeometry(.055,.24,8),goldMat),Math.cos(a)*.22,1.08,Math.sin(a)*.22);}
-    add(new THREE.Mesh(new THREE.SphereGeometry(.075,16,10),jewelMat),0,1.22,0);
-  }else{
-    add(new THREE.Mesh(new THREE.CylinderGeometry(.22,.27,.38,24),goldMat),0,.86,0);
-    add(new THREE.Mesh(new THREE.BoxGeometry(.11,.34,.07),goldMat),0,1.18,0);
-    add(new THREE.Mesh(new THREE.BoxGeometry(.28,.10,.07),goldMat),0,1.25,0);
-  }
-  g.traverse(o=>{if(o.isMesh){o.castShadow=false;o.receiveShadow=false;o.userData.square=g.userData.square;}});
-  return g;
-}
-function markerAtSquare(sq){const f='abcdefgh'.indexOf(sq[0]); const r=8-Number(sq[1]); return {x:f-3.5,z:r-3.5};}
-function updateHighlights(){
-  if(highlightGroup) highlightGroup.clear();
-  pieces.forEach(p=>p.scale.set(1,1,1));
-  if(!highlightGroup||!window.THREE) return;
-  if(selectedSq&&pieces.get(selectedSq)){
-    const p=pieces.get(selectedSq); p.scale.set(1.08,1.08,1.08);
-    const pos=markerAtSquare(selectedSq); const ring=new THREE.Mesh(new THREE.TorusGeometry(.43,.035,8,48),new THREE.MeshBasicMaterial({color:0x7dffb6,transparent:true,opacity:.95})); ring.rotation.x=Math.PI/2; ring.position.set(pos.x,.16,pos.z); highlightGroup.add(ring);
-  }
-  const legalMat=new THREE.MeshBasicMaterial({color:0xf4cf67,transparent:true,opacity:.78});
-  legal.forEach(m=>{const pos=markerAtSquare(m.to); const disk=new THREE.Mesh(new THREE.CircleGeometry(m.captured?.length?.toString()?0.24:0.18,24),legalMat); disk.rotation.x=-Math.PI/2; disk.position.set(pos.x,.125,pos.z); highlightGroup.add(disk);});
-}
-function renderFallbackBoard(showIt){ const fb=$('fallbackBoard'); if(!fb) return; if(showIt===false){fb.classList.remove('active');return;} if(window.THREE&&renderer) return; const board=chess?chess.board():[]; const icons={wp:'♙',wr:'♖',wn:'♘',wb:'♗',wq:'♕',wk:'♔',bp:'♟',br:'♜',bn:'♞',bb:'♝',bq:'♛',bk:'♚'}; let html='<div class="fallback-board-grid">'; for(let r=0;r<8;r++) for(let f=0;f<8;f++){ const p=board[r]?.[f]; const sq='abcdefgh'[f]+(8-r); html+=`<button class="fallback-square ${(r+f)%2?'dark':'light'}" onclick="selectOrMove('${sq}')">${p?icons[p.color+p.type]:''}</button>`;} html+='</div>'; fb.innerHTML=html; fb.classList.add('active'); }
-function animate(){ if(!renderer||!scene||!camera) return; requestAnimationFrame(animate); if(autoRotate){cameraOrbit.theta+=.004; applyCameraOrbit();} renderer.render(scene,camera); }
 
-// Inicializacao obrigatoria: corrige tela travada sem clique nos botoes.
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
+  function renderQuickRaceSelect(){
+    const sel = document.getElementById('quickRaceSelect');
+    if(!sel || !DATA.calendar2026) return;
+    sel.innerHTML = DATA.calendar2026.map((r,i)=>`<option value="${i}">${String(i+1).padStart(2,'0')} • ${r.name}</option>`).join('');
+    const miamiIndex = DATA.calendar2026.findIndex(r => r.svgLayout === 'miami');
+    sel.value = String(miamiIndex >= 0 ? miamiIndex : 0);
+  }
+
+  function renderCreator(){
+    const avatarList = $('#avatarList'); avatarList.innerHTML = '';
+    DATA.avatars.forEach((src,i) => {
+      const b = document.createElement('button');
+      b.className = 'avatar-option' + (i===selectedAvatar ? ' selected':'');
+      b.innerHTML = `<img data-asset-src="${src}" alt="Avatar ${i+1}" /><span class="fallback-badge">AV${i+1}</span>`;
+      b.onclick = () => { selectedAvatar=i; renderCreator(); };
+      avatarList.appendChild(b);
+    });
+    const sel = $('#managerCountry');
+    sel.innerHTML = DATA.countries.map(c=>`<option value="${c.code}">${c.name}</option>`).join('');
+    hydrateAssets(avatarList);
+  }
+
+  function createProfile(){
+    const name = $('#managerName').value.trim() || 'Jonatan Vale';
+    const country = $('#managerCountry').value || 'BR';
+    state.profile = { name, country, avatar:DATA.avatars[selectedAvatar] };
+    state.mode = selectedMode;
+    saveState();
+    showScreen('team-select');
+  }
+
+  function teamVisual(team, large=false){
+    const bg = team.card || team.lobby || DATA.assetPaths.lobbyGlobal;
+    return `
+      <div class="team-visual ${large ? 'large':''}" data-asset-bg="${bg}">
+        ${team.logo ? `<img class="team-logo" data-asset-src="${team.logo}" alt="${team.name}" />` : ''}
+        <span class="fallback-badge team-fallback" style="display:${team.logo ? 'none':'flex'};background:linear-gradient(135deg,#${(team.color||0x333333).toString(16).padStart(6,'0')}, #111827)">${initials(team.name)}</span>
+      </div>`;
+  }
+
+  function renderTeamSelect(){
+    const grid = $('#teamSelectGrid'); grid.innerHTML = '';
+    DATA.f2Teams.forEach(t => {
+      const b = document.createElement('button');
+      b.className = 'team-card' + (t.id===selectedTeam?' selected':'');
+      b.dataset.team = t.id;
+      b.style.setProperty('--team-bg', `linear-gradient(135deg, #000d, #0007), radial-gradient(circle at 70% 30%, #${t.color.toString(16).padStart(6,'0')}, transparent 45%)`);
+      b.innerHTML = `${teamVisual(t)}<h3>${t.name}</h3><p>${t.level.toUpperCase()}</p><div class="team-stats"><span>Orçamento ${money(t.budget)}</span><span>Reputação ${t.reputation}</span><span>Meta: ${t.objective}</span></div>`;
+      grid.appendChild(b);
+    });
+    hydrateAssets(grid);
+  }
+
+  function startCareer(){
+    const t = DATA.f2Teams.find(x=>x.id===selectedTeam);
+    state.currentSeries = 'F2';
+    state.currentTeam = t.id;
+    state.money = state.mode==='sandbox' ? t.budget*2 : t.budget;
+    state.reputation = t.reputation;
+    state.car = {...t.car, fuel:55};
+    state.roundIndex = 5;
+    state.completedRaces = 0;
+    state.lastQualifying = [];
+    state.lastRace = [];
+    saveState();
+    updateHud();
+    showScreen('lobby');
+  }
+
+  function updateHud(){
+    if(!state.profile || !state.currentTeam) return;
+    const t = teamById(state.currentTeam);
+    $('#hudTeam').textContent = t.name;
+    $('#hudManager').textContent = `${state.profile.name} • ${state.currentSeries}`;
+    $('#hudRep').textContent = `REP ${Math.round(state.reputation)}`;
+    $('#hudMoney').textContent = money(state.money);
+    $('#hudRound').textContent = `Corrida ${state.completedRaces+1}/${DATA.calendar2026.length}`;
+  }
+
+  function renderLobby(){
+    updateHud();
+    const team = teamById(state.currentTeam);
+    setScreenBg('screen-lobby', team.lobby || DATA.assetPaths.lobbyGlobal);
+    renderTab($('.side-nav button.active')?.dataset.tab || 'dashboard');
+  }
+
+  function sponsorButtons(){
+    return DATA.sponsors.map(s=>`<button class="secondary" data-action="signSponsor" data-sponsor="${s.id}">${s.name} • ${money(s.advance)}</button>`).join('');
+  }
+
+  function renderTab(tab){
+    const content = $('#tabContent');
+    const team = teamById(state.currentTeam);
+    const bg = team.lobby || DATA.assetPaths.lobbyGlobal;
+    const currentRace = DATA.calendar2026[state.roundIndex] || DATA.calendar2026[5];
+    const drivers = driversForTeam(state.currentTeam);
+
+    if(tab === 'dashboard'){
+      content.innerHTML = `<div class="cards-grid">
+        <article class="dash-card glass-panel bg" data-asset-bg="${bg}"><div class="dash-overlay"></div><div class="dash-card-top">${teamVisual(team,true)}</div><h3>${team.name}</h3><p>${team.objective || 'Construir reputação e alcançar a Fórmula 1.'}</p><p>Próxima: ${currentRace.name}</p><p>${(state.offers&&state.offers.length)?state.offers[state.offers.length-1].text:'Objetivo: conquistar reputação para receber convites da F1.'}</p></article>
+        <article class="dash-card glass-panel"><h3>Patrocinadores</h3><p>${state.sponsor ? state.sponsor.name : 'Nenhum contrato principal ativo.'}</p>${sponsorButtons()}</article>
+        <article class="dash-card glass-panel"><h3>Metas da Diretoria</h3><p>${team.objective || 'Pontuar e evoluir a equipe.'}</p><div class="progress"><i style="width:${Math.min(100,state.reputation)}%"></i></div><p>Reputação ${Math.round(state.reputation)}/100</p></article>
+        <article class="dash-card glass-panel career-card"><h3>Carreira do Gestor</h3><p><b>Você começou na F2.</b> Cumpra metas, evolua pilotos e mantenha as finanças saudáveis para receber convites de equipes pequenas da F1.</p><p>Escada: F2 fraca → F2 média → F2 forte → F1 baixa → F1 média → equipe grande.</p></article>
+      </div>`;
+    }
+    if(tab === 'drivers'){
+      content.innerHTML = `<div class="cards-grid">${drivers.map(d=>driverCard(d)).join('')}<article class="dash-card glass-panel"><h3>Mercado</h3><p>Base preparada para futura fase de contratos, observação e negociações.</p><p>Agora os cards de pilotos já tentam usar portraits reais dos assets ou avatares gerados.</p></article></div>`;
+    }
+    if(tab === 'garage'){
+      const parts = [['engine','Motor','engine'],['aero','Aerodinâmica','aero'],['chassis','Chassi','chassis'],['reliability','Confiabilidade','reliability'],['tyreWear','Pneus','saveTyres'],['pitStop','Pit Stop','pitStop'],['fuel','Combustível','fuel']];
+      content.innerHTML = `<div class="cards-grid"><article class="dash-card glass-panel bg" data-asset-bg="${DATA.assetPaths.garage}"><div class="dash-overlay"></div><h3>Oficina</h3><p>Desenvolva peças para melhorar ritmo e confiabilidade.</p></article>${parts.map(([key,label,icon])=>`<article class="dash-card glass-panel"><h3>${label}</h3><div class="icon-row"><img class="mini-icon" data-asset-src="${DATA.assetPaths[icon]}" alt="${label}" /><span class="fallback-badge mini-fallback">${initials(label)}</span></div><p>Nível ${Math.round(state.car[key]||50)}</p><div class="progress"><i style="width:${state.car[key]||50}%"></i></div><button class="primary" data-action="upgradePart" data-part="${key}">MELHORAR ${money(upgradeCost(key))}</button></article>`).join('')}</div>`;
+    }
+    if(tab === 'staff'){
+      content.innerHTML = `<div class="cards-grid">${['designers','mechanics','strategists'].map(r=>`<article class="dash-card glass-panel"><h3>${labelRole(r)}</h3><p>Nível ${state.staff[r]}</p><p>${roleDesc(r)}</p><button class="primary" data-action="hireStaff" data-role="${r}">CONTRATAR ${money(300000*state.staff[r])}</button></article>`).join('')}</div>`;
+    }
+    if(tab === 'facilities'){
+      content.innerHTML = `<div class="cards-grid">${Object.entries(state.facilities).map(([k,v])=>`<article class="dash-card glass-panel"><h3>${facilityLabel(k)}</h3><p>Nível ${v}</p><div class="progress"><i style="width:${v*20}%"></i></div><button class="secondary">EXPANSÃO FUTURA</button></article>`).join('')}</div>`;
+    }
+    if(tab === 'calendar'){
+      content.innerHTML = `<div class="glass-panel dash-card bg" data-asset-bg="${DATA.assetPaths.calendar}"><div class="dash-overlay"></div><h3>Temporada 2026 — SVG completa</h3><p>${DATA.calendar2026.length} pistas SVG ativas e jogáveis.</p><div class="standings-list">${DATA.calendar2026.map((r,i)=>`<div class="row ${i===state.roundIndex?'highlight':''}"><span>${i+1}</span><span>${r.name}</span><span>${r.weather}</span><span>${r.laps}v</span></div>`).join('')}</div></div>`;
+    }
+    hydrateAssets(content);
+  }
+
+  function driverCard(d){
+    const team = teamById(d.team);
+    const portrait = d.portrait || null;
+    return `<article class="dash-card glass-panel driver-card">
+      <div class="driver-head">
+        <div class="portrait-wrap">
+          ${portrait ? `<img class="driver-portrait" data-asset-src="${portrait}" alt="${d.name}" />` : ''}
+          <span class="fallback-badge driver-fallback" style="display:${portrait ? 'none':'flex'};background:linear-gradient(135deg,#${(team.color||0x444444).toString(16).padStart(6,'0')},#111827)">${initials(d.name)}</span>
+        </div>
+        <div class="driver-meta">
+          <h3>${d.short}</h3>
+          <p>${d.name}</p>
+          <div class="meta-line"><span class="team-chip">${team.name}</span><span class="flag-chip"><img data-asset-src="${flagPath(d.flag)}" alt="${d.flag}" /><b>${d.flag}</b></span></div>
+        </div>
+      </div>
+      <p>Overall ${d.overall} • Potencial ${d.potential} • Idade ${d.age}</p>
+      <div class="progress"><i style="width:${d.overall}%"></i></div>
+      <p>Vel ${d.speed} • Cons ${d.consistency} • Chuva ${d.rain}</p>
+    </article>`;
+  }
+
+  function labelRole(r){ return ({designers:'Designers',mechanics:'Mecânicos',strategists:'Estrategistas'})[r]; }
+  function roleDesc(r){ return ({designers:'Aceleram desenvolvimento de peças.',mechanics:'Reduzem tempo de pit e falhas.',strategists:'Melhoram estratégia e desgaste.'})[r]; }
+  function facilityLabel(k){ return ({hq:'Sede',simulator:'Simulador',factory:'Fábrica',scouting:'Observação'})[k]; }
+  function upgradeCost(part){ return 250000 + Math.round((state.car[part]||50)*9000); }
+  function upgradePart(part){ const cost = upgradeCost(part); if(state.money < cost) return alert('Orçamento insuficiente.'); state.money -= cost; state.car[part] = Math.min(99,(state.car[part]||50) + 2 + state.staff.designers*0.7); saveState(); renderTab('garage'); updateHud(); }
+  function signSponsor(id){ const s = DATA.sponsors.find(x=>x.id===id); state.sponsor = s; state.money += s.advance; saveState(); renderTab('dashboard'); updateHud(); }
+  function hireStaff(role){ const cost = 300000 * state.staff[role]; if(state.money < cost) return alert('Orçamento insuficiente.'); state.money -= cost; state.staff[role] += 1; saveState(); renderTab('staff'); updateHud(); }
+
+  function renderQualifying(){
+    const list = state.lastQualifying.length ? state.lastQualifying : generateGridPreview();
+    const currentRace = DATA.calendar2026[state.roundIndex] || DATA.calendar2026[0];
+    const title = document.getElementById('qualifyingHeaderTitle');
+    if(title) title.textContent = `CLASSIFICAÇÃO — ${currentRace.name.toUpperCase()}`;
+    $('#qualifyingTable').innerHTML = list.map((r,i)=>{
+      const d = driverByShort(r.driver) || {short:r.driver,name:r.driver,portrait:''};
+      const team = teamById(r.team);
+      return `<div class="row rich-row ${isPlayerDriver(r.driver)?'highlight':''}"><span class="pos-cell">${i+1}</span><span class="driver-cell">${driverAvatarChip(d)}<span class="driver-text"><b>${d.short}</b><small>${d.name}</small></span></span><span class="team-cell">${teamLogoHTML(team)}<span>${team ? team.name : r.teamName}</span></span><span class="time-cell">${r.time}</span></div>`;
+    }).join('');
+    setScreenBg('screen-qualifying', DATA.assetPaths.classification);
+    hydrateAssets($('#qualifyingTable'));
+  }
+  function generateRaceDrivers(){
+    const base = state.currentSeries === 'F2' ? DATA.f2Drivers : DATA.f1Drivers2026;
+    return base.map(d => ({...d, teamObj:teamById(d.team)}));
+  }
+  function generateGridPreview(){
+    return generateRaceDrivers().map(d => ({driver:d.short, team:d.team, teamName:teamById(d.team).name, score:d.overall + rnd(-8,8), time:(73 + rnd(0,4)).toFixed(3)})).sort((a,b)=>b.score-a.score);
+  }
+  function simulateQualifying(){
+    state.lastQualifying = generateGridPreview(); saveState(); renderQualifying();
+    setTimeout(()=>{ if(confirm('Classificação finalizada. Iniciar corrida?')){ setupRace(false); showScreen('race'); } }, 300);
+  }
+  function isPlayerDriver(short){ return driversForTeam(state.currentTeam).some(d=>d.short===short); }
+
+  function setupRace(quick){
+    const currentRace = DATA.calendar2026[state.roundIndex] || DATA.calendar2026[0];
+    const grid = (state.lastQualifying && state.lastQualifying.length) ? state.lastQualifying : generateGridPreview();
+    const allDrivers = generateRaceDrivers();
+    const driverMap = new Map(allDrivers.map(d=>[d.short,d]));
+    const entries = grid.slice(0,22).map((g,i)=> {
+      const d = driverMap.get(g.driver) || allDrivers[i]; const t = teamById(d.team);
+      const car = d.team === state.currentTeam ? state.car : (t.car || estimateCar(t));
+      return { driver:d, team:t, pos:i+1, lap:1, progress:i*-0.01, distance:0, tyre:100, fuel:100, condition:100, pits:0, pace:'normal', baseSpeed:baseRaceSpeed(d,car), color:t.color, secondary:t.secondary, finished:false, totalTime:0 };
+    });
+    race = { quick, entries, laps:currentRace.laps || 22, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:currentRace.weather || 'dry', tick:0, trackInfo:currentRace }; 
+    updateRaceHud();
+  }
+  function estimateCar(t){ const tier = t.tier==='top'?88:t.tier==='mid'?78:68; return { aero:tier, engine:tier, chassis:tier, reliability:tier, tyreWear:tier, pitStop:tier, fuel:tier }; }
+  function baseRaceSpeed(d,car){ const driver=((d.speed||70)+(d.consistency||70)+(d.overall||70))/3; const machine=((car.aero||60)+(car.engine||60)+(car.chassis||60))/3; return 0.026 + (driver + machine) / 7200; }
+  function requestPit(idx){ const ds = driversForTeam(state.currentTeam); const target = ds[idx]; if(!target || !race) return; const e = race.entries.find(x=>x.driver.short===target.short); if(e && !e.pitCooldown){ e.tyre = 100; e.condition = Math.min(100,e.condition+8); e.pits++; e.progress -= 0.055; e.pitCooldown = 8; e.lastAction = 'PIT'; updateRaceHud(); } }
+
+  function startRaceRenderer(){
+    if(!race) setupRace(true);
+    const stamp=document.getElementById('raceBuildStamp'); if(stamp) stamp.textContent=(DATA.build&&DATA.build.label)||'';
+    if(renderer3d) renderer3d.dispose();
+    renderer3d = new TrackRenderer3D($('#raceCanvas'), race);
+    renderer3d.animate();
+  }
+
+  class TrackRenderer3D{
+    constructor(canvas,race){
+      this.canvas=canvas; this.race=race; this.scene=new THREE.Scene(); this.scene.background=new THREE.Color(0x06101b);
+      this.camera=new THREE.PerspectiveCamera(55, canvas.clientWidth/canvas.clientHeight, .1, 1000); this.camera.position.set(0,32,32); this.camera.lookAt(0,0,0);
+      this.renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false}); this.renderer.setSize(canvas.clientWidth,canvas.clientHeight,false); this.renderer.setPixelRatio(Math.min(1.6,window.devicePixelRatio||1));
+      this.clock=new THREE.Clock(); this.cars=[]; this.trackPoints=this.createTrackPoints(); this.addLights(); this.addTrack(); this.addEnvironment(); this.addCars(); window.addEventListener('resize',()=>this.resize());
+    }
+    createTrackPoints(){
+      const info = this.race.trackInfo || DATA.calendar2026[state.roundIndex] || {};
+      const key = info.svgLayout || info.id;
+      const layouts = window.F1M_TRACK_LAYOUTS || {};
+      const layout = layouts[key];
+      if(layout && Array.isArray(layout.points) && layout.points.length > 20){
+        this.svgLayout = layout;
+        return layout.points.map(p => new THREE.Vector3(p[0], 0, p[1]));
+      }
+      // Fallback: Miami-inspired compact street layout.
+      const raw = [[-16,-7],[-12,-10],[-6,-11],[1,-10],[8,-7],[14,-4],[17,1],[14,6],[8,8],[2,7],[-3,4],[-8,3],[-14,5],[-18,2],[-19,-3]];
+      const pts=[];
+      for(let i=0;i<raw.length;i++){
+        const a=raw[i], b=raw[(i+1)%raw.length];
+        for(let j=0;j<12;j++){
+          const t=j/12; pts.push(new THREE.Vector3(a[0]*(1-t)+b[0]*t,0,a[1]*(1-t)+b[1]*t));
+        }
+      }
+      const curve = new THREE.CatmullRomCurve3(pts, true, 'centripetal', 0.45);
+      return curve.getPoints(260);
+    }
+    addLights(){
+      this.scene.add(new THREE.HemisphereLight(0xcfeaff,0x19332e,1.25));
+      const d=new THREE.DirectionalLight(0xffffff,2.2); d.position.set(-18,34,20); this.scene.add(d);
+      const fill=new THREE.DirectionalLight(0xff4b4b,.55); fill.position.set(18,12,-16); this.scene.add(fill);
+    }
+    addTrack(){
+      const info = this.race.trackInfo || {};
+      const theme = info.track || 'classic';
+      const groundColor = theme === 'desert' ? 0x8a6a3a : theme === 'street' ? 0x174a4b : theme === 'park' ? 0x1d6336 : 0x22513f;
+      const grass=new THREE.Mesh(new THREE.PlaneGeometry(82,54), new THREE.MeshStandardMaterial({color:groundColor,roughness:.9}));
+      grass.rotation.x=-Math.PI/2; grass.position.y=-.08; this.scene.add(grass);
+      const water=new THREE.Mesh(new THREE.PlaneGeometry(22,58), new THREE.MeshStandardMaterial({color:0x0097bd,roughness:.28,metalness:.08}));
+      water.rotation.x=-Math.PI/2; water.position.set(-31,-.06,0); this.scene.add(water);
+      const roadMat=new THREE.MeshStandardMaterial({color:0x16181d,roughness:.38,metalness:.04});
+      const edgeMat=new THREE.MeshStandardMaterial({color:0xdfe7ef,roughness:.52});
+      const curbRed=new THREE.MeshStandardMaterial({color:0xd10012,roughness:.42});
+      const curbWhite=new THREE.MeshStandardMaterial({color:0xf5f5f0,roughness:.42});
+      const barrierMat=new THREE.MeshStandardMaterial({color:0x9aa3b3,roughness:.5,metalness:.15});
+      const width=4.85, edgeWidth=.18;
+      const roadVerts=[], roadIdx=[], leftEdge=[], rightEdge=[];
+      for(let i=0;i<this.trackPoints.length;i++){
+        const p=this.trackPoints[i];
+        const prev=this.trackPoints[(i-1+this.trackPoints.length)%this.trackPoints.length];
+        const next=this.trackPoints[(i+1)%this.trackPoints.length];
+        const dir=next.clone().sub(prev).normalize();
+        const normal=new THREE.Vector3(-dir.z,0,dir.x).normalize();
+        const l=p.clone().add(normal.clone().multiplyScalar(width/2));
+        const r=p.clone().add(normal.clone().multiplyScalar(-width/2));
+        roadVerts.push(l.x,.02,l.z,r.x,.02,r.z);
+        leftEdge.push(l); rightEdge.push(r);
+      }
+      for(let i=0;i<this.trackPoints.length;i++){
+        const a=i*2,b=((i+1)%this.trackPoints.length)*2;
+        roadIdx.push(a,b,a+1,b,b+1,a+1);
+      }
+      const roadGeo=new THREE.BufferGeometry(); roadGeo.setAttribute('position',new THREE.Float32BufferAttribute(roadVerts,3)); roadGeo.setIndex(roadIdx); roadGeo.computeVertexNormals();
+      this.scene.add(new THREE.Mesh(roadGeo, roadMat));
+
+      const addRibbon=(edge,offset,mat,y=.05,w=edgeWidth)=>{
+        const verts=[],idx=[];
+        for(let i=0;i<edge.length;i++){
+          const p=this.trackPoints[i], e=edge[i];
+          const outward=e.clone().sub(p).normalize();
+          const a=e.clone().add(outward.clone().multiplyScalar(offset));
+          const b=e.clone().add(outward.clone().multiplyScalar(offset+w));
+          verts.push(a.x,y,a.z,b.x,y,b.z);
+        }
+        for(let i=0;i<edge.length;i++){ const a=i*2,b=((i+1)%edge.length)*2; idx.push(a,b,a+1,b,b+1,a+1); }
+        const geo=new THREE.BufferGeometry(); geo.setAttribute('position',new THREE.Float32BufferAttribute(verts,3)); geo.setIndex(idx); geo.computeVertexNormals();
+        this.scene.add(new THREE.Mesh(geo,mat));
+      };
+      addRibbon(leftEdge,.06,edgeMat); addRibbon(rightEdge,.06,edgeMat);
+
+      // Curbs and safety barriers as individual blocks following the road tangent.
+      for(let i=0;i<this.trackPoints.length;i+=6){
+        const p=this.trackPoints[i], next=this.trackPoints[(i+1)%this.trackPoints.length];
+        const prev=this.trackPoints[(i-1+this.trackPoints.length)%this.trackPoints.length];
+        const dir=next.clone().sub(prev).normalize();
+        const normal=new THREE.Vector3(-dir.z,0,dir.x).normalize();
+        [-1,1].forEach(side=>{
+          const base=p.clone().add(normal.clone().multiplyScalar(side*(width/2+.22)));
+          const curb=new THREE.Mesh(new THREE.BoxGeometry(.32,.08,1.08), (Math.floor(i/6)%2===0)?curbRed:curbWhite);
+          curb.position.set(base.x,.09,base.z); curb.rotation.y=Math.atan2(dir.x,dir.z); this.scene.add(curb);
+          if(i%18===0){
+            const barPos=p.clone().add(normal.clone().multiplyScalar(side*(width/2+1.25)));
+            const bar=new THREE.Mesh(new THREE.BoxGeometry(.22,.42,1.35),barrierMat);
+            bar.position.set(barPos.x,.26,barPos.z); bar.rotation.y=Math.atan2(dir.x,dir.z); this.scene.add(bar);
+          }
+        });
+      }
+
+      // Start/finish line and pit lane.
+      const sf=this.trackPoints[2], sfNext=this.trackPoints[5];
+      const sfDir=sfNext.clone().sub(sf).normalize();
+      const line=new THREE.Mesh(new THREE.BoxGeometry(width+.7,.09,.22),new THREE.MeshStandardMaterial({color:0xffffff,roughness:.2}));
+      line.position.set(sf.x,.12,sf.z); line.rotation.y=Math.atan2(sfDir.x,sfDir.z); this.scene.add(line);
+      const pitMat=new THREE.MeshStandardMaterial({color:0x2a2d36,roughness:.45});
+      for(let i=0;i<20;i++){
+        const t=i/20;
+        const p=new THREE.Vector3(3+t*17,0,-12.8+t*2.4);
+        const seg=new THREE.Mesh(new THREE.BoxGeometry(3.0,.07,.8),pitMat);
+        seg.position.set(p.x,.05,p.z); seg.rotation.y=1.42; this.scene.add(seg);
+      }
+    }
+    addEnvironment(){
+      const info = this.race.trackInfo || {};
+      const theme = info.track || 'classic';
+      const isStreet = theme === 'street';
+      const isDesert = theme === 'desert';
+      const isPark = theme === 'park';
+      const matConcrete=new THREE.MeshStandardMaterial({color:0xb9c1cc,roughness:.62,metalness:.04});
+      const matDark=new THREE.MeshStandardMaterial({color:0x2d3445,roughness:.58});
+      const matGlass=new THREE.MeshStandardMaterial({color:0x8fb7d7,roughness:.18,metalness:.25});
+      const matSand=new THREE.MeshStandardMaterial({color:0xc7a05c,roughness:.9});
+      const matGrass=new THREE.MeshStandardMaterial({color:0x1b7a3e,roughness:.86});
+      const matFence=new THREE.MeshStandardMaterial({color:0xd8dde8,roughness:.5,metalness:.18});
+
+      // Contexto visual por tipo de circuito: rua, deserto, parque ou clássico.
+      if(isDesert){
+        for(let i=0;i<38;i++){
+          const dune=new THREE.Mesh(new THREE.ConeGeometry(rnd(.8,2.4),rnd(.35,1.2),7),matSand);
+          dune.position.set(rnd(-38,38),.05,rnd(-24,24)); dune.scale.y=.25; this.scene.add(dune);
+        }
+      }
+      if(isPark){
+        for(let i=0;i<42;i++){
+          const tree=new THREE.Group();
+          const tr=new THREE.Mesh(new THREE.CylinderGeometry(.08,.13,1.35,6),new THREE.MeshStandardMaterial({color:0x6b4329}));
+          tr.position.y=.62; tree.add(tr);
+          const crown=new THREE.Mesh(new THREE.IcosahedronGeometry(.62,0),matGrass);
+          crown.position.y=1.42; tree.add(crown);
+          tree.position.set(rnd(-35,35),0,rnd(-22,22));
+          if(Math.abs(tree.position.x)<22 && Math.abs(tree.position.z)<14) continue;
+          this.scene.add(tree);
+        }
+      }
+
+      // Cidade/entorno principal.
+      const buildingCount = isStreet ? 34 : 18;
+      for(let i=0;i<buildingCount;i++){
+        const b=new THREE.Mesh(new THREE.BoxGeometry(rnd(1.2,3.6),rnd(1.2,isStreet?8.2:4.2),rnd(1.2,3.4)), i%4===0?matGlass:(i%3===0?matDark:matConcrete));
+        const side = i%2===0 ? 1 : -1;
+        b.position.set(side*rnd(23,39),b.geometry.parameters.height/2-.05,rnd(-23,23));
+        b.rotation.y=rnd(-.08,.08);
+        this.scene.add(b);
+      }
+
+      // Arquibancadas em múltiplos pontos, mais próximas do circuito.
+      const grandMat=new THREE.MeshStandardMaterial({color:0xcfd6e6,roughness:.52});
+      const seatMat=new THREE.MeshStandardMaterial({color:0x18223a,roughness:.66});
+      for(let i=0;i<10;i++){
+        const g=new THREE.Group();
+        const base=new THREE.Mesh(new THREE.BoxGeometry(4.6,.35,1.25),grandMat); base.position.y=.18; g.add(base);
+        for(let r=0;r<3;r++){ const row=new THREE.Mesh(new THREE.BoxGeometry(4.4,.18,.24),seatMat); row.position.set(0,.46+r*.22,-.42+r*.32); g.add(row); }
+        g.position.set(-15+i*3.4,.06,14.5+rnd(-.8,.8)); g.rotation.y=.06; this.scene.add(g);
+      }
+
+      // Pit building mais longo, boxes e torre de cronometragem.
+      const pitBase=new THREE.Mesh(new THREE.BoxGeometry(24,1.25,2.25),matConcrete);
+      pitBase.position.set(11,.6,-16.4); this.scene.add(pitBase);
+      const pitTop=new THREE.Mesh(new THREE.BoxGeometry(22,.65,1.45),matGlass);
+      pitTop.position.set(11,1.55,-16.4); this.scene.add(pitTop);
+      for(let i=0;i<12;i++){
+        const door=new THREE.Mesh(new THREE.BoxGeometry(1.4,.82,.08),matDark);
+        door.position.set(.5+i*1.8,.45,-15.22); this.scene.add(door);
+      }
+      const tower=new THREE.Mesh(new THREE.BoxGeometry(1.65,5.2,1.65),matDark);
+      tower.position.set(-2.8,2.55,-16.25); this.scene.add(tower);
+
+      // Passarelas e placas.
+      const gantryMat=new THREE.MeshStandardMaterial({color:0x111827,roughness:.35,metalness:.2});
+      for(let k=0;k<3;k++){
+        const p=this.trackPoints[Math.floor((k+.18)*this.trackPoints.length/3)%this.trackPoints.length];
+        const nxt=this.trackPoints[(Math.floor((k+.18)*this.trackPoints.length/3)+4)%this.trackPoints.length];
+        const dir=nxt.clone().sub(p).normalize();
+        const bridge=new THREE.Mesh(new THREE.BoxGeometry(6.4,.25,.35),gantryMat);
+        bridge.position.set(p.x,2.2,p.z); bridge.rotation.y=Math.atan2(dir.x,dir.z)+Math.PI/2; this.scene.add(bridge);
+        const l1=new THREE.Mesh(new THREE.BoxGeometry(.18,2.2,.18),gantryMat); l1.position.set(p.x+Math.cos(bridge.rotation.y)*3.0,1.1,p.z-Math.sin(bridge.rotation.y)*3.0); this.scene.add(l1);
+        const l2=l1.clone(); l2.position.set(p.x-Math.cos(bridge.rotation.y)*3.0,1.1,p.z+Math.sin(bridge.rotation.y)*3.0); this.scene.add(l2);
+      }
+
+      // Palmeiras/vegetação urbanas, sem bloquear o traçado.
+      const palmMat=new THREE.MeshStandardMaterial({color:0x0f7738}); const trunkMat=new THREE.MeshStandardMaterial({color:0x6b4329});
+      for(let i=0;i<30;i++){ const x=rnd(-35,30), z=rnd(-23,23); if(Math.abs(x)<22 && Math.abs(z)<14) continue; const tr=new THREE.Mesh(new THREE.CylinderGeometry(.07,.11,1.45,6),trunkMat); tr.position.set(x,.65,z); this.scene.add(tr); const top=new THREE.Mesh(new THREE.ConeGeometry(.58,1.08,7),palmMat); top.position.set(x,1.48,z); this.scene.add(top); }
+
+      // Cercas e muretas de proteção externas.
+      for(let i=0;i<this.trackPoints.length;i+=14){
+        const p=this.trackPoints[i], prev=this.trackPoints[(i-1+this.trackPoints.length)%this.trackPoints.length], next=this.trackPoints[(i+1)%this.trackPoints.length];
+        const dir=next.clone().sub(prev).normalize();
+        const normal=new THREE.Vector3(-dir.z,0,dir.x).normalize();
+        [-1,1].forEach(side=>{
+          const pos=p.clone().add(normal.clone().multiplyScalar(side*4.4));
+          const fence=new THREE.Mesh(new THREE.BoxGeometry(.12,.75,1.35),matFence);
+          fence.position.set(pos.x,.42,pos.z); fence.rotation.y=Math.atan2(dir.x,dir.z); this.scene.add(fence);
+        });
+      }
+    }
+    addCars(){ this.race.entries.forEach((e,i)=>{ const car=this.makeCar(e.color,e.secondary); this.scene.add(car); this.cars.push(car); this.placeCar(car,e,i); }); }
+    makeCar(color,secondary){
+      const g=new THREE.Group();
+      const mainMat=new THREE.MeshStandardMaterial({color,roughness:.28,metalness:.16});
+      const secMat=new THREE.MeshStandardMaterial({color:secondary||0x111111,roughness:.35,metalness:.08});
+      const blackMat=new THREE.MeshStandardMaterial({color:0x050509,roughness:.55});
+      const tireMat=new THREE.MeshStandardMaterial({color:0x050505,roughness:.78});
+      const body=new THREE.Mesh(new THREE.BoxGeometry(.72,.28,1.55),mainMat); body.position.y=.28; g.add(body);
+      const sidepodL=new THREE.Mesh(new THREE.BoxGeometry(.34,.18,.82),mainMat); sidepodL.position.set(-.38,.24,-.08); g.add(sidepodL);
+      const sidepodR=sidepodL.clone(); sidepodR.position.x=.38; g.add(sidepodR);
+      const nose=new THREE.Mesh(new THREE.BoxGeometry(.30,.18,1.35),mainMat); nose.position.set(0,.25,1.32); g.add(nose);
+      const cockpit=new THREE.Mesh(new THREE.BoxGeometry(.40,.25,.42),blackMat); cockpit.position.set(0,.53,.08); g.add(cockpit);
+      const halo=new THREE.Mesh(new THREE.TorusGeometry(.28,.025,6,18,Math.PI),secMat); halo.position.set(0,.67,.18); halo.rotation.x=Math.PI/2; g.add(halo);
+      const fw=new THREE.Mesh(new THREE.BoxGeometry(1.7,.07,.30),secMat); fw.position.set(0,.16,2.03); g.add(fw);
+      const rw=new THREE.Mesh(new THREE.BoxGeometry(1.45,.18,.22),secMat); rw.position.set(0,.62,-.98); g.add(rw);
+      const beam=new THREE.Mesh(new THREE.BoxGeometry(.12,.45,.12),secMat); beam.position.set(0,.43,-1.02); g.add(beam);
+      [[-.62,.25,.62],[.62,.25,.62],[-.62,.25,-.68],[.62,.25,-.68]].forEach((p,idx)=>{
+        const w=new THREE.Mesh(new THREE.CylinderGeometry(.24,.24,.18,18),tireMat); w.rotation.z=Math.PI/2; w.position.set(...p); g.add(w);
+        const rim=new THREE.Mesh(new THREE.CylinderGeometry(.11,.11,.19,14),secMat); rim.rotation.z=Math.PI/2; rim.position.set(...p); g.add(rim);
+      });
+      const stripe=new THREE.Mesh(new THREE.BoxGeometry(.08,.025,1.75),secMat); stripe.position.set(0,.435,.2); g.add(stripe);
+      g.scale.set(.78,.78,.78); return g;
+    }
+    placeCar(car,e,offset){ const prog=(e.progress%1+1)%1; const exact=prog*this.trackPoints.length; const i=Math.floor(exact)%this.trackPoints.length; const j=(i+1)%this.trackPoints.length; const p=this.trackPoints[i].clone().lerp(this.trackPoints[j],exact-i); const n=this.trackPoints[j]; car.position.copy(p); car.position.y=.25+(offset%2)*.04; car.rotation.y=Math.atan2(n.x-p.x,n.z-p.z); }
+    animate(){ if(!this.renderer) return; requestAnimationFrame(()=>this.animate()); const dt=Math.min(.033,this.clock.getDelta()); updateRaceSimulation(dt); this.race.entries.forEach((e,i)=>this.placeCar(this.cars[i],e,i)); this.renderer.render(this.scene,this.camera); }
+    resize(){ if(!this.renderer) return; const w=this.canvas.clientWidth,h=this.canvas.clientHeight; this.camera.aspect=w/h; this.camera.updateProjectionMatrix(); this.renderer.setSize(w,h,false); }
+    dispose(){ if(this.renderer){ this.renderer.dispose(); this.renderer=null; } }
+  }
+
+  function updateRaceSimulation(dt){
+    if(!race) return; race.tick += dt*race.speed;
+    race.entries.forEach((e)=>{
+      const isPlayer = isPlayerDriver(e.driver.short); if(isPlayer){ const ds=driversForTeam(state.currentTeam); const pidx=ds.findIndex(d=>d.short===e.driver.short); e.pace = race.playerPace[pidx] || 'normal'; }
+      const paceMul = e.pace==='attack'?1.12:e.pace==='save'?0.93:1;
+      const tyreMul = 0.84 + e.tyre/100*0.22; const condMul = 0.82 + e.condition/100*0.2;
+      e.progress += e.baseSpeed * paceMul * tyreMul * condMul * dt * race.speed;
+      e.distance = e.progress;
+      e.tyre = Math.max(0,e.tyre - dt*race.speed*(e.pace==='attack'?0.16:e.pace==='save'?0.07:0.1));
+      e.fuel = Math.max(0,e.fuel - dt*race.speed*(e.pace==='attack'?0.13:e.pace==='save'?0.07:0.1));
+      e.condition = Math.max(0,e.condition - dt*race.speed*(100-(state.car.reliability||70))/2500); if(e.pitCooldown) e.pitCooldown = Math.max(0, e.pitCooldown - dt*race.speed);
+      e.lap = Math.min(race.laps, Math.floor(e.progress)+1);
+      e.totalTime += dt*race.speed*(1 + (100-e.tyre)/650);
+    });
+    race.entries.sort((a,b)=>b.distance-a.distance); race.entries.forEach((e,i)=>e.pos=i+1);
+    updateRaceHud();
+    if(race.entries.some(e=>e.progress>=race.laps)) finishRace();
+  }
+  function driverAvatarHTML(d){
+    return `<span class="race-avatar">${d.portrait ? `<img data-asset-src="${d.portrait}" alt="${d.short}"/>` : ''}<b class="fallback-badge" style="display:${d.portrait ? 'none':'flex'}">${initials(d.short)}</b></span>`;
+  }
+  function updateRaceHud(){
+    if(!race) return;
+    $('#lapLabel').textContent = `VOLTA ${Math.max(...race.entries.map(e=>e.lap))}/${race.laps}`;
+    if($('#raceTitle')) $('#raceTitle').textContent = race.trackInfo ? race.trackInfo.name : 'CORRIDA';
+    if($('#weatherLabel')) $('#weatherLabel').textContent = race.weather === 'variable' ? '☁ Variável' : '☀ Seco';
+    if($('#raceBuildStamp')) $('#raceBuildStamp').textContent = (DATA.build&&DATA.build.label)||'';
+    if($('#speedLabel')) $('#speedLabel').textContent = race.speed;
+    $('#raceLeaderboard').innerHTML = race.entries.slice(0,22).map((e,i)=>`<div class="race-row ${isPlayerDriver(e.driver.short)?'highlight':''}"><span class="race-pos">${i+1}</span>${driverAvatarHTML(e.driver)}${teamLogoHTML(e.team,'team-logo-mini')}<span class="race-name"><b>${e.driver.short}</b><small>${e.team.name}</small></span><span class="race-tyre">${Math.round(e.tyre)}%</span><span class="race-pits">${e.pits}P</span></div>`).join('');
+    hydrateAssets($('#raceLeaderboard'));
+    const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const card=document.getElementById(`controlCard${i+1}`), name=document.getElementById(`controlDriver${i+1}`), cond=document.getElementById(`cond${i+1}`); if(e){ if(name) name.innerHTML = `<span class="control-head">${driverAvatarChip(d,'driver-avatar-inline small')}${teamLogoHTML(teamById(d.team),'team-logo-inline small')}<span><b>${e.pos}º | ${d.short}</b><small>${teamById(d.team).name}</small></span></span>`; if(cond) cond.style.width = `${Math.round(e.condition)}%`; if(card){ card.querySelectorAll('[data-pace]').forEach(btn=>btn.classList.toggle('active', btn.dataset.pace === (race.playerPace[i]||'normal'))); const status=card.querySelector('.pilot-status') || document.createElement('div'); status.className='pilot-status'; status.textContent = `Modo: ${(race.playerPace[i]||'normal').toUpperCase()} • Pneu ${Math.round(e.tyre)}% • Pit ${e.pits}`; if(!status.parentElement) card.appendChild(status); hydrateAssets(card); } } });
+  }
+  function finishRace(){
+    if(!race) return;
+    race.entries.sort((a,b)=>b.distance-a.distance);
+    state.lastRace = race.entries.map((e,i)=>({pos:i+1, driver:e.driver.short, team:e.team.id, teamName:e.team.name, points:DATA.points[i]||0, pits:e.pits }));
+    state.lastRace.forEach((r,i)=>{ if(state.f1Standings[r.driver]){ state.f1Standings[r.driver].points += r.points; if(i===0) state.f1Standings[r.driver].wins++; if(i<3) state.f1Standings[r.driver].podiums++; } });
+    state.completedRaces++; state.roundIndex = Math.min(DATA.calendar2026.length-1,state.roundIndex+1);
+    const bestPlayer = state.lastRace.filter(r=>driversForTeam(state.currentTeam).some(d=>d.short===r.driver)).sort((a,b)=>a.pos-b.pos)[0];
+    if(bestPlayer){ state.reputation += Math.max(0,12-bestPlayer.pos)*.8; state.money += (state.sponsor?.raceBonus || 120000) + Math.max(0,12-bestPlayer.pos)*50000; updateCareerOffers(bestPlayer); }
+    saveState(); renderResults(); race=null; showScreen('results');
+  }
+  function updateCareerOffers(bestPlayer){
+    if(!bestPlayer) return;
+    const rep = state.reputation || 0;
+    const unlocked = [];
+    if(state.currentSeries === 'F2' && rep >= 42) unlocked.push('F1 Baixa');
+    if(state.currentSeries === 'F1' && rep >= 62) unlocked.push('F1 Média');
+    if(state.currentSeries === 'F1' && rep >= 82) unlocked.push('F1 Grande');
+    state.offers = unlocked.map(level => ({ level, round: state.completedRaces, text:`Convite disponível: ${level}` }));
+  }
+
+  function renderResults(){
+    setScreenBg('screen-results', DATA.assetPaths.podium);
+    const top3 = state.lastRace.slice(0,3);
+    const podiumEl = document.getElementById('podiumHighlights');
+    if(podiumEl){
+      podiumEl.innerHTML = top3.map((r,idx)=>{
+        const d = driverByShort(r.driver) || {short:r.driver,name:r.driver,portrait:''};
+        const team = teamById(r.team);
+        const heights = ['second','first','third'];
+        const cls = idx===0 ? 'first' : idx===1 ? 'second' : 'third';
+        return `<article class="podium-card glass-panel ${cls}"><div class="podium-pos">${r.pos}º</div><div class="podium-driver">${driverAvatarChip(d,'driver-avatar-inline podium')}${teamLogoHTML(team,'team-logo-inline podium')}</div><h4>${d.short}</h4><p>${team ? team.name : r.teamName}</p><strong>${r.points} pts</strong></article>`;
+      }).join('');
+    }
+    $('#resultList').innerHTML = state.lastRace.map(r=>{ const d = driverByShort(r.driver) || {short:r.driver,name:r.driver,portrait:''}; const t = teamById(r.team); return `<div class="row rich-row ${isPlayerDriver(r.driver)?'highlight':''}"><span class="pos-cell">${r.pos}</span><span class="driver-cell">${driverAvatarChip(d)}<span class="driver-text"><b>${d.short}</b><small>${d.name}</small></span></span><span class="team-cell">${teamLogoHTML(t)}<span>${r.teamName}</span></span><span class="time-cell">${r.points} pts</span></div>`; }).join('');
+    const st = Object.values(state.f1Standings).sort((a,b)=>b.points-a.points).slice(0,22);
+    $('#championshipList').innerHTML = st.map((r,i)=>{ const d = driverByShort(r.driver) || {short:r.driver,name:r.driver,portrait:''}; const t = teamById(r.team); return `<div class="row rich-row ${isPlayerDriver(r.driver)?'highlight':''}"><span class="pos-cell">${i+1}</span><span class="driver-cell">${driverAvatarChip(d)}<span class="driver-text"><b>${r.driver}</b><small>${t ? t.name : ''}</small></span></span><span class="team-cell">${teamLogoHTML(t)}<span>${t ? t.name : ''}</span></span><span class="time-cell">${r.points} pts</span></div>`; }).join('');
+    hydrateAssets(document.getElementById('screen-results'));
+  }
+
+  function renderAssetChecklist(){
+    const items = [
+      ...Object.entries(DATA.assetPaths).map(([k,v])=>({key:k, path:v})),
+      ...DATA.avatars.slice(0,3).map((v,i)=>({key:`avatar_${i+1}`, path:v})),
+      ...DATA.f1Teams2026.slice(0,3).map(t=>({key:`logo_${t.id}`, path:t.logo}))
+    ];
+    $('#assetChecklist').innerHTML = items.map(x=>`<div class="asset-item"><span>${x.key}</span><code>${assetCandidates(x.path).join(' | ')}</code></div>`).join('');
+  }
+
   init();
-}
-console.log('[ValeChess] Build inicializada:', BUILD.label);
+})();

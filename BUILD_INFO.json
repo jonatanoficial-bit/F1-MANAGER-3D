@@ -1,0 +1,11 @@
+{
+  "version": "0.9.0",
+  "date": "06/05/2026",
+  "time_brt": "16:39",
+  "timezone": "America/Sao_Paulo",
+  "label": "Build v0.9.0 • 06/05/2026 • 16:39 BRT",
+  "created_at": "2026-05-06T16:39:13.377525-03:00",
+  "playable_svg_tracks": 25,
+  "race_speed": "corrida acelerada: baseSpeed revisado e botões 1x/4x/12x/24x",
+  "visual_update": "Tema vermelho cinematográfico; classificação/corrida/pódio com avatar do piloto e logo da equipe."
+}
