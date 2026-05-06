@@ -1,9 +1,0 @@
-Vale Chess 3D Career - Build v0.3.2
-Data: 2026-05-05 11:18 BRT
-
-Correcoes desta build:
-1. Tabuleiro 3D limpo: removidos aros, hastes/colunas e formas extras que poluiam a visualizacao.
-2. Mantido o fundo/arena cinematografico atras do tabuleiro, mas sem objetos 3D adicionais interferindo na leitura.
-3. Interacao corrigida: toque/clique curto seleciona peca e casa; arrastar de verdade gira a camera.
-4. Separacao de raycast: primeiro procura pecas, depois casas do tabuleiro, reduzindo falhas de selecao.
-5. Arquivos com cache-busting: script-v032.js e style-v032.css.
