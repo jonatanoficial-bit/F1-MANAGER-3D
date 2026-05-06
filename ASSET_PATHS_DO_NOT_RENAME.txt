@@ -1,0 +1,433 @@
+VALE CHESS 3D CAREER - MANIFESTO DE ASSETS
+Versao da biblioteca: assets-v0.1.0
+Regra fixa: nao renomear caminhos aprovados. Futuras builds devem apontar exatamente para estes caminhos.
+
+[avatars/extra] extra_avatar_01
+CAMINHO: assets/avatars/extra/extra_avatar_01.png
+ORIGEM: ChatGPT_Image_22_de_abr._de_2026__19_30_02-removebg-preview.png
+NOTAS: Avatar/recorte extra enviado pelo usuario.
+
+[avatars/extra] extra_avatar_02
+CAMINHO: assets/avatars/extra/extra_avatar_02.png
+ORIGEM: ChatGPT_Image_22_de_abr._de_2026__19_30_06-removebg-preview.png
+NOTAS: Avatar/recorte extra enviado pelo usuario.
+
+[avatars/extra] extra_avatar_03
+CAMINHO: assets/avatars/extra/extra_avatar_03.png
+ORIGEM: ChatGPT_Image_22_de_abr._de_2026__19_30_08-removebg-preview.png
+NOTAS: Avatar/recorte extra enviado pelo usuario.
+
+[avatars/extra] extra_avatar_04
+CAMINHO: assets/avatars/extra/extra_avatar_04.png
+ORIGEM: ChatGPT_Image_22_de_abr._de_2026__19_30_12-removebg-preview.png
+NOTAS: Avatar/recorte extra enviado pelo usuario.
+
+[avatars/player] avatar_01
+CAMINHO: assets/avatars/player/avatar_01.png
+ORIGEM: avatar1.png
+NOTAS: Avatar do jogador enviado pelo usuario.
+
+[avatars/player] avatar_02
+CAMINHO: assets/avatars/player/avatar_02.png
+ORIGEM: avatar2.png
+NOTAS: Avatar do jogador enviado pelo usuario.
+
+[avatars/player] avatar_03
+CAMINHO: assets/avatars/player/avatar_03.png
+ORIGEM: avatar3.png
+NOTAS: Avatar do jogador enviado pelo usuario.
+
+[avatars/player] avatar_04
+CAMINHO: assets/avatars/player/avatar_04.png
+ORIGEM: avatar4.png
+NOTAS: Avatar do jogador enviado pelo usuario.
+
+[avatars/player] avatar_05
+CAMINHO: assets/avatars/player/avatar_05.png
+ORIGEM: avatar5.png
+NOTAS: Avatar do jogador enviado pelo usuario.
+
+[avatars/player] avatar_06
+CAMINHO: assets/avatars/player/avatar_06.png
+ORIGEM: avatar6.png
+NOTAS: Avatar do jogador enviado pelo usuario.
+
+[avatars/player] avatar_07
+CAMINHO: assets/avatars/player/avatar_07.png
+ORIGEM: avatar7.png
+NOTAS: Avatar do jogador enviado pelo usuario.
+
+[avatars/player] avatar_08
+CAMINHO: assets/avatars/player/avatar_08.png
+ORIGEM: avatar8.png
+NOTAS: Avatar do jogador enviado pelo usuario.
+
+[backgrounds/career] career_dashboard
+CAMINHO: assets/backgrounds/career/career_dashboard_16x9.png
+ORIGEM: a_wide_cinematic_ultra_detailed_interior_scene_o.png
+NOTAS: Fundo do dashboard da carreira, horizontal 16:9.
+
+[backgrounds/lobby] lobby_main
+CAMINHO: assets/backgrounds/lobby/lobby_main_16x9.png
+ORIGEM: elegant_chess_hall_in_golden_light.png
+NOTAS: Fundo principal do lobby, horizontal 16:9, sem texto.
+
+[backgrounds/profile] profile_creation
+CAMINHO: assets/backgrounds/profile/profile_creation_16x9.png
+ORIGEM: elegant_chess_themed_palace_interior.png
+NOTAS: Fundo da criacao de perfil, horizontal 16:9.
+
+[backgrounds/results] defeat
+CAMINHO: assets/backgrounds/results/defeat_16x9.png
+ORIGEM: a_dramatic_cinematic_highly_detailed_3d_rendered.png
+NOTAS: Fundo de derrota, horizontal 16:9.
+
+[backgrounds/results] victory
+CAMINHO: assets/backgrounds/results/victory_16x9.png
+ORIGEM: a_grand_cinematic_golden_trophy_hall_royal_thr.png
+NOTAS: Fundo de vitoria, horizontal 16:9.
+
+[branding] chess_crest_logo
+CAMINHO: assets/branding/chess_crest_logo.png
+ORIGEM: luxurious_chess_king_crest_emblem.png
+NOTAS: Brasao/logo visual sem texto.
+
+[competitions/logos] amateur_league_logo
+CAMINHO: assets/competitions/logos/amateur_league_logo.png
+ORIGEM: a_detailed_highly_polished_emblem_badge_scene_a.png
+NOTAS: Logo Liga Amadora: peao.
+
+[competitions/logos] continental_logo
+CAMINHO: assets/competitions/logos/continental_logo.png
+ORIGEM: a_highly_detailed_regal_emblem_crest_badge_portra.png
+NOTAS: Logo Continental: cavalo.
+
+[competitions/logos] professional_league_logo
+CAMINHO: assets/competitions/logos/professional_league_logo.png
+ORIGEM: a_highly_detailed_polished_3d_emblem_badge_on_a_d.png
+NOTAS: Logo Liga Profissional: torre.
+
+[competitions/logos] world_championship_logo
+CAMINHO: assets/competitions/logos/world_championship_logo.png
+ORIGEM: a_highly_detailed_luxurious_emblem_crest_on_a_dar.png
+NOTAS: Logo Mundial: rei.
+
+[competitions/trophies] amateur_trophy
+CAMINHO: assets/competitions/trophies/amateur_trophy.png
+ORIGEM: a_clean_highly_polished_3d_rendered_emblem_trophy.png
+NOTAS: Trofeu Amador: peao.
+
+[competitions/trophies] continental_trophy
+CAMINHO: assets/competitions/trophies/continental_trophy.png
+ORIGEM: a_highly_detailed_high_resolution_digital_illustr.png
+NOTAS: Trofeu Continental: cavalo.
+
+[competitions/trophies] professional_trophy
+CAMINHO: assets/competitions/trophies/professional_trophy.png
+ORIGEM: a_hyper_detailed_highly_polished_3d_render_game.png
+NOTAS: Trofeu Profissional: torre.
+
+[competitions/trophies] world_trophy
+CAMINHO: assets/competitions/trophies/world_trophy.png
+ORIGEM: a_clean_highly_detailed_photorealistic_illustrat.png
+NOTAS: Trofeu Mundial: rei.
+
+[flags/world] flag_australia
+CAMINHO: assets/flags/world/australia.png
+ORIGEM: australia.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_bahrain
+CAMINHO: assets/flags/world/bahrain.png
+ORIGEM: bahrain.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_belgium
+CAMINHO: assets/flags/world/belgium.png
+ORIGEM: belgium.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_brazil
+CAMINHO: assets/flags/world/brazil.png
+ORIGEM: brazil.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_canada
+CAMINHO: assets/flags/world/canada.png
+ORIGEM: canada.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_china
+CAMINHO: assets/flags/world/china.png
+ORIGEM: china.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_hungary
+CAMINHO: assets/flags/world/hungary.png
+ORIGEM: hungary.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_italy
+CAMINHO: assets/flags/world/italy.png
+ORIGEM: italy.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_japan
+CAMINHO: assets/flags/world/japan.png
+ORIGEM: japan.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_mexico
+CAMINHO: assets/flags/world/mexico.png
+ORIGEM: mexico.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_monaco
+CAMINHO: assets/flags/world/monaco.png
+ORIGEM: monaco.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_netherlands
+CAMINHO: assets/flags/world/netherlands.png
+ORIGEM: netherlands.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_qatar
+CAMINHO: assets/flags/world/qatar.png
+ORIGEM: qatar.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_saudi_arabia
+CAMINHO: assets/flags/world/saudi_arabia.png
+ORIGEM: saudi_arabia.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_singapore
+CAMINHO: assets/flags/world/singapore.png
+ORIGEM: singapore.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_spain
+CAMINHO: assets/flags/world/spain.png
+ORIGEM: spain.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_uae
+CAMINHO: assets/flags/world/uae.png
+ORIGEM: uae.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_uk
+CAMINHO: assets/flags/world/uk.png
+ORIGEM: uk.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[flags/world] flag_usa
+CAMINHO: assets/flags/world/usa.png
+ORIGEM: usa.png
+NOTAS: Bandeira enviada pelo usuario.
+
+[raw/chatgpt_generated_archive] generated_archive_001
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_001_a_clean_highly_detailed_ui_game_menu_backgrou.png
+ORIGEM: a_clean_highly_detailed_ui_game_menu_background_i.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_002
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_002_a_dark_dramatic_opulent_ui_game_like_scene_a_.png
+ORIGEM: a_dark_dramatic_opulent_ui_game_like_scene_a_ta.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_003
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_003_a_dark_luxurious_dramatic_throne_room_or_gran.png
+ORIGEM: a_dark_luxurious_dramatic_throne_room_or_grand_h.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_004
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_004_a_detailed_cinematic_ui_game_dashboard_scene_.png
+ORIGEM: a_detailed_cinematic_ui_game_dashboard_scene_with.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_005
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_005_a_dramatic_cinematic_grand_hall_interior_scen.png
+ORIGEM: a_dramatic_cinematic_grand_hall_interior_scene_n.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_006
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_006_a_dramatic_cinematic_interior_scene_of_a_luxu.png
+ORIGEM: a_dramatic_cinematic_interior_scene_of_a_luxuriou.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_007
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_007_a_dramatic_highly_detailed_3d_emblem_crest_il.png
+ORIGEM: a_dramatic_highly_detailed_3d_emblem_crest_illust.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_008
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_008_a_grand_cinematic_luxurious_throne_hall_palac.png
+ORIGEM: a_grand_cinematic_luxurious_throne_hall_palace.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_009
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_009_a_highly_detailed_cinematic_3d_emblem_crest_r.png
+ORIGEM: a_highly_detailed_cinematic_3d_emblem_crest_rende.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_010
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_010_a_highly_detailed_glossy_ultra_sharp_3d_vecto.png
+ORIGEM: a_highly_detailed_glossy_ultra_sharp_3d_vector_c.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_011
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_011_a_highly_detailed_hyper_detailed_3d_illustrat.png
+ORIGEM: a_highly_detailed_hyper_detailed_3d_illustration.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_012
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_012_a_highly_detailed_photorealistic_3d_render_em.png
+ORIGEM: a_highly_detailed_photorealistic_3d_render_embl.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_013
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_013_a_single_highly_detailed_ornate_game_card_ui_.png
+ORIGEM: a_single_highly_detailed_ornate_game_card_ui_frame.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_014
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_014_a_single_intricate_game_card_ui_frame_or_play.png
+ORIGEM: a_single_intricate_game_card_ui_frame_or_player_ca.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_015
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_015_a_wide_cinematic_high_detail_interior_scene_a.png
+ORIGEM: a_wide_cinematic_high_detail_interior_scene_a_l.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_016
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_016_a_wide_cinematic_mobile_game_main_menu_lobby_.png
+ORIGEM: a_wide_cinematic_mobile_game_main_menu_lobby_sc.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_017
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_017_a_wide_cinematic_ultra_detailed_interior_of_a.png
+ORIGEM: a_wide_cinematic_ultra_detailed_interior_of_a_gr.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_018
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_018_a_wide_cinematic_ultra_detailed_interior_view.png
+ORIGEM: a_wide_cinematic_ultra_detailed_interior_view_of.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_019
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_019_chess_themed_grand_hall_trophy_room.png
+ORIGEM: chess_themed_grand_hall_trophy_room.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_020
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_020_regal_chess_hall_with_golden_accents.png
+ORIGEM: regal_chess_hall_with_golden_accents.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/chatgpt_generated_archive] generated_archive_021
+CAMINHO: assets/raw/chatgpt_generated_archive/generated_archive_021_regal_trophy_hall_with_chess_pieces.png
+ORIGEM: regal_trophy_hall_with_chess_pieces.png
+NOTAS: Imagem gerada no chat, arquivada para selecao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_001
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_001_chatgpt_image_2_de_mai_de_2026_12_15_46.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 12_15_46.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_002
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_002_chatgpt_image_2_de_mai_de_2026_12_15_50.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 12_15_50.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_003
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_003_chatgpt_image_2_de_mai_de_2026_12_15_53.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 12_15_53.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_004
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_004_chatgpt_image_2_de_mai_de_2026_12_15_56.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 12_15_56.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_005
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_005_chatgpt_image_2_de_mai_de_2026_12_15_59.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 12_15_59.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_006
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_006_chatgpt_image_2_de_mai_de_2026_12_16_02.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 12_16_02.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_007
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_007_chatgpt_image_2_de_mai_de_2026_12_16_04.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 12_16_04.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_008
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_008_chatgpt_image_2_de_mai_de_2026_12_16_08.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 12_16_08.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_009
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_009_chatgpt_image_2_de_mai_de_2026_12_16_11.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 12_16_11.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_010
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_010_chatgpt_image_2_de_mai_de_2026_13_11_34.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 13_11_34.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_011
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_011_chatgpt_image_2_de_mai_de_2026_13_31_58.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 13_31_58.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_012
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_012_chatgpt_image_2_de_mai_de_2026_13_32_01.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 13_32_01.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_013
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_013_chatgpt_image_2_de_mai_de_2026_13_32_05.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 13_32_05.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_014
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_014_chatgpt_image_2_de_mai_de_2026_13_32_19.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 13_32_19.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_015
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_015_chatgpt_image_2_de_mai_de_2026_13_41_20.png
+ORIGEM: ChatGPT Image 2 de mai. de 2026, 13_41_20.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_016
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_016_chatgpt_image_4_de_mai_de_2026_09_36_56.png
+ORIGEM: ChatGPT Image 4 de mai. de 2026, 09_36_56.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_017
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_017_chatgpt_image_4_de_mai_de_2026_09_37_02.png
+ORIGEM: ChatGPT Image 4 de mai. de 2026, 09_37_02.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_018
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_018_chatgpt_image_4_de_mai_de_2026_09_37_35.png
+ORIGEM: ChatGPT Image 4 de mai. de 2026, 09_37_35.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[raw/uploaded_unsorted] uploaded_unsorted_019
+CAMINHO: assets/raw/uploaded_unsorted/uploaded_unsorted_019_b31430b0_3207_47c1_b779_ff93ef815112.png
+ORIGEM: b31430b0-3207-47c1-b779-ff93ef815112.png
+NOTAS: Imagem enviada no ZIP original, mantida para classificacao posterior.
+
+[ui/cards] player_card_horizontal
+CAMINHO: assets/ui/cards/player_card_horizontal.png
+ORIGEM: a_highly_detailed_polished_fantasy_game_ui_frame.png
+NOTAS: Moldura horizontal de card de jogador.

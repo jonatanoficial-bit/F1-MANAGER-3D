@@ -1,0 +1,11 @@
+Vale Chess 3D Career - Sistema de Temporadas v0.4.0
+
+1. Cada campeonato agora possui temporada com rodadas.
+2. Liga nacional usa adversarios do pais escolhido.
+3. Continental usa paises do mesmo continente.
+4. Mundial usa todos os paises.
+5. Vitoria vale 3 pontos, empate 1, derrota 0.
+6. Ao final da temporada, o primeiro colocado vira campeao.
+7. Se o jogador for campeao, recebe premio, reputacao e titulo.
+8. A tabela fica salva no localStorage junto da carreira.
+9. Esta build preserva o protocolo anti-quebra da v0.3.6.

@@ -1,0 +1,25 @@
+PROTOCOLO ANTI-QUEBRA - VALE CHESS 3D CAREER
+
+Regra fixa para proximas builds:
+1. Nunca remover o build visivel no topo.
+2. Sempre gerar ZIP completo do jogo inteiro, sem reenviar assets pesados quando os caminhos ja estiverem no manifesto.
+3. Sempre usar novo nome de JS/CSS para evitar cache: script-vXXX.js e style-vXXX.css.
+4. Nao alterar a estrutura base das telas sem manter IDs existentes: coverScreen, modeScreen, profileScreen, lobbyScreen, careerScreen, gameScreen, resultScreen.
+5. Antes de mudar gameplay, preservar: selecao de peca, movimento, IA das pretas, fim de partida, save e retorno ao lobby.
+6. Toda funcao critica deve ter fallback ou try/catch: init, startMatch, updateBoard, makeAiMove, showResult, persist.
+7. Se Three.js falhar, jogo deve abrir fallback 2D.
+8. Se assets externos nao existirem, layout nao pode quebrar; usar fallback visual.
+9. Se save antigo estiver incompleto, reparar automaticamente.
+10. Xeque, xeque-mate, empate, vitoria, derrota e empate devem sempre atualizar HUD e resultado.
+
+Checklist manual apos subir build:
+- Topo mostra a versao correta.
+- Novo jogo abre modos.
+- Perfil salva e vai ao lobby.
+- Modo carreira lista campeonatos.
+- Partida abre tabuleiro.
+- Clique curto seleciona peca.
+- Arrastar gira camera.
+- IA joga com as pretas.
+- Resultado aparece ao terminar.
+- Voltar ao lobby funciona.

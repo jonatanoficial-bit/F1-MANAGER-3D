@@ -1,0 +1,9 @@
+Vale Chess 3D Career - Build v0.4.1
+
+Sistema de ranking offline adicionado:
+1. Ranking nacional baseado no país escolhido pelo jogador.
+2. Ranking continental baseado no continente do país escolhido.
+3. Ranking mundial com mistura global de países.
+4. Rankings calculados por rating, reputação, títulos e histórico.
+5. Rankings aparecem no lobby, nos cards de estatísticas e nos cards de campeonato.
+6. O sistema não depende de backend e está preparado para futuramente sincronizar ranking online via Firebase.

@@ -1,0 +1,8 @@
+Vale Chess 3D Career - Build v0.3.4
+
+1. Corrigido travamento da IA em turno das pretas com agendador robusto e fallback de jogada.
+2. Adicionados helpers compatíveis com chess.js antigo e novo para xeque, xeque-mate, empate e fim de jogo.
+3. HUD sinaliza XEQUE e Xeque-mate corretamente.
+4. Vitória, derrota e empate abrem tela final visível.
+5. Vitória/derrota são contabilizadas na carreira; empate concede pequeno bônus de rating.
+6. Arquivos com cache-busting: script-v034.js e style-v034.css.

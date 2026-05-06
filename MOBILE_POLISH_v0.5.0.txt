@@ -1,0 +1,9 @@
+Build v0.5.0 - Polimento mobile
+
+1. Botao flutuante de tela cheia.
+2. Tentativa de fullscreen e landscape apos toque do usuario.
+3. Tutorial rapido de controles em mobile.
+4. Ajuste dinamico de viewport com --vh para celulares.
+5. Bloqueio de scroll involuntario ao arrastar o tabuleiro.
+6. HUD da partida compacto em landscape baixo.
+7. Mantido nucleo de partida, rankings, temporada e protocolo anti-quebra.

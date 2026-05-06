@@ -1,11 +1,11 @@
 /*
   Vale Chess 3D Career
-  Build: v0.3.1 - 2026-05-05 10:42 BRT
+  Build: v0.2.9 - 2026-05-05 09:42 BRT
   Mobile-first landscape, GitHub Pages, assets externos via manifesto.
 */
-const BUILD={version:'v0.3.1',datetime:'2026-05-05 10:42 BRT',label:'Build v0.3.1 - 2026-05-05 10:42 BRT'};
-const SAVE_KEY='vale_chess_3d_career_save_v031';
-const LEGACY_SAVE_KEYS=['vale_chess_3d_career_save_v030','vale_chess_3d_career_save_v029','vale_chess_3d_career_save_v028','vale_chess_3d_career_save_v027','vale_chess_3d_career_save_v026','vale_chess_3d_career_save_v025','vale_chess_3d_career_save_v024','vale_chess_3d_career_save_v023','vale_chess_3d_career_save_v022','vale_chess_3d_career_save_v021','vale_chess_3d_career_save_v020'];
+const BUILD={version:'v0.2.9',datetime:'2026-05-05 09:42 BRT',label:'Build v0.2.9 - 2026-05-05 09:42 BRT'};
+const SAVE_KEY='vale_chess_3d_career_save_v029';
+const LEGACY_SAVE_KEYS=['vale_chess_3d_career_save_v028','vale_chess_3d_career_save_v027','vale_chess_3d_career_save_v026','vale_chess_3d_career_save_v025','vale_chess_3d_career_save_v024','vale_chess_3d_career_save_v023','vale_chess_3d_career_save_v022','vale_chess_3d_career_save_v021','vale_chess_3d_career_save_v020'];
 const ASSET={
   cover:'assets/backgrounds/lobby/lobby_main_16x9.png', lobby:'assets/backgrounds/lobby/lobby_main_16x9.png', profile:'assets/backgrounds/profile/profile_creation_16x9.png', career:'assets/backgrounds/career/career_dashboard_16x9.png', victory:'assets/backgrounds/results/victory_16x9.png', defeat:'assets/backgrounds/results/defeat_16x9.png',
   card:'assets/ui/cards/player_card_horizontal.png',
@@ -20,10 +20,10 @@ function normalizeAssetSlug(value){return String(value||'').normalize('NFD').rep
 function flagPathsFor(name,slug){const base=slug||normalizeAssetSlug(name); const code=(COUNTRY_CODE[name]||'').toLowerCase(); const hyphen=base.replace(/_/g,'-'); const compact=base.replace(/_/g,''); const known={Brasil:'brazil','Estados Unidos':'usa','Reino Unido':'uk','Emirados Árabes Unidos':'uae','Arábia Saudita':'saudi_arabia','Países Baixos':'netherlands','Bélgica':'belgium','Canadá':'canada','China':'china','Japão':'japan','México':'mexico','Espanha':'spain','Itália':'italy','Austrália':'australia','Bahrein':'bahrain','Hungria':'hungary','Mônaco':'monaco','Catar':'qatar','Singapura':'singapore'}; const first=known[name]||base; const names=[first,base,hyphen,compact,code].filter(Boolean); const exts=['png','webp','jpg','jpeg','svg']; const roots=['assets/flags/world','assets/flags','assets/flags/countries','assets/flags/flat']; const paths=[]; roots.forEach(root=>names.forEach(n=>exts.forEach(ext=>paths.push(`${root}/${n}.${ext}`)))); return [...new Set(paths)]}
 const COUNTRIES=COUNTRY_DATA.map(([name,continent,slug])=>({name,continent,slug,flag:flagPathsFor(name,slug)[0],flagCandidates:flagPathsFor(name,slug)}));
 const TOURNAMENTS=[
- {id:'amateur',name:'Liga Nacional Amadora',scope:'Divisão local do seu país',geo:'national',min:0,prize:55,rep:35,aiRange:[0.14,0.36],ratingRange:[650,890],logo:ASSET.logos.amateur,trophy:ASSET.trophies.amateur,bg:ASSET.career},
- {id:'professional',name:'Liga Nacional Profissional',scope:'Promoção para circuito profissional',geo:'national',min:900,prize:85,rep:55,aiRange:[0.36,0.58],ratingRange:[900,1120],logo:ASSET.logos.professional,trophy:ASSET.trophies.professional,bg:ASSET.career},
- {id:'continental',name:'Campeonato Continental',scope:'Rivais do mesmo continente',geo:'continental',min:1080,prize:120,rep:75,aiRange:[0.58,0.78],ratingRange:[1120,1380],logo:ASSET.logos.continental,trophy:ASSET.trophies.continental,bg:ASSET.career},
- {id:'world',name:'Campeonato Mundial',scope:'Elite global do xadrez',geo:'world',min:1320,prize:180,rep:110,aiRange:[0.78,0.94],ratingRange:[1380,1680],logo:ASSET.logos.world,trophy:ASSET.trophies.world,bg:ASSET.career}
+ {id:'amateur',name:'Liga Nacional Amadora',scope:'Divisão local do seu país',min:0,prize:55,rep:35,aiRange:[0.14,0.36],ratingRange:[650,890],logo:ASSET.logos.amateur,trophy:ASSET.trophies.amateur,bg:ASSET.career},
+ {id:'professional',name:'Liga Nacional Profissional',scope:'Promoção para circuito profissional',min:900,prize:85,rep:55,aiRange:[0.36,0.58],ratingRange:[900,1120],logo:ASSET.logos.professional,trophy:ASSET.trophies.professional,bg:ASSET.career},
+ {id:'continental',name:'Campeonato Continental',scope:'Ex.: Brasil disputa a América',min:1080,prize:120,rep:75,aiRange:[0.58,0.78],ratingRange:[1120,1380],logo:ASSET.logos.continental,trophy:ASSET.trophies.continental,bg:ASSET.career},
+ {id:'world',name:'Campeonato Mundial',scope:'Elite global do xadrez',min:1320,prize:180,rep:110,aiRange:[0.78,0.94],ratingRange:[1380,1680],logo:ASSET.logos.world,trophy:ASSET.trophies.world,bg:ASSET.career}
 ];
 const OPPONENTS=[
  ['Rafael Torres','Brasil',790,'amateur'],['Ana Costa','Brasil',850,'amateur'],['Carlos Vega','Mexico',920,'professional'],['Sofia Miller','Estados Unidos',1040,'professional'],['Isabel Rojas','Espanha',1140,'continental'],['Aiko Tanaka','Japao',1280,'continental'],['Chen Wei','China',1440,'world'],['Oliver Smith','Reino Unido',1570,'world'],['Elena Rossi','Italia',1390,'world']
@@ -79,46 +79,21 @@ function tryEnterFullscreen(){
     if(screen.orientation && screen.orientation.lock){ screen.orientation.lock('landscape').catch(()=>{}); }
   }catch(e){ console.log('[ValeChess] Fullscreen/landscape nao suportado neste navegador.', e); }
 }
-function continentLabel(continent){return {America:'América',Asia:'Ásia',Africa:'África',Europa:'Europa',Oceania:'Oceania'}[continent]||continent}
-function playerCountryObj(){return countryObj(save?.profile?.country||'Brasil')}
-function tournamentGeoLabel(t){
-  const pc=playerCountryObj();
-  if(t.geo==='national') return `${pc.name} • adversários nacionais`;
-  if(t.geo==='continental') return `${continentLabel(pc.continent)} • países do mesmo continente`;
-  return `Mundial • adversários de todos os continentes`;
-}
-function tournamentCountryPool(t){
-  const pc=playerCountryObj();
-  if(t.geo==='national') return [pc];
-  if(t.geo==='continental') return COUNTRIES.filter(c=>c.continent===pc.continent);
-  return COUNTRIES;
-}
 function renderCareer(){
   if(!save) return;
   const car=save.career;
   const grid=$('tournamentGrid');
   if(!grid) return;
   const unlocked=TOURNAMENTS.filter(t=>car.rating>=t.min).length;
-  const pc=playerCountryObj();
   grid.innerHTML=TOURNAMENTS.map((t,idx)=>{
     const locked=car.rating<t.min;
     const status=locked?`Bloqueado • exige rating ${t.min}`:(idx<unlocked-1?'Aberto':'Próximo desafio');
     const trophy=t.trophy||ASSET.trophies.amateur;
     const logo=t.logo||ASSET.logos.amateur;
-    const pool=tournamentCountryPool(t);
-    const preview=pool.slice(0,5).map(c=>flagImg(c.name,'tiny-flag')).join('');
-    const geo=tournamentGeoLabel(t);
-    const detail=t.geo==='national'
-      ? `Se você escolheu ${pc.name}, seus primeiros rivais são do próprio país.`
-      : t.geo==='continental'
-        ? `Classificação continental: rivais da ${continentLabel(pc.continent)}.`
-        : `Fase mundial: mistura global com jogadores de todos os continentes.`;
     return `<button class="tournament-card glass ${locked?'locked':''}" data-tournament="${t.id}" ${locked?'disabled':''}>
       <span class="badge">${status}</span>
       <h3>${t.name}</h3>
-      <p class="geo-line"><strong>${geo}</strong></p>
-      <p>${detail}</p>
-      <div class="flag-preview">${preview}<span>${pool.length} país${pool.length>1?'es':''}</span></div>
+      <p>${t.scope}</p>
       <p><strong>Prêmio:</strong> +${t.prize} moedas • +${t.rep} reputação</p>
       <p><strong>Seu rating:</strong> ${car.rating}</p>
       <img src="${logo}" alt="${t.name}" onerror="this.src='${trophy}';this.onerror=null">
@@ -131,38 +106,16 @@ function renderCareer(){
     });
   });
 }
-const NAME_POOLS={
-  Asia:{first:['Aiko','Hiro','Kenji','Mei','Ren','Sora','Yuki','Chen','Min','Arjun'],last:['Tanaka','Sato','Suzuki','Wang','Li','Kim','Patel','Nguyen','Khan','Rahman']},
-  Europa:{first:['Luca','Elena','Sofia','Nikolai','Oliver','Isabel','Hans','Marta','Ivan','Amelia'],last:['Rossi','Smith','Garcia','Muller','Petrov','Dubois','Kowalski','Novak','Bianchi','Silva']},
-  America:{first:['Rafael','Ana','Carlos','Sofia','Lucas','Valentina','Diego','Maya','Mateo','Isabella'],last:['Torres','Costa','Vega','Miller','Santos','Rojas','Johnson','Silva','Martinez','Ferreira']},
-  Africa:{first:['Kwame','Amina','Kofi','Nala','Thabo','Zuri','Amari','Imani','Malik','Ayana'],last:['Mensah','Okafor','Diallo','Mbeki','Ndiaye','Abebe','Hassan','Adeyemi','Kamara','Traore']},
-  Oceania:{first:['Jack','Mia','Noah','Ava','Liam','Isla','Kai','Talia','Ethan','Ruby'],last:['Wilson','Brown','Taylor','Smith','Jones','Williams','Walker','Cooper','Murray','King']}
-};
-const COUNTRY_NAME_POOLS={
-  'Brasil':{first:['Rafael','Ana','João','Marina','Lucas','Bianca'],last:['Torres','Costa','Souza','Oliveira','Santos','Lima']},
-  'Japão':{first:['Aiko','Haruto','Ren','Yuki','Sora','Mei'],last:['Tanaka','Sato','Suzuki','Yamamoto','Kobayashi','Nakamura']},
-  'China':{first:['Chen','Wei','Lin','Ming','Li','Hao'],last:['Wang','Zhang','Liu','Li','Zhao','Chen']},
-  'Estados Unidos':{first:['Oliver','Sophia','Ethan','Ava','Mason','Emma'],last:['Miller','Johnson','Smith','Davis','Wilson','Brown']},
-  'México':{first:['Carlos','Sofia','Diego','Lucia','Mateo','Valeria'],last:['Vega','Rojas','Garcia','Lopez','Hernandez','Martinez']},
-  'Alemanha':{first:['Hans','Lena','Felix','Greta','Jonas','Mila'],last:['Muller','Schmidt','Weber','Fischer','Wagner','Becker']},
-  'Afeganistão':{first:['Farid','Laila','Omar','Mina','Nadir','Zara'],last:['Khan','Ahmadi','Rahimi','Hosseini','Noori','Karimi']}
-};
-function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
-function opponentNameFor(country){const pool=COUNTRY_NAME_POOLS[country.name]||NAME_POOLS[country.continent]||NAME_POOLS.Europa; return `${pick(pool.first)} ${pick(pool.last)}`}
 function chooseOpponent(tournament){
-  const countries=tournamentCountryPool(tournament);
-  const playerCountry=playerCountryObj();
-  let possible=countries;
-  if(tournament.geo==='continental' && countries.length>1) possible=countries.filter(c=>c.name!==playerCountry.name);
-  const country=pick(possible.length?possible:countries);
-  const rr=tournament.ratingRange||[760,980];
+  const pool=OPPONENTS.filter(o=>o.tier===tournament.id || (tournament.id==='amateur'&&o.rating<900) || (tournament.id==='professional'&&o.rating>=900&&o.rating<1150) || (tournament.id==='continental'&&o.rating>=1100&&o.rating<1400) || (tournament.id==='world'&&o.rating>=1300));
+  const base={...(pool[Math.floor(Math.random()*pool.length)]||OPPONENTS[0])};
+  const rr=tournament.ratingRange||[base.rating-40,base.rating+40];
   const ar=tournament.aiRange||[.25,.55];
-  const rating=Math.round(rr[0]+Math.random()*(rr[1]-rr[0]));
-  const aiSkill=+(ar[0]+Math.random()*(ar[1]-ar[0])).toFixed(2);
-  const style=aiSkill>.86?'Elite mundial':aiSkill>.72?'Mestre tático':aiSkill>.56?'Tático':aiSkill>.38?'Competitivo':'Iniciante';
-  return {name:opponentNameFor(country),country:country.name,continent:country.continent,rating,tier:tournament.id,avatar:ASSET.avatars[Math.floor(Math.random()*ASSET.avatars.length)],flag:country.flag,aiSkill,style};
+  base.rating=Math.round(rr[0]+Math.random()*(rr[1]-rr[0]));
+  base.aiSkill=+(ar[0]+Math.random()*(ar[1]-ar[0])).toFixed(2);
+  base.style=base.aiSkill>.82?'Grande mestre':base.aiSkill>.62?'Tático':base.aiSkill>.42?'Competitivo':'Iniciante';
+  return base;
 }
-
 function startMatch(tournament=TOURNAMENTS[0],mode=activeMode){
   tryEnterFullscreen();
   currentTournament=tournament; currentOpponent=chooseOpponent(tournament); resultShown=false; aiBusy=false; moveHistory=[]; selectedSq=null; legal=[]; playerColor='w';
@@ -172,7 +125,7 @@ function startMatch(tournament=TOURNAMENTS[0],mode=activeMode){
   const p=save?.profile||{name:'Jogador',country:'Brasil',avatar:0};
   const opp=currentOpponent;
   const vb=$('versusBox');
-  if(vb) vb.innerHTML=`<div class="mini-player">${img(ASSET.avatars[p.avatar]||ASSET.avatars[0],'','Jogador')}<strong>${p.name}</strong><small>${flagImg(p.country,'mini-flag')}</small></div><strong>VS</strong><div class="mini-player">${img(opp.avatar,'','Adversario')}<strong>${opp.name}</strong><small>${flagImg(opp.country,'mini-flag')}<br>${opp.country} • ${continentLabel(opp.continent)}<br>IA ${opp.style||'Competitiva'} • ${opp.rating}</small></div>`;
+  if(vb) vb.innerHTML=`<div class="mini-player">${img(ASSET.avatars[p.avatar]||ASSET.avatars[0],'','Jogador')}<strong>${p.name}</strong><small>${flagImg(p.country,'mini-flag')}</small></div><strong>VS</strong><div class="mini-player">${img(opp.avatar,'','Adversario')}<strong>${opp.name}</strong><small>${flagImg(opp.country,'mini-flag')}<br>IA ${opp.style||'Competitiva'} • ${opp.rating}</small></div>`;
   setup3D(); updateBoard(); updateHUD(); animate();
 }
 function setup3D(){

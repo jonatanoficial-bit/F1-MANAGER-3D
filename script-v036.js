@@ -1,11 +1,23 @@
 /*
   Vale Chess 3D Career
-  Build: v0.3.1 - 2026-05-05 10:42 BRT
+  Build: v0.3.6 - 2026-05-06 16:15 BRT
   Mobile-first landscape, GitHub Pages, assets externos via manifesto.
 */
-const BUILD={version:'v0.3.1',datetime:'2026-05-05 10:42 BRT',label:'Build v0.3.1 - 2026-05-05 10:42 BRT'};
-const SAVE_KEY='vale_chess_3d_career_save_v031';
-const LEGACY_SAVE_KEYS=['vale_chess_3d_career_save_v030','vale_chess_3d_career_save_v029','vale_chess_3d_career_save_v028','vale_chess_3d_career_save_v027','vale_chess_3d_career_save_v026','vale_chess_3d_career_save_v025','vale_chess_3d_career_save_v024','vale_chess_3d_career_save_v023','vale_chess_3d_career_save_v022','vale_chess_3d_career_save_v021','vale_chess_3d_career_save_v020'];
+const BUILD={version:'v0.3.6',datetime:'2026-05-06 16:15 BRT',label:'Build v0.3.6 - 2026-05-06 16:15 BRT'};
+const SAVE_KEY='vale_chess_3d_career_save_v036';
+const LEGACY_SAVE_KEYS=['vale_chess_3d_career_save_v035','vale_chess_3d_career_save_v034','vale_chess_3d_career_save_v033','vale_chess_3d_career_save_v032','vale_chess_3d_career_save_v031','vale_chess_3d_career_save_v030','vale_chess_3d_career_save_v029','vale_chess_3d_career_save_v028','vale_chess_3d_career_save_v027','vale_chess_3d_career_save_v026','vale_chess_3d_career_save_v025','vale_chess_3d_career_save_v024','vale_chess_3d_career_save_v023','vale_chess_3d_career_save_v022','vale_chess_3d_career_save_v021','vale_chess_3d_career_save_v020'];
+// v0.3.6: camada anti-quebra. Nunca deve impedir o jogo de abrir.
+const QA_STATE={errors:[],warnings:[],lastRecovery:null};
+function reportIssue(level,msg,err){
+  const item={level,msg,time:new Date().toISOString(),detail:err&&(err.stack||err.message||String(err))};
+  (level==='error'?QA_STATE.errors:QA_STATE.warnings).push(item);
+  console[level==='error'?'error':'warn']('[ValeChess QA]',msg,err||'');
+  const hud=document.getElementById('qaStatusPill');
+  if(hud){hud.textContent=QA_STATE.errors.length?`QA ${QA_STATE.errors.length} erro(s) recuperado(s)`:'QA OK'; hud.classList.toggle('has-error',!!QA_STATE.errors.length);}
+}
+function safeRun(label,fn,fallback){try{return fn();}catch(e){reportIssue('error',label,e); if(typeof fallback==='function')return fallback(e); return fallback;}}
+window.addEventListener('error',e=>reportIssue('error','Erro global capturado',e.error||e.message));
+window.addEventListener('unhandledrejection',e=>reportIssue('error','Promise rejeitada capturada',e.reason));
 const ASSET={
   cover:'assets/backgrounds/lobby/lobby_main_16x9.png', lobby:'assets/backgrounds/lobby/lobby_main_16x9.png', profile:'assets/backgrounds/profile/profile_creation_16x9.png', career:'assets/backgrounds/career/career_dashboard_16x9.png', victory:'assets/backgrounds/results/victory_16x9.png', defeat:'assets/backgrounds/results/defeat_16x9.png',
   card:'assets/ui/cards/player_card_horizontal.png',
@@ -31,10 +43,10 @@ const OPPONENTS=[
 const $=id=>document.getElementById(id);
 function safeText(id,text){const el=$(id); if(el) el.textContent=text;}
 function bindClick(id,fn){const el=$(id); if(el) el.addEventListener('click',fn); else console.warn('[ValeChess] Elemento nao encontrado:',id);}
-let save=null, activeMode='single', selectedAvatar=0, selectedCountry='Brasil', chess=null, selectedSq=null, legal=[], pieces=new Map(), squares=new Map(), highlights=[], renderer,scene,camera,raycaster,pointer,boardGroup,pieceGroup,highlightGroup,environmentGroup,autoRotate=false,currentTournament=TOURNAMENTS[0],currentOpponent=OPPONENTS[0],playerColor='w',aiBusy=false,moveHistory=[],resultShown=false;
+let save=null, activeMode='single', selectedAvatar=0, selectedCountry='Brasil', chess=null, selectedSq=null, legal=[], pieces=new Map(), squares=new Map(), highlights=[], renderer,scene,camera,raycaster,pointer,boardGroup,pieceGroup,highlightGroup,environmentGroup,autoRotate=false,currentTournament=TOURNAMENTS[0],currentOpponent=OPPONENTS[0],playerColor='w',aiBusy=false,aiBusyStarted=0,moveHistory=[],resultShown=false,aiWatchdogStarted=false;
 let cameraOrbit={radius:10.9,theta:.62,phi:.92},dragState={active:false,moved:false,startX:0,startY:0,lastX:0,lastY:0,pointerId:null};
 const GameState={gameId:null,createGame(){this.gameId='future-'+Date.now(); console.log('[Firebase futuro] createGame cria sala remota com FEN, jogadores e status.'); return this.gameId},joinGame(gameId){this.gameId=gameId; console.log('[Firebase futuro] joinGame:',gameId)},sendMove(move){console.log('[Firebase futuro] sendMove gravaria jogada e FEN:',move)},onGameUpdate(callback){console.log('[Firebase futuro] onGameUpdate escutaria sala.'); this.callback=callback}}; window.GameState=GameState;
-function init(){ safeText('buildInfo',BUILD.label); hydrateProfile(); bind(); load(); const cb=$('continueBtn'); if(save){show('coverScreen'); if(cb) cb.disabled=false}else{if(cb) cb.disabled=true; show('coverScreen')} }
+function init(){ safeText('buildInfo',BUILD.label); installQaPill(); runStartupChecks(); hydrateProfile(); bind(); load(); repairSave(); startAiWatchdog(); const cb=$('continueBtn'); if(save){show('coverScreen'); if(cb) cb.disabled=false}else{if(cb) cb.disabled=true; show('coverScreen')} }
 function bind(){document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{show(b.dataset.go); if(b.dataset.go==='lobbyScreen') renderLobby(); if(b.dataset.go==='careerScreen') renderCareer();})); bindClick('newGameBtn',()=>{tryEnterFullscreen(); save=null; localStorage.removeItem(SAVE_KEY); show('modeScreen')}); bindClick('continueBtn',()=>{load(); activeMode=save?.mode||'single'; show('lobbyScreen'); renderLobby()}); document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{tryEnterFullscreen(); selectMode(b.dataset.mode)})); bindClick('saveProfileBtn',saveProfile); bindClick('careerBtn',()=>{tryEnterFullscreen(); show(activeMode==='online'?'onlineLobbyScreen':'careerScreen'); if(activeMode!=='online') renderCareer()}); bindClick('quickMatchBtn',()=>{tryEnterFullscreen(); startMatch(TOURNAMENTS[0], activeMode)}); bindClick('resetSaveBtn',()=>{if(confirm('Reiniciar perfil e progresso?')){localStorage.removeItem(SAVE_KEY); location.reload()}}); bindClick('backFromGameBtn',()=>{show('lobbyScreen'); renderLobby()}); bindClick('resetGameBtn',()=>startMatch(currentTournament, activeMode)); bindClick('rotateCameraBtn',()=>autoRotate=!autoRotate); bindClick('onlinePreviewBtn',()=>startMatch(TOURNAMENTS[0],'online-preview')); window.addEventListener('resize',resizeRenderer)}
 function selectMode(mode){activeMode=mode; if(save?.profile){save.mode=mode; persist(); if(mode==='online') show('onlineLobbyScreen'); else {show('lobbyScreen'); renderLobby();}} else show('profileScreen')}
 function hydrateProfile(){
@@ -54,11 +66,32 @@ function hydrateProfile(){
   c.onchange=()=>selectedCountry=c.value;
   const grid=$('avatarGrid'); grid.innerHTML=''; ASSET.avatars.forEach((src,i)=>{const b=document.createElement('button'); b.className='avatar-option'+(i===0?' active':''); b.innerHTML=`<img src="${src}" onerror="this.outerHTML='<span class=avatar-fallback>♟</span>'">`; b.onclick=()=>{selectedAvatar=i; document.querySelectorAll('.avatar-option').forEach(x=>x.classList.remove('active')); b.classList.add('active')}; grid.appendChild(b)})
 }
-function load(){try{save=JSON.parse(localStorage.getItem(SAVE_KEY)||'null'); if(!save){for(const k of LEGACY_SAVE_KEYS){const old=localStorage.getItem(k); if(old){save=JSON.parse(old); save.build=BUILD.label; localStorage.setItem(SAVE_KEY,JSON.stringify(save)); break;}}}}catch{save=null}}
-function persist(){localStorage.setItem(SAVE_KEY,JSON.stringify(save))}
+function installQaPill(){
+  const top=document.querySelector('.topbar'); if(!top||document.getElementById('qaStatusPill')) return;
+  const pill=document.createElement('div'); pill.id='qaStatusPill'; pill.className='qa-status-pill'; pill.textContent='QA OK'; top.appendChild(pill);
+}
+function runStartupChecks(){
+  const required=['app','buildInfo','coverScreen','modeScreen','profileScreen','lobbyScreen','careerScreen','gameScreen','resultScreen','gameCanvas'];
+  required.forEach(id=>{if(!document.getElementById(id)) reportIssue('error',`Elemento obrigatório ausente: ${id}`);});
+  if(!window.THREE) reportIssue('warning','Three.js ainda nao carregou; fallback 2D sera usado se necessario.');
+  if(typeof Chess==='undefined') reportIssue('error','Motor Chess ausente. Verifique assets/chess-local.js.');
+}
+function repairSave(){
+  if(!save) return;
+  save.mode=save.mode||'single';
+  save.profile=save.profile||{name:'Jogador',country:'Brasil',avatar:0};
+  if(!countryObj(save.profile.country)) save.profile.country='Brasil';
+  save.profile.name=(save.profile.name||'Jogador').toString().slice(0,18);
+  save.profile.avatar=Number.isFinite(+save.profile.avatar)?+save.profile.avatar:0;
+  const c=save.career||{};
+  save.career={rating:Number.isFinite(+c.rating)?+c.rating:800,money:Number.isFinite(+c.money)?+c.money:100,reputation:Number.isFinite(+c.reputation)?+c.reputation:0,wins:Number.isFinite(+c.wins)?+c.wins:0,losses:Number.isFinite(+c.losses)?+c.losses:0,titles:Array.isArray(c.titles)?c.titles:[],mission:c.mission||'Vença 2 partidas na Liga Amadora para ganhar reputação.'};
+  save.build=BUILD.label;
+}
+function load(){safeRun('Falha ao carregar save',()=>{save=JSON.parse(localStorage.getItem(SAVE_KEY)||'null'); if(!save){for(const k of LEGACY_SAVE_KEYS){const old=localStorage.getItem(k); if(old){save=JSON.parse(old); repairSave(); localStorage.setItem(SAVE_KEY,JSON.stringify(save)); break;}}}},()=>{save=null});}
+function persist(){safeRun('Falha ao salvar progresso',()=>{if(save){save.build=BUILD.label; localStorage.setItem(SAVE_KEY,JSON.stringify(save)); localStorage.setItem(SAVE_KEY+'_backup',JSON.stringify({...save,backupAt:new Date().toISOString()}));}})}
 function defaultSave(name,country,avatar){return{build:BUILD.label,mode:activeMode,profile:{name,country,avatar},career:{rating:800,money:100,reputation:0,wins:0,losses:0,titles:[],mission:'Vença 2 partidas na Liga Amadora para ganhar reputação.'}}}
-function saveProfile(){const name=($('playerName').value||'Jogador').trim().slice(0,18); save=defaultSave(name,selectedCountry,selectedAvatar); persist(); show('lobbyScreen'); renderLobby()}
-function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); $(id).classList.add('active'); if(id==='gameScreen') setTimeout(resizeRenderer,60)}
+function saveProfile(){safeRun('Falha ao criar perfil',()=>{const name=($('playerName').value||'Jogador').trim().slice(0,18); save=defaultSave(name,selectedCountry,selectedAvatar); repairSave(); persist(); show('lobbyScreen'); renderLobby();});}
+function show(id){safeRun(`Falha ao abrir tela ${id}`,()=>{const target=$(id); if(!target){reportIssue('error',`Tela inexistente: ${id}`); return;} document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); target.classList.add('active'); if(id==='gameScreen') setTimeout(resizeRenderer,60);});}
 function flagCode(name){return (COUNTRY_CODE[name]||'--').toUpperCase()}
 function flagEmoji(name){const code=flagCode(name); if(!code||code.length!==2||code==='--')return '🏳️'; return [...code].map(c=>String.fromCodePoint(127397+c.charCodeAt(0))).join('')}
 function cycleImageFallback(el){const list=(el.dataset.fallbacks||'').split('|').filter(Boolean); const i=Number(el.dataset.fallbackIndex||0); if(i<list.length){el.dataset.fallbackIndex=String(i+1); el.src=list[i]; return;} const code=el.dataset.code||''; if(code){const span=document.createElement('span'); span.className=(el.className||'')+' flag-code'; span.textContent=code; span.title=el.alt||'Bandeira'; el.replaceWith(span); return;} el.style.display='none'; const fb=el.nextElementSibling; if(fb&&fb.classList.contains('fallback-avatar')) fb.style.display='grid';}
@@ -165,8 +198,9 @@ function chooseOpponent(tournament){
 
 function startMatch(tournament=TOURNAMENTS[0],mode=activeMode){
   tryEnterFullscreen();
-  currentTournament=tournament; currentOpponent=chooseOpponent(tournament); resultShown=false; aiBusy=false; moveHistory=[]; selectedSq=null; legal=[]; playerColor='w';
-  chess=new Chess();
+  currentTournament=tournament||TOURNAMENTS[0]; currentOpponent=chooseOpponent(currentTournament); resultShown=false; aiBusy=false; if(aiMoveTimer){clearTimeout(aiMoveTimer); aiMoveTimer=null;} moveHistory=[]; selectedSq=null; legal=[]; playerColor='w';
+  chess=safeRun('Falha ao iniciar motor de xadrez',()=>new Chess(),null); if(!chess){renderFallbackBoard(true); return;}
+  validateMatchState('startMatch');
   show('gameScreen');
   safeText('matchTitle',tournament.name);
   const p=save?.profile||{name:'Jogador',country:'Brasil',avatar:0};
@@ -205,13 +239,9 @@ function setup3D(){
 }
 function build3DEnvironment(){
   if(!environmentGroup||!window.THREE) return;
-  const floorMat=new THREE.MeshStandardMaterial({color:0x07101d,metalness:.15,roughness:.58});
-  const floor=new THREE.Mesh(new THREE.CircleGeometry(8.2,64),floorMat); floor.rotation.x=-Math.PI/2; floor.position.y=-.42; environmentGroup.add(floor);
-  const ringMat=new THREE.MeshStandardMaterial({color:0xb8862f,metalness:.45,roughness:.30});
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(5.05,.035,12,96),ringMat); ring.rotation.x=Math.PI/2; ring.position.y=-.37; environmentGroup.add(ring);
-  const wallMat=new THREE.MeshStandardMaterial({color:0x0b1424,metalness:.08,roughness:.62,transparent:true,opacity:.55});
-  const back=new THREE.Mesh(new THREE.PlaneGeometry(13,6),wallMat); back.position.set(0,2.2,5.25); back.rotation.x=-.18; environmentGroup.add(back);
-  for(const x of [-5.1,5.1]){ const col=new THREE.Mesh(new THREE.CylinderGeometry(.14,.22,3.2,18),ringMat); col.position.set(x,1.05,4.65); environmentGroup.add(col); const cap=new THREE.Mesh(new THREE.SphereGeometry(.24,18,12),ringMat); cap.position.set(x,2.75,4.65); environmentGroup.add(cap); }
+  // v0.3.3: removido o painel/plano semitransparente atras do tabuleiro,
+  // pois criava um efeito visual de vidro/overlay indesejado.
+  // O fundo cinematografico agora vem apenas do CSS da tela por tras do canvas.
 }
 function applyCameraOrbit(){
   if(!camera) return; const o=cameraOrbit; const x=Math.sin(o.theta)*o.radius; const z=Math.cos(o.theta)*o.radius; const y=Math.max(4.2,Math.sin(o.phi)*8.8); camera.position.set(x,y,z); camera.lookAt(0,0,0);
@@ -219,23 +249,132 @@ function applyCameraOrbit(){
 function resizeRenderer(){
   if(!renderer||!camera) return; const wrap=document.querySelector('.board-wrap'); const w=(wrap?.clientWidth||window.innerWidth); const h=(wrap?.clientHeight||window.innerHeight); renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
 }
-function onPointerDown(e){dragState={active:true,moved:false,startX:e.clientX,startY:e.clientY,lastX:e.clientX,lastY:e.clientY,pointerId:e.pointerId}; try{e.currentTarget.setPointerCapture(e.pointerId)}catch{} }
-function onPointerMove(e){ if(!dragState.active) return; const dx=e.clientX-dragState.lastX, dy=e.clientY-dragState.lastY; if(Math.abs(e.clientX-dragState.startX)+Math.abs(e.clientY-dragState.startY)>10) dragState.moved=true; cameraOrbit.theta-=dx*.006; cameraOrbit.phi=Math.max(.45,Math.min(1.15,cameraOrbit.phi-dy*.003)); dragState.lastX=e.clientX; dragState.lastY=e.clientY; applyCameraOrbit(); }
-function onPointerUp(e){ const moved=dragState.moved; dragState.active=false; try{e.currentTarget.releasePointerCapture(e.pointerId)}catch{} if(!moved) handleBoardClick(e); }
+function onPointerDown(e){
+  dragState={active:true,moved:false,rotating:false,startX:e.clientX,startY:e.clientY,lastX:e.clientX,lastY:e.clientY,pointerId:e.pointerId};
+  try{e.currentTarget.setPointerCapture(e.pointerId)}catch{}
+}
+function onPointerMove(e){
+  if(!dragState.active) return;
+  const total=Math.hypot(e.clientX-dragState.startX,e.clientY-dragState.startY);
+  // v0.3.2: toque curto seleciona/move. So comeca a girar apos arrasto real.
+  if(!dragState.rotating && total<16) return;
+  dragState.rotating=true; dragState.moved=true;
+  const dx=e.clientX-dragState.lastX, dy=e.clientY-dragState.lastY;
+  cameraOrbit.theta-=dx*.006;
+  cameraOrbit.phi=Math.max(.45,Math.min(1.15,cameraOrbit.phi-dy*.003));
+  dragState.lastX=e.clientX; dragState.lastY=e.clientY;
+  applyCameraOrbit();
+}
+function onPointerUp(e){
+  const moved=dragState.moved;
+  const clickLike=Math.hypot(e.clientX-dragState.startX,e.clientY-dragState.startY)<18;
+  dragState.active=false;
+  try{e.currentTarget.releasePointerCapture(e.pointerId)}catch{}
+  if(!moved || clickLike) handleBoardClick(e);
+}
 function handleBoardClick(e){
-  if(!renderer||!camera||!raycaster||!chess) return; const rect=renderer.domElement.getBoundingClientRect(); pointer.x=((e.clientX-rect.left)/rect.width)*2-1; pointer.y=-((e.clientY-rect.top)/rect.height)*2+1; raycaster.setFromCamera(pointer,camera);
-  const objs=[...pieces.values(),...squares.values()]; const hits=raycaster.intersectObjects(objs,true); if(!hits.length) return;
-  let obj=hits[0].object; while(obj && !obj.userData.square && obj.parent) obj=obj.parent;
-  const sq=obj?.userData?.square; if(sq) selectOrMove(sq);
+  if(!renderer||!camera||!raycaster||!chess) return;
+  const rect=renderer.domElement.getBoundingClientRect();
+  pointer.x=((e.clientX-rect.left)/rect.width)*2-1; pointer.y=-((e.clientY-rect.top)/rect.height)*2+1;
+  raycaster.setFromCamera(pointer,camera);
+  const pieceHits=raycaster.intersectObjects([...pieces.values()],true);
+  if(pieceHits.length){
+    let obj=pieceHits[0].object;
+    while(obj && !obj.userData.square && obj.parent) obj=obj.parent;
+    const sq=obj?.userData?.square;
+    if(sq){selectOrMove(sq); return;}
+  }
+  const squareHits=raycaster.intersectObjects([...squares.values()],false);
+  if(squareHits.length){
+    const sq=squareHits[0].object?.userData?.square;
+    if(sq){selectOrMove(sq); return;}
+  }
+}
+function isChessCheck(){
+  if(!chess) return false;
+  if(typeof chess.isCheck==='function') return chess.isCheck();
+  if(typeof chess.in_check==='function') return chess.in_check();
+  return false;
+}
+function isChessMate(){
+  if(!chess) return false;
+  if(typeof chess.isCheckmate==='function') return chess.isCheckmate();
+  if(typeof chess.in_checkmate==='function') return chess.in_checkmate();
+  return false;
+}
+function isInsufficientMaterial(){
+  if(!chess || !chess.board) return false;
+  const pieces=[];
+  chess.board().forEach(row=>row.forEach(p=>{if(p) pieces.push(p);}));
+  const nonKings=pieces.filter(p=>p.type!=='k');
+  if(nonKings.length===0) return true;
+  if(nonKings.length===1 && ['b','n'].includes(nonKings[0].type)) return true;
+  return false;
+}
+function isChessDraw(){
+  if(!chess) return false;
+  if(typeof chess.isStalemate==='function' && chess.isStalemate()) return true;
+  if(typeof chess.in_stalemate==='function' && chess.in_stalemate()) return true;
+  if(typeof chess.isThreefoldRepetition==='function' && chess.isThreefoldRepetition()) return true;
+  if(typeof chess.in_threefold_repetition==='function' && chess.in_threefold_repetition()) return true;
+  if(typeof chess.isInsufficientMaterial==='function' && chess.isInsufficientMaterial()) return true;
+  if(typeof chess.insufficient_material==='function' && chess.insufficient_material()) return true;
+  if(isInsufficientMaterial()) return true;
+  if(typeof chess.isDraw==='function') return chess.isDraw();
+  if(typeof chess.in_draw==='function') return chess.in_draw();
+  return false;
+}
+function isChessOver(){
+  if(!chess) return false;
+  if(typeof chess.isGameOver==='function') return chess.isGameOver();
+  if(typeof chess.game_over==='function') return chess.game_over();
+  return isChessMate() || isChessDraw();
+}
+function isAITurn(){
+  return !!chess && !resultShown && !aiBusy && (activeMode==='single' || activeMode==='online-preview') && chess.turn && chess.turn()==='b';
+}
+function scheduleAiMove(delay=420){
+  if(!isAITurn()) return;
+  if(aiMoveTimer) clearTimeout(aiMoveTimer);
+  aiMoveTimer=setTimeout(()=>{ aiMoveTimer=null; if(isAITurn()) makeAiMove(); }, delay);
+}
+function ensureAiTurn(){ scheduleAiMove(280); }
+function startAiWatchdog(){
+  if(aiWatchdogStarted) return;
+  aiWatchdogStarted=true;
+  setInterval(()=>{
+    if(!chess || resultShown || !chess.turn) return;
+    const aiMode=(activeMode==='single' || activeMode==='online-preview');
+    if(!aiMode || chess.turn()!=='b') return;
+    if(aiBusy && aiBusyStarted && Date.now()-aiBusyStarted>3000){
+      console.warn('[AI] Watchdog liberou IA presa.');
+      aiBusy=false; aiBusyStarted=0;
+    }
+    if(!aiBusy && !aiMoveTimer) scheduleAiMove(160);
+  },650);
 }
 function selectOrMove(sq){
-  if(!chess || aiBusy) return; const piece=chess.get(sq);
-  if(selectedSq){ const mv=legal.find(m=>m.to===sq); if(mv){ const done=chess.move({from:selectedSq,to:sq,promotion:'q'}); if(done){ moveHistory.push(done.san||`${selectedSq}-${sq}`); selectedSq=null; legal=[]; updateBoard(); updateHUD(); afterMove(); return; }} }
-  if(piece && piece.color===chess.turn() && (activeMode==='duo' || chess.turn()==='w')){ selectedSq=sq; legal=chess.moves({square:sq,verbose:true}); updateHighlights(); }
+  if(!chess || resultShown) return;
+  if(aiBusy || (activeMode!=='duo' && chess.turn()==='b')) return;
+  const piece=chess.get(sq);
+  if(piece && piece.color===chess.turn() && (activeMode==='duo' || chess.turn()==='w')){
+    selectedSq=sq; legal=chess.moves({square:sq,verbose:true}); updateHighlights(); return;
+  }
+  if(selectedSq){
+    const mv=legal.find(m=>m.to===sq);
+    if(mv){
+      const done=chess.move({from:selectedSq,to:sq,promotion:mv.promotion||'q'});
+      if(done){
+        moveHistory.push(done.san||`${selectedSq}-${sq}`);
+        selectedSq=null; legal=[]; updateBoard(); updateHUD(); afterMove(); return;
+      }
+    }
+  }
+  selectedSq=null; legal=[]; updateHighlights();
 }
 function afterMove(){
   if(checkGameEnd()) return;
-  if(activeMode==='single' || activeMode==='online-preview') setTimeout(makeAiMove,450);
+  scheduleAiMove(420);
 }
 function pieceValue(t){return {p:100,n:310,b:320,r:500,q:900,k:20000}[t]||0}
 function evaluateBoard(){
@@ -244,9 +383,27 @@ function evaluateBoard(){
   return score;
 }
 function scoreMove(m,skill){
-  let score=Math.random()*70*(1-skill); if(m.captured) score+=pieceValue(m.captured)+35; if(m.promotion) score+=760; if(m.san&&m.san.includes('+')) score+=65; if(m.san&&m.san.includes('#')) score+=99999;
+  let score=Math.random()*70*(1-skill);
+  if(m.captured) score+=pieceValue(m.captured)+35;
+  if(m.promotion) score+=760;
+  if(m.san&&m.san.includes('+')) score+=65;
+  if(m.san&&m.san.includes('#')) score+=99999;
   const centerFiles={d:18,e:18,c:8,f:8}; score+=centerFiles[m.to?.[0]]||0;
-  try{chess.move({from:m.from,to:m.to,promotion:m.promotion||'q'}); score+=evaluateBoard()*skill*.025; const replies=chess.moves({verbose:true}); const dangerous=replies.some(r=>r.captured&&r.to===m.to&&pieceValue(r.captured||'p')>=pieceValue(m.piece)); if(dangerous&&skill>.45) score-=pieceValue(m.piece)*.55*skill; chess.undo();}catch(e){}
+  // v0.3.5: nunca deixar a simulacao da IA corromper o tabuleiro.
+  if(typeof chess.undo==='function'){
+    let moved=false;
+    try{
+      const sim=chess.move({from:m.from,to:m.to,promotion:m.promotion||'q'});
+      moved=!!sim;
+      if(moved){
+        score+=evaluateBoard()*skill*.025;
+        const replies=chess.moves({verbose:true});
+        const dangerous=replies.some(r=>r.captured&&r.to===m.to&&pieceValue(r.captured||'p')>=pieceValue(m.piece));
+        if(dangerous&&skill>.45) score-=pieceValue(m.piece)*.55*skill;
+      }
+    }catch(e){ console.warn('[AI] Simulacao de jogada falhou:',e); }
+    finally{ if(moved){ try{chess.undo();}catch(e){ console.error('[AI] Undo falhou apos simulacao',e); } } }
+  }
   return score;
 }
 function chooseAiMove(moves){
@@ -256,18 +413,91 @@ function chooseAiMove(moves){
   const spread=skill>.8?2:skill>.6?3:skill>.4?5:8;
   return ranked[Math.floor(Math.random()*Math.min(spread,ranked.length))].m;
 }
-function makeAiMove(){ if(!chess||chess.turn()!=='b') return; aiBusy=true; const moves=chess.moves({verbose:true}); const mv=chooseAiMove(moves); if(mv){ const done=chess.move({from:mv.from,to:mv.to,promotion:mv.promotion||'q'}); moveHistory.push(done.san||`${mv.from}-${mv.to}`); } aiBusy=false; updateBoard(); updateHUD(); checkGameEnd(); }
+function makeAiMove(){
+  if(!chess || chess.turn()!=='b' || resultShown) return;
+  if(!validateMatchState('beforeAiMove')) return;
+  aiBusy=true; aiBusyStarted=Date.now();
+  try{
+    const moves=chess.moves({verbose:true});
+    if(!moves.length){ checkGameEnd(); return; }
+    const mv=chooseAiMove(moves) || moves[Math.floor(Math.random()*moves.length)];
+    const done=chess.move({from:mv.from,to:mv.to,promotion:mv.promotion||'q'});
+    if(done) moveHistory.push(done.san||`${mv.from}-${mv.to}`);
+  }catch(err){
+    console.warn('[AI] Falha ao escolher jogada, usando fallback seguro', err);
+    try{
+      const fallback=chess.moves({verbose:true})[0];
+      if(fallback){ const done=chess.move({from:fallback.from,to:fallback.to,promotion:fallback.promotion||'q'}); if(done) moveHistory.push(done.san||`${fallback.from}-${fallback.to}`); }
+    }catch(e){ console.error('[AI] Fallback tambem falhou', e); }
+  }finally{
+    aiBusy=false; aiBusyStarted=0;
+    selectedSq=null; legal=[];
+    updateBoard();
+    updateHUD();
+    validateMatchState('afterAiMove');
+    checkGameEnd();
+  }
+}
+function validateMatchState(label){
+  if(!chess){reportIssue('error',`${label}: motor ausente`); return false;}
+  if(typeof chess.turn!=='function'||typeof chess.moves!=='function'||typeof chess.move!=='function'){reportIssue('error',`${label}: API do motor incompleta`); return false;}
+  const turn=chess.turn();
+  if(turn!=='w'&&turn!=='b'){reportIssue('error',`${label}: turno invalido ${turn}`); return false;}
+  const moves=chess.moves({verbose:true});
+  if(!Array.isArray(moves)){reportIssue('error',`${label}: lista de jogadas invalida`); return false;}
+  return true;
+}
 function checkGameEnd(){
-  if(!chess) return false; const over=chess.isGameOver?chess.isGameOver():chess.game_over(); if(!over) return false;
-  const mate=chess.isCheckmate?chess.isCheckmate():chess.in_checkmate(); let won=false; if(mate) won=chess.turn()==='b';
-  showResult(won,mate?'Xeque-mate.':'Partida encerrada.'); return true;
+  if(!chess) return false;
+  const mate=isChessMate();
+  const draw=isChessDraw();
+  const over=isChessOver();
+  if(!over) return false;
+  if(mate){
+    const won=chess.turn()==='b';
+    showResult(won, won?'Xeque-mate! Você venceu a partida.':'Xeque-mate. A IA venceu a partida.');
+  }else if(draw){
+    showResult(null,'Empate. A partida terminou sem vencedor.');
+  }else{
+    showResult(false,'Partida encerrada.');
+  }
+  return true;
 }
 function showResult(won,reason){
-  if(resultShown) return; resultShown=true; const car=save?.career; if(car){ if(won){car.wins++; car.rating+=32; car.money+=currentTournament.prize; car.reputation+=currentTournament.rep; if(!car.titles.includes(currentTournament.name)) car.titles.push(currentTournament.name); car.mission='Continue vencendo para liberar torneios maiores.';} else {car.losses++; car.rating=Math.max(600,car.rating-12); car.mission='Treine novamente e busque a próxima vitória.';} persist(); }
-  const screen=$('resultScreen'); if(screen){screen.classList.toggle('bg-victory',won); screen.classList.toggle('bg-defeat',!won);} const tr=$('resultTrophy'); if(tr) tr.src=currentTournament.trophy; safeText('resultTitle',won?'Vitória!':'Derrota'); safeText('resultText',`${reason} ${won?'Você ganhou pontos, reputação e prêmio na carreira.':'Você perdeu rating, mas pode tentar novamente.'}`); show('resultScreen');
+  if(resultShown) return;
+  resultShown=true;
+  if(aiMoveTimer){clearTimeout(aiMoveTimer); aiMoveTimer=null;}
+  const car=save?.career;
+  if(car){
+    if(won===true){
+      car.wins++; car.rating+=32; car.money+=currentTournament.prize; car.reputation+=currentTournament.rep;
+      if(!car.titles.includes(currentTournament.name)) car.titles.push(currentTournament.name);
+      car.mission='Continue vencendo para liberar torneios maiores.';
+    }else if(won===false){
+      car.losses++; car.rating=Math.max(600,car.rating-12); car.mission='Treine novamente e busque a próxima vitória.';
+    }else{
+      car.rating+=4; car.mission='Empates somam experiência, mas a carreira avança com vitórias.';
+    }
+    persist();
+  }
+  const screen=$('resultScreen');
+  if(screen){screen.classList.toggle('bg-victory',won===true); screen.classList.toggle('bg-defeat',won!==true);}
+  const tr=$('resultTrophy'); if(tr) tr.src=currentTournament.trophy;
+  safeText('resultTitle',won===true?'Vitória!':won===false?'Derrota':'Empate');
+  const carAfter=save?.career;
+  const summary=carAfter?` Rating atual: ${carAfter.rating}. Placar da carreira: ${carAfter.wins}V / ${carAfter.losses}D. Títulos: ${carAfter.titles.length}.`:'';
+  safeText('resultText',`${reason} ${won===true?'Você ganhou pontos, reputação e prêmio na carreira.':won===false?'Você perdeu rating, mas pode tentar novamente.':'Seu rating recebeu um pequeno bônus de experiência.'}${summary}`);
+  show('resultScreen');
 }
-function updateHUD(){ const turn=chess?.turn()==='w'?'Brancas':'Pretas'; safeText('turnBox',`Turno: ${turn}${chess?.in_check&&chess.in_check()?' • Xeque':''}`); const h=$('historyBox'); if(h) h.innerHTML='<strong>Histórico</strong><br>'+moveHistory.map((m,i)=>`${i+1}. ${m}`).join('<br>'); }
-function updateBoard(){ if(!scene||!pieceGroup||!chess){ renderFallbackBoard(); return; } pieceGroup.clear(); pieces.clear(); const b=chess.board(); for(let r=0;r<8;r++)for(let f=0;f<8;f++){ const p=b[r][f]; if(!p) continue; const sq='abcdefgh'[f]+(8-r); const mesh=createPieceMesh(p); mesh.position.set(f-3.5,.28,r-3.5); mesh.userData.square=sq; mesh.traverse(o=>{if(o.isMesh)o.userData.square=sq}); pieceGroup.add(mesh); pieces.set(sq,mesh); } updateHighlights(); renderFallbackBoard(false); }
+function updateHUD(){
+  const turn=chess?.turn()==='w'?'Brancas':'Pretas';
+  let suffix='';
+  if(isChessMate()) suffix=' • XEQUE-MATE'; else if(isChessCheck()) suffix=' • XEQUE'; else if(isChessDraw()) suffix=' • EMPATE'; else if(isAITurn()||aiBusy) suffix=' • IA pensando';
+  safeText('turnBox',`Turno: ${turn}${suffix}`);
+  const h=$('historyBox'); if(h) h.innerHTML='<strong>Histórico</strong><br>'+moveHistory.map((m,i)=>`${i+1}. ${m}`).join('<br>');
+  if(isAITurn()) ensureAiTurn();
+}
+function updateBoard(){ safeRun('Falha ao atualizar tabuleiro 3D',()=>{ if(!scene||!pieceGroup||!chess){ renderFallbackBoard(); return; } pieceGroup.clear(); pieces.clear(); const b=chess.board(); for(let r=0;r<8;r++)for(let f=0;f<8;f++){ const p=b[r][f]; if(!p) continue; const sq='abcdefgh'[f]+(8-r); const mesh=createPieceMesh(p); mesh.position.set(f-3.5,.28,r-3.5); mesh.userData.square=sq; mesh.traverse(o=>{if(o.isMesh)o.userData.square=sq}); pieceGroup.add(mesh); pieces.set(sq,mesh); } updateHighlights(); renderFallbackBoard(false); },()=>renderFallbackBoard(true)); }
 function createPieceMesh(p){
   const g=new THREE.Group(); g.userData.piece=true;
   const white=p.color==='w';
@@ -318,7 +548,7 @@ function updateHighlights(){
   legal.forEach(m=>{const pos=markerAtSquare(m.to); const disk=new THREE.Mesh(new THREE.CircleGeometry(m.captured?.length?.toString()?0.24:0.18,24),legalMat); disk.rotation.x=-Math.PI/2; disk.position.set(pos.x,.125,pos.z); highlightGroup.add(disk);});
 }
 function renderFallbackBoard(showIt){ const fb=$('fallbackBoard'); if(!fb) return; if(showIt===false){fb.classList.remove('active');return;} if(window.THREE&&renderer) return; const board=chess?chess.board():[]; const icons={wp:'♙',wr:'♖',wn:'♘',wb:'♗',wq:'♕',wk:'♔',bp:'♟',br:'♜',bn:'♞',bb:'♝',bq:'♛',bk:'♚'}; let html='<div class="fallback-board-grid">'; for(let r=0;r<8;r++) for(let f=0;f<8;f++){ const p=board[r]?.[f]; const sq='abcdefgh'[f]+(8-r); html+=`<button class="fallback-square ${(r+f)%2?'dark':'light'}" onclick="selectOrMove('${sq}')">${p?icons[p.color+p.type]:''}</button>`;} html+='</div>'; fb.innerHTML=html; fb.classList.add('active'); }
-function animate(){ if(!renderer||!scene||!camera) return; requestAnimationFrame(animate); if(autoRotate){cameraOrbit.theta+=.004; applyCameraOrbit();} renderer.render(scene,camera); }
+function animate(){ if(!renderer||!scene||!camera) return; requestAnimationFrame(animate); safeRun('Falha no frame 3D',()=>{ if(autoRotate){cameraOrbit.theta+=.004; applyCameraOrbit();} if(isAITurn() && !aiMoveTimer) scheduleAiMove(360); renderer.render(scene,camera); }); }
 
 // Inicializacao obrigatoria: corrige tela travada sem clique nos botoes.
 if (document.readyState === 'loading') {

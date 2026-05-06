@@ -1,0 +1,18 @@
+# Caminhos de assets esperados nesta build
+assets/backgrounds/lobby/lobby_main_16x9.png
+assets/backgrounds/profile/profile_creation_16x9.png
+assets/backgrounds/career/career_dashboard_16x9.png
+assets/backgrounds/results/victory_16x9.png
+assets/backgrounds/results/defeat_16x9.png
+assets/branding/chess_crest_logo.png
+assets/ui/cards/player_card_horizontal.png
+assets/avatars/player/avatar_01.png ... avatar_08.png
+assets/flags/world/<codigo_iso_2_letras>.png
+assets/competitions/logos/amateur_league_logo.png
+assets/competitions/logos/professional_league_logo.png
+assets/competitions/logos/continental_logo.png
+assets/competitions/logos/world_championship_logo.png
+assets/competitions/trophies/amateur_trophy.png
+assets/competitions/trophies/professional_trophy.png
+assets/competitions/trophies/continental_trophy.png
+assets/competitions/trophies/world_trophy.png

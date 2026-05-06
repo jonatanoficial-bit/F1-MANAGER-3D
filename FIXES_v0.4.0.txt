@@ -1,0 +1,4 @@
+Vale Chess 3D Career - Build v0.4.0
+
+Implementado modo carreira com temporada: rodadas, tabela, pontos, adversarios por pais/continente/mundo, premios ao fim da temporada e persistencia no save.
+Arquivos com cache-busting: script-v040.js e style-v040.css.

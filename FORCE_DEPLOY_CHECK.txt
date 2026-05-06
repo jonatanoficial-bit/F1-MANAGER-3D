@@ -1,0 +1,2 @@
+Se no topo nao aparecer Build v0.5.1 - 2026-05-06 19:18 BRT, o deploy/cache ainda esta servindo build antiga.
+Arquivos principais desta build: index.html, style-v051.css, script-v051.js.

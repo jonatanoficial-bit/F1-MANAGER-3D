@@ -1,0 +1,6 @@
+Vale Chess 3D Career - Build v0.3.3
+
+1. Removido o overlay/plano transparente que aparecia sobre o fundo na area do tabuleiro.
+2. O canvas 3D continua transparente, deixando apenas o background cinematografico da tela aparecer atras do tabuleiro.
+3. Mantida a jogabilidade funcional da v0.3.2.
+4. Arquivos com cache-busting: script-v033.js e style-v033.css.

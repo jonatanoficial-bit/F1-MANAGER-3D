@@ -1,11 +1,11 @@
 /*
   Vale Chess 3D Career
-  Build: v0.3.1 - 2026-05-05 10:42 BRT
+  Build: v0.3.4 - 2026-05-05 12:12 BRT
   Mobile-first landscape, GitHub Pages, assets externos via manifesto.
 */
-const BUILD={version:'v0.3.1',datetime:'2026-05-05 10:42 BRT',label:'Build v0.3.1 - 2026-05-05 10:42 BRT'};
-const SAVE_KEY='vale_chess_3d_career_save_v031';
-const LEGACY_SAVE_KEYS=['vale_chess_3d_career_save_v030','vale_chess_3d_career_save_v029','vale_chess_3d_career_save_v028','vale_chess_3d_career_save_v027','vale_chess_3d_career_save_v026','vale_chess_3d_career_save_v025','vale_chess_3d_career_save_v024','vale_chess_3d_career_save_v023','vale_chess_3d_career_save_v022','vale_chess_3d_career_save_v021','vale_chess_3d_career_save_v020'];
+const BUILD={version:'v0.3.4',datetime:'2026-05-05 12:12 BRT',label:'Build v0.3.4 - 2026-05-05 12:12 BRT'};
+const SAVE_KEY='vale_chess_3d_career_save_v034';
+const LEGACY_SAVE_KEYS=['vale_chess_3d_career_save_v031','vale_chess_3d_career_save_v030','vale_chess_3d_career_save_v029','vale_chess_3d_career_save_v028','vale_chess_3d_career_save_v027','vale_chess_3d_career_save_v026','vale_chess_3d_career_save_v025','vale_chess_3d_career_save_v024','vale_chess_3d_career_save_v023','vale_chess_3d_career_save_v022','vale_chess_3d_career_save_v021','vale_chess_3d_career_save_v020'];
 const ASSET={
   cover:'assets/backgrounds/lobby/lobby_main_16x9.png', lobby:'assets/backgrounds/lobby/lobby_main_16x9.png', profile:'assets/backgrounds/profile/profile_creation_16x9.png', career:'assets/backgrounds/career/career_dashboard_16x9.png', victory:'assets/backgrounds/results/victory_16x9.png', defeat:'assets/backgrounds/results/defeat_16x9.png',
   card:'assets/ui/cards/player_card_horizontal.png',
@@ -165,7 +165,7 @@ function chooseOpponent(tournament){
 
 function startMatch(tournament=TOURNAMENTS[0],mode=activeMode){
   tryEnterFullscreen();
-  currentTournament=tournament; currentOpponent=chooseOpponent(tournament); resultShown=false; aiBusy=false; moveHistory=[]; selectedSq=null; legal=[]; playerColor='w';
+  currentTournament=tournament; currentOpponent=chooseOpponent(tournament); resultShown=false; aiBusy=false; if(aiMoveTimer){clearTimeout(aiMoveTimer); aiMoveTimer=null;} moveHistory=[]; selectedSq=null; legal=[]; playerColor='w';
   chess=new Chess();
   show('gameScreen');
   safeText('matchTitle',tournament.name);
@@ -205,13 +205,9 @@ function setup3D(){
 }
 function build3DEnvironment(){
   if(!environmentGroup||!window.THREE) return;
-  const floorMat=new THREE.MeshStandardMaterial({color:0x07101d,metalness:.15,roughness:.58});
-  const floor=new THREE.Mesh(new THREE.CircleGeometry(8.2,64),floorMat); floor.rotation.x=-Math.PI/2; floor.position.y=-.42; environmentGroup.add(floor);
-  const ringMat=new THREE.MeshStandardMaterial({color:0xb8862f,metalness:.45,roughness:.30});
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(5.05,.035,12,96),ringMat); ring.rotation.x=Math.PI/2; ring.position.y=-.37; environmentGroup.add(ring);
-  const wallMat=new THREE.MeshStandardMaterial({color:0x0b1424,metalness:.08,roughness:.62,transparent:true,opacity:.55});
-  const back=new THREE.Mesh(new THREE.PlaneGeometry(13,6),wallMat); back.position.set(0,2.2,5.25); back.rotation.x=-.18; environmentGroup.add(back);
-  for(const x of [-5.1,5.1]){ const col=new THREE.Mesh(new THREE.CylinderGeometry(.14,.22,3.2,18),ringMat); col.position.set(x,1.05,4.65); environmentGroup.add(col); const cap=new THREE.Mesh(new THREE.SphereGeometry(.24,18,12),ringMat); cap.position.set(x,2.75,4.65); environmentGroup.add(cap); }
+  // v0.3.3: removido o painel/plano semitransparente atras do tabuleiro,
+  // pois criava um efeito visual de vidro/overlay indesejado.
+  // O fundo cinematografico agora vem apenas do CSS da tela por tras do canvas.
 }
 function applyCameraOrbit(){
   if(!camera) return; const o=cameraOrbit; const x=Math.sin(o.theta)*o.radius; const z=Math.cos(o.theta)*o.radius; const y=Math.max(4.2,Math.sin(o.phi)*8.8); camera.position.set(x,y,z); camera.lookAt(0,0,0);
@@ -219,15 +215,82 @@ function applyCameraOrbit(){
 function resizeRenderer(){
   if(!renderer||!camera) return; const wrap=document.querySelector('.board-wrap'); const w=(wrap?.clientWidth||window.innerWidth); const h=(wrap?.clientHeight||window.innerHeight); renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
 }
-function onPointerDown(e){dragState={active:true,moved:false,startX:e.clientX,startY:e.clientY,lastX:e.clientX,lastY:e.clientY,pointerId:e.pointerId}; try{e.currentTarget.setPointerCapture(e.pointerId)}catch{} }
-function onPointerMove(e){ if(!dragState.active) return; const dx=e.clientX-dragState.lastX, dy=e.clientY-dragState.lastY; if(Math.abs(e.clientX-dragState.startX)+Math.abs(e.clientY-dragState.startY)>10) dragState.moved=true; cameraOrbit.theta-=dx*.006; cameraOrbit.phi=Math.max(.45,Math.min(1.15,cameraOrbit.phi-dy*.003)); dragState.lastX=e.clientX; dragState.lastY=e.clientY; applyCameraOrbit(); }
-function onPointerUp(e){ const moved=dragState.moved; dragState.active=false; try{e.currentTarget.releasePointerCapture(e.pointerId)}catch{} if(!moved) handleBoardClick(e); }
-function handleBoardClick(e){
-  if(!renderer||!camera||!raycaster||!chess) return; const rect=renderer.domElement.getBoundingClientRect(); pointer.x=((e.clientX-rect.left)/rect.width)*2-1; pointer.y=-((e.clientY-rect.top)/rect.height)*2+1; raycaster.setFromCamera(pointer,camera);
-  const objs=[...pieces.values(),...squares.values()]; const hits=raycaster.intersectObjects(objs,true); if(!hits.length) return;
-  let obj=hits[0].object; while(obj && !obj.userData.square && obj.parent) obj=obj.parent;
-  const sq=obj?.userData?.square; if(sq) selectOrMove(sq);
+function onPointerDown(e){
+  dragState={active:true,moved:false,rotating:false,startX:e.clientX,startY:e.clientY,lastX:e.clientX,lastY:e.clientY,pointerId:e.pointerId};
+  try{e.currentTarget.setPointerCapture(e.pointerId)}catch{}
 }
+function onPointerMove(e){
+  if(!dragState.active) return;
+  const total=Math.hypot(e.clientX-dragState.startX,e.clientY-dragState.startY);
+  // v0.3.2: toque curto seleciona/move. So comeca a girar apos arrasto real.
+  if(!dragState.rotating && total<16) return;
+  dragState.rotating=true; dragState.moved=true;
+  const dx=e.clientX-dragState.lastX, dy=e.clientY-dragState.lastY;
+  cameraOrbit.theta-=dx*.006;
+  cameraOrbit.phi=Math.max(.45,Math.min(1.15,cameraOrbit.phi-dy*.003));
+  dragState.lastX=e.clientX; dragState.lastY=e.clientY;
+  applyCameraOrbit();
+}
+function onPointerUp(e){
+  const moved=dragState.moved;
+  const clickLike=Math.hypot(e.clientX-dragState.startX,e.clientY-dragState.startY)<18;
+  dragState.active=false;
+  try{e.currentTarget.releasePointerCapture(e.pointerId)}catch{}
+  if(!moved || clickLike) handleBoardClick(e);
+}
+function handleBoardClick(e){
+  if(!renderer||!camera||!raycaster||!chess) return;
+  const rect=renderer.domElement.getBoundingClientRect();
+  pointer.x=((e.clientX-rect.left)/rect.width)*2-1; pointer.y=-((e.clientY-rect.top)/rect.height)*2+1;
+  raycaster.setFromCamera(pointer,camera);
+  const pieceHits=raycaster.intersectObjects([...pieces.values()],true);
+  if(pieceHits.length){
+    let obj=pieceHits[0].object;
+    while(obj && !obj.userData.square && obj.parent) obj=obj.parent;
+    const sq=obj?.userData?.square;
+    if(sq){selectOrMove(sq); return;}
+  }
+  const squareHits=raycaster.intersectObjects([...squares.values()],false);
+  if(squareHits.length){
+    const sq=squareHits[0].object?.userData?.square;
+    if(sq){selectOrMove(sq); return;}
+  }
+}
+function isChessCheck(){
+  if(!chess) return false;
+  if(typeof chess.isCheck==='function') return chess.isCheck();
+  if(typeof chess.in_check==='function') return chess.in_check();
+  return false;
+}
+function isChessMate(){
+  if(!chess) return false;
+  if(typeof chess.isCheckmate==='function') return chess.isCheckmate();
+  if(typeof chess.in_checkmate==='function') return chess.in_checkmate();
+  return false;
+}
+function isChessDraw(){
+  if(!chess) return false;
+  if(typeof chess.isDraw==='function') return chess.isDraw();
+  if(typeof chess.in_draw==='function') return chess.in_draw();
+  if(typeof chess.isStalemate==='function' && chess.isStalemate()) return true;
+  if(typeof chess.in_stalemate==='function' && chess.in_stalemate()) return true;
+  return false;
+}
+function isChessOver(){
+  if(!chess) return false;
+  if(typeof chess.isGameOver==='function') return chess.isGameOver();
+  if(typeof chess.game_over==='function') return chess.game_over();
+  return isChessMate() || isChessDraw();
+}
+function isAITurn(){
+  return !!chess && !resultShown && !aiBusy && (activeMode==='single' || activeMode==='online-preview') && chess.turn && chess.turn()==='b';
+}
+function scheduleAiMove(delay=420){
+  if(!isAITurn()) return;
+  if(aiMoveTimer) clearTimeout(aiMoveTimer);
+  aiMoveTimer=setTimeout(()=>{ aiMoveTimer=null; if(isAITurn()) makeAiMove(); }, delay);
+}
+function ensureAiTurn(){ scheduleAiMove(280); }
 function selectOrMove(sq){
   if(!chess || aiBusy) return; const piece=chess.get(sq);
   if(selectedSq){ const mv=legal.find(m=>m.to===sq); if(mv){ const done=chess.move({from:selectedSq,to:sq,promotion:'q'}); if(done){ moveHistory.push(done.san||`${selectedSq}-${sq}`); selectedSq=null; legal=[]; updateBoard(); updateHUD(); afterMove(); return; }} }
@@ -235,7 +298,7 @@ function selectOrMove(sq){
 }
 function afterMove(){
   if(checkGameEnd()) return;
-  if(activeMode==='single' || activeMode==='online-preview') setTimeout(makeAiMove,450);
+  scheduleAiMove(420);
 }
 function pieceValue(t){return {p:100,n:310,b:320,r:500,q:900,k:20000}[t]||0}
 function evaluateBoard(){
@@ -256,17 +319,76 @@ function chooseAiMove(moves){
   const spread=skill>.8?2:skill>.6?3:skill>.4?5:8;
   return ranked[Math.floor(Math.random()*Math.min(spread,ranked.length))].m;
 }
-function makeAiMove(){ if(!chess||chess.turn()!=='b') return; aiBusy=true; const moves=chess.moves({verbose:true}); const mv=chooseAiMove(moves); if(mv){ const done=chess.move({from:mv.from,to:mv.to,promotion:mv.promotion||'q'}); moveHistory.push(done.san||`${mv.from}-${mv.to}`); } aiBusy=false; updateBoard(); updateHUD(); checkGameEnd(); }
+function makeAiMove(){
+  if(!chess || chess.turn()!=='b' || resultShown) return;
+  aiBusy=true;
+  try{
+    const moves=chess.moves({verbose:true});
+    if(!moves.length){ checkGameEnd(); return; }
+    const mv=chooseAiMove(moves) || moves[Math.floor(Math.random()*moves.length)];
+    const done=chess.move({from:mv.from,to:mv.to,promotion:mv.promotion||'q'});
+    if(done) moveHistory.push(done.san||`${mv.from}-${mv.to}`);
+  }catch(err){
+    console.warn('[AI] Falha ao escolher jogada, usando fallback seguro', err);
+    try{
+      const fallback=chess.moves({verbose:true})[0];
+      if(fallback){ const done=chess.move({from:fallback.from,to:fallback.to,promotion:fallback.promotion||'q'}); if(done) moveHistory.push(done.san||`${fallback.from}-${fallback.to}`); }
+    }catch(e){ console.error('[AI] Fallback tambem falhou', e); }
+  }finally{
+    aiBusy=false;
+    updateBoard();
+    updateHUD();
+    checkGameEnd();
+  }
+}
 function checkGameEnd(){
-  if(!chess) return false; const over=chess.isGameOver?chess.isGameOver():chess.game_over(); if(!over) return false;
-  const mate=chess.isCheckmate?chess.isCheckmate():chess.in_checkmate(); let won=false; if(mate) won=chess.turn()==='b';
-  showResult(won,mate?'Xeque-mate.':'Partida encerrada.'); return true;
+  if(!chess) return false;
+  const mate=isChessMate();
+  const draw=isChessDraw();
+  const over=isChessOver();
+  if(!over) return false;
+  if(mate){
+    const won=chess.turn()==='b';
+    showResult(won, won?'Xeque-mate! Você venceu a partida.':'Xeque-mate. A IA venceu a partida.');
+  }else if(draw){
+    showResult(null,'Empate. A partida terminou sem vencedor.');
+  }else{
+    showResult(false,'Partida encerrada.');
+  }
+  return true;
 }
 function showResult(won,reason){
-  if(resultShown) return; resultShown=true; const car=save?.career; if(car){ if(won){car.wins++; car.rating+=32; car.money+=currentTournament.prize; car.reputation+=currentTournament.rep; if(!car.titles.includes(currentTournament.name)) car.titles.push(currentTournament.name); car.mission='Continue vencendo para liberar torneios maiores.';} else {car.losses++; car.rating=Math.max(600,car.rating-12); car.mission='Treine novamente e busque a próxima vitória.';} persist(); }
-  const screen=$('resultScreen'); if(screen){screen.classList.toggle('bg-victory',won); screen.classList.toggle('bg-defeat',!won);} const tr=$('resultTrophy'); if(tr) tr.src=currentTournament.trophy; safeText('resultTitle',won?'Vitória!':'Derrota'); safeText('resultText',`${reason} ${won?'Você ganhou pontos, reputação e prêmio na carreira.':'Você perdeu rating, mas pode tentar novamente.'}`); show('resultScreen');
+  if(resultShown) return;
+  resultShown=true;
+  if(aiMoveTimer){clearTimeout(aiMoveTimer); aiMoveTimer=null;}
+  const car=save?.career;
+  if(car){
+    if(won===true){
+      car.wins++; car.rating+=32; car.money+=currentTournament.prize; car.reputation+=currentTournament.rep;
+      if(!car.titles.includes(currentTournament.name)) car.titles.push(currentTournament.name);
+      car.mission='Continue vencendo para liberar torneios maiores.';
+    }else if(won===false){
+      car.losses++; car.rating=Math.max(600,car.rating-12); car.mission='Treine novamente e busque a próxima vitória.';
+    }else{
+      car.rating+=4; car.mission='Empates somam experiência, mas a carreira avança com vitórias.';
+    }
+    persist();
+  }
+  const screen=$('resultScreen');
+  if(screen){screen.classList.toggle('bg-victory',won===true); screen.classList.toggle('bg-defeat',won!==true);}
+  const tr=$('resultTrophy'); if(tr) tr.src=currentTournament.trophy;
+  safeText('resultTitle',won===true?'Vitória!':won===false?'Derrota':'Empate');
+  safeText('resultText',`${reason} ${won===true?'Você ganhou pontos, reputação e prêmio na carreira.':won===false?'Você perdeu rating, mas pode tentar novamente.':'Seu rating recebeu um pequeno bônus de experiência.'}`);
+  show('resultScreen');
 }
-function updateHUD(){ const turn=chess?.turn()==='w'?'Brancas':'Pretas'; safeText('turnBox',`Turno: ${turn}${chess?.in_check&&chess.in_check()?' • Xeque':''}`); const h=$('historyBox'); if(h) h.innerHTML='<strong>Histórico</strong><br>'+moveHistory.map((m,i)=>`${i+1}. ${m}`).join('<br>'); }
+function updateHUD(){
+  const turn=chess?.turn()==='w'?'Brancas':'Pretas';
+  let suffix='';
+  if(isChessMate()) suffix=' • Xeque-mate'; else if(isChessCheck()) suffix=' • XEQUE'; else if(isChessDraw()) suffix=' • Empate';
+  safeText('turnBox',`Turno: ${turn}${suffix}`);
+  const h=$('historyBox'); if(h) h.innerHTML='<strong>Histórico</strong><br>'+moveHistory.map((m,i)=>`${i+1}. ${m}`).join('<br>');
+  if(isAITurn()) ensureAiTurn();
+}
 function updateBoard(){ if(!scene||!pieceGroup||!chess){ renderFallbackBoard(); return; } pieceGroup.clear(); pieces.clear(); const b=chess.board(); for(let r=0;r<8;r++)for(let f=0;f<8;f++){ const p=b[r][f]; if(!p) continue; const sq='abcdefgh'[f]+(8-r); const mesh=createPieceMesh(p); mesh.position.set(f-3.5,.28,r-3.5); mesh.userData.square=sq; mesh.traverse(o=>{if(o.isMesh)o.userData.square=sq}); pieceGroup.add(mesh); pieces.set(sq,mesh); } updateHighlights(); renderFallbackBoard(false); }
 function createPieceMesh(p){
   const g=new THREE.Group(); g.userData.piece=true;
@@ -318,7 +440,7 @@ function updateHighlights(){
   legal.forEach(m=>{const pos=markerAtSquare(m.to); const disk=new THREE.Mesh(new THREE.CircleGeometry(m.captured?.length?.toString()?0.24:0.18,24),legalMat); disk.rotation.x=-Math.PI/2; disk.position.set(pos.x,.125,pos.z); highlightGroup.add(disk);});
 }
 function renderFallbackBoard(showIt){ const fb=$('fallbackBoard'); if(!fb) return; if(showIt===false){fb.classList.remove('active');return;} if(window.THREE&&renderer) return; const board=chess?chess.board():[]; const icons={wp:'♙',wr:'♖',wn:'♘',wb:'♗',wq:'♕',wk:'♔',bp:'♟',br:'♜',bn:'♞',bb:'♝',bq:'♛',bk:'♚'}; let html='<div class="fallback-board-grid">'; for(let r=0;r<8;r++) for(let f=0;f<8;f++){ const p=board[r]?.[f]; const sq='abcdefgh'[f]+(8-r); html+=`<button class="fallback-square ${(r+f)%2?'dark':'light'}" onclick="selectOrMove('${sq}')">${p?icons[p.color+p.type]:''}</button>`;} html+='</div>'; fb.innerHTML=html; fb.classList.add('active'); }
-function animate(){ if(!renderer||!scene||!camera) return; requestAnimationFrame(animate); if(autoRotate){cameraOrbit.theta+=.004; applyCameraOrbit();} renderer.render(scene,camera); }
+function animate(){ if(!renderer||!scene||!camera) return; requestAnimationFrame(animate); if(autoRotate){cameraOrbit.theta+=.004; applyCameraOrbit();} if(isAITurn() && !aiMoveTimer) scheduleAiMove(360); renderer.render(scene,camera); }
 
 // Inicializacao obrigatoria: corrige tela travada sem clique nos botoes.
 if (document.readyState === 'loading') {

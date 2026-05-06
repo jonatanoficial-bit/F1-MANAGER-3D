@@ -1,0 +1,22 @@
+REGRAS DE GEOGRAFIA DA CARREIRA - VALE CHESS 3D
+
+1. Perfil
+O jogador escolhe nome, avatar e país. Esse país define a rota inicial da carreira.
+
+2. Liga Nacional Amadora
+Adversários gerados somente do país escolhido pelo usuário.
+Exemplo: jogador escolhe Japão -> adversários japoneses.
+
+3. Liga Nacional Profissional
+Continua no país escolhido, mas com IA e rating maiores.
+Exemplo: jogador escolhe Japão -> circuito profissional japonês.
+
+4. Campeonato Continental
+Adversários são sorteados entre países do mesmo continente do país escolhido.
+Exemplo: Japão -> rivais da Ásia. Brasil -> rivais da América.
+
+5. Campeonato Mundial
+Adversários são sorteados entre países do mundo todo, misturando continentes.
+
+6. Dificuldade
+Cada campeonato possui limite mínimo e máximo de IA. Dentro desse limite, cada adversário é sorteado com variação própria, criando partidas mais fáceis e mais difíceis dentro do mesmo torneio.

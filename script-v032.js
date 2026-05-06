@@ -1,11 +1,11 @@
 /*
   Vale Chess 3D Career
-  Build: v0.3.1 - 2026-05-05 10:42 BRT
+  Build: v0.3.2 - 2026-05-05 11:18 BRT
   Mobile-first landscape, GitHub Pages, assets externos via manifesto.
 */
-const BUILD={version:'v0.3.1',datetime:'2026-05-05 10:42 BRT',label:'Build v0.3.1 - 2026-05-05 10:42 BRT'};
-const SAVE_KEY='vale_chess_3d_career_save_v031';
-const LEGACY_SAVE_KEYS=['vale_chess_3d_career_save_v030','vale_chess_3d_career_save_v029','vale_chess_3d_career_save_v028','vale_chess_3d_career_save_v027','vale_chess_3d_career_save_v026','vale_chess_3d_career_save_v025','vale_chess_3d_career_save_v024','vale_chess_3d_career_save_v023','vale_chess_3d_career_save_v022','vale_chess_3d_career_save_v021','vale_chess_3d_career_save_v020'];
+const BUILD={version:'v0.3.2',datetime:'2026-05-05 11:18 BRT',label:'Build v0.3.2 - 2026-05-05 11:18 BRT'};
+const SAVE_KEY='vale_chess_3d_career_save_v032';
+const LEGACY_SAVE_KEYS=['vale_chess_3d_career_save_v031','vale_chess_3d_career_save_v030','vale_chess_3d_career_save_v029','vale_chess_3d_career_save_v028','vale_chess_3d_career_save_v027','vale_chess_3d_career_save_v026','vale_chess_3d_career_save_v025','vale_chess_3d_career_save_v024','vale_chess_3d_career_save_v023','vale_chess_3d_career_save_v022','vale_chess_3d_career_save_v021','vale_chess_3d_career_save_v020'];
 const ASSET={
   cover:'assets/backgrounds/lobby/lobby_main_16x9.png', lobby:'assets/backgrounds/lobby/lobby_main_16x9.png', profile:'assets/backgrounds/profile/profile_creation_16x9.png', career:'assets/backgrounds/career/career_dashboard_16x9.png', victory:'assets/backgrounds/results/victory_16x9.png', defeat:'assets/backgrounds/results/defeat_16x9.png',
   card:'assets/ui/cards/player_card_horizontal.png',
@@ -205,13 +205,14 @@ function setup3D(){
 }
 function build3DEnvironment(){
   if(!environmentGroup||!window.THREE) return;
-  const floorMat=new THREE.MeshStandardMaterial({color:0x07101d,metalness:.15,roughness:.58});
-  const floor=new THREE.Mesh(new THREE.CircleGeometry(8.2,64),floorMat); floor.rotation.x=-Math.PI/2; floor.position.y=-.42; environmentGroup.add(floor);
-  const ringMat=new THREE.MeshStandardMaterial({color:0xb8862f,metalness:.45,roughness:.30});
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(5.05,.035,12,96),ringMat); ring.rotation.x=Math.PI/2; ring.position.y=-.37; environmentGroup.add(ring);
-  const wallMat=new THREE.MeshStandardMaterial({color:0x0b1424,metalness:.08,roughness:.62,transparent:true,opacity:.55});
-  const back=new THREE.Mesh(new THREE.PlaneGeometry(13,6),wallMat); back.position.set(0,2.2,5.25); back.rotation.x=-.18; environmentGroup.add(back);
-  for(const x of [-5.1,5.1]){ const col=new THREE.Mesh(new THREE.CylinderGeometry(.14,.22,3.2,18),ringMat); col.position.set(x,1.05,4.65); environmentGroup.add(col); const cap=new THREE.Mesh(new THREE.SphereGeometry(.24,18,12),ringMat); cap.position.set(x,2.75,4.65); environmentGroup.add(cap); }
+  // v0.3.2: ambiente limpo. Mantem profundidade/cenario, mas remove aros, hastes e formas extras
+  // que poluiam a leitura do tabuleiro em mobile.
+  const wallMat=new THREE.MeshStandardMaterial({color:0x07101d,metalness:.04,roughness:.72,transparent:true,opacity:.38});
+  const back=new THREE.Mesh(new THREE.PlaneGeometry(13,6),wallMat);
+  back.position.set(0,2.15,5.35);
+  back.rotation.x=-.12;
+  back.userData.decorative=true;
+  environmentGroup.add(back);
 }
 function applyCameraOrbit(){
   if(!camera) return; const o=cameraOrbit; const x=Math.sin(o.theta)*o.radius; const z=Math.cos(o.theta)*o.radius; const y=Math.max(4.2,Math.sin(o.phi)*8.8); camera.position.set(x,y,z); camera.lookAt(0,0,0);
@@ -219,14 +220,46 @@ function applyCameraOrbit(){
 function resizeRenderer(){
   if(!renderer||!camera) return; const wrap=document.querySelector('.board-wrap'); const w=(wrap?.clientWidth||window.innerWidth); const h=(wrap?.clientHeight||window.innerHeight); renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
 }
-function onPointerDown(e){dragState={active:true,moved:false,startX:e.clientX,startY:e.clientY,lastX:e.clientX,lastY:e.clientY,pointerId:e.pointerId}; try{e.currentTarget.setPointerCapture(e.pointerId)}catch{} }
-function onPointerMove(e){ if(!dragState.active) return; const dx=e.clientX-dragState.lastX, dy=e.clientY-dragState.lastY; if(Math.abs(e.clientX-dragState.startX)+Math.abs(e.clientY-dragState.startY)>10) dragState.moved=true; cameraOrbit.theta-=dx*.006; cameraOrbit.phi=Math.max(.45,Math.min(1.15,cameraOrbit.phi-dy*.003)); dragState.lastX=e.clientX; dragState.lastY=e.clientY; applyCameraOrbit(); }
-function onPointerUp(e){ const moved=dragState.moved; dragState.active=false; try{e.currentTarget.releasePointerCapture(e.pointerId)}catch{} if(!moved) handleBoardClick(e); }
+function onPointerDown(e){
+  dragState={active:true,moved:false,rotating:false,startX:e.clientX,startY:e.clientY,lastX:e.clientX,lastY:e.clientY,pointerId:e.pointerId};
+  try{e.currentTarget.setPointerCapture(e.pointerId)}catch{}
+}
+function onPointerMove(e){
+  if(!dragState.active) return;
+  const total=Math.hypot(e.clientX-dragState.startX,e.clientY-dragState.startY);
+  // v0.3.2: toque curto seleciona/move. So comeca a girar apos arrasto real.
+  if(!dragState.rotating && total<16) return;
+  dragState.rotating=true; dragState.moved=true;
+  const dx=e.clientX-dragState.lastX, dy=e.clientY-dragState.lastY;
+  cameraOrbit.theta-=dx*.006;
+  cameraOrbit.phi=Math.max(.45,Math.min(1.15,cameraOrbit.phi-dy*.003));
+  dragState.lastX=e.clientX; dragState.lastY=e.clientY;
+  applyCameraOrbit();
+}
+function onPointerUp(e){
+  const moved=dragState.moved;
+  const clickLike=Math.hypot(e.clientX-dragState.startX,e.clientY-dragState.startY)<18;
+  dragState.active=false;
+  try{e.currentTarget.releasePointerCapture(e.pointerId)}catch{}
+  if(!moved || clickLike) handleBoardClick(e);
+}
 function handleBoardClick(e){
-  if(!renderer||!camera||!raycaster||!chess) return; const rect=renderer.domElement.getBoundingClientRect(); pointer.x=((e.clientX-rect.left)/rect.width)*2-1; pointer.y=-((e.clientY-rect.top)/rect.height)*2+1; raycaster.setFromCamera(pointer,camera);
-  const objs=[...pieces.values(),...squares.values()]; const hits=raycaster.intersectObjects(objs,true); if(!hits.length) return;
-  let obj=hits[0].object; while(obj && !obj.userData.square && obj.parent) obj=obj.parent;
-  const sq=obj?.userData?.square; if(sq) selectOrMove(sq);
+  if(!renderer||!camera||!raycaster||!chess) return;
+  const rect=renderer.domElement.getBoundingClientRect();
+  pointer.x=((e.clientX-rect.left)/rect.width)*2-1; pointer.y=-((e.clientY-rect.top)/rect.height)*2+1;
+  raycaster.setFromCamera(pointer,camera);
+  const pieceHits=raycaster.intersectObjects([...pieces.values()],true);
+  if(pieceHits.length){
+    let obj=pieceHits[0].object;
+    while(obj && !obj.userData.square && obj.parent) obj=obj.parent;
+    const sq=obj?.userData?.square;
+    if(sq){selectOrMove(sq); return;}
+  }
+  const squareHits=raycaster.intersectObjects([...squares.values()],false);
+  if(squareHits.length){
+    const sq=squareHits[0].object?.userData?.square;
+    if(sq){selectOrMove(sq); return;}
+  }
 }
 function selectOrMove(sq){
   if(!chess || aiBusy) return; const piece=chess.get(sq);

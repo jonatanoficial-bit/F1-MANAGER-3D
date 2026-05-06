@@ -4,24 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="theme-color" content="#08111f" />
-  <title>Vale Chess 3D Career - Build v0.5.1</title>
-  <link rel="stylesheet" href="style-v051.css?v=20260506-1918" />
+  <title>Vale Chess 3D Career - Build v0.3.6</title>
+  <link rel="stylesheet" href="style-v036.css?v=20260506-1615" />
 </head>
 <body>
   <div id="orientationGate" class="orientation-gate">
     <div class="phone-icon">▭</div>
     <strong>Gire o celular</strong>
     <span>O jogo foi pensado para mobile em modo deitado.</span>
-  </div>
-
-
-  <button id="fullscreenFab" class="fullscreen-fab" type="button">⛶ Tela cheia</button>
-  <div id="mobileCoach" class="mobile-coach hidden">
-    <div class="mobile-coach-card glass">
-      <strong>Controles rápidos</strong>
-      <span>Toque curto seleciona e joga. Arraste no tabuleiro para girar a câmera.</span>
-      <button id="mobileCoachOk" class="primary" type="button">Entendi</button>
-    </div>
   </div>
 
   <main id="app" class="app">
@@ -146,23 +136,12 @@
     </section>
 
     <section id="resultScreen" class="screen result-screen bg-victory">
-      <div class="result-panel glass premium-result-panel">
-        <div class="result-hero">
-          <img id="resultTrophy" class="trophy trophy-premium" src="assets/competitions/trophies/amateur_trophy.png" alt="Troféu" onerror="this.style.display='none'" />
-          <div>
-            <span class="brand-kicker">RESULTADO DA PARTIDA</span>
-            <h2 id="resultTitle">Vitória</h2>
-            <p id="resultSubtitle" class="result-subtitle">Resumo da partida</p>
-          </div>
-        </div>
-        <p id="resultText" class="result-main-text"></p>
-        <div id="resultRewardGrid" class="result-reward-grid"></div>
-        <div id="resultSeasonBox" class="result-season-box"></div>
-        <div class="row-actions result-actions">
-          <button id="nextCareerMatchBtn" class="primary">Próxima partida</button>
-          <button data-go="careerScreen" class="secondary">Voltar à carreira</button>
-          <button data-go="lobbyScreen" class="secondary">Lobby</button>
-        </div>
+      <div class="result-panel glass">
+        <img id="resultTrophy" class="trophy" src="assets/competitions/trophies/amateur_trophy.png" alt="Troféu" onerror="this.style.display='none'" />
+        <span class="brand-kicker">RESULTADO</span>
+        <h2 id="resultTitle">Vitória</h2>
+        <p id="resultText"></p>
+        <div class="row-actions"><button data-go="careerScreen" class="primary">Voltar à carreira</button><button data-go="lobbyScreen" class="secondary">Lobby</button></div>
       </div>
     </section>
   </main>
@@ -170,6 +149,6 @@
   <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
   <script src="assets/chess-local.js"></script>
   <script src="firebaseConfig.js"></script>
-  <script src="script-v051.js?v=20260506-1918"></script>
+  <script src="script-v036.js?v=20260506-1615"></script>
 </body>
 </html>

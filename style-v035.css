@@ -1,3 +1,6 @@
+/* v0.3.5 partida estabilizada: IA, xeque, mate e fim de partida */
+/* v0.3.4 AI/checkmate/result fixes */
+/* v0.3.3 transparent-overlay fix */
 :root{
   --bg:#07101d; --panel:rgba(10,18,34,.78); --panel2:rgba(16,28,49,.88); --line:rgba(255,255,255,.14);
   --gold:#f0c25a; --gold2:#ffe7a5; --blue:#70a8ff; --green:#48f5a4; --danger:#ff6a7a; --text:#edf5ff; --muted:#aebbd1;
@@ -56,7 +59,7 @@ img{max-width:100%;}
 @media(max-width:900px){.topbar{min-height:58px}.hero-panel h2,.main-panel h2,.section-title h2{line-height:.95}.board-wrap::after{content:'arraste para girar • toque para jogar'}}
 
 
-/* v0.3.1 geography career polish */
+/* v0.3.2 geography career polish */
 .geo-line{color:#ffe7a0;margin-top:8px}
 .flag-preview{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:10px 0 12px;color:#bcd0f7;font-size:12px}
 .tiny-flag{width:24px;height:17px;object-fit:cover;border-radius:4px;border:1px solid rgba(255,255,255,.2);box-shadow:0 4px 12px rgba(0,0,0,.3)}
@@ -64,3 +67,13 @@ img{max-width:100%;}
 .tournament-card .flag-preview .flag-code{width:24px;height:17px}
 .tournament-card h3{letter-spacing:-.02em}
 .tournament-card p{line-height:1.35}
+
+/* v0.3.2 interaction polish */
+#gameCanvas{touch-action:none;cursor:pointer;}
+.board-wrap{overscroll-behavior:contain;}
+
+/* Build v0.3.4 - resultado e xeque mais visiveis */
+.turn-box{font-weight:1000;text-transform:none;}
+.turn-box:has(+ *){min-height:48px;display:flex;align-items:center;}
+.result-panel h2{font-size:clamp(36px,6vw,76px);text-shadow:0 18px 50px rgba(0,0,0,.45)}
+.result-panel p{font-size:clamp(16px,2vw,22px);line-height:1.45}
