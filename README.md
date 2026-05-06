@@ -1,4 +1,4 @@
-# F1 Manager Career 2026 — Build v0.7.0
+# F1 Manager Career 2026 — Build v0.8.0
 
 Build focada em melhoria da corrida 3D, clareza do modo carreira e integração visual dos assets.
 
@@ -15,9 +15,15 @@ Esta build continua sendo enviada **sem assets pesados no ZIP**, conforme solici
 Para visualizar imagens, publique junto a pasta `assets/` ou as pastas `f1_assets_part_XX/`.
 
 
-## v0.7.0
+## v0.8.0
 Grid F2 com 22 pilotos, avatars/fallbacks no leaderboard e botões de ação funcionais.
 
 
-## Build v0.7.0
+## Build v0.8.0
 Os SVGs oficiais das pistas enviados pelo usuário foram incorporados em `assets/tracks/svg/` e processados em `data/track-layouts.js`. A corrida 3D passa a carregar o traçado da etapa atual pelo calendário.
+
+
+## Build v0.8.0
+Versão: Build v0.8.0 • 06/05/2026 • 16:19 BRT
+
+Esta versão acelera a corrida e ativa todas as pistas SVG enviadas como jogáveis.

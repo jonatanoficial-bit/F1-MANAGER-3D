@@ -1,11 +1,11 @@
 window.F1M_DATA = {
   "build": {
-    "version": "0.7.0",
+    "version": "0.8.0",
     "date": "06/05/2026",
-    "time_brt": "16:10",
+    "time_brt": "16:19",
     "timezone": "America/Sao_Paulo",
-    "label": "Build v0.7.0 • 06/05/2026 • 16:10 BRT",
-    "iso": "2026-05-06T16:10:00.665090-03:00"
+    "label": "Build v0.8.0 • 06/05/2026 • 16:19 BRT",
+    "iso": "2026-05-06T16:19:33.596209-03:00"
   },
   "assetPaths": {
     "menu": "backgrounds/ui/global_lobby.png",
@@ -1236,243 +1236,279 @@ window.F1M_DATA = {
   ],
   "calendar2026": [
     {
-      "id": "bahrain",
+      "id": "bahrein",
       "svgLayout": "bahrein",
       "svgPath": "assets/tracks/svg/bahrein.svg",
       "name": "GP do Bahrein",
-      "laps": 22,
+      "laps": 18,
       "country": "BH",
       "weather": "dry",
-      "track": "desert"
+      "track": "desert",
+      "playable": true
     },
     {
       "id": "saudi",
       "svgLayout": "arabia_saudita",
       "svgPath": "assets/tracks/svg/arabia_saudita.svg",
       "name": "GP da Arábia Saudita",
-      "laps": 22,
+      "laps": 18,
       "country": "SA",
       "weather": "dry",
-      "track": "street"
+      "track": "street",
+      "playable": true
     },
     {
       "id": "australia",
       "svgLayout": "australia",
       "svgPath": "assets/tracks/svg/australia.svg",
       "name": "GP da Austrália",
-      "laps": 22,
+      "laps": 18,
       "country": "AU",
       "weather": "variable",
-      "track": "park"
+      "track": "park",
+      "playable": true
     },
     {
-      "id": "japan",
+      "id": "japao",
       "svgLayout": "japao",
       "svgPath": "assets/tracks/svg/japao.svg",
       "name": "GP do Japão",
-      "laps": 22,
+      "laps": 18,
       "country": "JP",
       "weather": "variable",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
       "id": "china",
       "svgLayout": "china",
       "svgPath": "assets/tracks/svg/china.svg",
       "name": "GP da China",
-      "laps": 22,
+      "laps": 18,
       "country": "CN",
       "weather": "dry",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
       "id": "miami",
       "svgLayout": "miami",
       "svgPath": "assets/tracks/svg/miami.svg",
       "name": "GP de Miami",
-      "laps": 22,
+      "laps": 18,
       "country": "US",
       "weather": "dry",
       "track": "street",
-      "asset": "assets/backgrounds/race/tracks/miami_base_isometric.png"
+      "playable": true
+    },
+    {
+      "id": "imola",
+      "svgLayout": "imola",
+      "svgPath": "assets/tracks/svg/imola.svg",
+      "name": "GP da Emilia-Romagna / Imola",
+      "laps": 18,
+      "country": "IT",
+      "weather": "variable",
+      "track": "classic",
+      "playable": true
     },
     {
       "id": "monaco",
       "svgLayout": "monaco",
       "svgPath": "assets/tracks/svg/monaco.svg",
       "name": "GP de Mônaco",
-      "laps": 22,
+      "laps": 18,
       "country": "MC",
       "weather": "variable",
-      "track": "street"
+      "track": "street",
+      "playable": true
     },
     {
       "id": "canada",
       "svgLayout": "canada",
       "svgPath": "assets/tracks/svg/canada.svg",
       "name": "GP do Canadá",
-      "laps": 22,
+      "laps": 18,
       "country": "CA",
       "weather": "variable",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
-      "id": "spain",
+      "id": "espanha",
       "svgLayout": "espanha",
       "svgPath": "assets/tracks/svg/espanha.svg",
-      "name": "GP da Espanha",
-      "laps": 22,
+      "name": "GP da Espanha / Barcelona",
+      "laps": 18,
       "country": "ES",
       "weather": "dry",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
+    },
+    {
+      "id": "espanha_madrid",
+      "svgLayout": "espanha_madrid",
+      "svgPath": "assets/tracks/svg/espanha_madrid.svg",
+      "name": "GP de Madrid",
+      "laps": 18,
+      "country": "ES",
+      "weather": "dry",
+      "track": "street",
+      "playable": true
     },
     {
       "id": "austria",
       "svgLayout": "austria",
       "svgPath": "assets/tracks/svg/austria.svg",
       "name": "GP da Áustria",
-      "laps": 22,
+      "laps": 18,
       "country": "AT",
       "weather": "dry",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
-      "id": "britain",
+      "id": "inglaterra",
       "svgLayout": "inglaterra",
       "svgPath": "assets/tracks/svg/inglaterra.svg",
       "name": "GP da Grã-Bretanha",
-      "laps": 22,
+      "laps": 18,
       "country": "GB",
       "weather": "variable",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
-      "id": "belgium",
+      "id": "belgica",
       "svgLayout": "belgica",
       "svgPath": "assets/tracks/svg/belgica.svg",
       "name": "GP da Bélgica",
-      "laps": 22,
+      "laps": 18,
       "country": "BE",
       "weather": "rain",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
-      "id": "hungary",
+      "id": "hungria",
       "svgLayout": "hungria",
       "svgPath": "assets/tracks/svg/hungria.svg",
       "name": "GP da Hungria",
-      "laps": 22,
+      "laps": 18,
       "country": "HU",
       "weather": "dry",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
-      "id": "netherlands",
+      "id": "holanda",
       "svgLayout": "holanda",
       "svgPath": "assets/tracks/svg/holanda.svg",
       "name": "GP da Holanda",
-      "laps": 22,
+      "laps": 18,
       "country": "NL",
       "weather": "variable",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
-      "id": "italy",
+      "id": "italy_monza",
       "svgLayout": "italia_monza",
       "svgPath": "assets/tracks/svg/italia_monza.svg",
-      "name": "GP da Itália",
-      "laps": 22,
+      "name": "GP da Itália / Monza",
+      "laps": 18,
       "country": "IT",
       "weather": "dry",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
-      "id": "azerbaijan",
+      "id": "azerbaijao",
       "svgLayout": "azerbaijao",
       "svgPath": "assets/tracks/svg/azerbaijao.svg",
       "name": "GP do Azerbaijão",
-      "laps": 22,
+      "laps": 18,
       "country": "AZ",
       "weather": "dry",
-      "track": "street"
+      "track": "street",
+      "playable": true
     },
     {
-      "id": "singapore",
+      "id": "singapura",
       "svgLayout": "singapura",
       "svgPath": "assets/tracks/svg/singapura.svg",
       "name": "GP de Singapura",
-      "laps": 22,
+      "laps": 18,
       "country": "SG",
       "weather": "humid",
-      "track": "street"
+      "track": "street",
+      "playable": true
     },
     {
       "id": "usa",
       "svgLayout": "estados_unidos",
       "svgPath": "assets/tracks/svg/estados_unidos.svg",
       "name": "GP dos Estados Unidos",
-      "laps": 22,
+      "laps": 18,
       "country": "US",
       "weather": "dry",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
       "id": "mexico",
       "svgLayout": "mexico",
       "svgPath": "assets/tracks/svg/mexico.svg",
       "name": "GP do México",
-      "laps": 22,
+      "laps": 18,
       "country": "MX",
       "weather": "dry",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
       "id": "brazil",
       "svgLayout": "sao_paulo",
       "svgPath": "assets/tracks/svg/sao_paulo.svg",
-      "name": "GP do Brasil",
-      "laps": 22,
+      "name": "GP do Brasil / São Paulo",
+      "laps": 18,
       "country": "BR",
       "weather": "variable",
-      "track": "classic"
+      "track": "classic",
+      "playable": true
     },
     {
       "id": "las_vegas",
       "svgLayout": "las_vegas",
       "svgPath": "assets/tracks/svg/las_vegas.svg",
       "name": "GP de Las Vegas",
-      "laps": 22,
+      "laps": 18,
       "country": "US",
       "weather": "night",
-      "track": "street"
+      "track": "street",
+      "playable": true
     },
     {
-      "id": "qatar",
+      "id": "catar",
       "svgLayout": "catar",
       "svgPath": "assets/tracks/svg/catar.svg",
       "name": "GP do Catar",
-      "laps": 22,
+      "laps": 18,
       "country": "QA",
       "weather": "dry",
-      "track": "desert"
+      "track": "desert",
+      "playable": true
     },
     {
       "id": "abu_dhabi",
       "svgLayout": "abu_dhabi",
       "svgPath": "assets/tracks/svg/abu_dhabi.svg",
       "name": "GP de Abu Dhabi",
-      "laps": 22,
+      "laps": 18,
       "country": "AE",
       "weather": "night",
-      "track": "modern"
-    },
-    {
-      "id": "placeholder_final",
-      "name": "Final da Temporada 2026",
-      "laps": 22,
-      "country": "FIA",
-      "weather": "dry",
-      "track": "modern"
+      "track": "modern",
+      "playable": true
     }
   ],
   "sponsors": [
@@ -1509,5 +1545,10 @@ window.F1M_DATA = {
     4,
     2,
     1
-  ]
+  ],
+  "seasonInfo": {
+    "title": "Temporada SVG completa",
+    "playable_tracks": 25,
+    "note": "Todas as pistas SVG enviadas estão ativas e jogáveis nesta build. A ordem pode ser ajustada depois para refletir exatamente o calendário oficial desejado."
+  }
 };

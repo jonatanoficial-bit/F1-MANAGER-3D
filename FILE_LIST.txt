@@ -35,6 +35,7 @@ docs/CHANGELOG_v0_4_0.md
 docs/CHANGELOG_v0_5_0.md
 docs/CHANGELOG_v0_6_0.md
 docs/CHANGELOG_v0_7_0.md
+docs/CHANGELOG_v0_8_0.md
 docs/F2_LOGOS_PENDING.md
 docs/TRACK_SVG_MAP.md
 index.html

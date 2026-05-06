@@ -76,3 +76,9 @@
 @media(max-width:900px){
   .global-build-stamp{left:88px;right:auto;bottom:8px;font-size:9px;max-width:55vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
+
+/* v0.8.0 race speed + full calendar */
+.quick-label{display:block;margin:16px 0;color:#dce4ff;font-family:system-ui,sans-serif;font-weight:800}
+.quick-label select{width:100%;height:52px;border-radius:12px;background:#080d20;border:1px solid #ffffff33;color:#fff;padding:0 14px}
+.track-chip{display:inline-flex;align-items:center;gap:8px;margin-left:8px;padding:4px 8px;border:1px solid #ffffff20;border-radius:999px;background:#080d20;font-size:11px;color:#cfe4ff}
+.race-speed-note{font-family:system-ui,sans-serif;font-size:11px;color:#b8c7ff;margin-top:4px}

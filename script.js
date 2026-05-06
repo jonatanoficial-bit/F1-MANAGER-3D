@@ -1,6 +1,6 @@
 (() => {
   const DATA = window.F1M_DATA;
-  const SAVE_KEYS = ['f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
+  const SAVE_KEYS = ['f1_manager_career_2026_v080', 'f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
   const ACTIVE_SAVE_KEY = SAVE_KEYS[0];
   const ASSET_ROOTS = ['assets/'];
   for(let i=1;i<=15;i++) ASSET_ROOTS.push(`f1_assets_part_${String(i).padStart(2,'0')}/assets/`);
@@ -121,7 +121,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.7.0 • 06/05/2026 • 16:10 BRT';
+    const label = b.label || 'Build v0.8.0 • 06/05/2026 • 16:19 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -135,6 +135,7 @@
     bindGlobalActions();
     renderCreator();
     renderTeamSelect();
+    renderQuickRaceSelect();
     updateHud();
     showScreen('home');
     hydrateAssets(document);
@@ -164,11 +165,11 @@
       startCareer(){ startCareer(); },
       goQualifying(){ showScreen('qualifying'); },
       startQualifying(){ simulateQualifying(); },
-      startRaceDirect(){ setupRace(true); showScreen('race'); },
+      startRaceDirect(){ const sel=document.getElementById('quickRaceSelect'); if(sel) state.roundIndex=Number(sel.value)||0; setupRace(true); showScreen('race'); },
       startRace(){ setupRace(false); showScreen('race'); },
       setPace(){ if(race){ race.playerPace[Number(el.dataset.driver)] = el.dataset.pace; updateRaceHud(); } },
       pitDriver(){ if(race) requestPit(Number(el.dataset.driver)); },
-      toggleRaceSpeed(){ if(race){ race.speed = race.speed === 1 ? 3 : race.speed === 3 ? 8 : 1; $('#speedLabel').textContent = race.speed; } },
+      toggleRaceSpeed(){ if(race){ race.speed = race.speed === 1 ? 4 : race.speed === 4 ? 12 : race.speed === 12 ? 24 : 1; $('#speedLabel').textContent = race.speed; } },
       finishRaceNow(){ if(race) finishRace(); },
       returnLobbyAfterRace(){ showScreen('lobby'); },
       upgradePart(){ upgradePart(el.dataset.part); },
@@ -176,6 +177,14 @@
       hireStaff(){ hireStaff(el.dataset.role); }
     };
     if(actions[action]) actions[action]();
+  }
+
+  function renderQuickRaceSelect(){
+    const sel = document.getElementById('quickRaceSelect');
+    if(!sel || !DATA.calendar2026) return;
+    sel.innerHTML = DATA.calendar2026.map((r,i)=>`<option value="${i}">${String(i+1).padStart(2,'0')} • ${r.name}</option>`).join('');
+    const miamiIndex = DATA.calendar2026.findIndex(r => r.svgLayout === 'miami');
+    sel.value = String(miamiIndex >= 0 ? miamiIndex : 0);
   }
 
   function renderCreator(){
@@ -289,7 +298,7 @@
       content.innerHTML = `<div class="cards-grid">${Object.entries(state.facilities).map(([k,v])=>`<article class="dash-card glass-panel"><h3>${facilityLabel(k)}</h3><p>Nível ${v}</p><div class="progress"><i style="width:${v*20}%"></i></div><button class="secondary">EXPANSÃO FUTURA</button></article>`).join('')}</div>`;
     }
     if(tab === 'calendar'){
-      content.innerHTML = `<div class="glass-panel dash-card bg" data-asset-bg="${DATA.assetPaths.calendar}"><div class="dash-overlay"></div><h3>Temporada 2026</h3><div class="standings-list">${DATA.calendar2026.map((r,i)=>`<div class="row ${i===state.roundIndex?'highlight':''}"><span>${i+1}</span><span>${r.name}</span><span>${r.weather}</span><span>${r.laps}v</span></div>`).join('')}</div></div>`;
+      content.innerHTML = `<div class="glass-panel dash-card bg" data-asset-bg="${DATA.assetPaths.calendar}"><div class="dash-overlay"></div><h3>Temporada 2026 — SVG completa</h3><p>${DATA.calendar2026.length} pistas SVG ativas e jogáveis.</p><div class="standings-list">${DATA.calendar2026.map((r,i)=>`<div class="row ${i===state.roundIndex?'highlight':''}"><span>${i+1}</span><span>${r.name}</span><span>${r.weather}</span><span>${r.laps}v</span></div>`).join('')}</div></div>`;
     }
     hydrateAssets(content);
   }
@@ -355,7 +364,7 @@
     updateRaceHud();
   }
   function estimateCar(t){ const tier = t.tier==='top'?88:t.tier==='mid'?78:68; return { aero:tier, engine:tier, chassis:tier, reliability:tier, tyreWear:tier, pitStop:tier, fuel:tier }; }
-  function baseRaceSpeed(d,car){ return 0.00042 + ((d.speed+d.consistency+d.overall)/3 + (car.aero+car.engine+car.chassis)/3)/100000; }
+  function baseRaceSpeed(d,car){ const driver=((d.speed||70)+(d.consistency||70)+(d.overall||70))/3; const machine=((car.aero||60)+(car.engine||60)+(car.chassis||60))/3; return 0.026 + (driver + machine) / 7200; }
   function requestPit(idx){ const ds = driversForTeam(state.currentTeam); const target = ds[idx]; if(!target || !race) return; const e = race.entries.find(x=>x.driver.short===target.short); if(e && !e.pitCooldown){ e.tyre = 100; e.condition = Math.min(100,e.condition+8); e.pits++; e.progress -= 0.055; e.pitCooldown = 8; e.lastAction = 'PIT'; updateRaceHud(); } }
 
   function startRaceRenderer(){
@@ -627,6 +636,7 @@
     if($('#raceTitle')) $('#raceTitle').textContent = race.trackInfo ? race.trackInfo.name : 'CORRIDA';
     if($('#weatherLabel')) $('#weatherLabel').textContent = race.weather === 'variable' ? '☁ Variável' : '☀ Seco';
     if($('#raceBuildStamp')) $('#raceBuildStamp').textContent = (DATA.build&&DATA.build.label)||'';
+    if($('#speedLabel')) $('#speedLabel').textContent = race.speed;
     $('#raceLeaderboard').innerHTML = race.entries.slice(0,22).map((e,i)=>`<div class="race-row ${isPlayerDriver(e.driver.short)?'highlight':''}"><span class="race-pos">${i+1}</span>${driverAvatarHTML(e.driver)}<span class="race-name"><b>${e.driver.short}</b><small>${e.team.name}</small></span><span class="race-tyre">${Math.round(e.tyre)}%</span><span class="race-pits">${e.pits}P</span></div>`).join('');
     hydrateAssets($('#raceLeaderboard'));
     const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const card=$(`#controlDriver${i+1}`)?.closest('.driver-control'), name=$(`#controlDriver${i+1}`), cond=$(`#cond${i+1}`); if(e){ name.textContent = `${e.pos}º | ${d.short}`; cond.style.width = `${Math.round(e.condition)}%`; if(card){ card.querySelectorAll('[data-pace]').forEach(btn=>btn.classList.toggle('active', btn.dataset.pace === (race.playerPace[i]||'normal'))); const status=card.querySelector('.pilot-status') || document.createElement('div'); status.className='pilot-status'; status.textContent = `Modo: ${(race.playerPace[i]||'normal').toUpperCase()} • Pneu ${Math.round(e.tyre)}% • Pit ${e.pits}`; if(!status.parentElement) card.appendChild(status); } } });

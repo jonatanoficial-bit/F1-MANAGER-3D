@@ -1,14 +1,10 @@
 {
-  "version": "0.7.0",
+  "version": "0.8.0",
   "date": "06/05/2026",
-  "time_brt": "16:10",
+  "time_brt": "16:19",
   "timezone": "America/Sao_Paulo",
-  "label": "Build v0.7.0 • 06/05/2026 • 16:10 BRT",
-  "created_at": "2026-05-06T16:10:00.665090-03:00",
-  "project": "F1 Manager Career 2026",
-  "notes": [
-    "Build badge visível em todas as telas.",
-    "Melhoria de paisagem e leitura visual da corrida 3D.",
-    "Sistema preparado para depurar deploy/cache mostrando versão atual no jogo."
-  ]
+  "label": "Build v0.8.0 • 06/05/2026 • 16:19 BRT",
+  "created_at": "2026-05-06T16:19:33.596209-03:00",
+  "playable_svg_tracks": 25,
+  "race_speed": "corrida acelerada: baseSpeed revisado e botões 1x/4x/12x/24x"
 }
