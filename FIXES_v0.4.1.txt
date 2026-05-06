@@ -1,6 +1,0 @@
-Build v0.4.1
-- Adicionado ranking nacional, continental e mundial.
-- Lobby exibe posição do jogador nos três rankings.
-- Cards de carreira mostram ranking atual.
-- Mantida temporada da v0.4.0 e protocolo anti-quebra.
-- Arquivos: script-v041.js e style-v041.css.
