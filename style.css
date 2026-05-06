@@ -49,3 +49,30 @@
 
 #raceTitle{font-size:18px;line-height:1.1;color:#fff;letter-spacing:.08em}
 .race-toolbar span{white-space:nowrap}
+
+
+/* v0.7.0 build visibility + race polish */
+.global-build-stamp{
+  position:fixed;right:14px;bottom:10px;z-index:9999;
+  padding:7px 11px;border:1px solid #ff243b88;border-radius:999px;
+  background:#05070de8;color:#ffd7da;font-size:11px;letter-spacing:.04em;
+  box-shadow:0 8px 28px #000b, inset 0 0 0 1px #ffffff10;
+  pointer-events:none
+}
+.build-pill{font-size:13px;font-weight:900;letter-spacing:.03em}
+.race-debug-stamp{
+  position:absolute;right:14px;top:14px;z-index:8;
+  padding:6px 10px;border-radius:999px;background:#080a12d9;
+  border:1px solid #ff243b70;color:#ffd7da;font-size:11px
+}
+.race-row .race-avatar,.driver-avatar{
+  box-shadow:0 0 0 2px #ffffff18, 0 6px 16px #0009
+}
+.driver-control button.active{
+  outline:2px solid #55ff8b;box-shadow:0 0 0 3px #55ff8b25, inset 0 -3px 0 #131a32
+}
+.pilot-status{font-family:system-ui,sans-serif;font-size:11px;font-weight:800;letter-spacing:.06em;color:#d7e2ff}
+.career-path{line-height:1.55}
+@media(max-width:900px){
+  .global-build-stamp{left:88px;right:auto;bottom:8px;font-size:9px;max-width:55vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}

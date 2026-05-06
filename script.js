@@ -1,6 +1,6 @@
 (() => {
   const DATA = window.F1M_DATA;
-  const SAVE_KEYS = ['f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
+  const SAVE_KEYS = ['f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
   const ACTIVE_SAVE_KEY = SAVE_KEYS[0];
   const ASSET_ROOTS = ['assets/'];
   for(let i=1;i<=15;i++) ASSET_ROOTS.push(`f1_assets_part_${String(i).padStart(2,'0')}/assets/`);
@@ -119,7 +119,18 @@
     if(name === 'results') renderResults();
   }
 
+  function updateBuildBadges(){
+    const b = DATA.build || {};
+    const label = b.label || 'Build v0.7.0 • 06/05/2026 • 16:10 BRT';
+    const home = document.getElementById('homeBuildPill');
+    const global = document.getElementById('globalBuildStamp');
+    if(home) home.textContent = label;
+    if(global) global.textContent = label;
+    document.title = `F1 Manager Career 2026 — ${label}`;
+  }
+
   function init(){
+    updateBuildBadges();
     screenBackgrounds();
     bindGlobalActions();
     renderCreator();
@@ -258,7 +269,7 @@
 
     if(tab === 'dashboard'){
       content.innerHTML = `<div class="cards-grid">
-        <article class="dash-card glass-panel bg" data-asset-bg="${bg}"><div class="dash-overlay"></div><div class="dash-card-top">${teamVisual(team,true)}</div><h3>${team.name}</h3><p>${team.objective || 'Construir reputação e alcançar a Fórmula 1.'}</p><p>Próxima: ${currentRace.name}</p></article>
+        <article class="dash-card glass-panel bg" data-asset-bg="${bg}"><div class="dash-overlay"></div><div class="dash-card-top">${teamVisual(team,true)}</div><h3>${team.name}</h3><p>${team.objective || 'Construir reputação e alcançar a Fórmula 1.'}</p><p>Próxima: ${currentRace.name}</p><p>${(state.offers&&state.offers.length)?state.offers[state.offers.length-1].text:'Objetivo: conquistar reputação para receber convites da F1.'}</p></article>
         <article class="dash-card glass-panel"><h3>Patrocinadores</h3><p>${state.sponsor ? state.sponsor.name : 'Nenhum contrato principal ativo.'}</p>${sponsorButtons()}</article>
         <article class="dash-card glass-panel"><h3>Metas da Diretoria</h3><p>${team.objective || 'Pontuar e evoluir a equipe.'}</p><div class="progress"><i style="width:${Math.min(100,state.reputation)}%"></i></div><p>Reputação ${Math.round(state.reputation)}/100</p></article>
         <article class="dash-card glass-panel career-card"><h3>Carreira do Gestor</h3><p><b>Você começou na F2.</b> Cumpra metas, evolua pilotos e mantenha as finanças saudáveis para receber convites de equipes pequenas da F1.</p><p>Escada: F2 fraca → F2 média → F2 forte → F1 baixa → F1 média → equipe grande.</p></article>
@@ -349,6 +360,7 @@
 
   function startRaceRenderer(){
     if(!race) setupRace(true);
+    const stamp=document.getElementById('raceBuildStamp'); if(stamp) stamp.textContent=(DATA.build&&DATA.build.label)||'';
     if(renderer3d) renderer3d.dispose();
     renderer3d = new TrackRenderer3D($('#raceCanvas'), race);
     renderer3d.animate();
@@ -472,29 +484,115 @@
       const isStreet = theme === 'street';
       const isDesert = theme === 'desert';
       const isPark = theme === 'park';
-      const matB=new THREE.MeshStandardMaterial({color:0xc8ccd4,roughness:.65});
-      const darkB=new THREE.MeshStandardMaterial({color:0x4a5361,roughness:.55});
-      for(let i=0;i<24;i++){
-        const b=new THREE.Mesh(new THREE.BoxGeometry(rnd(1.4,3.2),rnd(1.0,5.2),rnd(1.3,3.1)), i%3===0?darkB:matB);
-        b.position.set(rnd(22,36),b.geometry.parameters.height/2-.05,rnd(-20,19)); this.scene.add(b);
+      const matConcrete=new THREE.MeshStandardMaterial({color:0xb9c1cc,roughness:.62,metalness:.04});
+      const matDark=new THREE.MeshStandardMaterial({color:0x2d3445,roughness:.58});
+      const matGlass=new THREE.MeshStandardMaterial({color:0x8fb7d7,roughness:.18,metalness:.25});
+      const matSand=new THREE.MeshStandardMaterial({color:0xc7a05c,roughness:.9});
+      const matGrass=new THREE.MeshStandardMaterial({color:0x1b7a3e,roughness:.86});
+      const matFence=new THREE.MeshStandardMaterial({color:0xd8dde8,roughness:.5,metalness:.18});
+
+      // Contexto visual por tipo de circuito: rua, deserto, parque ou clássico.
+      if(isDesert){
+        for(let i=0;i<38;i++){
+          const dune=new THREE.Mesh(new THREE.ConeGeometry(rnd(.8,2.4),rnd(.35,1.2),7),matSand);
+          dune.position.set(rnd(-38,38),.05,rnd(-24,24)); dune.scale.y=.25; this.scene.add(dune);
+        }
       }
-      const grandMat=new THREE.MeshStandardMaterial({color:0xbec6d8,roughness:.55});
-      for(let i=0;i<7;i++){
-        const g=new THREE.Mesh(new THREE.BoxGeometry(4.8,.75,1.2),grandMat); g.position.set(-8+i*3.8,.34,12.8+rnd(-.5,.5)); g.rotation.y=.08; this.scene.add(g);
+      if(isPark){
+        for(let i=0;i<42;i++){
+          const tree=new THREE.Group();
+          const tr=new THREE.Mesh(new THREE.CylinderGeometry(.08,.13,1.35,6),new THREE.MeshStandardMaterial({color:0x6b4329}));
+          tr.position.y=.62; tree.add(tr);
+          const crown=new THREE.Mesh(new THREE.IcosahedronGeometry(.62,0),matGrass);
+          crown.position.y=1.42; tree.add(crown);
+          tree.position.set(rnd(-35,35),0,rnd(-22,22));
+          if(Math.abs(tree.position.x)<22 && Math.abs(tree.position.z)<14) continue;
+          this.scene.add(tree);
+        }
       }
+
+      // Cidade/entorno principal.
+      const buildingCount = isStreet ? 34 : 18;
+      for(let i=0;i<buildingCount;i++){
+        const b=new THREE.Mesh(new THREE.BoxGeometry(rnd(1.2,3.6),rnd(1.2,isStreet?8.2:4.2),rnd(1.2,3.4)), i%4===0?matGlass:(i%3===0?matDark:matConcrete));
+        const side = i%2===0 ? 1 : -1;
+        b.position.set(side*rnd(23,39),b.geometry.parameters.height/2-.05,rnd(-23,23));
+        b.rotation.y=rnd(-.08,.08);
+        this.scene.add(b);
+      }
+
+      // Arquibancadas em múltiplos pontos, mais próximas do circuito.
+      const grandMat=new THREE.MeshStandardMaterial({color:0xcfd6e6,roughness:.52});
+      const seatMat=new THREE.MeshStandardMaterial({color:0x18223a,roughness:.66});
+      for(let i=0;i<10;i++){
+        const g=new THREE.Group();
+        const base=new THREE.Mesh(new THREE.BoxGeometry(4.6,.35,1.25),grandMat); base.position.y=.18; g.add(base);
+        for(let r=0;r<3;r++){ const row=new THREE.Mesh(new THREE.BoxGeometry(4.4,.18,.24),seatMat); row.position.set(0,.46+r*.22,-.42+r*.32); g.add(row); }
+        g.position.set(-15+i*3.4,.06,14.5+rnd(-.8,.8)); g.rotation.y=.06; this.scene.add(g);
+      }
+
+      // Pit building mais longo, boxes e torre de cronometragem.
+      const pitBase=new THREE.Mesh(new THREE.BoxGeometry(24,1.25,2.25),matConcrete);
+      pitBase.position.set(11,.6,-16.4); this.scene.add(pitBase);
+      const pitTop=new THREE.Mesh(new THREE.BoxGeometry(22,.65,1.45),matGlass);
+      pitTop.position.set(11,1.55,-16.4); this.scene.add(pitTop);
+      for(let i=0;i<12;i++){
+        const door=new THREE.Mesh(new THREE.BoxGeometry(1.4,.82,.08),matDark);
+        door.position.set(.5+i*1.8,.45,-15.22); this.scene.add(door);
+      }
+      const tower=new THREE.Mesh(new THREE.BoxGeometry(1.65,5.2,1.65),matDark);
+      tower.position.set(-2.8,2.55,-16.25); this.scene.add(tower);
+
+      // Passarelas e placas.
+      const gantryMat=new THREE.MeshStandardMaterial({color:0x111827,roughness:.35,metalness:.2});
+      for(let k=0;k<3;k++){
+        const p=this.trackPoints[Math.floor((k+.18)*this.trackPoints.length/3)%this.trackPoints.length];
+        const nxt=this.trackPoints[(Math.floor((k+.18)*this.trackPoints.length/3)+4)%this.trackPoints.length];
+        const dir=nxt.clone().sub(p).normalize();
+        const bridge=new THREE.Mesh(new THREE.BoxGeometry(6.4,.25,.35),gantryMat);
+        bridge.position.set(p.x,2.2,p.z); bridge.rotation.y=Math.atan2(dir.x,dir.z)+Math.PI/2; this.scene.add(bridge);
+        const l1=new THREE.Mesh(new THREE.BoxGeometry(.18,2.2,.18),gantryMat); l1.position.set(p.x+Math.cos(bridge.rotation.y)*3.0,1.1,p.z-Math.sin(bridge.rotation.y)*3.0); this.scene.add(l1);
+        const l2=l1.clone(); l2.position.set(p.x-Math.cos(bridge.rotation.y)*3.0,1.1,p.z+Math.sin(bridge.rotation.y)*3.0); this.scene.add(l2);
+      }
+
+      // Palmeiras/vegetação urbanas, sem bloquear o traçado.
       const palmMat=new THREE.MeshStandardMaterial({color:0x0f7738}); const trunkMat=new THREE.MeshStandardMaterial({color:0x6b4329});
-      for(let i=0;i<34;i++){ const x=rnd(-30,25), z=rnd(-19,19); if(Math.abs(x)<21 && Math.abs(z)<13) continue; const tr=new THREE.Mesh(new THREE.CylinderGeometry(.08,.12,1.45,6),trunkMat); tr.position.set(x,.65,z); this.scene.add(tr); const top=new THREE.Mesh(new THREE.ConeGeometry(.58,1.08,7),palmMat); top.position.set(x,1.48,z); this.scene.add(top); }
-      const boxMat=new THREE.MeshStandardMaterial({color:0x293142,roughness:.45});
-      for(let i=0;i<10;i++){ const pitBox=new THREE.Mesh(new THREE.BoxGeometry(2.1,1.25,1.9),boxMat); pitBox.position.set(12+i*2.25,.58,-15.5); pitBox.rotation.y=.02; this.scene.add(pitBox); }
+      for(let i=0;i<30;i++){ const x=rnd(-35,30), z=rnd(-23,23); if(Math.abs(x)<22 && Math.abs(z)<14) continue; const tr=new THREE.Mesh(new THREE.CylinderGeometry(.07,.11,1.45,6),trunkMat); tr.position.set(x,.65,z); this.scene.add(tr); const top=new THREE.Mesh(new THREE.ConeGeometry(.58,1.08,7),palmMat); top.position.set(x,1.48,z); this.scene.add(top); }
+
+      // Cercas e muretas de proteção externas.
+      for(let i=0;i<this.trackPoints.length;i+=14){
+        const p=this.trackPoints[i], prev=this.trackPoints[(i-1+this.trackPoints.length)%this.trackPoints.length], next=this.trackPoints[(i+1)%this.trackPoints.length];
+        const dir=next.clone().sub(prev).normalize();
+        const normal=new THREE.Vector3(-dir.z,0,dir.x).normalize();
+        [-1,1].forEach(side=>{
+          const pos=p.clone().add(normal.clone().multiplyScalar(side*4.4));
+          const fence=new THREE.Mesh(new THREE.BoxGeometry(.12,.75,1.35),matFence);
+          fence.position.set(pos.x,.42,pos.z); fence.rotation.y=Math.atan2(dir.x,dir.z); this.scene.add(fence);
+        });
+      }
     }
     addCars(){ this.race.entries.forEach((e,i)=>{ const car=this.makeCar(e.color,e.secondary); this.scene.add(car); this.cars.push(car); this.placeCar(car,e,i); }); }
     makeCar(color,secondary){
-      const g=new THREE.Group(); const main=new THREE.Mesh(new THREE.BoxGeometry(.75,.32,1.75),new THREE.MeshStandardMaterial({color,roughness:.32,metalness:.1})); main.position.y=.28; g.add(main);
-      const nose=new THREE.Mesh(new THREE.BoxGeometry(.38,.22,1.25),new THREE.MeshStandardMaterial({color,roughness:.32})); nose.position.set(0,.25,1.35); g.add(nose);
-      const cockpit=new THREE.Mesh(new THREE.BoxGeometry(.42,.28,.42),new THREE.MeshStandardMaterial({color:0x050509})); cockpit.position.set(0,.55,.2); g.add(cockpit);
-      const wingMat=new THREE.MeshStandardMaterial({color:secondary||0x111111,roughness:.4}); const fw=new THREE.Mesh(new THREE.BoxGeometry(1.55,.08,.26),wingMat); fw.position.set(0,.18,2.05); g.add(fw); const rw=new THREE.Mesh(new THREE.BoxGeometry(1.4,.18,.2),wingMat); rw.position.set(0,.62,-1.0); g.add(rw);
-      const wheelMat=new THREE.MeshStandardMaterial({color:0x080808,roughness:.7}); [[-.58,.25,.65],[.58,.25,.65],[-.58,.25,-.72],[.58,.25,-.72]].forEach(p=>{ const w=new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,.18,16),wheelMat); w.rotation.z=Math.PI/2; w.position.set(...p); g.add(w); });
-      g.scale.set(.75,.75,.75); return g;
+      const g=new THREE.Group();
+      const mainMat=new THREE.MeshStandardMaterial({color,roughness:.28,metalness:.16});
+      const secMat=new THREE.MeshStandardMaterial({color:secondary||0x111111,roughness:.35,metalness:.08});
+      const blackMat=new THREE.MeshStandardMaterial({color:0x050509,roughness:.55});
+      const tireMat=new THREE.MeshStandardMaterial({color:0x050505,roughness:.78});
+      const body=new THREE.Mesh(new THREE.BoxGeometry(.72,.28,1.55),mainMat); body.position.y=.28; g.add(body);
+      const sidepodL=new THREE.Mesh(new THREE.BoxGeometry(.34,.18,.82),mainMat); sidepodL.position.set(-.38,.24,-.08); g.add(sidepodL);
+      const sidepodR=sidepodL.clone(); sidepodR.position.x=.38; g.add(sidepodR);
+      const nose=new THREE.Mesh(new THREE.BoxGeometry(.30,.18,1.35),mainMat); nose.position.set(0,.25,1.32); g.add(nose);
+      const cockpit=new THREE.Mesh(new THREE.BoxGeometry(.40,.25,.42),blackMat); cockpit.position.set(0,.53,.08); g.add(cockpit);
+      const halo=new THREE.Mesh(new THREE.TorusGeometry(.28,.025,6,18,Math.PI),secMat); halo.position.set(0,.67,.18); halo.rotation.x=Math.PI/2; g.add(halo);
+      const fw=new THREE.Mesh(new THREE.BoxGeometry(1.7,.07,.30),secMat); fw.position.set(0,.16,2.03); g.add(fw);
+      const rw=new THREE.Mesh(new THREE.BoxGeometry(1.45,.18,.22),secMat); rw.position.set(0,.62,-.98); g.add(rw);
+      const beam=new THREE.Mesh(new THREE.BoxGeometry(.12,.45,.12),secMat); beam.position.set(0,.43,-1.02); g.add(beam);
+      [[-.62,.25,.62],[.62,.25,.62],[-.62,.25,-.68],[.62,.25,-.68]].forEach((p,idx)=>{
+        const w=new THREE.Mesh(new THREE.CylinderGeometry(.24,.24,.18,18),tireMat); w.rotation.z=Math.PI/2; w.position.set(...p); g.add(w);
+        const rim=new THREE.Mesh(new THREE.CylinderGeometry(.11,.11,.19,14),secMat); rim.rotation.z=Math.PI/2; rim.position.set(...p); g.add(rim);
+      });
+      const stripe=new THREE.Mesh(new THREE.BoxGeometry(.08,.025,1.75),secMat); stripe.position.set(0,.435,.2); g.add(stripe);
+      g.scale.set(.78,.78,.78); return g;
     }
     placeCar(car,e,offset){ const prog=(e.progress%1+1)%1; const exact=prog*this.trackPoints.length; const i=Math.floor(exact)%this.trackPoints.length; const j=(i+1)%this.trackPoints.length; const p=this.trackPoints[i].clone().lerp(this.trackPoints[j],exact-i); const n=this.trackPoints[j]; car.position.copy(p); car.position.y=.25+(offset%2)*.04; car.rotation.y=Math.atan2(n.x-p.x,n.z-p.z); }
     animate(){ if(!this.renderer) return; requestAnimationFrame(()=>this.animate()); const dt=Math.min(.033,this.clock.getDelta()); updateRaceSimulation(dt); this.race.entries.forEach((e,i)=>this.placeCar(this.cars[i],e,i)); this.renderer.render(this.scene,this.camera); }
@@ -528,6 +626,7 @@
     $('#lapLabel').textContent = `VOLTA ${Math.max(...race.entries.map(e=>e.lap))}/${race.laps}`;
     if($('#raceTitle')) $('#raceTitle').textContent = race.trackInfo ? race.trackInfo.name : 'CORRIDA';
     if($('#weatherLabel')) $('#weatherLabel').textContent = race.weather === 'variable' ? '☁ Variável' : '☀ Seco';
+    if($('#raceBuildStamp')) $('#raceBuildStamp').textContent = (DATA.build&&DATA.build.label)||'';
     $('#raceLeaderboard').innerHTML = race.entries.slice(0,22).map((e,i)=>`<div class="race-row ${isPlayerDriver(e.driver.short)?'highlight':''}"><span class="race-pos">${i+1}</span>${driverAvatarHTML(e.driver)}<span class="race-name"><b>${e.driver.short}</b><small>${e.team.name}</small></span><span class="race-tyre">${Math.round(e.tyre)}%</span><span class="race-pits">${e.pits}P</span></div>`).join('');
     hydrateAssets($('#raceLeaderboard'));
     const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const card=$(`#controlDriver${i+1}`)?.closest('.driver-control'), name=$(`#controlDriver${i+1}`), cond=$(`#cond${i+1}`); if(e){ name.textContent = `${e.pos}º | ${d.short}`; cond.style.width = `${Math.round(e.condition)}%`; if(card){ card.querySelectorAll('[data-pace]').forEach(btn=>btn.classList.toggle('active', btn.dataset.pace === (race.playerPace[i]||'normal'))); const status=card.querySelector('.pilot-status') || document.createElement('div'); status.className='pilot-status'; status.textContent = `Modo: ${(race.playerPace[i]||'normal').toUpperCase()} • Pneu ${Math.round(e.tyre)}% • Pit ${e.pits}`; if(!status.parentElement) card.appendChild(status); } } });
@@ -539,9 +638,19 @@
     state.lastRace.forEach((r,i)=>{ if(state.f1Standings[r.driver]){ state.f1Standings[r.driver].points += r.points; if(i===0) state.f1Standings[r.driver].wins++; if(i<3) state.f1Standings[r.driver].podiums++; } });
     state.completedRaces++; state.roundIndex = Math.min(DATA.calendar2026.length-1,state.roundIndex+1);
     const bestPlayer = state.lastRace.filter(r=>driversForTeam(state.currentTeam).some(d=>d.short===r.driver)).sort((a,b)=>a.pos-b.pos)[0];
-    if(bestPlayer){ state.reputation += Math.max(0,12-bestPlayer.pos)*.8; state.money += (state.sponsor?.raceBonus || 120000) + Math.max(0,12-bestPlayer.pos)*50000; }
+    if(bestPlayer){ state.reputation += Math.max(0,12-bestPlayer.pos)*.8; state.money += (state.sponsor?.raceBonus || 120000) + Math.max(0,12-bestPlayer.pos)*50000; updateCareerOffers(bestPlayer); }
     saveState(); renderResults(); race=null; showScreen('results');
   }
+  function updateCareerOffers(bestPlayer){
+    if(!bestPlayer) return;
+    const rep = state.reputation || 0;
+    const unlocked = [];
+    if(state.currentSeries === 'F2' && rep >= 42) unlocked.push('F1 Baixa');
+    if(state.currentSeries === 'F1' && rep >= 62) unlocked.push('F1 Média');
+    if(state.currentSeries === 'F1' && rep >= 82) unlocked.push('F1 Grande');
+    state.offers = unlocked.map(level => ({ level, round: state.completedRaces, text:`Convite disponível: ${level}` }));
+  }
+
   function renderResults(){
     setScreenBg('screen-results', DATA.assetPaths.podium);
     $('#resultList').innerHTML = state.lastRace.map(r=>`<div class="row ${isPlayerDriver(r.driver)?'highlight':''}"><span>${r.pos}</span><span>${r.driver}</span><span>${r.teamName}</span><span>${r.points}</span></div>`).join('');
