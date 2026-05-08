@@ -139,3 +139,12 @@
 #raceCanvasWrap{position:absolute;inset:0;background:radial-gradient(circle at 60% 20%,#0d2438,#061019 64%,#05070c 100%)}
 .race-left,.race-right .glass-panel{box-shadow:0 18px 50px #000b,inset 0 0 0 1px #ff22331a}
 @media(max-width:900px){.row.rich-row{grid-template-columns:42px 1.5fr 1.1fr 74px;gap:8px}.podium-strip{grid-template-columns:1fr}}
+
+/* v0.9.13 - Sandbox F2/F1 selector */
+.series-chooser{position:relative;z-index:3;margin:12px 18px 0;padding:12px 16px;display:flex;align-items:center;gap:10px;min-height:52px;color:#f7f9ff;font-family:system-ui,sans-serif;font-weight:900}
+.series-chooser span{font-size:13px;color:#dbe4ff}
+.series-pill{padding:11px 18px;border-radius:999px;background:#141d36;border:1px solid #ffffff26;color:#fff;font-weight:900;letter-spacing:.04em}
+.series-pill.selected{background:linear-gradient(135deg,#ff2735,#a90812);box-shadow:0 0 0 3px #ff263533}
+.series-chooser.sandbox-open + .career-path{margin-top:8px}
+#screen-team-select .team-select-grid{height:calc(100% - 150px);overflow:auto}
+@media(max-width:900px){.series-chooser{margin:8px 10px 0;flex-wrap:wrap}.series-pill{padding:9px 14px}.series-chooser span{width:100%}#screen-team-select .team-select-grid{height:calc(100% - 148px)}}

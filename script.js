@@ -8,6 +8,7 @@
   let state = loadState() || createInitialState();
   let selectedAvatar = 0;
   let selectedMode = 'realistic';
+  let selectedSeries = 'F2';
   let selectedTeam = DATA.f2Teams[0].id;
   let selectedCompound = 'soft';
   let race = null;
@@ -160,9 +161,11 @@
       const tab = ev.target.closest('[data-tab]');
       if(tab){ $$('.side-nav button').forEach(b=>b.classList.remove('active')); tab.classList.add('active'); renderTab(tab.dataset.tab); }
       const mode = ev.target.closest('[data-mode]');
-      if(mode){ selectedMode = mode.dataset.mode; $$('.mode-card').forEach(b=>b.classList.remove('selected')); mode.classList.add('selected'); }
+      if(mode){ selectedMode = mode.dataset.mode; $$('.mode-card').forEach(b=>b.classList.remove('selected')); mode.classList.add('selected'); syncSeriesWithMode(); renderTeamSelect(); }
       const comp = ev.target.closest('[data-compound]');
       if(comp){ selectedCompound = comp.dataset.compound; $$('.strategy-pills button').forEach(b=>b.classList.remove('selected')); comp.classList.add('selected'); }
+      const seriesChoice = ev.target.closest('[data-series]');
+      if(seriesChoice){ selectedSeries = seriesChoice.dataset.series; selectedTeam = firstTeamForSeries(selectedSeries).id; renderTeamSelect(); return; }
       const teamChoice = ev.target.closest('[data-team]');
       if(teamChoice){ selectedTeam = teamChoice.dataset.team; renderTeamSelect(); }
     });
@@ -229,27 +232,62 @@
       </div>`;
   }
 
+  function firstTeamForSeries(series){
+    return series === 'F1' ? DATA.f1Teams2026[0] : DATA.f2Teams[0];
+  }
+
+  function selectedTeamSeries(){
+    return DATA.f1Teams2026.some(t => t.id === selectedTeam) ? 'F1' : 'F2';
+  }
+
+  function syncSeriesWithMode(){
+    if(selectedMode !== 'sandbox') selectedSeries = 'F2';
+    const list = selectedSeries === 'F1' ? DATA.f1Teams2026 : DATA.f2Teams;
+    if(!list.some(t => t.id === selectedTeam)) selectedTeam = list[0].id;
+  }
+
   function renderTeamSelect(){
+    syncSeriesWithMode();
+    const chooser = $('#seriesChooser');
+    if(chooser){
+      const sandbox = selectedMode === 'sandbox';
+      chooser.innerHTML = sandbox
+        ? `<button class="series-pill ${selectedSeries==='F2'?'selected':''}" data-series="F2">FÓRMULA 2</button><button class="series-pill ${selectedSeries==='F1'?'selected':''}" data-series="F1">FÓRMULA 1</button><span>Sandbox: escolha livre entre F2 e F1.</span>`
+        : `<span><b>Modo carreira realista:</b> início obrigatório na Fórmula 2. Convites para F1 virão por reputação.</span>`;
+      chooser.classList.toggle('sandbox-open', sandbox);
+    }
+    const title = $('#teamSelectTitle');
+    if(title) title.textContent = selectedMode === 'sandbox' ? `ESCOLHA SUA EQUIPE DE ${selectedSeries}` : 'ESCOLHA SUA EQUIPE DE F2';
+    const path = $('#careerPathText');
+    if(path){
+      path.innerHTML = selectedMode === 'sandbox'
+        ? `<b>Sandbox:</b> escolha qualquer equipe de F2 ou F1 desde o início. Ideal para testes, partidas rápidas e evolução livre.`
+        : `<b>Plano de carreira:</b> Fórmula 2 equipe fraca → F2 média → F2 forte → convite para F1 baixa → F1 média → equipe grande. No modo realista você só pode começar por equipes menores.`;
+    }
     const grid = $('#teamSelectGrid'); grid.innerHTML = '';
-    DATA.f2Teams.forEach(t => {
+    const teams = selectedSeries === 'F1' ? DATA.f1Teams2026 : DATA.f2Teams;
+    teams.forEach(t => {
       const b = document.createElement('button');
       b.className = 'team-card' + (t.id===selectedTeam?' selected':'');
       b.dataset.team = t.id;
       b.style.setProperty('--team-bg', `linear-gradient(135deg, #000d, #0007), radial-gradient(circle at 70% 30%, #${t.color.toString(16).padStart(6,'0')}, transparent 45%)`);
-      b.innerHTML = `${teamVisual(t)}<h3>${t.name}</h3><p>${t.level.toUpperCase()}</p><div class="team-stats"><span>Orçamento ${money(t.budget)}</span><span>Reputação ${t.reputation}</span><span>Meta: ${t.objective}</span></div>`;
+      b.innerHTML = `${teamVisual(t)}<h3>${t.name}</h3><p>${(t.level || selectedSeries).toUpperCase()}</p><div class="team-stats"><span>Orçamento ${money(t.budget)}</span><span>Reputação ${t.reputation}</span><span>Meta: ${t.objective}</span></div>`;
       grid.appendChild(b);
     });
     hydrateAssets(grid);
   }
 
   function startCareer(){
-    const t = DATA.f2Teams.find(x=>x.id===selectedTeam);
-    state.currentSeries = 'F2';
+    syncSeriesWithMode();
+    const series = selectedTeamSeries();
+    const source = series === 'F1' ? DATA.f1Teams2026 : DATA.f2Teams;
+    const t = source.find(x=>x.id===selectedTeam) || source[0];
+    state.currentSeries = series;
     state.currentTeam = t.id;
     state.money = state.mode==='sandbox' ? t.budget*2 : t.budget;
-    state.reputation = t.reputation;
+    state.reputation = state.mode==='sandbox' ? Math.max(t.reputation, 70) : t.reputation;
     state.car = {...t.car, fuel:55};
-    state.roundIndex = 5;
+    state.roundIndex = series === 'F2' ? 5 : 0;
     state.completedRaces = 0;
     state.lastQualifying = [];
     state.lastRace = [];
