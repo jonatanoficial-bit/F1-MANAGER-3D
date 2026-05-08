@@ -1,14 +1,9 @@
 {
-  "version": "0.9.14",
+  "version": "0.9.15",
   "date": "08/05/2026",
-  "time_brt": "18:13",
+  "time_brt": "18:36",
   "timezone": "America/Sao_Paulo",
-  "label": "Build v0.9.14 • 08/05/2026 • 18:13 BRT",
-  "iso": "2026-05-08T18:13:00-03:00",
-  "base": "v0.9.13",
-  "notes": [
-    "Premium team selection cards for F2/F1 sandbox and career.",
-    "No binary assets included.",
-    "Preserved asset paths and project structure."
-  ]
+  "label": "Build v0.9.15 • 08/05/2026 • 18:36 BRT",
+  "base": "v0.9.14",
+  "assets": "sem assets binarios"
 }

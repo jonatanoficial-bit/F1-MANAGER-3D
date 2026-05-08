@@ -1,11 +1,11 @@
 window.F1M_DATA = {
   "build": {
-    "version": "0.9.14",
+    "version": "0.9.15",
     "date": "08/05/2026",
-    "time_brt": "18:13",
+    "time_brt": "18:36",
     "timezone": "America/Sao_Paulo",
-    "label": "Build v0.9.14 • 08/05/2026 • 18:13 BRT",
-    "iso": "2026-05-08T18:13:00-03:00"
+    "label": "Build v0.9.15 • 08/05/2026 • 18:36 BRT",
+    "iso": "2026-05-08T18:36:00-03:00"
   },
   "assetPaths": {
     "menu": "backgrounds/ui/global_lobby.png",
@@ -168,7 +168,19 @@ window.F1M_DATA = {
       "secondary": 53950,
       "logo": "assets/teams/logos/mercedes.png",
       "lobby": "backgrounds/ui/global_lobby.png",
-      "card": "teams/cards/mercedes.png"
+      "card": "teams/cards/mercedes.png",
+      "budget": 185000000,
+      "reputation": 91,
+      "objective": "Brigar por vitórias e título",
+      "car": {
+        "aero": 90,
+        "engine": 91,
+        "chassis": 90,
+        "reliability": 88,
+        "tyreWear": 86,
+        "pitStop": 90,
+        "fuel": 86
+      }
     },
     {
       "id": "ferrari",
@@ -178,17 +190,41 @@ window.F1M_DATA = {
       "secondary": 1118481,
       "logo": "assets/teams/logos/ferrari.png",
       "lobby": "backgrounds/ui/global_lobby.png",
-      "card": "teams/cards/ferrari.png"
+      "card": "teams/cards/ferrari.png",
+      "budget": 190000000,
+      "reputation": 93,
+      "objective": "Disputar o título mundial",
+      "car": {
+        "aero": 92,
+        "engine": 92,
+        "chassis": 91,
+        "reliability": 87,
+        "tyreWear": 86,
+        "pitStop": 88,
+        "fuel": 86
+      }
     },
     {
       "id": "red_bull",
-      "name": "Red Bull",
+      "name": "Red Bull Racing",
       "tier": "top",
       "color": 1977177,
       "secondary": 16763904,
       "logo": "assets/teams/logos/red_bull.png",
       "lobby": "backgrounds/teams/lobby/red_bull_lobby.png",
-      "card": "teams/cards/red_bull.png"
+      "card": "teams/cards/red_bull.png",
+      "budget": 195000000,
+      "reputation": 95,
+      "objective": "Vencer corridas e disputar títulos",
+      "car": {
+        "aero": 94,
+        "engine": 91,
+        "chassis": 93,
+        "reliability": 89,
+        "tyreWear": 88,
+        "pitStop": 93,
+        "fuel": 87
+      }
     },
     {
       "id": "mclaren",
@@ -198,17 +234,41 @@ window.F1M_DATA = {
       "secondary": 1118481,
       "logo": "assets/teams/logos/mclaren.png",
       "lobby": "backgrounds/teams/lobby/mclaren_lobby.png",
-      "card": "teams/cards/mclaren.png"
+      "card": "teams/cards/mclaren.png",
+      "budget": 188000000,
+      "reputation": 94,
+      "objective": "Vencer corridas e disputar títulos",
+      "car": {
+        "aero": 93,
+        "engine": 90,
+        "chassis": 92,
+        "reliability": 90,
+        "tyreWear": 88,
+        "pitStop": 90,
+        "fuel": 87
+      }
     },
     {
       "id": "aston_martin",
-      "name": "Aston Martin",
+      "name": "Aston Martin Racing",
       "tier": "mid",
       "color": 28514,
       "secondary": 13556736,
       "logo": "assets/teams/logos/aston_martin.png",
       "lobby": "backgrounds/teams/lobby/aston_martin_lobby.png",
-      "card": "teams/cards/aston_martin.png"
+      "card": "teams/cards/aston_martin.png",
+      "budget": 145000000,
+      "reputation": 86,
+      "objective": "Brigar por pódios",
+      "car": {
+        "aero": 84,
+        "engine": 84,
+        "chassis": 85,
+        "reliability": 84,
+        "tyreWear": 83,
+        "pitStop": 84,
+        "fuel": 82
+      }
     },
     {
       "id": "alpine",
@@ -218,7 +278,19 @@ window.F1M_DATA = {
       "secondary": 16746428,
       "logo": "assets/teams/logos/alpine.png",
       "lobby": "backgrounds/teams/lobby/alpine_lobby_01.png",
-      "card": "teams/cards/alpine.png"
+      "card": "teams/cards/alpine.png",
+      "budget": 112000000,
+      "reputation": 78,
+      "objective": "Pontuar regularmente",
+      "car": {
+        "aero": 76,
+        "engine": 77,
+        "chassis": 76,
+        "reliability": 77,
+        "tyreWear": 76,
+        "pitStop": 78,
+        "fuel": 75
+      }
     },
     {
       "id": "williams",
@@ -228,47 +300,107 @@ window.F1M_DATA = {
       "secondary": 16777215,
       "logo": "assets/teams/logos/williams.png",
       "lobby": "backgrounds/teams/lobby/williams_lobby.png",
-      "card": "teams/cards/williams.png"
+      "card": "teams/cards/williams.png",
+      "budget": 105000000,
+      "reputation": 76,
+      "objective": "Evoluir o carro e pontuar",
+      "car": {
+        "aero": 74,
+        "engine": 76,
+        "chassis": 73,
+        "reliability": 76,
+        "tyreWear": 75,
+        "pitStop": 77,
+        "fuel": 74
+      }
     },
     {
       "id": "haas",
-      "name": "Haas",
+      "name": "Haas F1 Team",
       "tier": "low",
       "color": 16777215,
       "secondary": 15073323,
       "logo": "assets/teams/logos/haas.png",
       "lobby": "backgrounds/teams/lobby/haas_lobby.png",
-      "card": "teams/cards/haas.png"
+      "card": "teams/cards/haas.png",
+      "budget": 98000000,
+      "reputation": 74,
+      "objective": "Pontuar ocasionalmente",
+      "car": {
+        "aero": 72,
+        "engine": 75,
+        "chassis": 72,
+        "reliability": 74,
+        "tyreWear": 73,
+        "pitStop": 75,
+        "fuel": 73
+      }
     },
     {
       "id": "audi",
-      "name": "Audi F1 Team",
+      "name": "Audi",
       "tier": "low",
       "color": 1118481,
       "secondary": 15597568,
       "logo": "assets/teams/logos/audi.png",
       "lobby": "backgrounds/teams/lobby/audi_lobby_01.png",
-      "card": "teams/cards/audi.png"
+      "card": "teams/cards/audi.png",
+      "budget": 125000000,
+      "reputation": 77,
+      "objective": "Construir base competitiva",
+      "car": {
+        "aero": 75,
+        "engine": 78,
+        "chassis": 75,
+        "reliability": 76,
+        "tyreWear": 75,
+        "pitStop": 76,
+        "fuel": 75
+      }
     },
     {
       "id": "cadillac",
-      "name": "Cadillac",
+      "name": "Cadillac-Ferrari",
       "tier": "low",
       "color": 1118481,
       "secondary": 14201178,
       "logo": "assets/teams/logos/cadillac.png",
       "lobby": "backgrounds/teams/lobby/cadillac_lobby.png",
-      "card": "teams/cards/cadillac.png"
+      "card": "teams/cards/cadillac.png",
+      "budget": 118000000,
+      "reputation": 73,
+      "objective": "Estrear com evolução constante",
+      "car": {
+        "aero": 71,
+        "engine": 76,
+        "chassis": 72,
+        "reliability": 73,
+        "tyreWear": 72,
+        "pitStop": 72,
+        "fuel": 72
+      }
     },
     {
       "id": "racing_bulls",
-      "name": "Racing Bulls",
+      "name": "RB",
       "tier": "low",
       "color": 2002943,
       "secondary": 16777215,
       "logo": "assets/teams/logos/racing_bulls.png",
       "lobby": "backgrounds/teams/lobby/racing_bulls_lobby.png",
-      "card": "teams/cards/racing_bulls.png"
+      "card": "teams/cards/racing_bulls.png",
+      "budget": 102000000,
+      "reputation": 75,
+      "objective": "Desenvolver jovens pilotos e pontuar",
+      "car": {
+        "aero": 74,
+        "engine": 76,
+        "chassis": 74,
+        "reliability": 75,
+        "tyreWear": 74,
+        "pitStop": 76,
+        "fuel": 74
+      }
     }
   ],
   "f1Drivers2026": [

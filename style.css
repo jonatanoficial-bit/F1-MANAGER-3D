@@ -171,3 +171,8 @@
 .team-stats.premium b{color:#fff;text-align:right}
 @media(max-width:900px){.team-card-premium{min-height:275px;padding:12px}.team-card-premium .team-visual{height:86px}.team-card-premium h3{font-size:22px}.team-driver-strip{grid-template-columns:1fr}.team-stats.premium{font-size:11px}}
 @media(max-height:560px){.team-card-premium{min-height:242px}.team-card-premium .team-visual{height:72px}.team-driver-strip{display:none}}
+
+.offer-card{border-color:color-mix(in srgb,var(--team-color),#ffffff 22%);background:linear-gradient(135deg,#151a2ce8,#080b14f0)}
+.offer-card.locked{opacity:.72;filter:saturate(.65)}
+.offer-head{display:flex;gap:12px;align-items:center;margin-bottom:10px}.offer-head h3{margin:0}.offer-head p{margin:4px 0 0}.offer-logo{width:72px;height:72px;border-radius:18px;background:#090d1a;border:1px solid #ffffff22}.offer-logo img{max-width:82%;max-height:82%;object-fit:contain}.offer-drivers{margin:10px 0}.offers-grid .wide{grid-column:span 2}.dash-card button:disabled{cursor:not-allowed;opacity:.65}.career-card .secondary{margin-top:8px}.side-nav button[data-tab="offers"]{font-size:28px}
+@media(max-width:900px){.offers-grid .wide{grid-column:span 1}.offer-logo{width:56px;height:56px}}

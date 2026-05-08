@@ -132,7 +132,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.0 • 06/05/2026 • 16:39 BRT';
+    const label = b.label || 'Build v0.9.15 • 08/05/2026 • 18:36 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -187,7 +187,8 @@
       returnLobbyAfterRace(){ showScreen('lobby'); },
       upgradePart(){ upgradePart(el.dataset.part); },
       signSponsor(){ signSponsor(el.dataset.sponsor); },
-      hireStaff(){ hireStaff(el.dataset.role); }
+      hireStaff(){ hireStaff(el.dataset.role); },
+      acceptOffer(){ acceptCareerOffer(el.dataset.team); }
     };
     if(actions[action]) actions[action]();
   }
@@ -315,6 +316,9 @@
     state.completedRaces = 0;
     state.lastQualifying = [];
     state.lastRace = [];
+    state.offers = [];
+    state.careerHistory = state.careerHistory || [];
+    state.contract = { team:t.id, series, startedRound:state.completedRaces, salary:Math.round((t.budget||4000000)*0.035), objective:t.objective || 'Cumprir metas da diretoria.' };
     saveState();
     updateHud();
     showScreen('lobby');
@@ -334,6 +338,7 @@
     updateHud();
     const team = teamById(state.currentTeam);
     setScreenBg('screen-lobby', team.lobby || DATA.assetPaths.lobbyGlobal);
+    refreshCareerOffers();
     renderTab($('.side-nav button.active')?.dataset.tab || 'dashboard');
   }
 
@@ -353,7 +358,7 @@
         <article class="dash-card glass-panel bg" data-asset-bg="${bg}"><div class="dash-overlay"></div><div class="dash-card-top">${teamVisual(team,true)}</div><h3>${team.name}</h3><p>${team.objective || 'Construir reputação e alcançar a Fórmula 1.'}</p><p>Próxima: ${currentRace.name}</p><p>${(state.offers&&state.offers.length)?state.offers[state.offers.length-1].text:'Objetivo: conquistar reputação para receber convites da F1.'}</p></article>
         <article class="dash-card glass-panel"><h3>Patrocinadores</h3><p>${state.sponsor ? state.sponsor.name : 'Nenhum contrato principal ativo.'}</p>${sponsorButtons()}</article>
         <article class="dash-card glass-panel"><h3>Metas da Diretoria</h3><p>${team.objective || 'Pontuar e evoluir a equipe.'}</p><div class="progress"><i style="width:${Math.min(100,state.reputation)}%"></i></div><p>Reputação ${Math.round(state.reputation)}/100</p></article>
-        <article class="dash-card glass-panel career-card"><h3>Carreira do Gestor</h3><p><b>Você começou na F2.</b> Cumpra metas, evolua pilotos e mantenha as finanças saudáveis para receber convites de equipes pequenas da F1.</p><p>Escada: F2 fraca → F2 média → F2 forte → F1 baixa → F1 média → equipe grande.</p></article>
+        <article class="dash-card glass-panel career-card"><h3>Carreira do Gestor</h3><p><b>${state.currentSeries === 'F2' ? 'Você começou na F2.' : 'Você está na Fórmula 1.'}</b> Cumpra metas, evolua pilotos e mantenha as finanças saudáveis para avançar.</p><p>Contrato: ${state.contract ? money(state.contract.salary) + ' / temporada' : 'em avaliação'} • ${contractStatusText()}</p><button class="secondary" data-tab="offers">VER PROPOSTAS</button></article>
       </div>`;
     }
     if(tab === 'drivers'){
@@ -372,7 +377,137 @@
     if(tab === 'calendar'){
       content.innerHTML = `<div class="glass-panel dash-card bg" data-asset-bg="${DATA.assetPaths.calendar}"><div class="dash-overlay"></div><h3>Temporada 2026 — SVG completa</h3><p>${DATA.calendar2026.length} pistas SVG ativas e jogáveis.</p><div class="standings-list">${DATA.calendar2026.map((r,i)=>`<div class="row ${i===state.roundIndex?'highlight':''}"><span>${i+1}</span><span>${r.name}</span><span>${r.weather}</span><span>${r.laps}v</span></div>`).join('')}</div></div>`;
     }
+
+    if(tab === 'offers'){
+      refreshCareerOffers();
+      const offers = generateCareerOffers();
+      const history = (state.careerHistory || []).slice(-6).reverse();
+      content.innerHTML = `<div class="cards-grid offers-grid">
+        <article class="dash-card glass-panel career-card wide"><h3>Mercado de Contratos</h3><p><b>${state.mode === 'sandbox' ? 'Sandbox livre:' : 'Carreira realista:'}</b> ${state.mode === 'sandbox' ? 'todas as equipes podem ser escolhidas para testes.' : 'propostas aparecem conforme reputação, resultados, finanças e categoria atual.'}</p><p>Status atual: ${contractStatusText()} • REP ${Math.round(state.reputation||0)}</p><p>Escada: F2 fraca → F2 média → F2 forte → F1 pequena → F1 média → equipe grande.</p></article>
+        ${offers.length ? offers.map(offerCard).join('') : '<article class="dash-card glass-panel"><h3>Sem propostas</h3><p>Continue correndo, cumprindo metas e evoluindo a reputação do gestor.</p></article>'}
+        <article class="dash-card glass-panel wide"><h3>Histórico da carreira</h3>${history.length ? history.map(h=>`<p>Corrida ${h.round}: ${h.from} → <b>${h.to}</b> • REP ${h.reputation}</p>`).join('') : '<p>Nenhuma troca de equipe registrada ainda.</p>'}</article>
+      </div>`;
+    }
+
     hydrateAssets(content);
+  }
+
+  function contractStatusText(){
+    const rep = Math.round(state.reputation || 0);
+    const team = teamById(state.currentTeam);
+    if(!team) return 'sem equipe';
+    if(state.currentSeries === 'F2'){
+      if(rep >= 72) return 'pronto para F1 pequena';
+      if(rep >= 62) return 'brigando por convite da F1';
+      return 'construindo reputação na F2';
+    }
+    if(rep >= 92) return 'candidato a equipe grande';
+    if(rep >= 82) return 'candidato a equipe média/alta';
+    return 'estabilizando na F1';
+  }
+
+  function teamProgressionClass(team){
+    const rep = Number(team.reputation || 50);
+    if(team.tier === 'top' || rep >= 90) return 'grand';
+    if(team.tier === 'mid' || rep >= 82) return 'mid';
+    if(DATA.f1Teams2026.some(t => t.id === team.id)) return 'low_f1';
+    if(rep >= 68) return 'strong_f2';
+    if(rep >= 58) return 'mid_f2';
+    return 'entry_f2';
+  }
+
+  function requiredRepForTeam(team){
+    const cls = teamProgressionClass(team);
+    return ({entry_f2:35, mid_f2:52, strong_f2:62, low_f1:72, mid:84, grand:94})[cls] || 70;
+  }
+
+  function progressionLabel(team){
+    const cls = teamProgressionClass(team);
+    return ({entry_f2:'F2 de entrada', mid_f2:'F2 média', strong_f2:'F2 forte', low_f1:'F1 pequena', mid:'F1 média/alta', grand:'Equipe grande'})[cls] || 'Equipe';
+  }
+
+  function teamUnlocked(team){
+    if(state.mode === 'sandbox') return true;
+    const rep = state.reputation || 0;
+    const required = requiredRepForTeam(team);
+    if(state.currentSeries === 'F2'){
+      if(DATA.f2Teams.some(t => t.id === team.id)) return rep >= Math.min(required, 62);
+      return teamProgressionClass(team) === 'low_f1' && rep >= required;
+    }
+    if(DATA.f2Teams.some(t => t.id === team.id)) return false;
+    const cls = teamProgressionClass(team);
+    if(cls === 'low_f1') return rep >= required;
+    if(cls === 'mid') return rep >= required;
+    if(cls === 'grand') return rep >= required;
+    return false;
+  }
+
+  function generateCareerOffers(){
+    const pool = [...DATA.f2Teams, ...DATA.f1Teams2026]
+      .filter(t => t.id !== state.currentTeam)
+      .filter(t => state.mode === 'sandbox' || teamUnlocked(t));
+    return pool
+      .map(t => ({ team:t, required:requiredRepForTeam(t), label:progressionLabel(t), series:DATA.f1Teams2026.some(x=>x.id===t.id)?'F1':'F2' }))
+      .sort((a,b)=> a.required-b.required || a.team.reputation-b.team.reputation)
+      .slice(0, state.mode === 'sandbox' ? 8 : 5);
+  }
+
+  function refreshCareerOffers(){
+    const offers = generateCareerOffers().map(o => ({
+      team:o.team.id,
+      series:o.series,
+      level:o.label,
+      required:o.required,
+      round:state.completedRaces,
+      salary:Math.round((o.team.budget||4000000) * (0.03 + Math.min(0.025,(state.reputation||50)/5000))),
+      text:`${o.label}: ${o.team.name}`
+    }));
+    state.offers = offers;
+  }
+
+  function acceptCareerOffer(teamId){
+    const target = teamById(teamId);
+    if(!target) return;
+    if(state.mode !== 'sandbox' && !teamUnlocked(target)) return alert('Sua reputação ainda não liberou esta proposta.');
+    const previous = teamById(state.currentTeam);
+    state.careerHistory = state.careerHistory || [];
+    state.careerHistory.push({
+      round:state.completedRaces,
+      from:previous ? previous.name : 'Início',
+      to:target.name,
+      series:DATA.f1Teams2026.some(t=>t.id===target.id)?'F1':'F2',
+      reputation:Math.round(state.reputation||0),
+      date:new Date().toISOString()
+    });
+    state.currentTeam = target.id;
+    state.currentSeries = DATA.f1Teams2026.some(t=>t.id===target.id) ? 'F1' : 'F2';
+    state.money = Math.max(state.money || 0, Math.round((target.budget||4000000)*0.55));
+    state.reputation = Math.max(state.reputation || 0, target.reputation - 8);
+    state.car = {...target.car, fuel: state.car?.fuel || 55};
+    state.contract = { team:target.id, series:state.currentSeries, startedRound:state.completedRaces, salary:Math.round((target.budget||4000000)*0.04), objective:target.objective || 'Cumprir metas da diretoria.' };
+    state.lastQualifying = [];
+    state.lastRace = [];
+    refreshCareerOffers();
+    saveState();
+    updateHud();
+    renderLobby();
+    alert(`Contrato assinado com ${target.name}.`);
+  }
+
+  function offerCard(o){
+    const t = o.team;
+    const locked = state.mode !== 'sandbox' && !teamUnlocked(t);
+    const drivers = driversForTeam(t.id).slice(0,2);
+    const pct = Math.min(100, Math.round(((state.reputation||0) / Math.max(1,o.required))*100));
+    return `<article class="dash-card glass-panel offer-card ${locked?'locked':''}" style="--team-color:#${(t.color||0x333333).toString(16).padStart(6,'0')}">
+      <div class="offer-head">${teamLogoHTML(t,'team-logo-inline offer-logo')}<div><h3>${t.name}</h3><p>${o.series} • ${o.label}</p></div></div>
+      <div class="team-driver-strip offer-drivers">${drivers.map(d => `<span>${driverAvatarChip(d, 'driver-avatar-inline small')}<b>${d.short}</b></span>`).join('')}</div>
+      <p>Reputação necessária: <b>${o.required}</b> • Sua REP: <b>${Math.round(state.reputation||0)}</b></p>
+      <div class="progress"><i style="width:${pct}%"></i></div>
+      <p>Meta: ${t.objective || 'Cumprir objetivos de temporada.'}</p>
+      <p>Salário estimado: ${money(Math.round((t.budget||4000000)*0.04))}</p>
+      <button class="${locked?'secondary':'primary'}" data-action="acceptOffer" data-team="${t.id}" ${locked?'disabled':''}>${locked?'BLOQUEADO':'ASSINAR CONTRATO'}</button>
+    </article>`;
   }
 
   function driverCard(d){
@@ -733,12 +868,7 @@
   }
   function updateCareerOffers(bestPlayer){
     if(!bestPlayer) return;
-    const rep = state.reputation || 0;
-    const unlocked = [];
-    if(state.currentSeries === 'F2' && rep >= 42) unlocked.push('F1 Baixa');
-    if(state.currentSeries === 'F1' && rep >= 62) unlocked.push('F1 Média');
-    if(state.currentSeries === 'F1' && rep >= 82) unlocked.push('F1 Grande');
-    state.offers = unlocked.map(level => ({ level, round: state.completedRaces, text:`Convite disponível: ${level}` }));
+    refreshCareerOffers();
   }
 
   function renderResults(){

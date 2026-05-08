@@ -1,95 +1,166 @@
-# ASSET MAP - F1 Manager Career 2026 v0.9.12
+# Asset Map — F1 Manager Career 2026 v0.9.15
 
-Esta build preserva a estrutura atual do jogo e apenas corrige as referências de logos e avatares.
+Este pacote NAO inclui assets binarios pesados. Mantenha os arquivos no GitHub exatamente nos caminhos abaixo.
 
-## Regra de pacote
+## Caminhos principais
 
-- Este ZIP foi gerado sem assets binários pesados.
-- Mantenha os assets já existentes no GitHub exatamente nos caminhos abaixo.
-- Não renomear pastas antigas sem atualizar `data/game-data.js` e este mapa.
+- Logos F1: `assets/teams/logos/`
+- Logos F2: `assets/teams/logos/f2/`
+- Avatares F1: `assets/drivers/current_grid/`
+- Avatares F2: `assets/drivers/avatars/f2/`
+- Fundos: `assets/backgrounds/`
+- Icones: `assets/icons/`
+- Bandeiras: `assets/flags/all/`
 
-## Logos F2
+## Lista completa usada pela build
 
-- Campos Racing: `assets/teams/logos/f2/campos_racing.png`
-- MP Motorsport: `assets/teams/logos/f2/mp_motorsport.png`
-- Invicta Racing: `assets/teams/logos/f2/invicta_racing.png`
-- Trident: `assets/teams/logos/f2/trident.png`
-- HitechGP: `assets/teams/logos/f2/hitech_gp.png`
-- DAMS Lucas Oil: `assets/teams/logos/f2/dams_lucas_oil.png`
-- ART Grand Prix: `assets/teams/logos/f2/art_grand_prix.png`
-- Rodin Motorsport: `assets/teams/logos/f2/rodin_motorsport.png`
-- Prema Powerteam: `assets/teams/logos/f2/prema_racing.png`
-- Van Amersfoort Racing: `assets/teams/logos/f2/van_amersfoort_racing.png`
-- AIX Racing: `assets/teams/logos/f2/aix_racing.png`
-
-## Logos F1
-
-- Mercedes: `assets/teams/logos/mercedes.png`
-- Ferrari: `assets/teams/logos/ferrari.png`
-- Red Bull: `assets/teams/logos/red_bull.png`
-- McLaren: `assets/teams/logos/mclaren.png`
-- Aston Martin: `assets/teams/logos/aston_martin.png`
-- Alpine: `assets/teams/logos/alpine.png`
-- Williams: `assets/teams/logos/williams.png`
-- Haas: `assets/teams/logos/haas.png`
-- Audi F1 Team: `assets/teams/logos/audi.png`
-- Cadillac: `assets/teams/logos/cadillac.png`
-- Racing Bulls: `assets/teams/logos/racing_bulls.png`
-
-## Avatares F2
-
-- N. Tsolov - Nikola Tsolov (Campos Racing): `assets/drivers/avatars/f2/nikola_tsolov.png`
-- G. Minì - Gabriele Minì (MP Motorsport): `assets/drivers/avatars/f2/gabriele_mini.png`
-- R. Câmara - Rafael Câmara (Invicta Racing): `assets/drivers/avatars/f2/rafael_camara.png`
-- L. Van Hoepen - Laurens Van Hoepen (Trident): `assets/drivers/avatars/f2/laurens_van_hoepen.png`
-- R. Miyata - Ritomo Miyata (HitechGP): `assets/drivers/avatars/f2/ritomo_miyata.png`
-- D. Beganovic - Dino Beganovic (DAMS Lucas Oil): `assets/drivers/avatars/f2/dino_beganovic.png`
-- N. León - Noel León (Campos Racing): `assets/drivers/avatars/f2/noel_leon.png`
-- J. Dürksen - Joshua Dürksen (Invicta Racing): `assets/drivers/avatars/f2/joshua_duerksen.png`
-- T. Inthraphuvasak - Tasanapol Inthraphuvasak (ART Grand Prix): `assets/drivers/avatars/f2/tasanapol_inthraphuvasak.png`
-- A. Dunne - Alex Dunne (Rodin Motorsport): `assets/drivers/avatars/f2/alex_dunne.png`
-- O. Goethe - Oliver Goethe (MP Motorsport): `assets/drivers/avatars/f2/oliver_goethe.png`
-- K. Maini - Kush Maini (ART Grand Prix): `assets/drivers/avatars/f2/kush_maini.png`
-- C. Herta - Colton Herta (HitechGP): `assets/drivers/avatars/f2/colton_herta.png`
-- M. Boya - Mari Boya (Prema Powerteam): `assets/drivers/avatars/f2/mari_boya.png`
-- N. Varrone - Nicolas Varrone (Van Amersfoort Racing): `assets/drivers/avatars/f2/nicolas_varrone.png`
-- M. Stenshorne - Martinius Stenshorne (Rodin Motorsport): `assets/drivers/avatars/f2/martinius_stenshorne.png`
-- S. Montoya - Sebastián Montoya (Prema Powerteam): `assets/drivers/avatars/f2/sebastian_montoya.png`
-- R. Bilinski - Roman Bilinski (DAMS Lucas Oil): `assets/drivers/avatars/f2/roman_bilinski.png`
-- R. Villagómez - Rafael Villagómez (Van Amersfoort Racing): `assets/drivers/avatars/f2/rafael_villagomez.png`
-- E. Jr. - Enzo Fittipaldi Jr. (AIX Racing): `assets/drivers/avatars/f2/enzo_fittipaldi_jr.png`
-- J. Bennett - John Bennett (Trident): `assets/drivers/avatars/f2/john_bennett.png`
-- C. Shields - Cian Shields (AIX Racing): `assets/drivers/avatars/f2/cian_shields.png`
-
-## Avatares F1 - current_grid
-
-- A. Antonelli - Andrea Kimi Antonelli: `drivers/current_grid/andrea_antonelli.png`
-- G. Russell - George Russell: `drivers/current_grid/george_russell.png`
-- C. Leclerc - Charles Leclerc: `drivers/current_grid/charles_leclerc.png`
-- L. Hamilton - Lewis Hamilton: `drivers/current_grid/lewis_hamilton.png`
-- L. Norris - Lando Norris: `drivers/current_grid/lando_norris.png`
-- O. Piastri - Oscar Piastri: `drivers/current_grid/oscar_piastri.png`
-- O. Bearman - Oliver Bearman: `drivers/current_grid/oliver_bearman.png`
-- P. Gasly - Pierre Gasly: `drivers/current_grid/pierre_gasly.png`
-- M. Verstappen - Max Verstappen: `drivers/current_grid/max_verstappen.png`
-- L. Lawson - Liam Lawson: `drivers/current_grid/liam_lawson.png`
-- A. Lindblad - Arvid Lindblad: `drivers/current_grid/arvid_lindblad.png`
-- I. Hadjar - Isack Hadjar: `drivers/current_grid/isack_hadjar.png`
-- G. Bortoleto - Gabriel Bortoleto: `drivers/current_grid/gabriel_bortoleto.png`
-- C. Sainz Jr. - Carlos Sainz Jr.: `drivers/current_grid/carlos_sainz_jr.png`
-- E. Ocon - Esteban Ocon: `drivers/current_grid/esteban_ocon.png`
-- F. Colapinto - Franco Colapinto: `drivers/current_grid/franco_colapinto.png`
-- N. Hulkenberg - Nico Hulkenberg: `drivers/current_grid/nico_hulkenberg.png`
-- A. Albon - Alex Albon: `drivers/current_grid/alex_albon.png`
-- V. Bottas - Valtteri Bottas: `drivers/current_grid/valtteri_bottas.png`
-- S. Perez - Sergio Perez: `drivers/current_grid/sergio_perez.png`
-- F. Alonso - Fernando Alonso: `drivers/current_grid/fernando_alonso.png`
-- L. Stroll - Lance Stroll: `drivers/current_grid/lance_stroll.png`
-
-## Avatares F2 ainda pendentes de upload, se ainda não estiverem no GitHub
-
+- `assets/backgrounds/ui/global_lobby.png`
+- `assets/backgrounds/ui/classification_clean.png`
+- `assets/backgrounds/ui/calendar_world_map.png`
+- `assets/backgrounds/garage/garage_base.png`
+- `assets/backgrounds/race/tracks/miami_base_isometric.png`
+- `assets/backgrounds/race/pit_lane/pit_lane_01.png`
+- `assets/backgrounds/race/boxes/box_garage_interior_01.png`
+- `assets/backgrounds/podium/podium_stage.png`
+- `assets/icons/tires/soft_red.png`
+- `assets/icons/tires/medium_yellow.png`
+- `assets/icons/tires/hard_white.png`
+- `assets/icons/tires/intermediate_green.png`
+- `assets/icons/tires/wet_blue.png`
+- `assets/icons/car_parts/engine.png`
+- `assets/icons/car_parts/aerodynamics_rear_wing.png`
+- `assets/icons/car_parts/chassis.png`
+- `assets/icons/car_parts/fuel_efficiency_orange.png`
+- `assets/icons/car_parts/reliability_shield.png`
+- `assets/icons/race_controls/pit_stop_timer_with_text.png`
+- `assets/icons/race_controls/attack_mode_orange_01.png`
+- `assets/icons/race_controls/save_tires_green.png`
+- `assets/icons/race_controls/save_fuel_green_01.png`
+- `assets/icons/race_controls/strategy_change_blue_01.png`
+- `assets/icons/hud/mini_car_topdown.png`
+- `assets/icons/hud/position_badge_01.png`
+- `assets/avatars/selectable/avatar_01.png`
+- `assets/avatars/selectable/avatar_02.png`
+- `assets/avatars/selectable/avatar_03.png`
+- `assets/avatars/selectable/avatar_04.png`
+- `assets/avatars/selectable/avatar_05.png`
+- `assets/avatars/selectable/avatar_06.png`
+- `assets/avatars/selectable/avatar_07.png`
+- `assets/avatars/selectable/avatar_08.png`
+- `assets/teams/logos/mercedes.png`
+- `assets/teams/cards/mercedes.png`
+- `assets/teams/logos/ferrari.png`
+- `assets/teams/cards/ferrari.png`
+- `assets/teams/logos/red_bull.png`
+- `assets/backgrounds/teams/lobby/red_bull_lobby.png`
+- `assets/teams/cards/red_bull.png`
+- `assets/teams/logos/mclaren.png`
+- `assets/backgrounds/teams/lobby/mclaren_lobby.png`
+- `assets/teams/cards/mclaren.png`
+- `assets/teams/logos/aston_martin.png`
+- `assets/backgrounds/teams/lobby/aston_martin_lobby.png`
+- `assets/teams/cards/aston_martin.png`
+- `assets/teams/logos/alpine.png`
+- `assets/backgrounds/teams/lobby/alpine_lobby_01.png`
+- `assets/teams/cards/alpine.png`
+- `assets/teams/logos/williams.png`
+- `assets/backgrounds/teams/lobby/williams_lobby.png`
+- `assets/teams/cards/williams.png`
+- `assets/teams/logos/haas.png`
+- `assets/backgrounds/teams/lobby/haas_lobby.png`
+- `assets/teams/cards/haas.png`
+- `assets/teams/logos/audi.png`
+- `assets/backgrounds/teams/lobby/audi_lobby_01.png`
+- `assets/teams/cards/audi.png`
+- `assets/teams/logos/cadillac.png`
+- `assets/backgrounds/teams/lobby/cadillac_lobby.png`
+- `assets/teams/cards/cadillac.png`
+- `assets/teams/logos/racing_bulls.png`
+- `assets/backgrounds/teams/lobby/racing_bulls_lobby.png`
+- `assets/teams/cards/racing_bulls.png`
+- `assets/teams/logos/f2/campos_racing.png`
+- `assets/teams/logos/f2/mp_motorsport.png`
+- `assets/teams/logos/f2/invicta_racing.png`
+- `assets/teams/logos/f2/trident.png`
+- `assets/teams/logos/f2/hitech_gp.png`
+- `assets/teams/logos/f2/dams_lucas_oil.png`
+- `assets/teams/logos/f2/art_grand_prix.png`
+- `assets/teams/logos/f2/rodin_motorsport.png`
+- `assets/teams/logos/f2/prema_racing.png`
+- `assets/teams/logos/f2/van_amersfoort_racing.png`
+- `assets/teams/logos/f2/aix_racing.png`
+- `assets/drivers/current_grid/andrea_antonelli.png`
+- `assets/flags/all/it.png`
+- `assets/drivers/current_grid/george_russell.png`
+- `assets/flags/all/gb.png`
+- `assets/drivers/current_grid/charles_leclerc.png`
+- `assets/flags/all/mc.png`
+- `assets/drivers/current_grid/lewis_hamilton.png`
+- `assets/drivers/current_grid/lando_norris.png`
+- `assets/drivers/current_grid/oscar_piastri.png`
+- `assets/flags/all/au.png`
+- `assets/drivers/current_grid/oliver_bearman.png`
+- `assets/drivers/current_grid/pierre_gasly.png`
+- `assets/flags/all/fr.png`
+- `assets/drivers/current_grid/max_verstappen.png`
+- `assets/flags/all/nl.png`
+- `assets/drivers/current_grid/liam_lawson.png`
+- `assets/flags/all/nz.png`
+- `assets/drivers/current_grid/arvid_lindblad.png`
+- `assets/drivers/current_grid/isack_hadjar.png`
+- `assets/drivers/current_grid/gabriel_bortoleto.png`
+- `assets/flags/all/br.png`
+- `assets/drivers/current_grid/carlos_sainz_jr.png`
+- `assets/flags/all/es.png`
+- `assets/drivers/current_grid/esteban_ocon.png`
+- `assets/drivers/current_grid/franco_colapinto.png`
+- `assets/flags/all/ar.png`
+- `assets/drivers/current_grid/nico_hulkenberg.png`
+- `assets/flags/all/de.png`
+- `assets/drivers/current_grid/alex_albon.png`
+- `assets/flags/all/th.png`
+- `assets/drivers/current_grid/valtteri_bottas.png`
+- `assets/flags/all/fi.png`
+- `assets/drivers/current_grid/sergio_perez.png`
+- `assets/flags/all/mx.png`
+- `assets/drivers/current_grid/fernando_alonso.png`
+- `assets/drivers/current_grid/lance_stroll.png`
+- `assets/flags/all/ca.png`
 - `assets/drivers/avatars/f2/nikola_tsolov.png`
+- `assets/flags/all/bg.png`
+- `assets/drivers/avatars/f2/gabriele_mini.png`
+- `assets/drivers/avatars/f2/rafael_camara.png`
+- `assets/drivers/avatars/f2/laurens_van_hoepen.png`
+- `assets/drivers/avatars/f2/ritomo_miyata.png`
+- `assets/flags/all/jp.png`
+- `assets/drivers/avatars/f2/dino_beganovic.png`
+- `assets/flags/all/se.png`
+- `assets/drivers/avatars/f2/noel_leon.png`
+- `assets/drivers/avatars/f2/joshua_duerksen.png`
+- `assets/flags/all/py.png`
 - `assets/drivers/avatars/f2/tasanapol_inthraphuvasak.png`
 - `assets/drivers/avatars/f2/alex_dunne.png`
+- `assets/flags/all/ie.png`
+- `assets/drivers/avatars/f2/oliver_goethe.png`
+- `assets/drivers/avatars/f2/kush_maini.png`
+- `assets/flags/all/in.png`
+- `assets/drivers/avatars/f2/colton_herta.png`
+- `assets/flags/all/us.png`
+- `assets/drivers/avatars/f2/mari_boya.png`
+- `assets/drivers/avatars/f2/nicolas_varrone.png`
+- `assets/drivers/avatars/f2/martinius_stenshorne.png`
+- `assets/flags/all/no.png`
+- `assets/drivers/avatars/f2/sebastian_montoya.png`
+- `assets/flags/all/co.png`
+- `assets/drivers/avatars/f2/roman_bilinski.png`
+- `assets/flags/all/pl.png`
+- `assets/drivers/avatars/f2/rafael_villagomez.png`
 - `assets/drivers/avatars/f2/enzo_fittipaldi_jr.png`
 - `assets/drivers/avatars/f2/john_bennett.png`
+- `assets/drivers/avatars/f2/cian_shields.png`
+- `assets/flags/all/cn.png`
+- `assets/flags/all/sa.png`
+- `assets/flags/all/bh.png`
+- `assets/flags/all/at.png`
+- `assets/flags/all/ph.png`
+- `assets/flags/all/kr.png`
