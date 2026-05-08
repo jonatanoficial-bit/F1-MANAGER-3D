@@ -1,16 +1,14 @@
 {
-  "version": "0.9.13",
+  "version": "0.9.14",
   "date": "08/05/2026",
-  "time_brt": "17:48",
+  "time_brt": "18:13",
   "timezone": "America/Sao_Paulo",
-  "label": "Build v0.9.13 • 08/05/2026 • 17:48 BRT",
-  "iso": "2026-05-08T17:48:00.437550-03:00",
-  "base": "F1 Manager Career 2026 v0.9.12 SEM ASSETS",
-  "changes": [
-    "Adicionado seletor F2/F1 no modo Sandbox antes da escolha de equipe.",
-    "Modo carreira realista continua iniciando obrigatoriamente na F2.",
-    "Modo Sandbox permite iniciar em qualquer equipe F2 ou F1.",
-    "Caminhos de logos e avatares preservados."
-  ],
-  "assets_included": false
+  "label": "Build v0.9.14 • 08/05/2026 • 18:13 BRT",
+  "iso": "2026-05-08T18:13:00-03:00",
+  "base": "v0.9.13",
+  "notes": [
+    "Premium team selection cards for F2/F1 sandbox and career.",
+    "No binary assets included.",
+    "Preserved asset paths and project structure."
+  ]
 }

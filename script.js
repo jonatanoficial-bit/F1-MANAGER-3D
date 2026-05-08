@@ -246,14 +246,26 @@
     if(!list.some(t => t.id === selectedTeam)) selectedTeam = list[0].id;
   }
 
+  function teamDifficulty(team, series){
+    const rep = Number(team.reputation || 50);
+    if(series === 'F1'){
+      if(rep >= 90) return { label:'Elite mundial', stars:'★★★★★', tag:'Difícil' };
+      if(rep >= 82) return { label:'Equipe média/alta', stars:'★★★★☆', tag:'Intermediário' };
+      return { label:'Projeto de reconstrução', stars:'★★★☆☆', tag:'Carreira longa' };
+    }
+    if(rep >= 68) return { label:'F2 forte', stars:'★★★★☆', tag:'Pressão alta' };
+    if(rep >= 58) return { label:'F2 média', stars:'★★★☆☆', tag:'Equilíbrio' };
+    return { label:'F2 de entrada', stars:'★★☆☆☆', tag:'Modo carreira' };
+  }
+
   function renderTeamSelect(){
     syncSeriesWithMode();
     const chooser = $('#seriesChooser');
     if(chooser){
       const sandbox = selectedMode === 'sandbox';
       chooser.innerHTML = sandbox
-        ? `<button class="series-pill ${selectedSeries==='F2'?'selected':''}" data-series="F2">FÓRMULA 2</button><button class="series-pill ${selectedSeries==='F1'?'selected':''}" data-series="F1">FÓRMULA 1</button><span>Sandbox: escolha livre entre F2 e F1.</span>`
-        : `<span><b>Modo carreira realista:</b> início obrigatório na Fórmula 2. Convites para F1 virão por reputação.</span>`;
+        ? `<button class="series-pill ${selectedSeries==='F2'?'selected':''}" data-series="F2">FÓRMULA 2</button><button class="series-pill ${selectedSeries==='F1'?'selected':''}" data-series="F1">FÓRMULA 1</button><span>Sandbox: escolha livre entre F2 e F1. A carreira realista continua começando obrigatoriamente na F2.</span>`
+        : `<span><b>Modo carreira realista:</b> início obrigatório na Fórmula 2. Convites para F1 virão por reputação, metas cumpridas e finanças.</span>`;
       chooser.classList.toggle('sandbox-open', sandbox);
     }
     const title = $('#teamSelectTitle');
@@ -262,16 +274,28 @@
     if(path){
       path.innerHTML = selectedMode === 'sandbox'
         ? `<b>Sandbox:</b> escolha qualquer equipe de F2 ou F1 desde o início. Ideal para testes, partidas rápidas e evolução livre.`
-        : `<b>Plano de carreira:</b> Fórmula 2 equipe fraca → F2 média → F2 forte → convite para F1 baixa → F1 média → equipe grande. No modo realista você só pode começar por equipes menores.`;
+        : `<b>Plano de carreira:</b> F2 equipe fraca → F2 média → F2 forte → convite para F1 baixa → F1 média → equipe grande.`;
     }
     const grid = $('#teamSelectGrid'); grid.innerHTML = '';
     const teams = selectedSeries === 'F1' ? DATA.f1Teams2026 : DATA.f2Teams;
     teams.forEach(t => {
       const b = document.createElement('button');
-      b.className = 'team-card' + (t.id===selectedTeam?' selected':'');
+      const diff = teamDifficulty(t, selectedSeries);
+      const drivers = driversForTeam(t.id).slice(0,2);
+      b.className = 'team-card team-card-premium' + (t.id===selectedTeam?' selected':'');
       b.dataset.team = t.id;
-      b.style.setProperty('--team-bg', `linear-gradient(135deg, #000d, #0007), radial-gradient(circle at 70% 30%, #${t.color.toString(16).padStart(6,'0')}, transparent 45%)`);
-      b.innerHTML = `${teamVisual(t)}<h3>${t.name}</h3><p>${(t.level || selectedSeries).toUpperCase()}</p><div class="team-stats"><span>Orçamento ${money(t.budget)}</span><span>Reputação ${t.reputation}</span><span>Meta: ${t.objective}</span></div>`;
+      b.style.setProperty('--team-color', `#${(t.color||0x333333).toString(16).padStart(6,'0')}`);
+      b.style.setProperty('--team-bg', `linear-gradient(135deg, #030711e8, #0d1020bf), radial-gradient(circle at 72% 24%, #${(t.color||0x333333).toString(16).padStart(6,'0')}aa, transparent 42%)`);
+      b.innerHTML = `
+        <div class="team-card-topline"><span>${selectedSeries}</span><strong>${diff.tag}</strong></div>
+        ${teamVisual(t)}
+        <div class="team-card-main">
+          <h3>${t.name}</h3>
+          <p class="team-level">${diff.label} <em>${diff.stars}</em></p>
+        </div>
+        <div class="team-driver-strip">${drivers.map(d => `<span>${driverAvatarChip(d, 'driver-avatar-inline small')}<b>${d.short}</b></span>`).join('')}</div>
+        <div class="team-stats premium"><span>Orçamento <b>${money(t.budget)}</b></span><span>Reputação <b>${t.reputation}</b></span><span>Meta <b>${t.objective}</b></span></div>
+      `;
       grid.appendChild(b);
     });
     hydrateAssets(grid);
