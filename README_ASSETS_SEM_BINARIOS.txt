@@ -1,0 +1,1 @@
+Este pacote não inclui os assets binários pesados. Suba o ZIP sobre o repositório mantendo os assets já existentes no GitHub. Os caminhos oficiais estão em ASSET_IMAGE_PATHS_CURRENT.txt e ASSET_MAP.md.

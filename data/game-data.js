@@ -1,11 +1,11 @@
 window.F1M_DATA = {
   "build": {
-    "version": "0.9.0",
-    "date": "06/05/2026",
-    "time_brt": "16:39",
+    "version": "0.9.12",
+    "date": "08/05/2026",
+    "time_brt": "17:24",
     "timezone": "America/Sao_Paulo",
-    "label": "Build v0.9.0 • 06/05/2026 • 16:39 BRT",
-    "iso": "2026-05-06T16:39:13.377525-03:00"
+    "label": "Build v0.9.12 • 08/05/2026 • 17:24 BRT",
+    "iso": "2026-05-08T17:24:12.280623-03:00"
   },
   "assetPaths": {
     "menu": "backgrounds/ui/global_lobby.png",
@@ -166,7 +166,7 @@ window.F1M_DATA = {
       "tier": "top",
       "color": 13092807,
       "secondary": 53950,
-      "logo": "teams/logos/mercedes.png",
+      "logo": "assets/teams/logos/mercedes.png",
       "lobby": "backgrounds/ui/global_lobby.png",
       "card": "teams/cards/mercedes.png"
     },
@@ -176,7 +176,7 @@ window.F1M_DATA = {
       "tier": "top",
       "color": 14417920,
       "secondary": 1118481,
-      "logo": "teams/logos/ferrari.png",
+      "logo": "assets/teams/logos/ferrari.png",
       "lobby": "backgrounds/ui/global_lobby.png",
       "card": "teams/cards/ferrari.png"
     },
@@ -186,7 +186,7 @@ window.F1M_DATA = {
       "tier": "top",
       "color": 1977177,
       "secondary": 16763904,
-      "logo": "teams/logos/red_bull.png",
+      "logo": "assets/teams/logos/red_bull.png",
       "lobby": "backgrounds/teams/lobby/red_bull_lobby.png",
       "card": "teams/cards/red_bull.png"
     },
@@ -196,7 +196,7 @@ window.F1M_DATA = {
       "tier": "top",
       "color": 16746240,
       "secondary": 1118481,
-      "logo": "teams/logos/mclaren.png",
+      "logo": "assets/teams/logos/mclaren.png",
       "lobby": "backgrounds/teams/lobby/mclaren_lobby.png",
       "card": "teams/cards/mclaren.png"
     },
@@ -206,7 +206,7 @@ window.F1M_DATA = {
       "tier": "mid",
       "color": 28514,
       "secondary": 13556736,
-      "logo": "teams/logos/aston_martin.png",
+      "logo": "assets/teams/logos/aston_martin.png",
       "lobby": "backgrounds/teams/lobby/aston_martin_lobby.png",
       "card": "teams/cards/aston_martin.png"
     },
@@ -216,7 +216,7 @@ window.F1M_DATA = {
       "tier": "mid",
       "color": 2266065,
       "secondary": 16746428,
-      "logo": "teams/logos/alpine.png",
+      "logo": "assets/teams/logos/alpine.png",
       "lobby": "backgrounds/teams/lobby/alpine_lobby_01.png",
       "card": "teams/cards/alpine.png"
     },
@@ -226,7 +226,7 @@ window.F1M_DATA = {
       "tier": "low",
       "color": 23295,
       "secondary": 16777215,
-      "logo": "teams/logos/williams.png",
+      "logo": "assets/teams/logos/williams.png",
       "lobby": "backgrounds/teams/lobby/williams_lobby.png",
       "card": "teams/cards/williams.png"
     },
@@ -236,7 +236,7 @@ window.F1M_DATA = {
       "tier": "low",
       "color": 16777215,
       "secondary": 15073323,
-      "logo": "teams/logos/haas.png",
+      "logo": "assets/teams/logos/haas.png",
       "lobby": "backgrounds/teams/lobby/haas_lobby.png",
       "card": "teams/cards/haas.png"
     },
@@ -246,7 +246,7 @@ window.F1M_DATA = {
       "tier": "low",
       "color": 1118481,
       "secondary": 15597568,
-      "logo": "teams/logos/audi.png",
+      "logo": "assets/teams/logos/audi.png",
       "lobby": "backgrounds/teams/lobby/audi_lobby_01.png",
       "card": "teams/cards/audi.png"
     },
@@ -256,7 +256,7 @@ window.F1M_DATA = {
       "tier": "low",
       "color": 1118481,
       "secondary": 14201178,
-      "logo": "teams/logos/cadillac.png",
+      "logo": "assets/teams/logos/cadillac.png",
       "lobby": "backgrounds/teams/lobby/cadillac_lobby.png",
       "card": "teams/cards/cadillac.png"
     },
@@ -266,7 +266,7 @@ window.F1M_DATA = {
       "tier": "low",
       "color": 2002943,
       "secondary": 16777215,
-      "logo": "teams/logos/racing_bulls.png",
+      "logo": "assets/teams/logos/racing_bulls.png",
       "lobby": "backgrounds/teams/lobby/racing_bulls_lobby.png",
       "card": "teams/cards/racing_bulls.png"
     }
@@ -645,7 +645,7 @@ window.F1M_DATA = {
         "tyreWear": 51,
         "pitStop": 51
       },
-      "logo": null,
+      "logo": "assets/teams/logos/f2/campos_racing.png",
       "card": null,
       "lobby": "backgrounds/ui/global_lobby.png"
     },
@@ -668,7 +668,7 @@ window.F1M_DATA = {
         "tyreWear": 60,
         "pitStop": 60
       },
-      "logo": null,
+      "logo": "assets/teams/logos/f2/mp_motorsport.png",
       "card": null,
       "lobby": "backgrounds/ui/global_lobby.png"
     },
@@ -691,7 +691,7 @@ window.F1M_DATA = {
         "tyreWear": 66,
         "pitStop": 66
       },
-      "logo": null,
+      "logo": "assets/teams/logos/f2/invicta_racing.png",
       "card": null,
       "lobby": "backgrounds/ui/global_lobby.png"
     },
@@ -714,7 +714,7 @@ window.F1M_DATA = {
         "tyreWear": 61,
         "pitStop": 61
       },
-      "logo": null,
+      "logo": "assets/teams/logos/f2/trident.png",
       "card": null,
       "lobby": "backgrounds/ui/global_lobby.png"
     },
@@ -737,7 +737,7 @@ window.F1M_DATA = {
         "tyreWear": 58,
         "pitStop": 58
       },
-      "logo": null,
+      "logo": "assets/teams/logos/f2/hitech_gp.png",
       "card": null,
       "lobby": "backgrounds/ui/global_lobby.png"
     },
@@ -760,7 +760,7 @@ window.F1M_DATA = {
         "tyreWear": 57,
         "pitStop": 57
       },
-      "logo": null,
+      "logo": "assets/teams/logos/f2/dams_lucas_oil.png",
       "card": null,
       "lobby": "backgrounds/ui/global_lobby.png"
     },
@@ -783,7 +783,7 @@ window.F1M_DATA = {
         "tyreWear": 67,
         "pitStop": 67
       },
-      "logo": null,
+      "logo": "assets/teams/logos/f2/art_grand_prix.png",
       "card": null,
       "lobby": "backgrounds/ui/global_lobby.png"
     },
@@ -806,7 +806,7 @@ window.F1M_DATA = {
         "tyreWear": 55,
         "pitStop": 55
       },
-      "logo": null,
+      "logo": "assets/teams/logos/f2/rodin_motorsport.png",
       "card": null,
       "lobby": "backgrounds/ui/global_lobby.png"
     },
@@ -829,7 +829,7 @@ window.F1M_DATA = {
         "tyreWear": 68,
         "pitStop": 68
       },
-      "logo": null,
+      "logo": "assets/teams/logos/f2/prema_racing.png",
       "card": null,
       "lobby": "backgrounds/ui/global_lobby.png"
     },
@@ -852,7 +852,7 @@ window.F1M_DATA = {
         "tyreWear": 52,
         "pitStop": 52
       },
-      "logo": null,
+      "logo": "assets/teams/logos/f2/van_amersfoort_racing.png",
       "card": null,
       "lobby": "backgrounds/ui/global_lobby.png"
     },
@@ -875,7 +875,7 @@ window.F1M_DATA = {
         "tyreWear": 50,
         "pitStop": 50
       },
-      "logo": null,
+      "logo": "assets/teams/logos/f2/aix_racing.png",
       "card": null,
       "lobby": "backgrounds/ui/global_lobby.png"
     }
@@ -895,7 +895,7 @@ window.F1M_DATA = {
       "rain": 65,
       "potential": 88,
       "salary": 782000,
-      "portrait": "drivers/f2_grid/f2_driver_01.png"
+      "portrait": "assets/drivers/avatars/f2/nikola_tsolov.png"
     },
     {
       "name": "Gabriele Minì",
@@ -911,7 +911,7 @@ window.F1M_DATA = {
       "rain": 66,
       "potential": 89,
       "salary": 794000,
-      "portrait": "drivers/f2_grid/f2_driver_02.png"
+      "portrait": "assets/drivers/avatars/f2/gabriele_mini.png"
     },
     {
       "name": "Rafael Câmara",
@@ -927,7 +927,7 @@ window.F1M_DATA = {
       "rain": 67,
       "potential": 92,
       "salary": 806000,
-      "portrait": "drivers/f2_grid/f2_driver_03.png"
+      "portrait": "assets/drivers/avatars/f2/rafael_camara.png"
     },
     {
       "name": "Laurens Van Hoepen",
@@ -943,7 +943,7 @@ window.F1M_DATA = {
       "rain": 68,
       "potential": 84,
       "salary": 770000,
-      "portrait": "drivers/f2_grid/f2_driver_04.png"
+      "portrait": "assets/drivers/avatars/f2/laurens_van_hoepen.png"
     },
     {
       "name": "Ritomo Miyata",
@@ -959,7 +959,7 @@ window.F1M_DATA = {
       "rain": 69,
       "potential": 82,
       "salary": 776000,
-      "portrait": "drivers/f2_grid/f2_driver_05.png"
+      "portrait": "assets/drivers/avatars/f2/ritomo_miyata.png"
     },
     {
       "name": "Dino Beganovic",
@@ -975,7 +975,7 @@ window.F1M_DATA = {
       "rain": 70,
       "potential": 87,
       "salary": 788000,
-      "portrait": "drivers/f2_grid/f2_driver_06.png"
+      "portrait": "assets/drivers/avatars/f2/dino_beganovic.png"
     },
     {
       "name": "Noel León",
@@ -991,7 +991,7 @@ window.F1M_DATA = {
       "rain": 71,
       "potential": 83,
       "salary": 764000,
-      "portrait": "drivers/f2_grid/f2_driver_07.png"
+      "portrait": "assets/drivers/avatars/f2/noel_leon.png"
     },
     {
       "name": "Joshua Dürksen",
@@ -1007,7 +1007,7 @@ window.F1M_DATA = {
       "rain": 72,
       "potential": 84,
       "salary": 782000,
-      "portrait": "drivers/f2_grid/f2_driver_08.png"
+      "portrait": "assets/drivers/avatars/f2/joshua_duerksen.png"
     },
     {
       "name": "Tasanapol Inthraphuvasak",
@@ -1023,7 +1023,7 @@ window.F1M_DATA = {
       "rain": 73,
       "potential": 82,
       "salary": 758000,
-      "portrait": "drivers/f2_grid/f2_driver_09.png"
+      "portrait": "assets/drivers/avatars/f2/tasanapol_inthraphuvasak.png"
     },
     {
       "name": "Alex Dunne",
@@ -1039,7 +1039,7 @@ window.F1M_DATA = {
       "rain": 74,
       "potential": 90,
       "salary": 794000,
-      "portrait": "drivers/f2_grid/f2_driver_10.png"
+      "portrait": "assets/drivers/avatars/f2/alex_dunne.png"
     },
     {
       "name": "Oliver Goethe",
@@ -1055,7 +1055,7 @@ window.F1M_DATA = {
       "rain": 75,
       "potential": 86,
       "salary": 782000,
-      "portrait": "drivers/f2_grid/f2_driver_11.png"
+      "portrait": "assets/drivers/avatars/f2/oliver_goethe.png"
     },
     {
       "name": "Kush Maini",
@@ -1071,119 +1071,23 @@ window.F1M_DATA = {
       "rain": 76,
       "potential": 85,
       "salary": 788000,
-      "portrait": "drivers/f2_grid/f2_driver_12.png"
+      "portrait": "assets/drivers/avatars/f2/kush_maini.png"
     },
     {
-      "name": "Cian Shields",
-      "short": "C. Shields",
-      "team": "aix",
-      "flag": "GB",
-      "age": 19,
-      "overall": 66,
-      "speed": 68,
-      "consistency": 64,
-      "experience": 57,
-      "aggression": 79,
-      "rain": 77,
-      "potential": 80,
-      "salary": 746000,
-      "portrait": "drivers/f2_grid/f2_driver_13.png"
-    },
-    {
-      "name": "Sebastian Montoya",
-      "short": "S. Montoya",
-      "team": "prema",
-      "flag": "CO",
-      "age": 20,
-      "overall": 72,
-      "speed": 74,
-      "consistency": 70,
-      "experience": 58,
-      "aggression": 80,
-      "rain": 78,
-      "potential": 86,
-      "salary": 782000,
-      "portrait": "drivers/f2_grid/f2_driver_14.png"
-    },
-    {
-      "name": "Roman Bilinski",
-      "short": "R. Bilinski",
-      "team": "dams",
-      "flag": "PL",
-      "age": 21,
-      "overall": 69,
-      "speed": 69,
-      "consistency": 67,
-      "experience": 59,
-      "aggression": 81,
-      "rain": 79,
-      "potential": 83,
-      "salary": 764000,
-      "portrait": "drivers/f2_grid/f2_driver_15.png"
-    },
-    {
-      "name": "Richard Verschoor",
-      "short": "R. Verschoor",
-      "team": "var",
-      "flag": "NL",
-      "age": 22,
-      "overall": 75,
-      "speed": 77,
-      "consistency": 76,
+      "name": "Colton Herta",
+      "short": "C. Herta",
+      "team": "hitech",
+      "flag": "US",
+      "age": 25,
+      "overall": 74,
+      "speed": 76,
+      "consistency": 72,
       "experience": 60,
-      "aggression": 82,
-      "rain": 64,
-      "potential": 82,
-      "salary": 800000,
-      "portrait": "drivers/f2_grid/f2_driver_16.png"
-    },
-    {
-      "name": "Enzo Fittipaldi Jr.",
-      "short": "E. Fittipaldi Jr.",
-      "team": "aix",
-      "flag": "BR",
-      "age": 23,
-      "overall": 72,
-      "speed": 74,
-      "consistency": 70,
-      "experience": 61,
-      "aggression": 83,
-      "rain": 65,
-      "potential": 84,
-      "salary": 782000,
-      "portrait": "drivers/f2_grid/f2_driver_17.png"
-    },
-    {
-      "name": "John Bennett",
-      "short": "J. Bennett",
-      "team": "trident",
-      "flag": "GB",
-      "age": 18,
-      "overall": 67,
-      "speed": 67,
-      "consistency": 65,
-      "experience": 62,
-      "aggression": 66,
-      "rain": 66,
-      "potential": 81,
-      "salary": 752000,
-      "portrait": "drivers/f2_grid/f2_driver_18.png"
-    },
-    {
-      "name": "Martinius Stenshorne",
-      "short": "M. Stenshorne",
-      "team": "rodin",
-      "flag": "NO",
-      "age": 19,
-      "overall": 71,
-      "speed": 73,
-      "consistency": 69,
-      "experience": 63,
-      "aggression": 67,
-      "rain": 67,
-      "potential": 88,
-      "salary": 776000,
-      "portrait": "drivers/f2_grid/f2_driver_19.png"
+      "aggression": 80,
+      "rain": 74,
+      "potential": 86,
+      "salary": 794000,
+      "portrait": "assets/drivers/avatars/f2/colton_herta.png"
     },
     {
       "name": "Mari Boya",
@@ -1199,39 +1103,135 @@ window.F1M_DATA = {
       "rain": 68,
       "potential": 84,
       "salary": 770000,
-      "portrait": "drivers/f2_grid/f2_driver_20.png"
+      "portrait": "assets/drivers/avatars/f2/mari_boya.png"
     },
     {
-      "name": "Niels Koolen",
-      "short": "N. Koolen",
+      "name": "Nicolas Varrone",
+      "short": "N. Varrone",
       "team": "var",
-      "flag": "NL",
-      "age": 21,
-      "overall": 65,
-      "speed": 65,
-      "consistency": 63,
-      "experience": 45,
-      "aggression": 69,
-      "rain": 69,
-      "potential": 78,
-      "salary": 740000,
-      "portrait": "drivers/f2_grid/f2_driver_21.png"
-    },
-    {
-      "name": "James Wharton",
-      "short": "J. Wharton",
-      "team": "hitech",
-      "flag": "AU",
-      "age": 22,
-      "overall": 69,
-      "speed": 71,
-      "consistency": 67,
-      "experience": 46,
+      "flag": "AR",
+      "age": 24,
+      "overall": 71,
+      "speed": 72,
+      "consistency": 70,
+      "experience": 58,
       "aggression": 70,
       "rain": 70,
-      "potential": 85,
+      "potential": 83,
+      "salary": 776000,
+      "portrait": "assets/drivers/avatars/f2/nicolas_varrone.png"
+    },
+    {
+      "name": "Martinius Stenshorne",
+      "short": "M. Stenshorne",
+      "team": "rodin",
+      "flag": "NO",
+      "age": 19,
+      "overall": 71,
+      "speed": 73,
+      "consistency": 69,
+      "experience": 63,
+      "aggression": 67,
+      "rain": 67,
+      "potential": 88,
+      "salary": 776000,
+      "portrait": "assets/drivers/avatars/f2/martinius_stenshorne.png"
+    },
+    {
+      "name": "Sebastián Montoya",
+      "short": "S. Montoya",
+      "team": "prema",
+      "flag": "CO",
+      "age": 20,
+      "overall": 72,
+      "speed": 74,
+      "consistency": 70,
+      "experience": 58,
+      "aggression": 80,
+      "rain": 78,
+      "potential": 86,
+      "salary": 782000,
+      "portrait": "assets/drivers/avatars/f2/sebastian_montoya.png"
+    },
+    {
+      "name": "Roman Bilinski",
+      "short": "R. Bilinski",
+      "team": "dams",
+      "flag": "PL",
+      "age": 21,
+      "overall": 69,
+      "speed": 69,
+      "consistency": 67,
+      "experience": 59,
+      "aggression": 81,
+      "rain": 79,
+      "potential": 83,
       "salary": 764000,
-      "portrait": "drivers/f2_grid/f2_driver_22.png"
+      "portrait": "assets/drivers/avatars/f2/roman_bilinski.png"
+    },
+    {
+      "name": "Rafael Villagómez",
+      "short": "R. Villagómez",
+      "team": "var",
+      "flag": "MX",
+      "age": 24,
+      "overall": 68,
+      "speed": 69,
+      "consistency": 66,
+      "experience": 55,
+      "aggression": 70,
+      "rain": 68,
+      "potential": 81,
+      "salary": 758000,
+      "portrait": "assets/drivers/avatars/f2/rafael_villagomez.png"
+    },
+    {
+      "name": "Enzo Fittipaldi Jr.",
+      "short": "E. Jr.",
+      "team": "aix",
+      "flag": "BR",
+      "age": 23,
+      "overall": 72,
+      "speed": 74,
+      "consistency": 70,
+      "experience": 61,
+      "aggression": 83,
+      "rain": 65,
+      "potential": 84,
+      "salary": 782000,
+      "portrait": "assets/drivers/avatars/f2/enzo_fittipaldi_jr.png"
+    },
+    {
+      "name": "John Bennett",
+      "short": "J. Bennett",
+      "team": "trident",
+      "flag": "GB",
+      "age": 18,
+      "overall": 67,
+      "speed": 67,
+      "consistency": 65,
+      "experience": 62,
+      "aggression": 66,
+      "rain": 66,
+      "potential": 81,
+      "salary": 752000,
+      "portrait": "assets/drivers/avatars/f2/john_bennett.png"
+    },
+    {
+      "name": "Cian Shields",
+      "short": "C. Shields",
+      "team": "aix",
+      "flag": "GB",
+      "age": 19,
+      "overall": 66,
+      "speed": 68,
+      "consistency": 64,
+      "experience": 57,
+      "aggression": 79,
+      "rain": 77,
+      "potential": 80,
+      "salary": 746000,
+      "portrait": "assets/drivers/avatars/f2/cian_shields.png"
     }
   ],
   "calendar2026": [

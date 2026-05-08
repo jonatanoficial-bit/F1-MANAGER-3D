@@ -1,0 +1,266 @@
+[
+  {
+    "id": "rafael-camara",
+    "name": "Rafael Camara",
+    "teamId": "invicta-racing",
+    "rating": 70,
+    "avatar": "assets/drivers/avatars/rafael-camara.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/rafael-camara.png",
+      "assets/drivers/avatars/rafael-camara.webp",
+      "assets/drivers/avatars/rafael-camara.jpg"
+    ]
+  },
+  {
+    "id": "joshua-durksen",
+    "name": "Joshua Durksen",
+    "teamId": "invicta-racing",
+    "rating": 72,
+    "avatar": "assets/drivers/avatars/joshua-durksen.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/joshua-durksen.png",
+      "assets/drivers/avatars/joshua-durksen.webp",
+      "assets/drivers/avatars/joshua-durksen.jpg"
+    ]
+  },
+  {
+    "id": "ritomo-miyata",
+    "name": "Ritomo Miyata",
+    "teamId": "hitech",
+    "rating": 71,
+    "avatar": "assets/drivers/avatars/ritomo-miyata.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/ritomo-miyata.png",
+      "assets/drivers/avatars/ritomo-miyata.webp",
+      "assets/drivers/avatars/ritomo-miyata.jpg"
+    ]
+  },
+  {
+    "id": "colton-herta",
+    "name": "Colton Herta",
+    "teamId": "hitech",
+    "rating": 73,
+    "avatar": "assets/drivers/avatars/colton-herta.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/colton-herta.png",
+      "assets/drivers/avatars/colton-herta.webp",
+      "assets/drivers/avatars/colton-herta.jpg"
+    ]
+  },
+  {
+    "id": "noel-leon",
+    "name": "Noel Leon",
+    "teamId": "campos-racing",
+    "rating": 72,
+    "avatar": "assets/drivers/avatars/noel-leon.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/noel-leon.png",
+      "assets/drivers/avatars/noel-leon.webp",
+      "assets/drivers/avatars/noel-leon.jpg"
+    ]
+  },
+  {
+    "id": "nikola-tsolov",
+    "name": "Nikola Tsolov",
+    "teamId": "campos-racing",
+    "rating": 74,
+    "avatar": "assets/drivers/avatars/nikola-tsolov.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/nikola-tsolov.png",
+      "assets/drivers/avatars/nikola-tsolov.webp",
+      "assets/drivers/avatars/nikola-tsolov.jpg"
+    ]
+  },
+  {
+    "id": "dino-beganovic",
+    "name": "Dino Beganovic",
+    "teamId": "dams-lucas-oil",
+    "rating": 73,
+    "avatar": "assets/drivers/avatars/dino-beganovic.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/dino-beganovic.png",
+      "assets/drivers/avatars/dino-beganovic.webp",
+      "assets/drivers/avatars/dino-beganovic.jpg"
+    ]
+  },
+  {
+    "id": "roman-bilinski",
+    "name": "Roman Bilinski",
+    "teamId": "dams-lucas-oil",
+    "rating": 75,
+    "avatar": "assets/drivers/avatars/roman-bilinski.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/roman-bilinski.png",
+      "assets/drivers/avatars/roman-bilinski.webp",
+      "assets/drivers/avatars/roman-bilinski.jpg"
+    ]
+  },
+  {
+    "id": "gabriele-mini",
+    "name": "Gabriele Mini",
+    "teamId": "mp-motorsport",
+    "rating": 74,
+    "avatar": "assets/drivers/avatars/gabriele-mini.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/gabriele-mini.png",
+      "assets/drivers/avatars/gabriele-mini.webp",
+      "assets/drivers/avatars/gabriele-mini.jpg"
+    ]
+  },
+  {
+    "id": "oliver-goethe",
+    "name": "Oliver Goethe",
+    "teamId": "mp-motorsport",
+    "rating": 76,
+    "avatar": "assets/drivers/avatars/oliver-goethe.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/oliver-goethe.png",
+      "assets/drivers/avatars/oliver-goethe.webp",
+      "assets/drivers/avatars/oliver-goethe.jpg"
+    ]
+  },
+  {
+    "id": "sebastian-montoya",
+    "name": "Sebastian Montoya",
+    "teamId": "prema-racing",
+    "rating": 70,
+    "avatar": "assets/drivers/avatars/sebastian-montoya.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/sebastian-montoya.png",
+      "assets/drivers/avatars/sebastian-montoya.webp",
+      "assets/drivers/avatars/sebastian-montoya.jpg"
+    ]
+  },
+  {
+    "id": "mari-boya",
+    "name": "Mari Boya",
+    "teamId": "prema-racing",
+    "rating": 72,
+    "avatar": "assets/drivers/avatars/mari-boya.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/mari-boya.png",
+      "assets/drivers/avatars/mari-boya.webp",
+      "assets/drivers/avatars/mari-boya.jpg"
+    ]
+  },
+  {
+    "id": "martinius-stenshorne",
+    "name": "Martinius Stenshorne",
+    "teamId": "rodin-motorsport",
+    "rating": 71,
+    "avatar": "assets/drivers/avatars/martinius-stenshorne.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/martinius-stenshorne.png",
+      "assets/drivers/avatars/martinius-stenshorne.webp",
+      "assets/drivers/avatars/martinius-stenshorne.jpg"
+    ]
+  },
+  {
+    "id": "alex-dunne",
+    "name": "Alex Dunne",
+    "teamId": "rodin-motorsport",
+    "rating": 73,
+    "avatar": "assets/drivers/avatars/alex-dunne.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/alex-dunne.png",
+      "assets/drivers/avatars/alex-dunne.webp",
+      "assets/drivers/avatars/alex-dunne.jpg"
+    ]
+  },
+  {
+    "id": "kush-maini",
+    "name": "Kush Maini",
+    "teamId": "art-grand-prix",
+    "rating": 72,
+    "avatar": "assets/drivers/avatars/kush-maini.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/kush-maini.png",
+      "assets/drivers/avatars/kush-maini.webp",
+      "assets/drivers/avatars/kush-maini.jpg"
+    ]
+  },
+  {
+    "id": "tasanapol-inthraphuvasak",
+    "name": "Tasanapol Inthraphuvasak",
+    "teamId": "art-grand-prix",
+    "rating": 74,
+    "avatar": "assets/drivers/avatars/tasanapol-inthraphuvasak.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/tasanapol-inthraphuvasak.png",
+      "assets/drivers/avatars/tasanapol-inthraphuvasak.webp",
+      "assets/drivers/avatars/tasanapol-inthraphuvasak.jpg"
+    ]
+  },
+  {
+    "id": "enzo-fittipaldi",
+    "name": "Enzo Fittipaldi",
+    "teamId": "aix-racing",
+    "rating": 73,
+    "avatar": "assets/drivers/avatars/enzo-fittipaldi.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/enzo-fittipaldi.png",
+      "assets/drivers/avatars/enzo-fittipaldi.webp",
+      "assets/drivers/avatars/enzo-fittipaldi.jpg"
+    ]
+  },
+  {
+    "id": "cian-shields",
+    "name": "Cian Shields",
+    "teamId": "aix-racing",
+    "rating": 75,
+    "avatar": "assets/drivers/avatars/cian-shields.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/cian-shields.png",
+      "assets/drivers/avatars/cian-shields.webp",
+      "assets/drivers/avatars/cian-shields.jpg"
+    ]
+  },
+  {
+    "id": "nicolas-varrone",
+    "name": "Nicolas Varrone",
+    "teamId": "van-amersfoort-racing",
+    "rating": 74,
+    "avatar": "assets/drivers/avatars/nicolas-varrone.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/nicolas-varrone.png",
+      "assets/drivers/avatars/nicolas-varrone.webp",
+      "assets/drivers/avatars/nicolas-varrone.jpg"
+    ]
+  },
+  {
+    "id": "rafael-villagomez",
+    "name": "Rafael Villagomez",
+    "teamId": "van-amersfoort-racing",
+    "rating": 76,
+    "avatar": "assets/drivers/avatars/rafael-villagomez.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/rafael-villagomez.png",
+      "assets/drivers/avatars/rafael-villagomez.webp",
+      "assets/drivers/avatars/rafael-villagomez.jpg"
+    ]
+  },
+  {
+    "id": "laurens-van-hoepen",
+    "name": "Laurens van Hoepen",
+    "teamId": "trident",
+    "rating": 70,
+    "avatar": "assets/drivers/avatars/laurens-van-hoepen.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/laurens-van-hoepen.png",
+      "assets/drivers/avatars/laurens-van-hoepen.webp",
+      "assets/drivers/avatars/laurens-van-hoepen.jpg"
+    ]
+  },
+  {
+    "id": "john-bennett",
+    "name": "John Bennett",
+    "teamId": "trident",
+    "rating": 72,
+    "avatar": "assets/drivers/avatars/john-bennett.svg",
+    "avatarAliases": [
+      "assets/drivers/avatars/john-bennett.png",
+      "assets/drivers/avatars/john-bennett.webp",
+      "assets/drivers/avatars/john-bennett.jpg"
+    ]
+  }
+]
