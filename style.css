@@ -176,3 +176,27 @@
 .offer-card.locked{opacity:.72;filter:saturate(.65)}
 .offer-head{display:flex;gap:12px;align-items:center;margin-bottom:10px}.offer-head h3{margin:0}.offer-head p{margin:4px 0 0}.offer-logo{width:72px;height:72px;border-radius:18px;background:#090d1a;border:1px solid #ffffff22}.offer-logo img{max-width:82%;max-height:82%;object-fit:contain}.offer-drivers{margin:10px 0}.offers-grid .wide{grid-column:span 2}.dash-card button:disabled{cursor:not-allowed;opacity:.65}.career-card .secondary{margin-top:8px}.side-nav button[data-tab="offers"]{font-size:28px}
 @media(max-width:900px){.offers-grid .wide{grid-column:span 1}.offer-logo{width:56px;height:56px}}
+
+
+/* v0.9.16 — team immersion upgrades */
+#screen-lobby{--team-color:#f00616;--team-color-rgb:240,6,22;position:absolute;overflow:hidden;isolation:isolate}
+#screen-lobby::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(circle at 84% 14%, rgba(var(--team-color-rgb), .26), transparent 28%),
+  radial-gradient(circle at 18% 82%, rgba(var(--team-color-rgb), .14), transparent 24%),
+  linear-gradient(120deg, rgba(7,9,15,.92), rgba(10,11,18,.76) 42%, rgba(var(--team-color-rgb), .20) 100%)}
+#screen-lobby .side-nav,#screen-lobby .dash-main,#screen-lobby .hudbar,#screen-lobby .tab-content{position:relative;z-index:1}
+#screen-lobby .side-nav{background:linear-gradient(180deg, rgba(var(--team-color-rgb), .24), #0b0f1e 26%, #0b0f1e 100%);box-shadow:inset -1px 0 0 rgba(255,255,255,.1)}
+#screen-lobby .side-nav button.active{background:linear-gradient(180deg, rgba(var(--team-color-rgb), 1), rgba(var(--team-color-rgb), .62));color:#fff}
+#screen-lobby .hudbar{background:linear-gradient(90deg, rgba(var(--team-color-rgb), .20), rgba(31,18,34,.88) 30%, rgba(43,16,24,.90) 100%);border:1px solid rgba(var(--team-color-rgb), .20);box-shadow:0 16px 40px rgba(0,0,0,.35)}
+#screen-lobby .hud-stats span{border:1px solid rgba(var(--team-color-rgb), .16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}
+#screen-lobby .progress i{background:linear-gradient(90deg, rgba(var(--team-color-rgb), 1), #ffb300)}
+#screen-lobby .glass-panel{border-color:rgba(var(--team-color-rgb), .14)}
+#screen-lobby .primary{background:linear-gradient(135deg, rgba(var(--team-color-rgb), 1), rgba(var(--team-color-rgb), .70));box-shadow:inset 0 -3px 0 rgba(0,0,0,.30)}
+
+.team-card-watermark{position:absolute;inset:0;z-index:0;display:flex;align-items:center;justify-content:center;pointer-events:none;overflow:hidden}
+.team-card-watermark img{width:86%;height:86%;object-fit:contain;opacity:.12;filter:grayscale(1) brightness(1.6) contrast(1.05) drop-shadow(0 24px 32px rgba(0,0,0,.65));transform:translate(16%, 4%) rotate(-10deg)}
+.team-card-premium.selected .team-card-watermark img{opacity:.17;filter:grayscale(.35) brightness(1.25) saturate(1.05) drop-shadow(0 24px 32px rgba(0,0,0,.75))}
+.team-card-premium .team-card-topline,.team-card-premium .team-visual,.team-card-premium .team-card-main,.team-card-premium .team-driver-strip,.team-card-premium .team-stats{position:relative;z-index:2}
+.team-card-premium::before{opacity:.60}
+.team-card-premium .team-visual{backdrop-filter:blur(1px)}
+@media(max-width:900px){.team-card-watermark img{width:94%;height:94%;transform:translate(12%, 6%) rotate(-8deg);opacity:.10}}

@@ -26,6 +26,8 @@
   function asset(p){ return assetCandidates(p)[0]; }
   function initials(text){ return String(text||'').split(/\s+/).filter(Boolean).slice(0,2).map(s=>s[0]).join('').toUpperCase() || 'VG'; }
   function flagPath(code){ return `flags/all/${String(code||'').toLowerCase()}.png`; }
+  function colorHex(num){ return `#${(Number(num)||0x333333).toString(16).padStart(6,'0')}`; }
+  function colorRgbString(num){ const c = Number(num)||0x333333; return `${(c>>16)&255}, ${(c>>8)&255}, ${c&255}`; }
 
   function driverByShort(short){ return DATA.f1Drivers2026.concat(DATA.f2Drivers).find(d => d.short === short) || null; }
   function teamLogoHTML(team, cls='team-logo-inline'){
@@ -132,7 +134,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.15 • 08/05/2026 • 18:36 BRT';
+    const label = b.label || 'Build v0.9.16 • 09/05/2026 • 09:20 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -285,9 +287,10 @@
       const drivers = driversForTeam(t.id).slice(0,2);
       b.className = 'team-card team-card-premium' + (t.id===selectedTeam?' selected':'');
       b.dataset.team = t.id;
-      b.style.setProperty('--team-color', `#${(t.color||0x333333).toString(16).padStart(6,'0')}`);
-      b.style.setProperty('--team-bg', `linear-gradient(135deg, #030711e8, #0d1020bf), radial-gradient(circle at 72% 24%, #${(t.color||0x333333).toString(16).padStart(6,'0')}aa, transparent 42%)`);
+      b.style.setProperty('--team-color', colorHex(t.color));
+      b.style.setProperty('--team-bg', `linear-gradient(135deg, rgba(3,7,17,.92), rgba(13,16,32,.78)), radial-gradient(circle at 72% 24%, rgba(${colorRgbString(t.color)}, .42), transparent 42%)`);
       b.innerHTML = `
+        <div class="team-card-watermark">${t.logo ? `<img data-asset-src="${t.logo}" alt="${t.name}" />` : ''}</div>
         <div class="team-card-topline"><span>${selectedSeries}</span><strong>${diff.tag}</strong></div>
         ${teamVisual(t)}
         <div class="team-card-main">
@@ -338,8 +341,18 @@
     updateHud();
     const team = teamById(state.currentTeam);
     setScreenBg('screen-lobby', team.lobby || DATA.assetPaths.lobbyGlobal);
+    applyTeamTheme(team);
     refreshCareerOffers();
     renderTab($('.side-nav button.active')?.dataset.tab || 'dashboard');
+  }
+
+  function applyTeamTheme(team){
+    const screen = $('#screen-lobby');
+    if(!screen || !team) return;
+    const hex = colorHex(team.color);
+    const rgb = colorRgbString(team.color);
+    screen.style.setProperty('--team-color', hex);
+    screen.style.setProperty('--team-color-rgb', rgb);
   }
 
   function sponsorButtons(){

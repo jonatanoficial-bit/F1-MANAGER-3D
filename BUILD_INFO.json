@@ -1,9 +1,9 @@
 {
-  "version": "0.9.15",
-  "date": "08/05/2026",
-  "time_brt": "18:36",
+  "version": "0.9.16",
+  "date": "09/05/2026",
+  "time_brt": "09:20",
   "timezone": "America/Sao_Paulo",
-  "label": "Build v0.9.15 • 08/05/2026 • 18:36 BRT",
-  "base": "v0.9.14",
+  "label": "Build v0.9.16 • 09/05/2026 • 09:20 BRT",
+  "base": "v0.9.15",
   "assets": "sem assets binarios"
 }
