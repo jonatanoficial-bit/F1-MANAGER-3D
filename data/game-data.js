@@ -1,11 +1,11 @@
 window.F1M_DATA = {
   "build": {
-    "version": "0.9.17",
+    "version": "0.9.20",
     "date": "09/05/2026",
-    "time_brt": "09:42",
+    "time_brt": "11:08",
     "timezone": "America/Sao_Paulo",
-    "label": "Build v0.9.17 • 09/05/2026 • 09:42 BRT",
-    "iso": "2026-05-09T09:42:00-03:00"
+    "label": "Build v0.9.20 • 09/05/2026 • 11:08 BRT",
+    "iso": "2026-05-09T11:08:00-03:00"
   },
   "assetPaths": {
     "menu": "backgrounds/ui/global_lobby.png",
@@ -1645,27 +1645,54 @@ window.F1M_DATA = {
   ],
   "sponsors": [
     {
-      "id": "nova_energy",
-      "name": "Nova Energy",
-      "advance": 900000,
-      "raceBonus": 180000,
-      "goal": "Top 10"
+        "id": "petro_racing",
+        "name": "Petro Racing",
+        "logoText": "PR",
+        "advance": 1600000,
+        "raceBonus": 320000,
+        "goal": "Top 8 / marca nacional"
     },
     {
-      "id": "apex_tools",
-      "name": "Apex Tools",
-      "advance": 650000,
-      "raceBonus": 120000,
-      "goal": "Concluir corrida"
+        "id": "global_bank",
+        "name": "Global Bank",
+        "logoText": "GB",
+        "advance": 1300000,
+        "raceBonus": 260000,
+        "goal": "Top 10 e finanças positivas"
     },
     {
-      "id": "helix_data",
-      "name": "Helix Data",
-      "advance": 1200000,
-      "raceBonus": 250000,
-      "goal": "Top 6"
+        "id": "apex_tools",
+        "name": "Apex Tools",
+        "logoText": "AT",
+        "advance": 900000,
+        "raceBonus": 160000,
+        "goal": "Concluir corrida"
+    },
+    {
+        "id": "nova_energy",
+        "name": "Nova Energy",
+        "logoText": "NE",
+        "advance": 1100000,
+        "raceBonus": 210000,
+        "goal": "Pontuar"
+    },
+    {
+        "id": "helix_data",
+        "name": "Helix Data",
+        "logoText": "HD",
+        "advance": 1450000,
+        "raceBonus": 300000,
+        "goal": "Top 6"
+    },
+    {
+        "id": "velocity_wear",
+        "name": "Velocity Wear",
+        "logoText": "VW",
+        "advance": 720000,
+        "raceBonus": 140000,
+        "goal": "Pilotos sem abandono"
     }
-  ],
+],
   "points": [
     25,
     18,

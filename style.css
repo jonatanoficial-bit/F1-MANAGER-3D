@@ -210,3 +210,27 @@
 #screen-lobby .hudbar{position:relative;z-index:3}
 #screen-lobby::before{z-index:0}
 @media(max-width:900px){#screen-lobby .dash-main{left:62px;padding:10px}}
+
+
+/* v0.9.18 — carreira, agenda e e-mails */
+.side-nav button[data-tab="inbox"]{font-size:25px}
+.agenda-grid .wide,.inbox-grid .wide{grid-column:span 2}
+.agenda-card,.mail-card{min-height:170px}
+.mail-card{border-color:#ffffff18;background:linear-gradient(145deg,#131a2ddd,#070b15ee)}
+.mail-card.unread{border-color:#ff385055;box-shadow:0 0 0 1px #ff385033,0 18px 48px #0008}
+.mail-type{display:inline-flex;gap:8px;align-items:center;margin-bottom:8px;padding:6px 9px;border-radius:999px;background:#ffffff12;color:#dbe4ff;font-family:system-ui,sans-serif;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.04em}
+.mail-card small{display:block;margin:8px 0 12px;color:#95a3c7;font-family:system-ui,sans-serif;font-weight:800}
+.agenda-card h3,.mail-card h3{font-size:22px}
+@media(max-width:900px){.agenda-grid .wide,.inbox-grid .wide{grid-column:span 1}.side-nav button[data-tab="inbox"]{font-size:22px}}
+
+
+/* v0.9.19 — gameplay car/staff/setup */
+.setup-preset-grid{display:grid;grid-template-columns:repeat(5,minmax(110px,1fr));gap:8px;margin-top:12px;position:relative;z-index:2}
+.setup-preset-grid button{min-height:44px;font-size:12px;letter-spacing:.05em}
+.setup-preset-grid button.selected{background:linear-gradient(135deg,var(--team-color,#ff2036),#ffb300);color:#fff;box-shadow:0 0 0 2px #ffffff22,inset 0 -3px 0 #0004}
+.pilot-status{margin-top:8px;padding:7px 8px;border-radius:9px;background:#03071188;border:1px solid #ffffff16;color:#dbe4ff;font-family:system-ui,sans-serif;font-weight:900;font-size:11px}
+@media(max-width:900px){.setup-preset-grid{grid-template-columns:1fr 1fr}.setup-preset-grid button{font-size:11px}}
+
+
+/* v0.9.20 — manager realism */
+.sponsor-card{grid-column:span 2}.sponsor-mini{display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:10px;padding:8px;margin:6px 0;border:1px solid #ffffff18;border-radius:12px;background:#05091488}.sponsor-logo-text{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f00616,#1c2748);font-weight:1000;color:#fff;letter-spacing:.08em}.sponsor-mini b,.sponsor-mini small{display:block}.sponsor-mini small{font-family:system-ui,sans-serif;color:#b8c0d9;font-weight:800;font-size:11px}.staff-card{min-height:238px}.agenda-head{display:flex;align-items:center;gap:12px}.agenda-head h3{margin:0}.agenda-flag{width:44px;height:30px;object-fit:cover;border-radius:6px;border:1px solid #ffffff25;box-shadow:0 8px 20px #0009}.agenda-emoji{font-size:34px}.standings-manager-grid .wide,.driver-market-grid .wide{grid-column:span 2}.market-driver-card.locked{opacity:.68}.big-team-cell{grid-column:span 2}.big-team-cell small{display:block;color:#aeb8d5}.team-chip .team-logo-inline{margin-right:4px}.side-nav button[data-tab="standings"],.side-nav button[data-tab="driver-market"]{font-size:22px}@media(max-width:900px){.sponsor-card,.standings-manager-grid .wide,.driver-market-grid .wide{grid-column:span 1}.sponsor-mini{grid-template-columns:40px 1fr}.sponsor-mini button{grid-column:1 / -1}.agenda-flag{width:36px;height:24px}}

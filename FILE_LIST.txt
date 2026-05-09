@@ -19,6 +19,10 @@ docs/CHANGELOG_v0_9_0.md
 docs/CHANGELOG_v0_9_13.md
 docs/CHANGELOG_v0_9_14.md
 docs/CHANGELOG_v0_9_15.md
+docs/CHANGELOG_v0_9_16.md
+docs/CHANGELOG_v0_9_17.md
+docs/CHANGELOG_v0_9_18.md
+docs/CHANGELOG_v0_9_19.md
 docs/F2_LOGOS_PENDING.md
 docs/PLAN_LOGOS_AVATARS_F2.md
 docs/ROADMAP.md
