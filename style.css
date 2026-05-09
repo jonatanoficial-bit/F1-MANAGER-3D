@@ -200,3 +200,13 @@
 .team-card-premium::before{opacity:.60}
 .team-card-premium .team-visual{backdrop-filter:blur(1px)}
 @media(max-width:900px){.team-card-watermark img{width:94%;height:94%;transform:translate(12%, 6%) rotate(-8deg);opacity:.10}}
+
+
+/* v0.9.17 - lobby visibility fix */
+#screen-lobby .dash-main{position:absolute;left:86px;right:0;top:0;bottom:0;z-index:2;padding:16px}
+#screen-lobby .side-nav{position:absolute;z-index:3;left:0;top:0;bottom:0}
+#screen-lobby .tab-content{position:relative;z-index:2}
+#screen-lobby .cards-grid,#screen-lobby .dash-card,#screen-lobby .standings-list{position:relative;z-index:2}
+#screen-lobby .hudbar{position:relative;z-index:3}
+#screen-lobby::before{z-index:0}
+@media(max-width:900px){#screen-lobby .dash-main{left:62px;padding:10px}}

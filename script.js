@@ -3,7 +3,6 @@
   const SAVE_KEYS = ['f1_manager_career_2026_v090', 'f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
   const ACTIVE_SAVE_KEY = SAVE_KEYS[0];
   const ASSET_ROOTS = ['assets/'];
-  for(let i=1;i<=15;i++) ASSET_ROOTS.push(`f1_assets_part_${String(i).padStart(2,'0')}/assets/`);
 
   let state = loadState() || createInitialState();
   let selectedAvatar = 0;
@@ -134,7 +133,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.16 • 09/05/2026 • 09:20 BRT';
+    const label = b.label || 'Build v0.9.17 • 09/05/2026 • 09:42 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
