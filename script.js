@@ -58,6 +58,33 @@
   }
   function currentStandings(){ ensureStandings(); return state.standings[state.currentSeries || 'F2'] || state.standings.F2; }
   function setupLabel(key){ return ({balanced:'Equilibrado',downforce:'Mais aerodinâmica',speed:'Velocidade final',tyres:'Preservar pneus',rain:'Chuva/controle'})[key] || 'Equilibrado'; }
+  function difficultyKey(){ return state?.quality?.difficulty || (state?.mode === 'sandbox' ? 'sandbox' : 'normal'); }
+  function balanceTuning(){
+    const table = {
+      easy:{ initialBudget:1.18, income:1.12, prize:1.08, sponsor:1.10, cost:.86, damage:.78, repGain:1.18, repLoss:.70, offerGate:-4, rival:.86 },
+      normal:{ initialBudget:1.00, income:1.00, prize:1.00, sponsor:1.00, cost:1.00, damage:1.00, repGain:1.00, repLoss:1.00, offerGate:0, rival:1.00 },
+      hard:{ initialBudget:.82, income:.92, prize:.92, sponsor:.92, cost:1.18, damage:1.20, repGain:.82, repLoss:1.28, offerGate:5, rival:1.15 },
+      sandbox:{ initialBudget:1.85, income:1.20, prize:1.15, sponsor:1.15, cost:.72, damage:.65, repGain:1.20, repLoss:.45, offerGate:-99, rival:.70 }
+    };
+    return table[difficultyKey()] || table.normal;
+  }
+  function objectiveExpectedBest(team){
+    const text = String(team?.objective || '').toLowerCase();
+    if(text.includes('título') || text.includes('titulo') || text.includes('vencer') || text.includes('vitórias')) return 2;
+    if(text.includes('pódio') || text.includes('podio')) return 4;
+    if(text.includes('pontos') || text.includes('pontuar')) return 10;
+    if(text.includes('meio') || text.includes('evoluir')) return 14;
+    return team?.tier === 'top' ? 3 : team?.tier === 'mid' ? 8 : 13;
+  }
+  function budgetStartMultiplier(series){
+    const t = balanceTuning();
+    if(state.mode === 'sandbox') return t.initialBudget;
+    return (series === 'F1' ? .58 : .86) * t.initialBudget;
+  }
+  function balanceSummary(){
+    const t = balanceTuning();
+    return `Dificuldade ${difficultyLabel()} • caixa inicial x${budgetStartMultiplier(state.currentSeries||'F2').toFixed(2)} • custos x${t.cost.toFixed(2)} • reputação x${t.repGain.toFixed(2)}`;
+  }
 
   function createInitialState(){
     const standings = { F1:createStandingsForSeries('F1'), F2:createStandingsForSeries('F2') };
@@ -134,6 +161,7 @@
     if(!state.quality.difficulty) state.quality.difficulty = state.mode === 'sandbox' ? 'sandbox' : 'normal';
     state.driverProgress = state.driverProgress || {};
     state.lastRaceReport = state.lastRaceReport || null;
+    state.balanceAudit = state.balanceAudit || { version:'0.9.31', lastReview:null, notes:[] };
     state.mediaLog = Array.isArray(state.mediaLog) ? state.mediaLog : [];
     state.boardPressure = Number.isFinite(Number(state.boardPressure)) ? Number(state.boardPressure) : 45;
     state.pressReputation = Number.isFinite(Number(state.pressReputation)) ? Number(state.pressReputation) : 50;
@@ -422,7 +450,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.30 • 11/05/2026 • 19:38 BRT';
+    const label = b.label || 'Build v0.9.31 • 11/05/2026 • 20:15 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -627,8 +655,8 @@
     const t = source.find(x=>x.id===selectedTeam) || source[0];
     state.currentSeries = series;
     state.currentTeam = t.id;
-    state.money = state.mode==='sandbox' ? t.budget*2 : t.budget;
-    state.reputation = state.mode==='sandbox' ? Math.max(t.reputation, 70) : t.reputation;
+    state.money = Math.round((t.budget||4000000) * budgetStartMultiplier(series));
+    state.reputation = state.mode==='sandbox' ? Math.max(t.reputation, 70) : Math.max(28, Math.round((t.reputation||50) - (series === 'F2' ? 7 : 12)));
     state.car = {...t.car, fuel:55};
     state.roundIndex = series === 'F2' ? 5 : 0;
     state.completedRaces = 0;
@@ -700,6 +728,7 @@
         <article class="dash-card glass-panel"><h3>Caixa de E-mails</h3><p>${unread ? `<b>${unread} mensagem(ns) nova(s)</b>` : 'Nenhuma mensagem não lida.'}</p><p>Convites, relatórios da diretoria e atualizações de agenda aparecem aqui.</p><button class="secondary" data-tab="inbox">ABRIR E-MAILS</button></article>
         <article class="dash-card glass-panel"><h3>Mídia e Moral</h3><p>Imprensa: <b>${mediaMoodLabel(state.pressReputation)}</b></p><p>Moral: <b>${moraleLabel(state.teamMorale)}</b> • Pressão: <b>${pressureLabel(state.boardPressure)}</b></p><button class="secondary" data-tab="media">ABRIR PADDOCK</button></article>
         <article class="dash-card glass-panel"><h3>Beta jogável</h3><p>Dificuldade: <b>${difficultyLabel()}</b></p><p>Score QA: <b>${state.quality?.betaScore || betaReadinessScore()}/100</b></p><button class="secondary" data-tab="qa">ABRIR QA</button></article>
+        <article class="dash-card glass-panel"><h3>Balanceamento</h3><p>${balanceSummary()}</p><p>Objetivo esperado: melhor resultado até P${objectiveExpectedBest(team)}.</p><button class="secondary" data-tab="qa">AJUSTAR DIFICULDADE</button></article>
         <article class="dash-card glass-panel"><h3>Metas da Diretoria</h3><p>${team.objective || 'Pontuar e evoluir a equipe.'}</p><div class="progress"><i style="width:${Math.min(100,state.reputation)}%"></i></div><p>Reputação ${Math.round(state.reputation)}/100</p></article>
         <article class="dash-card glass-panel wide sponsor-card"><h3>Patrocinadores</h3><p>${state.sponsor ? 'Contrato ativo: ' + state.sponsor.name : 'Escolha um patrocinador principal. Metas geram bônus por corrida.'}</p>${sponsorButtons()}</article>
         <article class="dash-card glass-panel career-card"><h3>Carreira do Gestor</h3><p><b>${state.currentSeries === 'F2' ? 'Você começou na F2.' : 'Você está na Fórmula 1.'}</b> Cumpra metas, evolua pilotos e mantenha as finanças saudáveis para avançar.</p><p>Contrato: ${state.contract ? money(state.contract.salary) + ' / temporada' : 'em avaliação'} • ${contractStatusText()}</p><button class="secondary" data-tab="offers">VER PROPOSTAS</button></article>
@@ -977,7 +1006,8 @@
     const seriesMul = isF1 ? 4200 : 460;
     const ageFactor = age <= 22 ? 1.18 : age >= 35 ? .82 : 1;
     const scoutDiscount = Math.max(.82, 1 - ((state.staff?.scouts||1)-1)*.025);
-    return Math.round(((ov*ov*seriesMul) + (pot*seriesMul*42)) * ageFactor * scoutDiscount);
+    const marketInflation = balanceTuning().cost;
+    return Math.round(((ov*ov*seriesMul) + (pot*seriesMul*42)) * ageFactor * scoutDiscount * marketInflation);
   }
   function driverSalary(d){ return Math.round(driverValue(d) * 0.035); }
   function driverBuyout(d){
@@ -1007,7 +1037,8 @@
     const securityBonus = (years-1) * 4;
     const ambitionPenalty = (d.overall||70) >= 88 && (playerTeam?.reputation||50) < 82 ? -16 : 0;
     const roleBonus = driversForTeam(state.currentTeam).some(x => (x.overall||70) < (d.overall||70)) ? 6 : -2;
-    return Math.max(8, Math.min(96, 48 + repGap*.75 + categoryBonus + scoutBonus + moneyBonus + securityBonus + roleBonus + ambitionPenalty));
+    const difficultyPenalty = difficultyKey()==='hard' ? -7 : difficultyKey()==='easy' ? 5 : difficultyKey()==='sandbox' ? 12 : 0;
+    return Math.max(8, Math.min(96, 48 + repGap*.75 + categoryBonus + scoutBonus + moneyBonus + securityBonus + roleBonus + ambitionPenalty + difficultyPenalty));
   }
   function driverAccepts(d, years, salaryMul){
     const chance = driverInterestScore(d, years, salaryMul);
@@ -1089,13 +1120,14 @@
     const team = teamById(state.currentTeam) || {};
     const drivers = driversForTeam(state.currentTeam);
     const teamPoints = playerResults.reduce((sum,r)=>sum+(r.points||0),0);
-    const baseParticipation = state.currentSeries === 'F1' ? 650000 : 160000;
-    const prize = Math.max(0,14-(bestPlayer?.pos||14)) * (state.currentSeries === 'F1' ? 90000 : 26000) + teamPoints * (state.currentSeries === 'F1' ? 55000 : 18000);
-    const sponsorBonus = state.sponsor ? (state.sponsor.raceBonus || 0) + sponsorGoalBonus(playerResults,bestPlayer) : 0;
-    const salaryCost = drivers.reduce((sum,d)=>sum + Math.round((d.salary||250000) / DATA.calendar2026.length), 0);
-    const staffCost = Object.values(state.staff||{}).reduce((sum,n)=>sum + Number(n||0), 0) * (state.currentSeries === 'F1' ? 18000 : 6500);
-    const operations = state.currentSeries === 'F1' ? 420000 : 95000;
-    const damage = playerResults.reduce((sum,r)=>sum + Math.max(0,100-(r.condition||100))*2200 + Math.max(0,40-(r.tyre||40))*900,0);
+    const tune = balanceTuning();
+    const baseParticipation = Math.round((state.currentSeries === 'F1' ? 650000 : 160000) * tune.income);
+    const prize = Math.round((Math.max(0,14-(bestPlayer?.pos||14)) * (state.currentSeries === 'F1' ? 90000 : 26000) + teamPoints * (state.currentSeries === 'F1' ? 55000 : 18000)) * tune.prize);
+    const sponsorBonus = state.sponsor ? Math.round(((state.sponsor.raceBonus || 0) + sponsorGoalBonus(playerResults,bestPlayer)) * tune.sponsor) : 0;
+    const salaryCost = Math.round(drivers.reduce((sum,d)=>sum + Math.round((d.salary||250000) / DATA.calendar2026.length), 0) * tune.cost);
+    const staffCost = Math.round(Object.values(state.staff||{}).reduce((sum,n)=>sum + Number(n||0), 0) * (state.currentSeries === 'F1' ? 18000 : 6500) * tune.cost);
+    const operations = Math.round((state.currentSeries === 'F1' ? 420000 : 95000) * tune.cost);
+    const damage = Math.round(playerResults.reduce((sum,r)=>sum + Math.max(0,100-(r.condition||100))*2200 + Math.max(0,40-(r.tyre||40))*900,0) * tune.damage);
     const income = Math.round(baseParticipation + prize + sponsorBonus);
     const expenses = Math.round(salaryCost + staffCost + operations + damage);
     const net = income - expenses;
@@ -1121,11 +1153,17 @@
 
   function reputationDelta(bestPlayer, teamPoints, financeNet){
     if(!bestPlayer) return -1;
-    let delta = Math.max(-2, 10 - bestPlayer.pos) * .75 + (teamPoints||0) * .10;
-    if(bestPlayer.pos === 1) delta += 2.5;
-    if(bestPlayer.pos <= 3) delta += 1.2;
-    if(financeNet < 0) delta -= .8;
-    if((state.money||0) < 0) delta -= 1.2;
+    const tune = balanceTuning();
+    const team = teamById(state.currentTeam);
+    const expected = objectiveExpectedBest(team);
+    let delta = Math.max(-3, 11 - bestPlayer.pos) * .55 + (teamPoints||0) * .08;
+    if(bestPlayer.pos <= expected) delta += Math.min(3.2, (expected - bestPlayer.pos + 1) * .55);
+    else delta -= Math.min(3.8, (bestPlayer.pos - expected) * .28);
+    if(bestPlayer.pos === 1) delta += 2.0;
+    if(bestPlayer.pos <= 3) delta += 1.0;
+    if(financeNet < 0) delta -= .9;
+    if((state.money||0) < 0) delta -= 1.4;
+    delta *= delta >= 0 ? tune.repGain : tune.repLoss;
     return pct(delta);
   }
 
@@ -1379,7 +1417,8 @@
 
   function requiredRepForTeam(team){
     const cls = teamProgressionClass(team);
-    return ({entry_f2:35, mid_f2:52, strong_f2:62, low_f1:72, mid:84, grand:94})[cls] || 70;
+    const base = ({entry_f2:35, mid_f2:56, strong_f2:68, low_f1:78, mid:88, grand:95})[cls] || 72;
+    return Math.max(25, Math.min(98, base + (balanceTuning().offerGate || 0)));
   }
 
   function progressionLabel(team){
@@ -1442,7 +1481,7 @@
     });
     state.currentTeam = target.id;
     state.currentSeries = DATA.f1Teams2026.some(t=>t.id===target.id) ? 'F1' : 'F2';
-    state.money = Math.max(state.money || 0, Math.round((target.budget||4000000)*0.55));
+    state.money = Math.max(state.money || 0, Math.round((target.budget||4000000) * budgetStartMultiplier(DATA.f1Teams2026.some(t=>t.id===target.id) ? 'F1' : 'F2')));
     state.reputation = Math.max(state.reputation || 0, target.reputation - 8);
     state.car = {...target.car, fuel: state.car?.fuel || 55};
     state.contract = { team:target.id, series:state.currentSeries, startedRound:state.completedRaces, salary:Math.round((target.budget||4000000)*0.04), objective:target.objective || 'Cumprir metas da diretoria.' };
@@ -1497,8 +1536,20 @@
   function roleDesc(r){ return ({designers:'Aceleram desenvolvimento de peças e melhoram classificação.',mechanics:'Reduzem falhas mecânicas e perda de condição.',strategists:'Melhoram estratégia, ritmo de corrida e desgaste de pneus.',raceEngineers:'Melhoram acerto mecânico, feedback de pilotos e consistência de stint.',scouts:'Reduzem custo de contratação e revelam melhor potencial no mercado.',pitCrew:'Reduzem tempo real de pit stop e risco de erro nos boxes.'})[r] || ''; }
   function staffImpactText(r){ return ({designers:`+${Math.round((state.staff?.designers||1)*0.7)} ganho por upgrade`,mechanics:`-${Math.round((state.staff?.mechanics||1)*2)}% falhas/condição`,strategists:`+${Math.round((state.staff?.strategists||1)*2)} gestão de pneus`,raceEngineers:`+${Math.round((state.staff?.raceEngineers||1)*1.2)} acerto e consistência`,scouts:`-${Math.round((state.staff?.scouts||1)*1.5)}% custo no mercado`,pitCrew:`-${Math.round((state.staff?.pitCrew||1)*2.2)}% tempo de pit`})[r]; }
   function facilityLabel(k){ return ({hq:'Sede',simulator:'Simulador',factory:'Fábrica',scouting:'Observação'})[k]; }
-  function upgradeCost(part){ return 250000 + Math.round((state.car[part]||50)*9000); }
-  function staffHireCost(role){ return Math.round((300000 + (state.staff?.[role]||1)*240000) * (role==='scouts'?.85:role==='pitCrew'?1.05:1)); }
+  function upgradeCost(part){
+    const tune = balanceTuning();
+    const level = Number(state.car?.[part] || 50);
+    const base = state.currentSeries === 'F1' ? 840000 : 210000;
+    const curve = Math.pow(Math.max(1, level - 38), 1.25);
+    return Math.round((base + curve * (state.currentSeries === 'F1' ? 16500 : 5600)) * tune.cost);
+  }
+  function staffHireCost(role){
+    const tune = balanceTuning();
+    const level = state.staff?.[role] || 1;
+    const seriesBase = state.currentSeries === 'F1' ? 520000 : 180000;
+    const roleMul = role==='scouts'?.90:role==='pitCrew'?1.10:role==='raceEngineers'?1.18:1;
+    return Math.round((seriesBase + level * (state.currentSeries === 'F1' ? 390000 : 125000)) * roleMul * tune.cost);
+  }
   function upgradePart(part){ const cost = upgradeCost(part); if(state.money < cost) return alert('Orçamento insuficiente.'); state.money -= cost; const gain = 2 + (state.staff?.designers||1)*0.7 + ((state.facilities?.factory||1)-1)*0.35; state.car[part] = Math.min(99,(state.car[part]||50) + gain); addInboxMessage('technical','Departamento Técnico',`Upgrade concluído: ${part}`,`A nova peça subiu para nível ${Math.round(state.car[part])}. O impacto será aplicado já na próxima classificação e corrida.`,{}); saveState(); renderTab('garage'); updateHud(); }
   function applySetupPreset(preset){
     const presets = {
