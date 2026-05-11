@@ -234,3 +234,44 @@
 
 /* v0.9.20 — manager realism */
 .sponsor-card{grid-column:span 2}.sponsor-mini{display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:10px;padding:8px;margin:6px 0;border:1px solid #ffffff18;border-radius:12px;background:#05091488}.sponsor-logo-text{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f00616,#1c2748);font-weight:1000;color:#fff;letter-spacing:.08em}.sponsor-mini b,.sponsor-mini small{display:block}.sponsor-mini small{font-family:system-ui,sans-serif;color:#b8c0d9;font-weight:800;font-size:11px}.staff-card{min-height:238px}.agenda-head{display:flex;align-items:center;gap:12px}.agenda-head h3{margin:0}.agenda-flag{width:44px;height:30px;object-fit:cover;border-radius:6px;border:1px solid #ffffff25;box-shadow:0 8px 20px #0009}.agenda-emoji{font-size:34px}.standings-manager-grid .wide,.driver-market-grid .wide{grid-column:span 2}.market-driver-card.locked{opacity:.68}.big-team-cell{grid-column:span 2}.big-team-cell small{display:block;color:#aeb8d5}.team-chip .team-logo-inline{margin-right:4px}.side-nav button[data-tab="standings"],.side-nav button[data-tab="driver-market"]{font-size:22px}@media(max-width:900px){.sponsor-card,.standings-manager-grid .wide,.driver-market-grid .wide{grid-column:span 1}.sponsor-mini{grid-template-columns:40px 1fr}.sponsor-mini button{grid-column:1 / -1}.agenda-flag{width:36px;height:24px}}
+
+
+/* v0.9.21 — season playability and race report */
+.race-weekend-summary{position:relative;z-index:2;margin:10px 18px 0}
+.race-summary-card{padding:14px 16px;display:grid;gap:10px}
+.race-summary-card h3{margin:0;font-size:22px}.race-summary-card p{margin:0;color:#d6def7;font-family:system-ui,sans-serif;font-weight:800}.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.summary-grid span{background:#070d1dba;border:1px solid #ffffff16;border-radius:10px;padding:8px 10px;font-family:system-ui,sans-serif;font-weight:900}.summary-grid b{display:block;color:#fff;font-size:16px}.race-summary-card button{margin-right:8px}.season-health-card{border-color:#ffffff26}
+@media(max-width:900px){.summary-grid{grid-template-columns:repeat(2,1fr)}.race-weekend-summary{margin:8px 10px 0}.race-summary-card{padding:12px}.race-summary-card h3{font-size:18px}}
+
+
+/* v0.9.22 — race strategy and improved HUD */
+.strategy-plan{margin:14px 0 16px;padding:14px;border-radius:14px;background:linear-gradient(135deg,#080d1be0,#151d34d8);border:1px solid #ffffff18;font-family:system-ui,sans-serif;font-weight:800}
+.strategy-plan h4{margin:0 0 10px;font-family:Arial Black,Impact,system-ui,sans-serif;letter-spacing:.04em}
+.strategy-choice-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.strategy-choice-row button{padding:10px;border-radius:10px;background:#202a4a;border:1px solid #ffffff22;font-size:12px;font-weight:1000}
+.strategy-choice-row button.selected{background:linear-gradient(135deg,#ff2936,#9f111d);color:#fff;border-color:#ff9aa2}
+.strategy-plan p{margin:7px 0;color:#dbe4ff}
+.race-row{grid-template-columns:30px 34px 34px 1fr 62px 74px}
+.race-pits{font-size:10px;color:#dbe4ff;text-align:right}
+.driver-control button.active{background:linear-gradient(135deg,#b6ff35,#75bc13);color:#101827}
+.pilot-status{font-family:system-ui,sans-serif;font-weight:900;font-size:11px;color:#dbe4ff;background:#02061180;border:1px solid #ffffff14;border-radius:9px;padding:7px;line-height:1.35}
+@media(max-width:900px){.strategy-choice-row{grid-template-columns:1fr}.race-row{grid-template-columns:26px 28px 28px 1fr 52px 62px}.race-pits{font-size:9px}}
+
+
+/* v0.9.23 — advanced driver market */
+.contract-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.contract-actions button{font-size:12px;padding:10px 8px;min-height:46px}
+.market-driver-card.locked{opacity:.78;filter:saturate(.78)}
+.market-driver-card p b{color:#fff}
+@media(max-width:900px){.contract-actions{grid-template-columns:1fr}.contract-actions button{font-size:11px}}
+
+
+/* v0.9.24 — multi-season career systems */
+.season-grid .wide{grid-column:span 2}
+.history-row{grid-template-columns:74px 1fr 110px 90px}
+.side-nav button[data-tab="season"]{font-size:25px}
+.season-grid .driver-avatar-inline.small{vertical-align:middle;margin-right:6px}
+@media(max-width:900px){.season-grid .wide{grid-column:span 1}.history-row{grid-template-columns:58px 1fr 80px 72px;font-size:11px}}
+
+
+/* v0.9.25 — commercial polish, saves and PWA readiness */
+.save-grid .save-card button{margin-right:8px;margin-top:8px}.muted-small{font-size:12px;color:#b8c0d9}.coach-list{display:grid;gap:8px;margin:12px 0}.coach-list div{display:grid;grid-template-columns:160px 1fr;gap:10px;padding:10px;border-radius:12px;background:#ffffff10;border:1px solid #ffffff12;font-family:system-ui,sans-serif;font-weight:800}.coach-list b{color:#fff}.coach-list span{color:#d6ddf6}.side-nav button[data-tab="saves"]{font-size:26px}.save-card{border-color:#7cffb433}.save-card h3{color:#eafff3}@media(max-width:900px){.coach-list div{grid-template-columns:1fr}.save-grid .save-card button{width:100%;margin-right:0}}

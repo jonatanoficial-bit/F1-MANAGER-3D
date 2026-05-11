@@ -1,0 +1,23 @@
+{
+  "name": "F1 Manager Career 2026",
+  "short_name": "F1 Manager 2026",
+  "description": "Jogo manager mobile-first da Vale Games com carreira F2/F1 e corridas 3D.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#05050a",
+  "theme_color": "#100000",
+  "icons": [
+    {
+      "src": "assets/icons/app/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/app/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
