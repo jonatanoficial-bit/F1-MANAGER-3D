@@ -1,10 +1,10 @@
 {
-  "version": "0.9.25",
+  "version": "0.9.27",
   "date": "11/05/2026",
-  "time_brt": "13:55",
+  "time_brt": "14:58",
   "timezone": "America/Sao_Paulo",
-  "label": "Build v0.9.25 • 11/05/2026 • 13:55 BRT",
-  "base": "v0.9.24",
+  "label": "Build v0.9.27 • 11/05/2026 • 14:58 BRT",
+  "base": "v0.9.26",
   "assets": "sem assets binarios",
   "focus": "temporada completa jogavel, economia, reputacao e relatorio pos-corrida"
 }

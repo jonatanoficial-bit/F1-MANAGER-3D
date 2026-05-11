@@ -113,6 +113,7 @@
   function ensureCareerSystems(){
     state.inbox = Array.isArray(state.inbox) ? state.inbox : [];
     state.setup = state.setup || { preset:'balanced', aeroBalance:50, engineMode:50, suspension:50, tyrePressure:50 };
+    state.weekend = state.weekend || { practiceDone:false, setupConfidence:50, tyreKnowledge:50, qualyFocus:'balanced', engineerNote:'Aguardando treino livre.' };
     state.staff = {...{ designers:1, mechanics:1, strategists:1, raceEngineers:1, scouts:1, pitCrew:1 }, ...(state.staff||{})};
     ensureRosters();
     state.car = state.car || { aero:50, engine:50, chassis:50, reliability:55, tyreWear:55, pitStop:55, fuel:55 };
@@ -130,10 +131,136 @@
     state.tutorial = state.tutorial || { completed:false, step:0 };
     state.driverProgress = state.driverProgress || {};
     state.lastRaceReport = state.lastRaceReport || null;
+    ensureRivalWorld();
     if(state.profile && state.currentTeam && !state.inbox.length){
       seedCareerInbox();
       saveState();
     }
+  }
+
+  function ensureRivalWorld(){
+    state.rivalDevelopment = state.rivalDevelopment || {};
+    state.rivalMarket = state.rivalMarket || { lastRound:-1, moves:[] };
+    DATA.f1Teams2026.concat(DATA.f2Teams).forEach(t => {
+      if(!state.rivalDevelopment[t.id]){
+        const base = t.car || estimateCarBase(t);
+        state.rivalDevelopment[t.id] = {
+          aero:base.aero||60,
+          engine:base.engine||60,
+          chassis:base.chassis||60,
+          reliability:base.reliability||60,
+          tyreWear:base.tyreWear||60,
+          pitStop:base.pitStop||60,
+          morale:50 + Math.round((t.reputation||60)/3),
+          spendPower: t.tier==='top' ? 1.22 : t.tier==='mid' ? 1.0 : .82,
+          form:0
+        };
+      }
+    });
+  }
+  function estimateCarBase(t){
+    const tier = t.tier==='top'?88:t.tier==='mid'?78:68;
+    return { aero:tier, engine:tier, chassis:tier, reliability:tier, tyreWear:tier, pitStop:tier, fuel:tier };
+  }
+  function rivalCarForTeam(t){
+    ensureRivalWorld();
+    const base = t.car || estimateCarBase(t);
+    const dev = state.rivalDevelopment[t.id] || {};
+    return {
+      aero:dev.aero || base.aero || 60,
+      engine:dev.engine || base.engine || 60,
+      chassis:dev.chassis || base.chassis || 60,
+      reliability:dev.reliability || base.reliability || 60,
+      tyreWear:dev.tyreWear || base.tyreWear || 60,
+      pitStop:dev.pitStop || base.pitStop || 60,
+      fuel:base.fuel || 60
+    };
+  }
+  function rivalFormLabel(team){
+    const d = state.rivalDevelopment?.[team.id] || {};
+    const avg = ((d.aero||60)+(d.engine||60)+(d.chassis||60)+(d.reliability||60)+(d.tyreWear||60))/5;
+    if(avg >= 90) return 'elite mundial';
+    if(avg >= 82) return 'forte evolução';
+    if(avg >= 74) return 'competitiva';
+    if(avg >= 66) return 'em reconstrução';
+    return 'fragilizada';
+  }
+  function evolveRivalsAfterRace(){
+    ensureRivalWorld();
+    const seriesTeams = state.currentSeries === 'F1' ? DATA.f1Teams2026 : DATA.f2Teams;
+    const results = state.lastRace || [];
+    seriesTeams.forEach(t => {
+      if(t.id === state.currentTeam) return;
+      const dev = state.rivalDevelopment[t.id];
+      const teamResults = results.filter(r => r.team === t.id);
+      const best = teamResults.length ? Math.min(...teamResults.map(r=>r.pos)) : 18;
+      const points = teamResults.reduce((s,r)=>s+(r.points||0),0);
+      const pressure = best <= 3 ? .45 : best <= 8 ? .25 : -.08;
+      const moneyPush = (dev.spendPower||1) * (points > 10 ? .42 : .22);
+      const randomFocus = ['aero','engine','chassis','reliability','tyreWear','pitStop'][Math.floor(Math.random()*6)];
+      const globalGain = Math.max(-.15, Math.min(.85, moneyPush + pressure + rnd(-.18,.22)));
+      dev[randomFocus] = Math.max(45, Math.min(99, (dev[randomFocus]||65) + globalGain + rnd(.05,.35)));
+      dev.reliability = Math.max(45, Math.min(99, (dev.reliability||65) + globalGain*.38));
+      dev.morale = Math.max(20, Math.min(99, (dev.morale||60) + (best<=6?2:best>=15?-2:0)));
+      dev.form = Math.round((dev.form||0)*.6 + (points - 5)*.4);
+    });
+    if((state.completedRaces||0) % 4 === 0) simulateRivalMarketMoves();
+  }
+  function simulateRivalMarketMoves(){
+    ensureRivalWorld();
+    if(state.rivalMarket.lastRound === state.completedRaces) return;
+    const seriesDrivers = state.currentSeries === 'F1' ? DATA.f1Drivers2026 : DATA.f2Drivers;
+    const teams = state.currentSeries === 'F1' ? DATA.f1Teams2026 : DATA.f2Teams;
+    const candidates = seriesDrivers.filter(d => driverCurrentTeamId(d.short) !== state.currentTeam).sort((a,b)=>(b.potential||70)-(a.potential||70)).slice(0,8);
+    if(!candidates.length) return;
+    const d = candidates[Math.floor(Math.random()*candidates.length)];
+    const from = driverCurrentTeamId(d.short);
+    const possible = teams.filter(t => t.id !== from && t.id !== state.currentTeam);
+    const to = possible[Math.floor(Math.random()*possible.length)];
+    if(!to || Math.random() < .45) return;
+    const rosters = ensureRosters();
+    const fromList = rosters[from] || [];
+    const toList = rosters[to.id] || [];
+    if(toList.length >= 2){
+      const removed = toList[toList.length-1];
+      rosters[to.id] = toList.filter(x=>x!==removed).concat(d.short).slice(0,2);
+      rosters[from] = fromList.filter(x=>x!==d.short).concat(removed).slice(0,2);
+    } else {
+      rosters[to.id] = toList.concat(d.short).slice(0,2);
+      rosters[from] = fromList.filter(x=>x!==d.short).slice(0,2);
+    }
+    state.rivalMarket.lastRound = state.completedRaces;
+    state.rivalMarket.moves.unshift({ round:state.completedRaces, year:state.seasonYear||2026, driver:d.short, from, to:to.id });
+    state.rivalMarket.moves = state.rivalMarket.moves.slice(0,10);
+    addInboxMessage('media','Paddock News',`Mercado rival: ${d.short} muda de equipe`,`A imprensa informa que ${d.name} fechou com ${to.name}. O mercado de pilotos começa a se mexer e pode alterar a força do grid.`,{});
+  }
+  function scoutRivals(){
+    ensureRivalWorld();
+    const cost = 250000 + (state.currentSeries==='F1'?350000:0);
+    if((state.money||0) < cost) return alert('Orçamento insuficiente para relatório de inteligência.');
+    state.money -= cost;
+    addInboxMessage('technical','Departamento de Inteligência',`Relatório de rivais — ${state.currentSeries}`,`Foram analisadas evolução técnica, moral e movimentações do mercado rival. Abra a aba Rivais para revisar ameaças e oportunidades. Custo: ${money(cost)}.`,{});
+    saveState(); renderTab('rivals'); updateHud();
+  }
+  function rivalRows(){
+    ensureRivalWorld();
+    const teams = state.currentSeries === 'F1' ? DATA.f1Teams2026 : DATA.f2Teams;
+    return teams.map(t=>{
+      const dev = state.rivalDevelopment[t.id] || {};
+      const avg = Math.round(((dev.aero||60)+(dev.engine||60)+(dev.chassis||60)+(dev.reliability||60)+(dev.tyreWear||60))/5);
+      const current = t.id === state.currentTeam;
+      return `<div class="row rich-row ${current?'highlight':''}"><span class="pos-cell">${teamLogoHTML(t)}</span><span class="driver-cell"><span class="driver-text"><b>${t.name}</b><small>${current?'Sua equipe':'Rival'} • ${rivalFormLabel(t)}</small></span></span><span class="team-cell"><span>AER ${Math.round(dev.aero||0)} • MOT ${Math.round(dev.engine||0)} • CHA ${Math.round(dev.chassis||0)}</span></span><span class="time-cell">${avg}</span></div>`;
+    }).join('');
+  }
+  function rivalMarketRows(){
+    ensureRivalWorld();
+    const moves = state.rivalMarket?.moves || [];
+    if(!moves.length) return '<p>Nenhuma movimentação rival registrada ainda.</p>';
+    return moves.map(m=>{
+      const d=driverByShort(m.driver)||{short:m.driver,name:m.driver};
+      const from=teamById(m.from); const to=teamById(m.to);
+      return `<p>${driverAvatarChip(d,'driver-avatar-inline small')} <b>${d.short}</b> saiu de ${from?from.name:m.from} para <b>${to?to.name:m.to}</b> • ${m.year} R${m.round}</p>`;
+    }).join('');
   }
 
   function addInboxMessage(type, from, title, body, meta={}){
@@ -222,7 +349,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.25 • 11/05/2026 • 13:55 BRT';
+    const label = b.label || 'Build v0.9.27 • 11/05/2026 • 14:58 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -269,6 +396,8 @@
       createProfile(){ createProfile(); },
       startCareer(){ startCareer(); },
       goQualifying(){ showScreen('qualifying'); },
+      simulatePractice(){ simulatePracticeSession(); },
+      setQualyFocus(){ setQualyFocus(el.dataset.focus); },
       startQualifying(){ simulateQualifying(); },
       startRaceDirect(){ const sel=document.getElementById('quickRaceSelect'); if(sel) state.roundIndex=Number(sel.value)||0; setupRace(true); showScreen('race'); },
       startRace(){ setupRace(false); showScreen('race'); },
@@ -278,11 +407,12 @@
       toggleRaceSpeed(){ if(race){ race.speed = race.speed === 1 ? 4 : race.speed === 4 ? 12 : race.speed === 12 ? 24 : 1; $('#speedLabel').textContent = race.speed; } },
       finishRaceNow(){ if(race) finishRace(); },
       returnLobbyAfterRace(){ showScreen('lobby'); },
-      nextRaceFromResults(){ showScreen((state.completedRaces||0) >= DATA.calendar2026.length ? 'lobby' : 'qualifying'); },
+      nextRaceFromResults(){ advanceToNextRaceScreen(); },
       upgradePart(){ upgradePart(el.dataset.part); },
       signSponsor(){ signSponsor(el.dataset.sponsor); },
       hireStaff(){ hireStaff(el.dataset.role); },
       applySetup(){ applySetupPreset(el.dataset.setup); },
+      scoutRivals(){ scoutRivals(); },
       acceptOffer(){ acceptCareerOffer(el.dataset.team); },
       markMailRead(){ markMailRead(el.dataset.mail); },
       signDriver(){ signDriver(el.dataset.driver); },
@@ -422,6 +552,7 @@
     state.completedRaces = 0;
     state.lastQualifying = [];
     state.lastRace = [];
+    state.weekend = { practiceDone:false, setupConfidence:50, tyreKnowledge:50, qualyFocus:'balanced', engineerNote:'Aguardando treino livre.' };
     state.offers = [];
     state.inbox = [];
     state.unreadMessages = 0;
@@ -545,6 +676,15 @@
       content.innerHTML = `<div class="cards-grid driver-market-grid">
         <article class="dash-card glass-panel wide"><h3>Mercado de Pilotos</h3><p>Contrate pilotos de outras equipes. O preço considera overall, potencial, idade, salário e categoria. A contratação troca o segundo piloto da equipe atual e atualiza o grid.</p><p>Orçamento disponível: <b>${money(state.money)}</b></p></article>
         ${driverMarketCards()}
+      </div>`;
+    }
+
+    if(tab === 'rivals'){
+      ensureRivalWorld();
+      content.innerHTML = `<div class="cards-grid rivals-grid">
+        <article class="dash-card glass-panel wide"><h3>IA Rival e Mundo Vivo</h3><p>As equipes adversárias agora evoluem entre corridas, reagem aos resultados, movem pilotos no mercado e deixam a dificuldade da carreira mais justa ao longo da temporada.</p><button class="primary" data-action="scoutRivals">COMPRAR RELATÓRIO DE INTELIGÊNCIA</button></article>
+        <article class="dash-card glass-panel wide"><h3>Força técnica das equipes — ${state.currentSeries}</h3><div class="standings-list rich-standings">${rivalRows()}</div></article>
+        <article class="dash-card glass-panel wide"><h3>Mercado rival</h3>${rivalMarketRows()}</article>
       </div>`;
     }
 
@@ -1222,6 +1362,67 @@
   function compoundWearMultiplier(c){ return ({soft:1.12,medium:1,hard:.88,inter:1.04,wet:1.08})[c] || 1; }
   function compoundPaceMultiplier(c){ return ({soft:1.012,medium:1,hard:.992,inter:.982,wet:.965})[c] || 1; }
 
+  function advanceToNextRaceScreen(){
+    state.weekend = { practiceDone:false, setupConfidence:50, tyreKnowledge:50, qualyFocus:'balanced', engineerNote:'Novo fim de semana iniciado. Faça o treino livre antes da classificação.' };
+    state.lastQualifying = [];
+    saveState();
+    showScreen((state.completedRaces||0) >= DATA.calendar2026.length ? 'lobby' : 'qualifying');
+  }
+
+  function setQualyFocus(focus){
+    state.weekend = state.weekend || {};
+    state.weekend.qualyFocus = focus || 'balanced';
+    saveState();
+    renderWeekendPanel();
+  }
+
+  function focusLabel(focus){ return ({balanced:'Equilibrado', singleLap:'Volta rápida', racePace:'Ritmo de corrida', tyreStudy:'Estudo de pneus'})[focus] || 'Equilibrado'; }
+
+  function simulatePracticeSession(){
+    const track = currentTrackProfile();
+    const setupFx = setupEffectFor(track, state.setup);
+    const engineers = state.staff?.raceEngineers || 1;
+    const strategists = state.staff?.strategists || 1;
+    const mechanics = state.staff?.mechanics || 1;
+    const base = 48 + engineers*4.2 + strategists*2.4 + mechanics*1.2 + (setupFx.pace-1)*95;
+    const confidence = Math.max(35, Math.min(96, base + rnd(-7,9)));
+    const tyreKnowledge = Math.max(35, Math.min(96, 45 + strategists*4.6 + engineers*1.8 + (setupFx.tyreCare*160) + rnd(-6,8)));
+    const qualyFocus = confidence >= 76 ? 'singleLap' : tyreKnowledge >= 72 ? 'racePace' : 'balanced';
+    state.weekend = {
+      practiceDone:true,
+      setupConfidence:Math.round(confidence),
+      tyreKnowledge:Math.round(tyreKnowledge),
+      qualyFocus,
+      engineerNote: confidence >= 78 ? 'Acerto competitivo. A equipe recomenda atacar na classificação.' : confidence >= 60 ? 'Acerto estável. Ainda há margem para ganhar ritmo com estratégia.' : 'Acerto instável. Recomenda-se abordagem conservadora para preservar pneus e evitar erros.'
+    };
+    addInboxMessage('technical','Engenharia de Corrida',`Treino livre concluído — ${DATA.calendar2026[state.roundIndex]?.name || 'GP'}`,`Confiança no setup: ${state.weekend.setupConfidence}%. Leitura dos pneus: ${state.weekend.tyreKnowledge}%. Recomendação: ${focusLabel(state.weekend.qualyFocus)}.`,{});
+    saveState();
+    renderQualifying(false);
+  }
+
+  function renderWeekendPanel(){
+    const el = document.getElementById('weekendPanel');
+    if(!el) return;
+    const currentRace = DATA.calendar2026[state.roundIndex] || DATA.calendar2026[0] || {};
+    const w = state.weekend || { practiceDone:false, setupConfidence:50, tyreKnowledge:50, qualyFocus:'balanced', engineerNote:'Aguardando treino livre.' };
+    const track = currentTrackProfile();
+    el.innerHTML = `<h3>Fim de semana</h3>
+      <p><b>${currentRace.name || 'Grande Prêmio'}</b> • ${currentRace.weather || 'dry'} • ${currentRace.laps || 22} voltas • perfil ${track.label}</p>
+      <div class="weekend-metrics">
+        <span>Confiança setup <b>${w.setupConfidence || 50}%</b></span>
+        <span>Leitura pneus <b>${w.tyreKnowledge || 50}%</b></span>
+        <span>Foco Q <b>${focusLabel(w.qualyFocus)}</b></span>
+      </div>
+      <p class="engineer-note">${w.engineerNote || 'Aguardando treino livre.'}</p>
+      <button class="primary" data-action="simulatePractice">SIMULAR TREINO LIVRE</button>
+      <div class="strategy-choice-row qualy-focus-row">
+        <button class="${w.qualyFocus==='balanced'?'selected':''}" data-action="setQualyFocus" data-focus="balanced">Equilíbrio</button>
+        <button class="${w.qualyFocus==='singleLap'?'selected':''}" data-action="setQualyFocus" data-focus="singleLap">Volta rápida</button>
+        <button class="${w.qualyFocus==='racePace'?'selected':''}" data-action="setQualyFocus" data-focus="racePace">Ritmo corrida</button>
+        <button class="${w.qualyFocus==='tyreStudy'?'selected':''}" data-action="setQualyFocus" data-focus="tyreStudy">Pneus</button>
+      </div>`;
+  }
+
   function renderQualifying(){
     const list = state.lastQualifying.length ? state.lastQualifying : generateGridPreview();
     const currentRace = DATA.calendar2026[state.roundIndex] || DATA.calendar2026[0];
@@ -1235,6 +1436,7 @@
     setScreenBg('screen-qualifying', DATA.assetPaths.classification);
     hydrateAssets($('#qualifyingTable'));
     renderStrategyPlan();
+    renderWeekendPanel();
   }
   function generateRaceDrivers(){
     const baseTeams = state.currentSeries === 'F2' ? DATA.f2Teams : DATA.f1Teams2026;
@@ -1262,12 +1464,16 @@
     const driver = ((d.speed||70)*.42 + (d.consistency||70)*.30 + (d.experience||60)*.14 + (d.rain||60)*(race?.weather==='variable'?.14:.04));
     const machine = ((car.aero||60)*track.aero + (car.engine||60)*track.engine + (car.chassis||60)*track.chassis)/3;
     const staff = isPlayer ? ((state.staff?.strategists||1)*.9 + (state.staff?.mechanics||1)*.55 + (state.staff?.raceEngineers||1)*.65 + (state.facilities?.simulator||1)*.45) : 1.2;
-    return (driver*.54 + machine*.46 + staff) * setup.pace;
+    const weekend = isPlayer ? (state.weekend || {}) : {};
+    const focus = weekend.qualyFocus || 'balanced';
+    const confidence = isPlayer ? ((weekend.practiceDone ? (weekend.setupConfidence||50) : 45) - 50) / 14 : 0;
+    const focusBoost = isPlayer && focus === 'singleLap' ? 1.8 : isPlayer && focus === 'racePace' ? .6 : isPlayer && focus === 'tyreStudy' ? .2 : .9;
+    return ((driver*.54 + machine*.46 + staff) * setup.pace) + confidence + focusBoost;
   }
   function generateGridPreview(){
     const track = currentTrackProfile();
     return generateRaceDrivers().map(d => {
-      const t = teamById(d.team); const car = d.team === state.currentTeam ? state.car : (t.car || estimateCar(t));
+      const t = teamById(d.team); const car = d.team === state.currentTeam ? state.car : estimateCar(t);
       const isPlayer = d.team === state.currentTeam;
       const score = racePerformanceScore(d,car,isPlayer) + rnd(-4.2,4.2) + (isPlayer ? (state.staff?.designers||1)*0.25 : 0);
       const time = 88 - score/5.2 + rnd(0,.35);
@@ -1294,18 +1500,22 @@
     const driverMap = new Map(allDrivers.map(d=>[d.short,d]));
     const entries = grid.slice(0,22).map((g,i)=> {
       const d = driverMap.get(g.driver) || allDrivers[i]; const t = teamById(d.team);
-      const car = d.team === state.currentTeam ? state.car : (t.car || estimateCar(t));
+      const car = d.team === state.currentTeam ? state.car : estimateCar(t);
       const isPlayer = d.team === state.currentTeam;
       const track = currentTrackProfile();
       const setupFx = isPlayer ? setupEffectFor(track,state.setup) : { tyreCare:0, reliability:0, label:'AI' };
+      if(isPlayer && state.weekend){
+        setupFx.tyreCare += ((state.weekend.tyreKnowledge||50)-50)/900;
+        setupFx.reliability += ((state.weekend.setupConfidence||50)-50)/1600;
+      }
       const strat = isPlayer ? (state.raceStrategy || { plan:'balanced', startCompound:selectedCompound||'soft' }) : aiStrategyFor(d,t,currentRace,i);
       const compound = strat.startCompound || (isPlayer ? selectedCompound : 'medium');
-      return { driver:d, team:t, pos:i+1, lap:1, progress:i*-0.01, distance:0, tyre:100, fuel:100, condition:100, pits:0, pace:'normal', compound, plannedPitLap:recommendedPitLap(currentRace.laps||22,strat), baseSpeed:baseRaceSpeed(d,car,isPlayer)*compoundPaceMultiplier(compound), car, setupFx, color:t.color, secondary:t.secondary, finished:false, totalTime:0, incident:false, sector:1, gap:0 };
+      return { driver:d, team:t, pos:i+1, lap:1, progress:i*-0.01, distance:0, tyre:100, fuel:100, condition:100, pits:0, pace:'normal', compound, plannedPitLap:recommendedPitLap(currentRace.laps||22,strat), baseSpeed:baseRaceSpeed(d,car,isPlayer)*compoundPaceMultiplier(compound)*(isPlayer && state.weekend?.qualyFocus==='racePace' ? 1.006 : 1), car, setupFx, color:t.color, secondary:t.secondary, finished:false, totalTime:0, incident:false, sector:1, gap:0 };
     });
     race = { quick, entries, laps:currentRace.laps || 22, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:currentRace.weather || 'dry', tick:0, trackInfo:currentRace, safetyCar:0, raceLog:[] }; 
     updateRaceHud();
   }
-  function estimateCar(t){ const tier = t.tier==='top'?88:t.tier==='mid'?78:68; return { aero:tier, engine:tier, chassis:tier, reliability:tier, tyreWear:tier, pitStop:tier, fuel:tier }; }
+  function estimateCar(t){ return rivalCarForTeam(t); }
   function baseRaceSpeed(d,car,isPlayer=false){ const score = racePerformanceScore(d,car,isPlayer); return 0.021 + score / 4700; }
   function requestPit(idx){ const ds = driversForTeam(state.currentTeam); const target = ds[idx]; if(!target || !race) return; const e = race.entries.find(x=>x.driver.short===target.short); if(e && !e.pitCooldown){ const carPit = e.car?.pitStop || state.car.pitStop || 55; const mech = (state.staff?.mechanics || 1) + (state.staff?.pitCrew || 1)*0.85; const pitLoss = Math.max(0.022, 0.074 - carPit/2300 - mech/950); e.tyre = 100; e.compound = e.pits === 0 ? (e.compound==='soft'?'medium':'hard') : 'hard'; e.baseSpeed = baseRaceSpeed(e.driver,e.car,isPlayerDriver(e.driver.short))*compoundPaceMultiplier(e.compound); e.condition = Math.min(100,e.condition+8+mech*.6); e.pits++; e.progress -= pitLoss; e.pitCooldown = 7; e.lastAction = `PIT -${Math.round(pitLoss*1000)/10}s`; updateRaceHud(); } }
 
@@ -1623,7 +1833,9 @@
     ensureStandings();
     const st = currentStandings();
     state.lastRace.forEach((r,i)=>{ if(st[r.driver]){ st[r.driver].team = driverCurrentTeamId(r.driver)||r.team; st[r.driver].points += r.points; if(i===0) st[r.driver].wins++; if(i<3) st[r.driver].podiums++; st[r.driver].best = st[r.driver].best ? Math.min(st[r.driver].best,r.pos) : r.pos; } });
-    state.completedRaces++; state.roundIndex = Math.min(DATA.calendar2026.length-1,state.roundIndex+1);
+    state.completedRaces++;
+    evolveRivalsAfterRace();
+    state.roundIndex = Math.min(DATA.calendar2026.length-1,state.roundIndex+1);
     const bestPlayer = state.lastRace.filter(r=>driversForTeam(state.currentTeam).some(d=>d.short===r.driver)).sort((a,b)=>a.pos-b.pos)[0];
     if(bestPlayer){
       state.seasonStats = state.seasonStats || { races:0, bestFinish:null, podiums:0, wins:0, objectiveProgress:0 };

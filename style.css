@@ -275,3 +275,20 @@
 
 /* v0.9.25 — commercial polish, saves and PWA readiness */
 .save-grid .save-card button{margin-right:8px;margin-top:8px}.muted-small{font-size:12px;color:#b8c0d9}.coach-list{display:grid;gap:8px;margin:12px 0}.coach-list div{display:grid;grid-template-columns:160px 1fr;gap:10px;padding:10px;border-radius:12px;background:#ffffff10;border:1px solid #ffffff12;font-family:system-ui,sans-serif;font-weight:800}.coach-list b{color:#fff}.coach-list span{color:#d6ddf6}.side-nav button[data-tab="saves"]{font-size:26px}.save-card{border-color:#7cffb433}.save-card h3{color:#eafff3}@media(max-width:900px){.coach-list div{grid-template-columns:1fr}.save-grid .save-card button{width:100%;margin-right:0}}
+
+/* v0.9.26 — fim de semana de corrida */
+.weekend-prep{display:grid;gap:12px}
+.weekend-panel{position:relative;z-index:2;padding:12px;border-radius:14px;background:linear-gradient(135deg,#080d1dcc,#18223dcc);border:1px solid #ffffff1a;box-shadow:inset 0 0 0 1px #ffffff08}
+.weekend-panel h3{margin:0 0 6px;font-size:22px}
+.weekend-panel p{margin:6px 0;font-family:system-ui,sans-serif;font-weight:800;color:#dbe4ff}
+.weekend-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:8px 0}
+.weekend-metrics span{display:grid;gap:3px;padding:8px;border-radius:10px;background:#030816aa;border:1px solid #ffffff14;font-family:system-ui,sans-serif;font-size:11px;font-weight:900;color:#aeb9d8;text-transform:uppercase;letter-spacing:.04em}
+.weekend-metrics b{font-size:14px;color:#fff;text-transform:none;letter-spacing:0}
+.engineer-note{padding:8px 10px;border-left:3px solid var(--team-color,#ff2036);background:#ffffff0b;border-radius:8px}
+.qualy-focus-row{grid-template-columns:repeat(4,1fr);margin-top:9px}
+@media(max-width:900px){.weekend-metrics{grid-template-columns:1fr}.qualy-focus-row{grid-template-columns:1fr 1fr}.weekend-panel h3{font-size:18px}}
+
+
+/* v0.9.27 — rival AI and live paddock */
+.rivals-grid .wide{grid-column:span 2}.rivals-grid .row{grid-template-columns:70px 1.25fr 1.6fr 80px}.side-nav button[data-tab="rivals"]{font-size:24px}.rivals-grid .time-cell{font-weight:1000;color:#fff}.rivals-grid .team-logo-inline{width:42px;height:42px}
+@media(max-width:900px){.rivals-grid .wide{grid-column:span 1}.rivals-grid .row{grid-template-columns:48px 1fr}.rivals-grid .team-cell,.rivals-grid .time-cell{grid-column:2}.side-nav button[data-tab="rivals"]{font-size:20px}}
