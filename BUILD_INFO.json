@@ -1,10 +1,10 @@
 {
-  "version": "0.9.28",
+  "version": "0.9.29",
   "date": "11/05/2026",
-  "time_brt": "15:32",
+  "time_brt": "16:05",
   "timezone": "America/Sao_Paulo",
-  "label": "Build v0.9.28 • 11/05/2026 • 15:32 BRT",
-  "base": "v0.9.27",
+  "label": "Build v0.9.29 • 11/05/2026 • 16:05 BRT",
+  "base": "v0.9.28",
   "assets": "sem assets binarios",
-  "focus": "temporada completa jogavel, economia, reputacao e relatorio pos-corrida"
+  "focus": "QA, tutorial guiado, balanceamento de dificuldade e beta jogavel"
 }

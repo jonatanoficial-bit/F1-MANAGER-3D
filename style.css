@@ -296,3 +296,15 @@
 
 /* v0.9.28 — mídia, moral e pressão */
 .media-grid .wide{grid-column:span 2}.press-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.press-buttons button{min-height:44px}.mail-card .mail-type{color:#ffd7d7}.side-nav button[data-tab="media"]{font-size:26px}.media-grid .rich-row{grid-template-columns:42px 1fr 80px 120px}.media-grid .dash-card p span{color:#cbd5ef;font-family:system-ui,sans-serif;font-weight:800}@media(max-width:900px){.media-grid .wide{grid-column:span 1}.media-grid .rich-row{grid-template-columns:34px 1fr 54px 80px}.press-buttons{display:grid}.press-buttons button{width:100%}}
+
+
+/* v0.9.29 — QA, dificuldade e beta jogável */
+.side-nav button[data-tab="qa"]{font-size:24px}
+.qa-grid .wide{grid-column:span 2}
+.difficulty-grid{display:grid;gap:8px;margin-top:12px}
+.difficulty-grid button{text-align:left;display:grid;gap:4px;padding:11px;border-radius:12px;border:1px solid #ffffff20;background:#17213bd9}
+.difficulty-grid button.selected{background:linear-gradient(135deg,var(--team-color,#ff2036),#ffb300);color:#fff;box-shadow:0 0 0 2px #ffffff22}
+.difficulty-grid b{font-size:13px;letter-spacing:.06em}.difficulty-grid span{font-family:system-ui,sans-serif;font-weight:800;font-size:11px;color:#dbe4ff}
+.qa-list .rich-row{grid-template-columns:42px 1fr 100px 90px}.qa-list .qa-ok{border-color:#7cffb455;background:#0b241aaa}.qa-list .qa-warn{border-color:#ffcc3355;background:#2a2109aa}.qa-list .qa-ok>span:first-child{color:#7cffb4}.qa-list .qa-warn>span:first-child{color:#ffcc33}
+.test-plan div{grid-template-columns:50px 1fr}.qa-grid .progress i{background:linear-gradient(90deg,#7cffb4,#ffb300)}
+@media(max-width:900px){.qa-grid .wide{grid-column:span 1}.qa-list .rich-row{grid-template-columns:32px 1fr}.qa-list .rich-row span:nth-child(3),.qa-list .rich-row span:nth-child(4){grid-column:2}.test-plan div{grid-template-columns:1fr}}

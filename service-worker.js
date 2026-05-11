@@ -1,4 +1,4 @@
-const CACHE_NAME = 'f1-manager-career-2026-v0-9-25';
+const CACHE_NAME = 'f1-manager-career-2026-v0-9-29';
 const APP_SHELL = ['./','./index.html','./style.css','./script.js','./data/game-data.js','./data/track-layouts.js','./manifest.webmanifest'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).catch(()=>{})); self.skipWaiting(); });
 self.addEventListener('activate', event => { event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))))); self.clients.claim(); });

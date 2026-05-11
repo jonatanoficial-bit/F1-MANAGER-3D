@@ -78,6 +78,7 @@
       driverProgress:{},
       seasonArchive:[],
       tutorial:{ completed:false, step:0 },
+      quality:{ difficulty:'normal', betaScore:0, lastCheck:null, checks:[] },
       saveSlotsMeta:{},
       hallOfFame:[],
       driverDevelopmentLog:[],
@@ -129,6 +130,8 @@
     state.carEvolutionLog = Array.isArray(state.carEvolutionLog) ? state.carEvolutionLog : [];
     state.saveSlotsMeta = state.saveSlotsMeta || {};
     state.tutorial = state.tutorial || { completed:false, step:0 };
+    state.quality = state.quality || { difficulty:'normal', betaScore:0, lastCheck:null, checks:[] };
+    if(!state.quality.difficulty) state.quality.difficulty = state.mode === 'sandbox' ? 'sandbox' : 'normal';
     state.driverProgress = state.driverProgress || {};
     state.lastRaceReport = state.lastRaceReport || null;
     state.mediaLog = Array.isArray(state.mediaLog) ? state.mediaLog : [];
@@ -419,7 +422,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.28 • 11/05/2026 • 15:32 BRT';
+    const label = b.label || 'Build v0.9.29 • 11/05/2026 • 16:05 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -494,6 +497,8 @@
       importSave(){ importSaveFromPrompt(); },
       resetCoach(){ state.tutorial = { completed:false, step:0 }; saveState(); renderTab('saves'); },
       completeCoach(){ state.tutorial = { completed:true, step:99 }; addInboxMessage('tutorial','Engenheiro-chefe','Tutorial concluído','Você concluiu o manual rápido. Agora o foco é desenvolver o carro, cuidar das finanças e buscar convites maiores.',{}); saveState(); renderTab('saves'); updateHud(); },
+      runQa(){ runQualityChecklist(); },
+      setDifficulty(){ setDifficulty(el.dataset.difficulty); },
       endSeason(){ endSeasonReview(); }
     };
     if(actions[action]) actions[action]();
@@ -688,6 +693,7 @@
         <article class="dash-card glass-panel"><h3>Agenda Executiva</h3><p><b>${state.seasonYear || 2026}</b> • Temporada ${state.seasonNumber || 1}</p><p>${seasonProgressText()}</p><button class="secondary" data-tab="calendar">VER AGENDA</button></article>
         <article class="dash-card glass-panel"><h3>Caixa de E-mails</h3><p>${unread ? `<b>${unread} mensagem(ns) nova(s)</b>` : 'Nenhuma mensagem não lida.'}</p><p>Convites, relatórios da diretoria e atualizações de agenda aparecem aqui.</p><button class="secondary" data-tab="inbox">ABRIR E-MAILS</button></article>
         <article class="dash-card glass-panel"><h3>Mídia e Moral</h3><p>Imprensa: <b>${mediaMoodLabel(state.pressReputation)}</b></p><p>Moral: <b>${moraleLabel(state.teamMorale)}</b> • Pressão: <b>${pressureLabel(state.boardPressure)}</b></p><button class="secondary" data-tab="media">ABRIR PADDOCK</button></article>
+        <article class="dash-card glass-panel"><h3>Beta jogável</h3><p>Dificuldade: <b>${difficultyLabel()}</b></p><p>Score QA: <b>${state.quality?.betaScore || betaReadinessScore()}/100</b></p><button class="secondary" data-tab="qa">ABRIR QA</button></article>
         <article class="dash-card glass-panel"><h3>Metas da Diretoria</h3><p>${team.objective || 'Pontuar e evoluir a equipe.'}</p><div class="progress"><i style="width:${Math.min(100,state.reputation)}%"></i></div><p>Reputação ${Math.round(state.reputation)}/100</p></article>
         <article class="dash-card glass-panel wide sponsor-card"><h3>Patrocinadores</h3><p>${state.sponsor ? 'Contrato ativo: ' + state.sponsor.name : 'Escolha um patrocinador principal. Metas geram bônus por corrida.'}</p>${sponsorButtons()}</article>
         <article class="dash-card glass-panel career-card"><h3>Carreira do Gestor</h3><p><b>${state.currentSeries === 'F2' ? 'Você começou na F2.' : 'Você está na Fórmula 1.'}</b> Cumpra metas, evolua pilotos e mantenha as finanças saudáveis para avançar.</p><p>Contrato: ${state.contract ? money(state.contract.salary) + ' / temporada' : 'em avaliação'} • ${contractStatusText()}</p><button class="secondary" data-tab="offers">VER PROPOSTAS</button></article>
@@ -792,6 +798,18 @@
       </div>`;
     }
 
+
+    if(tab === 'qa'){
+      ensureCareerSystems();
+      content.innerHTML = `<div class="cards-grid qa-grid">
+        <article class="dash-card glass-panel wide"><h3>Centro de Qualidade e Beta Jogável</h3><p>Esta fase verifica se a carreira pode ser jogada do início ao fim sem quebrar fluxo: perfil, equipe, agenda, corrida, economia, mercado, e-mails, saves e assets externos.</p><p>Score atual: <b>${state.quality?.betaScore || betaReadinessScore()}/100</b> • Último check: <b>${state.quality?.lastCheck ? new Date(state.quality.lastCheck).toLocaleString('pt-BR') : 'ainda não executado'}</b></p><button class="primary" data-action="runQa">RODAR CHECKLIST BETA</button></article>
+        <article class="dash-card glass-panel"><h3>Dificuldade da carreira</h3><p>Afeta economia, evolução rival, bônus de reputação, custos e pressão da diretoria.</p>${difficultyButtons()}</article>
+        <article class="dash-card glass-panel"><h3>Score de prontidão</h3>${betaScorePanel()}</article>
+        <article class="dash-card glass-panel wide"><h3>Checklist técnico</h3>${qaChecklistRows()}</article>
+        <article class="dash-card glass-panel wide"><h3>Roteiro de teste manual</h3>${manualTestPlan()}</article>
+      </div>`;
+    }
+
     if(tab === 'offers'){
       refreshCareerOffers();
       const offers = generateCareerOffers();
@@ -866,6 +884,85 @@
       ['6. Carreira', 'Cumpra metas na F2 para receber convites até chegar às grandes da F1.']
     ];
     return `<p>Status: <b>${done ? 'concluído' : 'pendente'}</b></p><div class="coach-list">${items.map(([h,t])=>`<div><b>${h}</b><span>${t}</span></div>`).join('')}</div>`;
+  }
+
+  function difficultyLabel(){
+    const d = state.quality?.difficulty || (state.mode === 'sandbox' ? 'sandbox' : 'normal');
+    return ({easy:'Acessível',normal:'Realista',hard:'Pro Manager',sandbox:'Sandbox'})[d] || 'Realista';
+  }
+  function difficultyButtons(){
+    const cur = state.quality?.difficulty || 'normal';
+    const rows = [
+      ['easy','ACESSÍVEL','custos menores e carreira mais tolerante'],
+      ['normal','REALISTA','balanceamento recomendado para carreira'],
+      ['hard','PRO MANAGER','custos altos, pressão maior e rivais agressivos'],
+      ['sandbox','SANDBOX','liberdade máxima para testar sistemas']
+    ];
+    return `<div class="difficulty-grid">${rows.map(([id,label,desc])=>`<button class="secondary ${cur===id?'selected':''}" data-action="setDifficulty" data-difficulty="${id}"><b>${label}</b><span>${desc}</span></button>`).join('')}</div>`;
+  }
+  function setDifficulty(id){
+    ensureCareerSystems();
+    state.quality.difficulty = id || 'normal';
+    const pressure = {easy:-4, normal:0, hard:8, sandbox:-10}[state.quality.difficulty] || 0;
+    state.boardPressure = clamp((state.boardPressure||45) + pressure, 0, 100);
+    addInboxMessage('qa','Direção de Prova','Dificuldade atualizada',`O modo de dificuldade foi ajustado para ${difficultyLabel()}. Isso muda o rigor de economia, pressão, evolução rival e recompensa de carreira.`,{});
+    saveState(); renderTab('qa'); updateHud();
+  }
+  function betaReadinessScore(){
+    const checks = qualityChecks();
+    const score = Math.round(checks.filter(c=>c.ok).length / checks.length * 100);
+    return score;
+  }
+  function qualityChecks(){
+    ensureCareerSystems();
+    const hasProfile = !!state.profile;
+    const hasTeam = !!state.currentTeam && !!teamById(state.currentTeam);
+    const hasRoster = driversForTeam(state.currentTeam).length >= 2;
+    const hasStandings = !!currentStandings() && Object.keys(currentStandings()).length > 0;
+    const hasCalendar = Array.isArray(DATA.calendar2026) && DATA.calendar2026.length >= 20;
+    const hasEconomy = Number.isFinite(Number(state.money));
+    const hasInbox = Array.isArray(state.inbox);
+    const hasStrategy = !!state.raceStrategy && !!state.weekend;
+    const hasAssetsMap = !!DATA.assetPaths && !!teamById(state.currentTeam)?.logo;
+    const hasSaves = !!window.localStorage;
+    const canRace = hasTeam && hasRoster && hasCalendar && hasStrategy;
+    return [
+      {name:'Perfil do gestor criado', ok:hasProfile, fix:'criar carreira'},
+      {name:'Equipe atual válida', ok:hasTeam, fix:'escolher equipe'},
+      {name:'Roster com 2 pilotos', ok:hasRoster, fix:'revisar mercado/roster'},
+      {name:'Calendário completo', ok:hasCalendar, fix:'data/calendar'},
+      {name:'Classificação ativa', ok:hasStandings, fix:'standings'},
+      {name:'Economia numérica', ok:hasEconomy, fix:'money'},
+      {name:'Central de e-mails ativa', ok:hasInbox, fix:'inbox'},
+      {name:'Estratégia e treino ativos', ok:hasStrategy, fix:'raceStrategy/weekend'},
+      {name:'Caminhos de assets preservados', ok:hasAssetsMap, fix:'ASSET_IMAGE_PATHS_CURRENT'},
+      {name:'Save local disponível', ok:hasSaves, fix:'localStorage'},
+      {name:'Fluxo de corrida disponível', ok:canRace, fix:'classificação/corrida'}
+    ];
+  }
+  function runQualityChecklist(){
+    ensureCareerSystems();
+    const checks = qualityChecks();
+    const score = Math.round(checks.filter(c=>c.ok).length / checks.length * 100);
+    state.quality.checks = checks;
+    state.quality.betaScore = score;
+    state.quality.lastCheck = new Date().toISOString();
+    const title = score >= 90 ? 'Beta pronto para teste' : score >= 75 ? 'Beta quase pronto' : 'Atenção: beta precisa de ajustes';
+    addInboxMessage('qa','Controle de Qualidade',title,`Checklist executado com score ${score}/100. ${score>=90?'Fluxo principal liberado para teste de temporada completa.':'Revise os itens pendentes antes de chamar a build de beta.'}`,{score});
+    saveState(); renderTab('qa'); updateHud();
+  }
+  function qaChecklistRows(){
+    const checks = state.quality?.checks?.length ? state.quality.checks : qualityChecks();
+    return `<div class="standings-list rich-standings qa-list">${checks.map(c=>`<div class="row rich-row ${c.ok?'qa-ok':'qa-warn'}"><span>${c.ok?'✓':'!'}</span><span><b>${c.name}</b><small>${c.ok?'OK':'Verificar: '+c.fix}</small></span><span>${c.ok?'Pronto':'Pendente'}</span><span>${c.ok?'Liberado':'Ajustar'}</span></div>`).join('')}</div>`;
+  }
+  function betaScorePanel(){
+    const score = state.quality?.betaScore || betaReadinessScore();
+    const label = score >= 90 ? 'Beta jogável' : score >= 75 ? 'Quase beta' : 'Em desenvolvimento';
+    return `<p><b>${label}</b></p><div class="progress"><i style="width:${score}%"></i></div><p>${score}/100</p><p class="muted-small">Use o checklist após cada build para evitar regressões em lobby, corrida, calendário, mercado e save.</p>`;
+  }
+  function manualTestPlan(){
+    const steps = ['Criar carreira realista na F2','Abrir lobby e navegar por todas as abas','Assinar patrocinador e contratar staff','Simular treino livre e classificação','Correr/encerrar corrida 3D','Validar resultado, dinheiro e reputação','Avançar agenda até novo GP','Contratar piloto e verificar roster','Receber e ler e-mails/propostas','Salvar em slot e recarregar'];
+    return `<div class="coach-list test-plan">${steps.map((s,i)=>`<div><b>${String(i+1).padStart(2,'0')}</b><span>${s}</span></div>`).join('')}</div>`;
   }
 
   function driverValue(d){
