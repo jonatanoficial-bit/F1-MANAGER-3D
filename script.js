@@ -131,11 +131,81 @@
     state.tutorial = state.tutorial || { completed:false, step:0 };
     state.driverProgress = state.driverProgress || {};
     state.lastRaceReport = state.lastRaceReport || null;
+    state.mediaLog = Array.isArray(state.mediaLog) ? state.mediaLog : [];
+    state.boardPressure = Number.isFinite(Number(state.boardPressure)) ? Number(state.boardPressure) : 45;
+    state.pressReputation = Number.isFinite(Number(state.pressReputation)) ? Number(state.pressReputation) : 50;
+    state.teamMorale = Number.isFinite(Number(state.teamMorale)) ? Number(state.teamMorale) : 62;
+    ensureDriverMorale();
     ensureRivalWorld();
     if(state.profile && state.currentTeam && !state.inbox.length){
       seedCareerInbox();
       saveState();
     }
+  }
+
+
+  function ensureDriverMorale(){
+    state.driverMorale = state.driverMorale || {};
+    driversForTeam(state.currentTeam).forEach((d,idx) => {
+      if(!state.driverMorale[d.short]) state.driverMorale[d.short] = 58 + Math.round((d.overall || 70) / 8) - idx*2;
+    });
+  }
+  function clamp(n,min=0,max=100){ return Math.max(min, Math.min(max, Number(n)||0)); }
+  function moraleLabel(v){ v=Number(v)||50; return v>=80?'Excelente':v>=65?'Boa':v>=50?'Estável':v>=35?'Tensa':'Crítica'; }
+  function pressureLabel(v){ v=Number(v)||50; return v>=78?'Máxima':v>=62?'Alta':v>=42?'Controlada':v>=25?'Baixa':'Muito baixa'; }
+  function mediaMoodLabel(v){ v=Number(v)||50; return v>=76?'Favorável':v>=55?'Neutra positiva':v>=40?'Neutra':v>=25?'Crítica':'Hostil'; }
+  function driverMoraleRows(){
+    ensureDriverMorale();
+    return driversForTeam(state.currentTeam).map(d => {
+      const m = clamp(state.driverMorale[d.short] || 55);
+      return `<div class="row rich-row"><span>${driverAvatarChip(d,'driver-avatar-inline small')}</span><span><b>${d.short}</b><small>${d.name}</small></span><span>${Math.round(m)}</span><span>${moraleLabel(m)}</span></div>`;
+    }).join('') || '<p>Sem pilotos na equipe atual.</p>';
+  }
+  function mediaLogRows(){
+    const rows = (state.mediaLog || []).slice(0,8);
+    return rows.length ? rows.map(e => `<p><b>${e.title}</b><br><span>${e.body}</span></p>`).join('') : '<p>Nenhuma manchete relevante ainda. Avance corridas ou faça coletiva.</p>';
+  }
+  function boardPressureText(){
+    const p = clamp(state.boardPressure || 45);
+    const team = teamById(state.currentTeam);
+    return `${pressureLabel(p)} — ${p}/100. ${p>=70?'A diretoria quer resultado imediato.':p>=45?'A diretoria acompanha de perto sua evolução.':'A diretoria está satisfeita com o controle do projeto.'} Meta: ${team?.objective || 'evoluir a equipe'}.`;
+  }
+  function pressConference(choice){
+    ensureCareerSystems();
+    const map = {
+      ambitious:{ title:'Coletiva ambiciosa', rep:+3, press:+6, morale:+1, pressure:+7, body:'Você prometeu uma postura agressiva. A imprensa gostou, mas a diretoria agora espera entrega.' },
+      balanced:{ title:'Coletiva equilibrada', rep:+1, press:+2, morale:+3, pressure:-2, body:'Você reforçou evolução passo a passo. O paddock recebeu bem e o ambiente interno melhorou.' },
+      protect:{ title:'Defesa dos pilotos', rep:0, press:-1, morale:+7, pressure:+1, body:'Você protegeu seus pilotos publicamente. O grupo ganhou confiança, mesmo com menos impacto externo.' },
+      realistic:{ title:'Mensagem realista', rep:+1, press:+1, morale:+2, pressure:-5, body:'Você alinhou expectativas com orçamento, carro e momento da equipe. A diretoria reduziu a pressão.' }
+    };
+    const ev = map[choice] || map.balanced;
+    state.reputation = clamp((state.reputation||0)+ev.rep,0,100);
+    state.pressReputation = clamp((state.pressReputation||50)+ev.press,0,100);
+    state.teamMorale = clamp((state.teamMorale||60)+ev.morale,0,100);
+    state.boardPressure = clamp((state.boardPressure||45)+ev.pressure,0,100);
+    driversForTeam(state.currentTeam).forEach(d => state.driverMorale[d.short] = clamp((state.driverMorale[d.short]||55)+ev.morale,0,100));
+    state.mediaLog.unshift({ type:'press', title:ev.title, body:ev.body, year:state.seasonYear, race:state.completedRaces, date:new Date().toISOString() });
+    addInboxMessage('media','Sala de Imprensa',ev.title,ev.body,{});
+    saveState(); renderTab('media'); updateHud();
+  }
+  function generateRaceMediaStory(best){
+    ensureCareerSystems();
+    if(!best) return;
+    const team = teamById(state.currentTeam);
+    const pos = best.pos || 20;
+    let title, body, rep=0, press=0, morale=0, pressure=0;
+    if(pos === 1){ title='Vitória vira manchete no paddock'; body=`${team.name} vence e aumenta o respeito pelo projeto. A imprensa coloca o gestor entre os grandes nomes da temporada.`; rep=5; press=8; morale=7; pressure=-6; }
+    else if(pos <= 3){ title='Pódio fortalece o projeto'; body=`Pódio da ${team.name} confirma evolução técnica e melhora o clima interno.`; rep=3; press=5; morale=5; pressure=-4; }
+    else if(pos <= 8){ title='Resultado sólido mantém confiança'; body=`P${pos} mantém a equipe competitiva e dá argumentos para a diretoria continuar apoiando.`; rep=1; press=2; morale=2; pressure=-1; }
+    else if(pos >= 16){ title='Imprensa cobra reação'; body=`Resultado P${pos} aumenta perguntas sobre ritmo, estratégia e desenvolvimento do carro.`; rep=-2; press=-5; morale=-4; pressure=7; }
+    else { title='Fim de semana discreto'; body=`A equipe termina em P${pos}. O paddock ainda espera sinais mais fortes de evolução.`; rep=0; press=-1; morale=-1; pressure=2; }
+    state.reputation = clamp((state.reputation||0)+rep,0,100);
+    state.pressReputation = clamp((state.pressReputation||50)+press,0,100);
+    state.teamMorale = clamp((state.teamMorale||60)+morale,0,100);
+    state.boardPressure = clamp((state.boardPressure||45)+pressure,0,100);
+    driversForTeam(state.currentTeam).forEach(d => state.driverMorale[d.short] = clamp((state.driverMorale[d.short]||55)+morale,0,100));
+    state.mediaLog.unshift({ type:'race', title, body, year:state.seasonYear, race:state.completedRaces, pos, date:new Date().toISOString() });
+    addInboxMessage('media','Paddock News',title,body,{});
   }
 
   function ensureRivalWorld(){
@@ -349,7 +419,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.27 • 11/05/2026 • 14:58 BRT';
+    const label = b.label || 'Build v0.9.28 • 11/05/2026 • 15:32 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -413,6 +483,7 @@
       hireStaff(){ hireStaff(el.dataset.role); },
       applySetup(){ applySetupPreset(el.dataset.setup); },
       scoutRivals(){ scoutRivals(); },
+      pressConference(){ pressConference(el.dataset.choice); },
       acceptOffer(){ acceptCareerOffer(el.dataset.team); },
       markMailRead(){ markMailRead(el.dataset.mail); },
       signDriver(){ signDriver(el.dataset.driver); },
@@ -616,6 +687,7 @@
         <article class="dash-card glass-panel bg" data-asset-bg="${bg}"><div class="dash-overlay"></div><div class="dash-card-top">${teamVisual(team,true)}</div><h3>${team.name}</h3><p>${team.objective || 'Construir reputação e alcançar a Fórmula 1.'}</p><p>Próxima: ${currentRace.name}</p><p>${nextAgenda ? nextAgenda.label : 'Temporada concluída: faça a revisão anual.'}</p></article>
         <article class="dash-card glass-panel"><h3>Agenda Executiva</h3><p><b>${state.seasonYear || 2026}</b> • Temporada ${state.seasonNumber || 1}</p><p>${seasonProgressText()}</p><button class="secondary" data-tab="calendar">VER AGENDA</button></article>
         <article class="dash-card glass-panel"><h3>Caixa de E-mails</h3><p>${unread ? `<b>${unread} mensagem(ns) nova(s)</b>` : 'Nenhuma mensagem não lida.'}</p><p>Convites, relatórios da diretoria e atualizações de agenda aparecem aqui.</p><button class="secondary" data-tab="inbox">ABRIR E-MAILS</button></article>
+        <article class="dash-card glass-panel"><h3>Mídia e Moral</h3><p>Imprensa: <b>${mediaMoodLabel(state.pressReputation)}</b></p><p>Moral: <b>${moraleLabel(state.teamMorale)}</b> • Pressão: <b>${pressureLabel(state.boardPressure)}</b></p><button class="secondary" data-tab="media">ABRIR PADDOCK</button></article>
         <article class="dash-card glass-panel"><h3>Metas da Diretoria</h3><p>${team.objective || 'Pontuar e evoluir a equipe.'}</p><div class="progress"><i style="width:${Math.min(100,state.reputation)}%"></i></div><p>Reputação ${Math.round(state.reputation)}/100</p></article>
         <article class="dash-card glass-panel wide sponsor-card"><h3>Patrocinadores</h3><p>${state.sponsor ? 'Contrato ativo: ' + state.sponsor.name : 'Escolha um patrocinador principal. Metas geram bônus por corrida.'}</p>${sponsorButtons()}</article>
         <article class="dash-card glass-panel career-card"><h3>Carreira do Gestor</h3><p><b>${state.currentSeries === 'F2' ? 'Você começou na F2.' : 'Você está na Fórmula 1.'}</b> Cumpra metas, evolua pilotos e mantenha as finanças saudáveis para avançar.</p><p>Contrato: ${state.contract ? money(state.contract.salary) + ' / temporada' : 'em avaliação'} • ${contractStatusText()}</p><button class="secondary" data-tab="offers">VER PROPOSTAS</button></article>
@@ -685,6 +757,19 @@
         <article class="dash-card glass-panel wide"><h3>IA Rival e Mundo Vivo</h3><p>As equipes adversárias agora evoluem entre corridas, reagem aos resultados, movem pilotos no mercado e deixam a dificuldade da carreira mais justa ao longo da temporada.</p><button class="primary" data-action="scoutRivals">COMPRAR RELATÓRIO DE INTELIGÊNCIA</button></article>
         <article class="dash-card glass-panel wide"><h3>Força técnica das equipes — ${state.currentSeries}</h3><div class="standings-list rich-standings">${rivalRows()}</div></article>
         <article class="dash-card glass-panel wide"><h3>Mercado rival</h3>${rivalMarketRows()}</article>
+      </div>`;
+    }
+
+    if(tab === 'media'){
+      ensureCareerSystems();
+      content.innerHTML = `<div class="cards-grid media-grid">
+        <article class="dash-card glass-panel wide"><h3>Mídia, Moral e Pressão</h3><p>Esta área controla o ambiente do paddock. Coletivas e resultados afetam reputação, pressão da diretoria e moral dos pilotos, influenciando consistência e negociações.</p></article>
+        <article class="dash-card glass-panel"><h3>Reputação na imprensa</h3><p><b>${mediaMoodLabel(state.pressReputation)}</b> — ${Math.round(state.pressReputation||50)}/100</p><div class="progress"><i style="width:${clamp(state.pressReputation||50)}%"></i></div></article>
+        <article class="dash-card glass-panel"><h3>Moral da equipe</h3><p><b>${moraleLabel(state.teamMorale)}</b> — ${Math.round(state.teamMorale||60)}/100</p><div class="progress"><i style="width:${clamp(state.teamMorale||60)}%"></i></div></article>
+        <article class="dash-card glass-panel"><h3>Pressão da diretoria</h3><p>${boardPressureText()}</p><div class="progress"><i style="width:${clamp(state.boardPressure||45)}%"></i></div></article>
+        <article class="dash-card glass-panel wide"><h3>Coletiva de imprensa</h3><p>Escolha o tom da entrevista. Isso pode animar pilotos, reduzir pressão ou aumentar expectativa pública.</p><div class="press-buttons"><button class="primary" data-action="pressConference" data-choice="ambitious">PROMETER EVOLUÇÃO FORTE</button><button class="secondary" data-action="pressConference" data-choice="balanced">DISCURSO EQUILIBRADO</button><button class="secondary" data-action="pressConference" data-choice="protect">PROTEGER PILOTOS</button><button class="secondary" data-action="pressConference" data-choice="realistic">ALINHAR EXPECTATIVAS</button></div></article>
+        <article class="dash-card glass-panel wide"><h3>Moral dos pilotos</h3><div class="standings-list rich-standings">${driverMoraleRows()}</div></article>
+        <article class="dash-card glass-panel wide"><h3>Manchetes recentes</h3>${mediaLogRows()}</article>
       </div>`;
     }
 
@@ -1843,6 +1928,7 @@
       state.seasonStats.bestFinish = state.seasonStats.bestFinish ? Math.min(state.seasonStats.bestFinish, bestPlayer.pos) : bestPlayer.pos;
       if(bestPlayer.pos <= 3) state.seasonStats.podiums = (state.seasonStats.podiums||0)+1;
       if(bestPlayer.pos === 1) state.seasonStats.wins = (state.seasonStats.wins||0)+1;
+      generateRaceMediaStory(bestPlayer);
       const playerResults = state.lastRace.filter(r=>driversForTeam(state.currentTeam).some(d=>d.short===r.driver));
       const teamPoints = playerResults.reduce((sum,r)=>sum+(r.points||0),0);
       const finance = raceFinanceReport(playerResults, bestPlayer);

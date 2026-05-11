@@ -292,3 +292,7 @@
 /* v0.9.27 — rival AI and live paddock */
 .rivals-grid .wide{grid-column:span 2}.rivals-grid .row{grid-template-columns:70px 1.25fr 1.6fr 80px}.side-nav button[data-tab="rivals"]{font-size:24px}.rivals-grid .time-cell{font-weight:1000;color:#fff}.rivals-grid .team-logo-inline{width:42px;height:42px}
 @media(max-width:900px){.rivals-grid .wide{grid-column:span 1}.rivals-grid .row{grid-template-columns:48px 1fr}.rivals-grid .team-cell,.rivals-grid .time-cell{grid-column:2}.side-nav button[data-tab="rivals"]{font-size:20px}}
+
+
+/* v0.9.28 — mídia, moral e pressão */
+.media-grid .wide{grid-column:span 2}.press-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.press-buttons button{min-height:44px}.mail-card .mail-type{color:#ffd7d7}.side-nav button[data-tab="media"]{font-size:26px}.media-grid .rich-row{grid-template-columns:42px 1fr 80px 120px}.media-grid .dash-card p span{color:#cbd5ef;font-family:system-ui,sans-serif;font-weight:800}@media(max-width:900px){.media-grid .wide{grid-column:span 1}.media-grid .rich-row{grid-template-columns:34px 1fr 54px 80px}.press-buttons{display:grid}.press-buttons button{width:100%}}
