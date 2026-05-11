@@ -1,10 +1,11 @@
 {
-  "version": "0.9.29",
+  "version": "0.9.30",
   "date": "11/05/2026",
-  "time_brt": "16:05",
+  "time_brt": "19:38",
   "timezone": "America/Sao_Paulo",
-  "label": "Build v0.9.29 • 11/05/2026 • 16:05 BRT",
-  "base": "v0.9.28",
+  "label": "Build v0.9.30 • 11/05/2026 • 19:38 BRT",
+  "base": "v0.9.29",
   "assets": "sem assets binarios",
-  "focus": "QA, tutorial guiado, balanceamento de dificuldade e beta jogavel"
+  "focus": "QA, tutorial guiado, balanceamento de dificuldade e beta jogavel",
+  "phase": "Auditoria técnica e correções críticas"
 }

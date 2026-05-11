@@ -308,3 +308,12 @@
 .qa-list .rich-row{grid-template-columns:42px 1fr 100px 90px}.qa-list .qa-ok{border-color:#7cffb455;background:#0b241aaa}.qa-list .qa-warn{border-color:#ffcc3355;background:#2a2109aa}.qa-list .qa-ok>span:first-child{color:#7cffb4}.qa-list .qa-warn>span:first-child{color:#ffcc33}
 .test-plan div{grid-template-columns:50px 1fr}.qa-grid .progress i{background:linear-gradient(90deg,#7cffb4,#ffb300)}
 @media(max-width:900px){.qa-grid .wide{grid-column:span 1}.qa-list .rich-row{grid-template-columns:32px 1fr}.qa-list .rich-row span:nth-child(3),.qa-list .rich-row span:nth-child(4){grid-column:2}.test-plan div{grid-template-columns:1fr}}
+
+
+/* v0.9.30 — audit fixes */
+.side-nav{overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
+.side-nav button{min-height:52px;height:58px;flex:0 0 58px}
+@media(max-height:640px){.side-nav{padding-top:54px}.side-nav button{height:48px;min-height:48px;flex-basis:48px;font-size:22px}.side-nav button[data-tab="offers"]{font-size:22px}}
+.race-fallback{position:absolute;inset:18%;z-index:8;display:grid;place-content:center;text-align:center;padding:24px;background:linear-gradient(135deg,#180b12e8,#10172cea);border:1px solid #ffffff22}
+.weekend-panel .primary.big{display:block;width:100%;margin:10px 0;background:linear-gradient(135deg,#b6ff35,#7fc313);color:#101827}
+.tab-content .secondary.active{outline:2px solid #b6ff35}

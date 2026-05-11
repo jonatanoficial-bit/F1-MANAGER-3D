@@ -422,7 +422,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.29 • 11/05/2026 • 16:05 BRT';
+    const label = b.label || 'Build v0.9.30 • 11/05/2026 • 19:38 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -432,7 +432,6 @@
 
   function init(){
     updateBuildBadges();
-    ensureCareerSystems();
     ensureCareerSystems();
     screenBackgrounds();
     bindGlobalActions();
@@ -451,7 +450,14 @@
       const act = ev.target.closest('[data-action]');
       if(act) handleAction(act.dataset.action, act);
       const tab = ev.target.closest('[data-tab]');
-      if(tab){ $$('.side-nav button').forEach(b=>b.classList.remove('active')); tab.classList.add('active'); renderTab(tab.dataset.tab); }
+      if(tab){
+        const tabName = tab.dataset.tab;
+        $$('.side-nav button').forEach(b=>b.classList.remove('active'));
+        const sideButton = document.querySelector(`.side-nav button[data-tab="${tabName}"]`);
+        if(sideButton) sideButton.classList.add('active');
+        else tab.classList.add('active');
+        renderTab(tabName);
+      }
       const mode = ev.target.closest('[data-mode]');
       if(mode){ selectedMode = mode.dataset.mode; $$('.mode-card').forEach(b=>b.classList.remove('selected')); mode.classList.add('selected'); syncSeriesWithMode(); renderTeamSelect(); }
       const comp = ev.target.closest('[data-compound]');
@@ -468,7 +474,7 @@
       continueCareer(){ if(state.profile) showScreen('lobby'); else showScreen('career-create'); },
       createProfile(){ createProfile(); },
       startCareer(){ startCareer(); },
-      goQualifying(){ showScreen('qualifying'); },
+      goQualifying(){ ensureCareerSystems(); if((state.completedRaces||0) >= DATA.calendar2026.length){ renderTab('calendar'); return; } showScreen('qualifying'); },
       simulatePractice(){ simulatePracticeSession(); },
       setQualyFocus(){ setQualyFocus(el.dataset.focus); },
       startQualifying(){ simulateQualifying(); },
@@ -1548,7 +1554,12 @@
     state.weekend = { practiceDone:false, setupConfidence:50, tyreKnowledge:50, qualyFocus:'balanced', engineerNote:'Novo fim de semana iniciado. Faça o treino livre antes da classificação.' };
     state.lastQualifying = [];
     saveState();
-    showScreen((state.completedRaces||0) >= DATA.calendar2026.length ? 'lobby' : 'qualifying');
+    if((state.completedRaces||0) >= DATA.calendar2026.length){
+      $$('.side-nav button').forEach(b=>b.classList.remove('active'));
+      const cal = document.querySelector('.side-nav button[data-tab="calendar"]');
+      if(cal) cal.classList.add('active');
+      showScreen('lobby');
+    } else showScreen('qualifying');
   }
 
   function setQualyFocus(focus){
@@ -1597,6 +1608,7 @@
       </div>
       <p class="engineer-note">${w.engineerNote || 'Aguardando treino livre.'}</p>
       <button class="primary" data-action="simulatePractice">SIMULAR TREINO LIVRE</button>
+      ${state.lastQualifying && state.lastQualifying.length ? '<button class="primary big" data-action="startRace">INICIAR CORRIDA</button>' : ''}
       <div class="strategy-choice-row qualy-focus-row">
         <button class="${w.qualyFocus==='balanced'?'selected':''}" data-action="setQualyFocus" data-focus="balanced">Equilíbrio</button>
         <button class="${w.qualyFocus==='singleLap'?'selected':''}" data-action="setQualyFocus" data-focus="singleLap">Volta rápida</button>
@@ -1663,8 +1675,10 @@
     }).sort((a,b)=>b.score-a.score);
   }
   function simulateQualifying(){
-    state.lastQualifying = generateGridPreview(); saveState(); renderQualifying();
-    setTimeout(()=>{ if(confirm('Classificação finalizada. Iniciar corrida?')){ setupRace(false); showScreen('race'); } }, 300);
+    state.lastQualifying = generateGridPreview();
+    addInboxMessage('sporting','Engenharia de Corrida','Classificação concluída',`Grid definido para ${DATA.calendar2026[state.roundIndex]?.name || 'o próximo GP'}. Revise estratégia e toque em INICIAR CORRIDA.`,{});
+    saveState();
+    renderQualifying();
   }
   function isPlayerDriver(short){ return driversForTeam(state.currentTeam).some(d=>d.short===short); }
 
@@ -1704,6 +1718,12 @@
   function startRaceRenderer(){
     if(!race) setupRace(true);
     const stamp=document.getElementById('raceBuildStamp'); if(stamp) stamp.textContent=(DATA.build&&DATA.build.label)||'';
+    if(typeof THREE === 'undefined'){
+      const wrap = document.getElementById('raceCanvasWrap');
+      if(wrap) wrap.innerHTML = '<div class="glass-panel race-fallback"><h2>Motor 3D indisponível</h2><p>Não foi possível carregar Three.js. Verifique conexão/CDN ou publique no GitHub/Vercel. Você ainda pode finalizar a corrida pela barra inferior.</p></div><canvas id="raceCanvas"></canvas>';
+      updateRaceHud();
+      return;
+    }
     if(renderer3d) renderer3d.dispose();
     renderer3d = new TrackRenderer3D($('#raceCanvas'), race);
     renderer3d.animate();
