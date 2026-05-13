@@ -1,0 +1,82 @@
+{
+  "build": {
+    "version": "0.9.36",
+    "date": "13/05/2026",
+    "time_brt": "19:10",
+    "timezone": "America/Sao_Paulo",
+    "label": "Build v0.9.36 • 13/05/2026 • 19:10 BRT",
+    "iso": "2026-05-13T19:10:00-03:00"
+  },
+  "score": 100,
+  "checks": [
+    {
+      "name": "F1 com 11 equipes",
+      "ok": true,
+      "detail": 11
+    },
+    {
+      "name": "F1 com 22 pilotos",
+      "ok": true,
+      "detail": 22
+    },
+    {
+      "name": "F2 com 11 equipes",
+      "ok": true,
+      "detail": 11
+    },
+    {
+      "name": "F2 com 22 pilotos",
+      "ok": true,
+      "detail": 22
+    },
+    {
+      "name": "Todos pilotos apontam para equipe válida",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "Todas equipes possuem logo",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "Todos pilotos possuem portrait",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "Calendário com 20+ GPs",
+      "ok": true,
+      "detail": 25
+    },
+    {
+      "name": "Pistas do calendário têm layout",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "Build v0.9.36",
+      "ok": true,
+      "detail": {
+        "version": "0.9.36",
+        "date": "13/05/2026",
+        "time_brt": "19:10",
+        "timezone": "America/Sao_Paulo",
+        "label": "Build v0.9.36 • 13/05/2026 • 19:10 BRT",
+        "iso": "2026-05-13T19:10:00-03:00"
+      }
+    },
+    {
+      "name": "Caminhos oficiais F1/F2 preservados",
+      "ok": true,
+      "detail": "logos"
+    },
+    {
+      "name": "F1/F2 drivers paths preservados",
+      "ok": true,
+      "detail": "portraits"
+    }
+  ],
+  "generatedAt": "2026-05-13T21:27:49.340Z",
+  "recommendation": "Candidata a beta fechado estático; testar em navegador real antes da v1.0.0."
+}

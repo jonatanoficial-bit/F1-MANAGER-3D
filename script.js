@@ -450,7 +450,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.34 • 13/05/2026 • 18:00 BRT';
+    const label = b.label || 'Build v0.9.36 • 13/05/2026 • 19:10 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -552,9 +552,13 @@
       loadSlot(){ loadFromSlot(Number(el.dataset.slot||1)); },
       exportSave(){ exportCurrentSave(); },
       importSave(){ importSaveFromPrompt(); },
+      clearPwaCache(){ clearPwaCache(); },
+      exportDiagnostics(){ exportDiagnostics(); },
+      resetActiveSave(){ resetActiveSave(); },
       resetCoach(){ state.tutorial = { completed:false, step:0 }; saveState(); renderTab('saves'); },
       completeCoach(){ state.tutorial = { completed:true, step:99 }; addInboxMessage('tutorial','Engenheiro-chefe','Tutorial concluído','Você concluiu o manual rápido. Agora o foco é desenvolver o carro, cuidar das finanças e buscar convites maiores.',{}); saveState(); renderTab('saves'); updateHud(); },
       runQa(){ runQualityChecklist(); },
+      runClosedBeta(){ runClosedBetaAudit(); },
       setDifficulty(){ setDifficulty(el.dataset.difficulty); },
       endSeason(){ endSeasonReview(); }
     };
@@ -851,7 +855,8 @@
     if(tab === 'saves'){
       ensureCareerSystems();
       content.innerHTML = `<div class="cards-grid save-grid">
-        <article class="dash-card glass-panel wide"><h3>Central de Saves e APK</h3><p>Esta área prepara o jogo para uso comercial, GitHub Pages, Vercel, PWA e futura conversão para APK. Use os slots para testar sem perder carreiras.</p><p>Save atual: <b>${state.profile?.name || 'sem gestor'}</b> • ${teamById(state.currentTeam)?.name || 'sem equipe'} • ${state.currentSeries || 'F2'} • Temporada ${state.seasonYear || 2026}</p></article>
+        <article class="dash-card glass-panel wide"><h3>Central de Saves, PWA e APK</h3><p>Esta área deixa o jogo pronto para GitHub Pages, Vercel, instalação como PWA e futura conversão para APK. Use os slots para testar sem perder carreiras.</p><p>Save atual: <b>${state.profile?.name || 'sem gestor'}</b> • ${teamById(state.currentTeam)?.name || 'sem equipe'} • ${state.currentSeries || 'F2'} • Temporada ${state.seasonYear || 2026}</p></article>
+        <article class="dash-card glass-panel wide"><h3>Status PWA / APK Ready</h3>${pwaStatusHTML()}<button class="primary" data-action="clearPwaCache">LIMPAR CACHE DO APP</button><button class="secondary" data-action="exportDiagnostics">EXPORTAR DIAGNÓSTICO</button><button class="secondary" data-action="resetActiveSave">RESETAR SAVE ATUAL</button></article>
         ${[1,2,3].map(saveSlotCard).join('')}
         <article class="dash-card glass-panel wide"><h3>Exportar / Importar carreira</h3><p>Exportar gera um arquivo JSON leve com estado da carreira. Importar aceita JSON colado via prompt para restaurar a carreira em outro navegador ou futura versão APK.</p><button class="primary" data-action="exportSave">EXPORTAR SAVE JSON</button><button class="secondary" data-action="importSave">IMPORTAR SAVE JSON</button></article>
         <article class="dash-card glass-panel wide"><h3>Manual rápido do gestor</h3>${coachmarkHTML()}<button class="primary" data-action="completeCoach">CONCLUIR TUTORIAL</button><button class="secondary" data-action="resetCoach">REINICIAR TUTORIAL</button></article>
@@ -878,6 +883,7 @@
         <article class="dash-card glass-panel wide"><h3>Centro de Qualidade e Beta Jogável</h3><p>Esta fase verifica se a carreira pode ser jogada do início ao fim sem quebrar fluxo: perfil, equipe, agenda, corrida, economia, mercado, e-mails, saves e assets externos.</p><p>Score atual: <b>${state.quality?.betaScore || betaReadinessScore()}/100</b> • Último check: <b>${state.quality?.lastCheck ? new Date(state.quality.lastCheck).toLocaleString('pt-BR') : 'ainda não executado'}</b></p><button class="primary" data-action="runQa">RODAR CHECKLIST BETA</button></article>
         <article class="dash-card glass-panel"><h3>Dificuldade da carreira</h3><p>Afeta economia, evolução rival, bônus de reputação, custos e pressão da diretoria.</p>${difficultyButtons()}</article>
         <article class="dash-card glass-panel"><h3>Score de prontidão</h3>${betaScorePanel()}</article>
+        <article class="dash-card glass-panel wide"><h3>Beta Fechado</h3>${closedBetaPanel()}<button class="primary" data-action="runClosedBeta">RODAR AUDITORIA BETA FECHADO</button></article>
         <article class="dash-card glass-panel wide"><h3>Checklist técnico</h3>${qaChecklistRows()}</article>
         <article class="dash-card glass-panel wide"><h3>Roteiro de teste manual</h3>${manualTestPlan()}</article>
       </div>`;
@@ -946,6 +952,58 @@
   function dataLockPathRows(){
     const paths=['assets/teams/logos/','assets/teams/logos/f2/','assets/drivers/current_grid/','assets/drivers/avatars/f2/','assets/backgrounds/','assets/icons/','assets/flags/all/','assets/tracks/svg/'];
     return `<div class="asset-path-list">${paths.map(p=>`<code>${p}</code>`).join('')}</div>`;
+  }
+
+
+  function pwaStatusHTML(){
+    const sw = 'serviceWorker' in navigator;
+    const standalone = window.matchMedia && window.matchMedia('(display-mode: standalone)').matches;
+    const storage = (() => { try { localStorage.setItem('__f1m_test','1'); localStorage.removeItem('__f1m_test'); return true; } catch(e){ return false; } })();
+    const manifest = document.querySelector('link[rel="manifest"]') ? true : false;
+    const rows = [
+      ['Manifest PWA', manifest ? 'OK' : 'pendente'],
+      ['Service Worker', sw ? 'suportado' : 'não suportado'],
+      ['Modo instalado', standalone ? 'sim' : 'navegador'],
+      ['LocalStorage', storage ? 'OK' : 'bloqueado'],
+      ['Build', DATA.build?.label || 'sem build']
+    ];
+    return `<div class="standings-list rich-standings pwa-status-list">${rows.map(([a,b])=>`<div class="row"><span>•</span><span>${a}</span><span>${b}</span><span></span></div>`).join('')}</div><p class="muted-small">Para APK: usar esta pasta como app web estático em WebView/Capacitor. Assets pesados permanecem no GitHub nos caminhos oficiais.</p>`;
+  }
+  function clearPwaCache(){
+    if('serviceWorker' in navigator && navigator.serviceWorker.controller){
+      navigator.serviceWorker.controller.postMessage({type:'CLEAR_CACHE'});
+    }
+    if(window.caches){ caches.keys().then(keys => Promise.all(keys.map(k => caches.delete(k)))).then(()=>addInboxMessage('system','Sistema','Cache limpo','O cache PWA foi limpo. Recarregue a página se algum arquivo antigo continuar aparecendo.',{})).finally(()=>{ saveState(); renderTab('saves'); }); }
+    else { addInboxMessage('system','Sistema','Cache não disponível','Este navegador não expôs a API de cache, mas o jogo continua funcionando com localStorage.',{}); saveState(); renderTab('saves'); }
+  }
+  function exportDiagnostics(){
+    const report = {
+      build: DATA.build,
+      userAgent: navigator.userAgent,
+      standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches,
+      serviceWorker: 'serviceWorker' in navigator,
+      hasProfile: !!state.profile,
+      currentTeam: state.currentTeam,
+      currentSeries: state.currentSeries,
+      seasonYear: state.seasonYear,
+      completedRaces: state.completedRaces,
+      money: state.money,
+      reputation: state.reputation,
+      assets: ['assets/teams/logos/','assets/teams/logos/f2/','assets/drivers/current_grid/','assets/drivers/avatars/f2/','assets/flags/all/']
+    };
+    const blob = new Blob([JSON.stringify(report,null,2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob); const a=document.createElement('a');
+    a.href=url; a.download='f1-manager-diagnostico-v0-9-36.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    addInboxMessage('system','Sistema','Diagnóstico exportado','Foi gerado um JSON com build, navegador, save e caminhos críticos.',{});
+    saveState(); renderTab('saves');
+  }
+  function resetActiveSave(){
+    const ok = confirm('Resetar somente o save atual? Os slots 1, 2 e 3 não serão apagados.');
+    if(!ok) return;
+    localStorage.removeItem(ACTIVE_SAVE_KEY);
+    state = createInitialState();
+    addInboxMessage('system','Sistema','Save atual resetado','O save ativo foi reiniciado. Slots manuais continuam preservados.',{});
+    saveState(); updateHud(); showScreen('home');
   }
 
   function slotKey(n){ return `f1_manager_career_2026_slot_${n}`; }
@@ -1073,6 +1131,59 @@
     addInboxMessage('qa','Controle de Qualidade',title,`Checklist executado com score ${score}/100. ${score>=90?'Fluxo principal liberado para teste de temporada completa.':'Revise os itens pendentes antes de chamar a build de beta.'}`,{score});
     saveState(); renderTab('qa'); updateHud();
   }
+
+  function closedBetaChecks(){
+    ensureCareerSystems();
+    const team = teamById(state.currentTeam);
+    const drivers = driversForTeam(state.currentTeam);
+    const qa = betaReadinessScore();
+    const dl = dataLockScore();
+    const hasPwa = !!document.querySelector('link[rel="manifest"]') && ('serviceWorker' in navigator);
+    const calendarOk = Array.isArray(DATA.calendar2026) && DATA.calendar2026.length >= 20;
+    const standingsOk = !!currentStandings() && Object.keys(currentStandings()).length >= 20;
+    const economyOk = Number.isFinite(Number(state.money)) && !!state.sponsor !== undefined;
+    const careerOk = !!state.contract && !!state.careerHistory && Array.isArray(state.inbox);
+    const raceOk = !!state.raceStrategy && !!state.weekend && typeof setupRace === 'function' && typeof finishRace === 'function';
+    const marketOk = drivers.length >= 2 && DATA.f1Drivers2026.length >= 22 && DATA.f2Drivers.length >= 22;
+    const assetsOk = !!team?.logo && DATA.assetPaths && !!DATA.assetPaths.menu;
+    return [
+      {name:'QA geral acima de 90', ok:qa >= 90, fix:'rodar checklist beta e corrigir pendências'},
+      {name:'Data Lock 100/100', ok:dl >= 100, fix:'revisar equipes, pilotos, calendário e assets'},
+      {name:'Calendário completo', ok:calendarOk, fix:'revisar DATA.calendar2026'},
+      {name:'Standings ativos', ok:standingsOk, fix:'recriar classificações da categoria'},
+      {name:'Economia válida', ok:economyOk, fix:'revisar dinheiro, patrocinador e custos'},
+      {name:'Carreira e e-mails ativos', ok:careerOk, fix:'ensureCareerSystems/inbox/contrato'},
+      {name:'Corrida e estratégia disponíveis', ok:raceOk, fix:'setupRace/weekend/raceStrategy'},
+      {name:'Mercado e roster válidos', ok:marketOk, fix:'revisar pilotos e equipes'},
+      {name:'Assets críticos mapeados', ok:assetsOk, fix:'revisar ASSET_IMAGE_PATHS_CURRENT'},
+      {name:'PWA preparado', ok:hasPwa, fix:'manifest/service worker'},
+      {name:'Save local ativo', ok:!!window.localStorage, fix:'localStorage'},
+      {name:'Equipe atual carregada', ok:!!team && drivers.length >= 2, fix:'selecionar equipe válida'}
+    ];
+  }
+  function closedBetaScore(){
+    const checks = closedBetaChecks();
+    return Math.round(checks.filter(c=>c.ok).length / checks.length * 100);
+  }
+  function closedBetaPanel(){
+    const checks = state.quality?.closedBetaChecks?.length ? state.quality.closedBetaChecks : closedBetaChecks();
+    const score = state.quality?.closedBetaScore || closedBetaScore();
+    const status = score >= 92 ? 'Candidato a Beta Fechado' : score >= 80 ? 'Quase Beta Fechado' : 'Precisa estabilizar';
+    return `<p>Status: <b>${status}</b> • ${score}/100</p><div class="progress"><i style="width:${score}%"></i></div><div class="standings-list rich-standings qa-list">${checks.map(c=>`<div class="row rich-row ${c.ok?'qa-ok':'qa-warn'}"><span>${c.ok?'✓':'!'}</span><span><b>${c.name}</b><small>${c.ok?'OK':'Ação: '+c.fix}</small></span><span>${c.ok?'Liberado':'Pendente'}</span><span>${c.ok?'Beta':'Ajustar'}</span></div>`).join('')}</div>`;
+  }
+  function runClosedBetaAudit(){
+    ensureCareerSystems();
+    runQualityChecklist();
+    const checks = closedBetaChecks();
+    const score = Math.round(checks.filter(c=>c.ok).length / checks.length * 100);
+    state.quality.closedBetaChecks = checks;
+    state.quality.closedBetaScore = score;
+    state.quality.closedBetaLastCheck = new Date().toISOString();
+    const title = score >= 92 ? 'Build candidata a Beta Fechado' : score >= 80 ? 'Beta Fechado quase pronto' : 'Beta Fechado bloqueado';
+    addInboxMessage('qa','Controle de Qualidade',title,`Auditoria de beta fechado concluída com score ${score}/100. ${score>=92?'A build pode ser testada como candidata final antes da v1.0.':'Revise os itens pendentes antes da v1.0.'}`,{score});
+    saveState(); renderTab('qa'); updateHud();
+  }
+
   function qaChecklistRows(){
     const checks = state.quality?.checks?.length ? state.quality.checks : qualityChecks();
     return `<div class="standings-list rich-standings qa-list">${checks.map(c=>`<div class="row rich-row ${c.ok?'qa-ok':'qa-warn'}"><span>${c.ok?'✓':'!'}</span><span><b>${c.name}</b><small>${c.ok?'OK':'Verificar: '+c.fix}</small></span><span>${c.ok?'Pronto':'Pendente'}</span><span>${c.ok?'Liberado':'Ajustar'}</span></div>`).join('')}</div>`;

@@ -194,3 +194,10 @@ Build sem assets binários. Mantenha os arquivos nos caminhos abaixo.
 - assets/tracks/svg/monaco.svg
 - assets/tracks/svg/sao_paulo.svg
 - assets/tracks/svg/singapura.svg
+
+
+## v0.9.35 PWA/APK
+
+- Manifest: `manifest.webmanifest`
+- Service Worker: `service-worker.js`
+- Sem assets binários no ZIP; usar assets já existentes no GitHub.
