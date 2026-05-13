@@ -1,11 +1,11 @@
 {
-  "version": "0.9.31",
-  "date": "11/05/2026",
-  "time_brt": "20:15",
+  "version": "0.9.33",
+  "date": "13/05/2026",
+  "time_brt": "16:32",
   "timezone": "America/Sao_Paulo",
-  "label": "Build v0.9.31 • 11/05/2026 • 20:15 BRT",
-  "base": "v0.9.30",
+  "label": "Build v0.9.33 • 13/05/2026 • 16:32 BRT",
+  "base": "v0.9.32",
   "assets": "sem assets binarios",
-  "focus": "QA, tutorial guiado, balanceamento de dificuldade e beta jogavel",
-  "phase": "balanceamento de carreira"
+  "focus": "UI/UX Premium Mobile",
+  "phase": "polimento visual e usabilidade mobile"
 }

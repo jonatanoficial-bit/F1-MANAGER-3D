@@ -450,7 +450,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.31 • 11/05/2026 • 20:15 BRT';
+    const label = b.label || 'Build v0.9.33 • 13/05/2026 • 16:32 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -463,6 +463,7 @@
     ensureCareerSystems();
     screenBackgrounds();
     bindGlobalActions();
+    initNavLabels();
     renderCreator();
     renderTeamSelect();
     renderQuickRaceSelect();
@@ -497,6 +498,27 @@
     });
   }
 
+
+  function initNavLabels(){
+    const labels = {
+      dashboard:'Dashboard', drivers:'Pilotos', garage:'Carro', staff:'Staff', facilities:'Base', calendar:'Agenda',
+      season:'Temporadas', standings:'Tabelas', 'driver-market':'Mercado', rivals:'Rivais', media:'Mídia',
+      offers:'Propostas', inbox:'E-mails', saves:'Saves', qa:'QA'
+    };
+    $$('.side-nav button[data-tab]').forEach(btn => {
+      const label = labels[btn.dataset.tab] || btn.dataset.tab;
+      btn.dataset.label = label;
+      btn.title = label;
+      btn.setAttribute('aria-label', label);
+    });
+  }
+
+  function mobileCoachCard(){
+    const nextRace = DATA.calendar2026[state.roundIndex] || DATA.calendar2026[0];
+    const team = teamById(state.currentTeam);
+    return `<article class="dash-card glass-panel wide ux-coach-card"><h3>Central do Manager</h3><p>Próximo passo recomendado: <b>${(state.completedRaces||0) >= DATA.calendar2026.length ? 'revisar temporada' : 'preparar fim de semana em ' + nextRace.name}</b>.</p><div class="quick-action-row"><button class="primary" data-action="goQualifying">PRÓXIMA CORRIDA</button><button class="secondary" data-tab="garage">DESENVOLVER CARRO</button><button class="secondary" data-tab="staff">STAFF</button><button class="secondary" data-tab="inbox">E-MAILS</button></div><p class="muted-small">${team ? team.name : 'Equipe'} • ${state.currentSeries || 'F2'} • ${seasonProgressText()}</p></article>`;
+  }
+
   function handleAction(action, el){
     const actions = {
       continueCareer(){ if(state.profile) showScreen('lobby'); else showScreen('career-create'); },
@@ -511,7 +533,8 @@
       setPace(){ if(race){ race.playerPace[Number(el.dataset.driver)] = el.dataset.pace; updateRaceHud(); } },
       pitDriver(){ if(race) requestPit(Number(el.dataset.driver)); },
       chooseStrategy(){ chooseRaceStrategy(el.dataset.strategy); },
-      toggleRaceSpeed(){ if(race){ race.speed = race.speed === 1 ? 4 : race.speed === 4 ? 12 : race.speed === 12 ? 24 : 1; $('#speedLabel').textContent = race.speed; } },
+      toggleRaceSpeed(){ if(race){ race.speed = race.speed === 1 ? 2 : race.speed === 2 ? 4 : race.speed === 4 ? 8 : race.speed === 8 ? 16 : 1; $('#speedLabel').textContent = race.speed; } },
+      toggleRaceCamera(){ if(race){ race.cameraMode = race.cameraMode === 'tv' ? 'follow' : race.cameraMode === 'follow' ? 'overhead' : 'tv'; race.raceLog.unshift('Câmera: '+cameraLabel(race.cameraMode)); } },
       finishRaceNow(){ if(race) finishRace(); },
       returnLobbyAfterRace(){ showScreen('lobby'); },
       nextRaceFromResults(){ advanceToNextRaceScreen(); },
@@ -722,7 +745,8 @@
     if(tab === 'dashboard'){
       const nextAgenda = agendaItems()[0];
       const unread = state.unreadMessages || 0;
-      content.innerHTML = `<div class="cards-grid">
+      content.innerHTML = `<div class="cards-grid dashboard-premium-grid">
+        ${mobileCoachCard()}
         <article class="dash-card glass-panel bg" data-asset-bg="${bg}"><div class="dash-overlay"></div><div class="dash-card-top">${teamVisual(team,true)}</div><h3>${team.name}</h3><p>${team.objective || 'Construir reputação e alcançar a Fórmula 1.'}</p><p>Próxima: ${currentRace.name}</p><p>${nextAgenda ? nextAgenda.label : 'Temporada concluída: faça a revisão anual.'}</p></article>
         <article class="dash-card glass-panel"><h3>Agenda Executiva</h3><p><b>${state.seasonYear || 2026}</b> • Temporada ${state.seasonNumber || 1}</p><p>${seasonProgressText()}</p><button class="secondary" data-tab="calendar">VER AGENDA</button></article>
         <article class="dash-card glass-panel"><h3>Caixa de E-mails</h3><p>${unread ? `<b>${unread} mensagem(ns) nova(s)</b>` : 'Nenhuma mensagem não lida.'}</p><p>Convites, relatórios da diretoria e atualizações de agenda aparecem aqui.</p><button class="secondary" data-tab="inbox">ABRIR E-MAILS</button></article>
@@ -1732,6 +1756,7 @@
     renderQualifying();
   }
   function isPlayerDriver(short){ return driversForTeam(state.currentTeam).some(d=>d.short===short); }
+  function cameraLabel(mode){ return mode === 'follow' ? 'foco no carro' : mode === 'overhead' ? 'visão aérea' : 'transmissão'; }
 
 
   function aiStrategyFor(d,t,currentRace,gridPos){
@@ -1757,9 +1782,9 @@
       }
       const strat = isPlayer ? (state.raceStrategy || { plan:'balanced', startCompound:selectedCompound||'soft' }) : aiStrategyFor(d,t,currentRace,i);
       const compound = strat.startCompound || (isPlayer ? selectedCompound : 'medium');
-      return { driver:d, team:t, pos:i+1, lap:1, progress:i*-0.01, distance:0, tyre:100, fuel:100, condition:100, pits:0, pace:'normal', compound, plannedPitLap:recommendedPitLap(currentRace.laps||22,strat), baseSpeed:baseRaceSpeed(d,car,isPlayer)*compoundPaceMultiplier(compound)*(isPlayer && state.weekend?.qualyFocus==='racePace' ? 1.006 : 1), car, setupFx, color:t.color, secondary:t.secondary, finished:false, totalTime:0, incident:false, sector:1, gap:0 };
+      return { driver:d, team:t, pos:i+1, previousPos:i+1, lap:1, progress:i*-0.01, distance:0, tyre:100, fuel:100, condition:100, pits:0, pace:'normal', compound, plannedPitLap:recommendedPitLap(currentRace.laps||22,strat), baseSpeed:baseRaceSpeed(d,car,isPlayer)*compoundPaceMultiplier(compound)*(isPlayer && state.weekend?.qualyFocus==='racePace' ? 1.006 : 1), car, setupFx, color:t.color, secondary:t.secondary, finished:false, totalTime:0, incident:false, sector:1, gap:0, lastLap:1, lastAction:'' };
     });
-    race = { quick, entries, laps:currentRace.laps || 22, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:currentRace.weather || 'dry', tick:0, trackInfo:currentRace, safetyCar:0, raceLog:[] }; 
+    race = { quick, entries, laps:currentRace.laps || 22, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:currentRace.weather || 'dry', tick:0, trackInfo:currentRace, safetyCar:0, cameraMode:'tv', raceLog:['Largada autorizada — mantenha pneus e estratégia sob controle.'] };  
     updateRaceHud();
   }
   function estimateCar(t){ return rivalCarForTeam(t); }
@@ -2009,7 +2034,8 @@
       g.scale.set(.78,.78,.78); return g;
     }
     placeCar(car,e,offset){ const prog=(e.progress%1+1)%1; const exact=prog*this.trackPoints.length; const i=Math.floor(exact)%this.trackPoints.length; const j=(i+1)%this.trackPoints.length; const p=this.trackPoints[i].clone().lerp(this.trackPoints[j],exact-i); const n=this.trackPoints[j]; car.position.copy(p); car.position.y=.25+(offset%2)*.04; car.rotation.y=Math.atan2(n.x-p.x,n.z-p.z); }
-    animate(){ if(!this.renderer) return; requestAnimationFrame(()=>this.animate()); const dt=Math.min(.033,this.clock.getDelta()); updateRaceSimulation(dt); this.race.entries.forEach((e,i)=>this.placeCar(this.cars[i],e,i)); this.renderer.render(this.scene,this.camera); }
+    animate(){ if(!this.renderer) return; requestAnimationFrame(()=>this.animate()); const dt=Math.min(.033,this.clock.getDelta()); updateRaceSimulation(dt); this.race.entries.forEach((e,i)=>this.placeCar(this.cars[i],e,i)); this.updateCameraMode(); this.renderer.render(this.scene,this.camera); }
+    updateCameraMode(){ const mode=this.race.cameraMode||'tv'; if(mode==='overhead'){ this.camera.position.lerp(new THREE.Vector3(0,42,1),.035); this.camera.lookAt(0,0,0); return; } const targetEntry = this.race.entries.find(e=>isPlayerDriver(e.driver.short)) || this.race.entries[0]; const idx=this.race.entries.indexOf(targetEntry); const car=this.cars[Math.max(0,idx)]; if(!car) return; const pos=car.position.clone(); if(mode==='follow'){ this.camera.position.lerp(new THREE.Vector3(pos.x-6,8,pos.z+9),.055); this.camera.lookAt(pos.x,0,pos.z); } else { this.camera.position.lerp(new THREE.Vector3(pos.x+12,18,pos.z+15),.025); this.camera.lookAt(pos.x,0,pos.z); } }
     resize(){ if(!this.renderer) return; const w=this.canvas.clientWidth,h=this.canvas.clientHeight; this.camera.aspect=w/h; this.camera.updateProjectionMatrix(); this.renderer.setSize(w,h,false); }
     dispose(){ if(this.renderer){ this.renderer.dispose(); this.renderer=null; } }
   }
@@ -2028,40 +2054,67 @@
     e.lastAction = `PIT AUTO -${Math.round(pitLoss*1000)/10}s`;
   }
   function updateRaceSimulation(dt){
-    if(!race) return; race.tick += dt*race.speed;
+    if(!race) return;
+    race.tick += dt*race.speed;
     const track = currentTrackProfile();
-    race.entries.forEach((e)=>{
+    const previousOrder = new Map(race.entries.map(e => [e.driver.short, e.pos]));
+    race.entries.forEach((e, idx)=>{
       const isPlayer = isPlayerDriver(e.driver.short);
       if(isPlayer){ const ds=driversForTeam(state.currentTeam); const pidx=ds.findIndex(d=>d.short===e.driver.short); e.pace = race.playerPace[pidx] || 'normal'; }
-      const paceMul = (race.safetyCar>0 ? 0.72 : 1) * (e.pace==='attack'?1.125:e.pace==='save'?0.925:1);
       const car = e.car || estimateCar(e.team);
       const setupFx = e.setupFx || { tyreCare:0, reliability:0 };
       const strategist = isPlayer ? (state.staff?.strategists||1) : 1;
       const mechanic = isPlayer ? (state.staff?.mechanics||1) : 1;
-      const tyreBase = Math.max(.052, .135 - ((car.tyreWear||55)-50)/1500 - setupFx.tyreCare - strategist/1200) * compoundWearMultiplier(e.compound);
-      const fuelBase = Math.max(.052, .112 - ((car.fuel||55)-50)/2200);
+      const grip = race.weather === 'variable' ? 0.965 : 1;
+      const paceMul = (race.safetyCar>0 ? 0.70 : 1) * (e.pace==='attack'?1.122:e.pace==='save'?0.928:1) * grip;
+      const tyreBase = Math.max(.050, .133 - ((car.tyreWear||55)-50)/1500 - setupFx.tyreCare - strategist/1200) * compoundWearMultiplier(e.compound);
+      const fuelBase = Math.max(.048, .108 - ((car.fuel||55)-50)/2200);
       const reliability = Math.max(35, (car.reliability||55) + mechanic*1.8 + (setupFx.reliability||0)*100);
-      const tyreMul = 0.78 + e.tyre/100*0.27;
-      const condMul = 0.80 + e.condition/100*0.22;
-      const driverConsistency = ((e.driver.consistency||70)-60)/750;
+      const tyreMul = 0.765 + e.tyre/100*0.285;
+      const condMul = 0.790 + e.condition/100*0.225;
+      const driverConsistency = ((e.driver.consistency||70)-60)/820;
+      const inTraffic = idx>0 && Math.abs((race.entries[idx-1].distance||0)-(e.distance||0)) < .035;
+      const closeBehind = idx<race.entries.length-1 && Math.abs((e.distance||0)-(race.entries[idx+1].distance||0)) < .032;
+      const slipstream = inTraffic && e.sector !== 2 ? 1.006 : 1;
+      const dirtyAir = inTraffic && e.sector === 2 ? .996 : 1;
+      const pressure = closeBehind ? .998 : 1;
       const randomRaceNoise = 1 + Math.sin((race.tick+e.pos)*0.7)*0.002 + driverConsistency;
-      e.progress += e.baseSpeed * paceMul * tyreMul * condMul * randomRaceNoise * dt * race.speed;
+      e.progress += e.baseSpeed * paceMul * tyreMul * condMul * randomRaceNoise * slipstream * dirtyAir * pressure * dt * race.speed;
       e.distance = e.progress;
-      e.tyre = Math.max(0,e.tyre - dt*race.speed*tyreBase*(e.pace==='attack'?1.48:e.pace==='save'?.72:1));
+      e.tyre = Math.max(0,e.tyre - dt*race.speed*tyreBase*(e.pace==='attack'?1.48:e.pace==='save'?.72:1)*(inTraffic?1.035:1));
       e.fuel = Math.max(0,e.fuel - dt*race.speed*fuelBase*(e.pace==='attack'?1.30:e.pace==='save'?.75:1));
-      const conditionLoss = Math.max(.003, (104-reliability)/3200) * (e.pace==='attack'?1.34:1) * (track.rain>1.05?1.12:1);
+      const conditionLoss = Math.max(.003, (104-reliability)/3300) * (e.pace==='attack'?1.35:1) * (track.rain>1.05?1.13:1);
       e.condition = Math.max(0,e.condition - dt*race.speed*conditionLoss);
-      const errorChance = dt*race.speed*Math.max(0, (82-reliability))/26000 * (e.pace==='attack'?1.65:1) * (100-(e.driver.consistency||70))/45;
-      if(!e.incident && Math.random() < errorChance){ e.progress -= 0.018 + Math.random()*0.028; e.condition = Math.max(12,e.condition - (8+Math.random()*14)); e.incident=true; e.lastAction='ERRO'; }
+      const errorChance = dt*race.speed*Math.max(0, (82-reliability))/28000 * (e.pace==='attack'?1.72:1) * (100-(e.driver.consistency||70))/45;
+      if(!e.incident && Math.random() < errorChance){
+        e.progress -= 0.018 + Math.random()*0.030;
+        e.condition = Math.max(12,e.condition - (8+Math.random()*14));
+        e.incident=true; e.lastAction='ERRO';
+        race.raceLog.unshift(`${e.driver.short} escapou e perdeu tempo`);
+      }
       if(e.pitCooldown) e.pitCooldown = Math.max(0, e.pitCooldown - dt*race.speed);
+      e.lastLap = e.lap;
       e.lap = Math.min(race.laps, Math.floor(e.progress)+1);
+      if(e.lap > e.lastLap && isPlayer) race.raceLog.unshift(`${e.driver.short} abriu a volta ${e.lap} com ${Math.round(e.tyre)}% de pneu`);
       e.sector = Math.min(3, Math.max(1, Math.floor(((e.progress%1)+1)%1*3)+1));
-      if(!isPlayer && !e.pitCooldown && e.pits < 2 && (e.tyre < 28 || (e.lap >= e.plannedPitLap && e.tyre < 58))){ autoPitEntry(e); }
+      if(!isPlayer && !e.pitCooldown && e.pits < 2 && (e.tyre < 25 || (e.lap >= e.plannedPitLap && e.tyre < 56))){ autoPitEntry(e); race.raceLog.unshift(`${e.driver.short} parou nos boxes`); }
       e.totalTime += dt*race.speed*(1 + (100-e.tyre)/620 + (100-e.condition)/900);
     });
     if(race.safetyCar>0) race.safetyCar = Math.max(0, race.safetyCar - dt*race.speed);
-    else if(race.tick > 12 && Math.random() < dt*race.speed/25000){ race.safetyCar = 18 + Math.random()*14; race.raceLog.unshift('Safety car virtual por detritos na pista'); }
-    race.entries.sort((a,b)=>b.distance-a.distance); race.entries.forEach((e,i)=>{ e.pos=i+1; e.gap = i===0 ? 0 : Math.max(0,(race.entries[0].distance-e.distance)*82); });
+    else if(race.tick > 12 && Math.random() < dt*race.speed/27000){ race.safetyCar = 18 + Math.random()*14; race.raceLog.unshift('Safety car virtual por detritos na pista'); }
+    race.entries.sort((a,b)=>b.distance-a.distance);
+    race.entries.forEach((e,i)=>{
+      const old = previousOrder.get(e.driver.short) || e.pos || i+1;
+      e.previousPos = old;
+      e.pos=i+1;
+      e.gap = i===0 ? 0 : Math.max(0,(race.entries[0].distance-e.distance)*82);
+      const delta = old - e.pos;
+      if(delta > 0 && race.tick > 3){
+        e.lastAction = `+${delta} posição`;
+        if(isPlayerDriver(e.driver.short) || delta > 1) race.raceLog.unshift(`${e.driver.short} ganhou ${delta} posição${delta>1?'ões':''}`);
+      }
+    });
+    race.raceLog = race.raceLog.slice(0,5);
     updateRaceHud();
     if(race.entries.some(e=>e.progress>=race.laps)) finishRace();
   }
@@ -2070,14 +2123,24 @@
   }
   function updateRaceHud(){
     if(!race) return;
-    $('#lapLabel').textContent = `VOLTA ${Math.max(...race.entries.map(e=>e.lap))}/${race.laps}`;
+    const leaderLap = Math.max(...race.entries.map(e=>e.lap));
+    $('#lapLabel').textContent = `VOLTA ${leaderLap}/${race.laps}`;
     if($('#raceTitle')) $('#raceTitle').textContent = race.trackInfo ? race.trackInfo.name : 'CORRIDA';
     if($('#weatherLabel')) $('#weatherLabel').textContent = race.safetyCar>0 ? `🟨 VSC ${Math.ceil(race.safetyCar)}s` : (race.weather === 'variable' ? '☁ Variável' : '☀ Seco');
     if($('#raceBuildStamp')) $('#raceBuildStamp').textContent = (DATA.build&&DATA.build.label)||'';
     if($('#speedLabel')) $('#speedLabel').textContent = race.speed;
-    $('#raceLeaderboard').innerHTML = race.entries.slice(0,22).map((e,i)=>`<div class="race-row ${isPlayerDriver(e.driver.short)?'highlight':''}"><span class="race-pos">${i+1}</span>${driverAvatarHTML(e.driver)}${teamLogoHTML(e.team,'team-logo-mini')}<span class="race-name"><b>${e.driver.short}</b><small>${e.team.name}</small></span><span class="race-tyre">${compoundLabel(e.compound).slice(0,1)} ${Math.round(e.tyre)}%</span><span class="race-pits">${e.pits}P • ${i===0?'LÍDER':'+'+e.gap.toFixed(1)}</span></div>`).join('');
+    const statusPanel = $('#raceStatusPanel');
+    if(statusPanel){
+      const playerBest = race.entries.filter(e=>isPlayerDriver(e.driver.short)).sort((a,b)=>a.pos-b.pos)[0];
+      statusPanel.innerHTML = `<div><b>${race.safetyCar>0?'SAFETY CAR VIRTUAL':'RITMO DE CORRIDA'}</b><span>${race.trackInfo?.name||'GP'} • Câmera ${cameraLabel(race.cameraMode)}</span></div><div><b>${playerBest ? 'P'+playerBest.pos+' '+playerBest.driver.short : 'Equipe'}</b><span>${playerBest ? compoundLabel(playerBest.compound)+' '+Math.round(playerBest.tyre)+'%' : 'Sem piloto'}</span></div><div class="race-log-mini">${(race.raceLog||[]).slice(0,3).map(x=>`<small>${x}</small>`).join('')}</div>`;
+    }
+    $('#raceLeaderboard').innerHTML = race.entries.slice(0,22).map((e,i)=>{
+      const delta = (e.previousPos||e.pos)-e.pos;
+      const deltaText = delta>0 ? `▲${delta}` : delta<0 ? `▼${Math.abs(delta)}` : '•';
+      return `<div class="race-row ${isPlayerDriver(e.driver.short)?'highlight':''}"><span class="race-pos">${i+1}<small>${deltaText}</small></span>${driverAvatarHTML(e.driver)}${teamLogoHTML(e.team,'team-logo-mini')}<span class="race-name"><b>${e.driver.short}</b><small>${e.team.name}</small></span><span class="race-tyre">${compoundLabel(e.compound).slice(0,1)} ${Math.round(e.tyre)}%</span><span class="race-pits">${e.pits}P • S${e.sector} • ${i===0?'LÍDER':'+'+e.gap.toFixed(1)}</span></div>`;
+    }).join('');
     hydrateAssets($('#raceLeaderboard'));
-    const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const card=document.getElementById(`controlCard${i+1}`), name=document.getElementById(`controlDriver${i+1}`), cond=document.getElementById(`cond${i+1}`); if(e){ if(name) name.innerHTML = `<span class="control-head">${driverAvatarChip(d,'driver-avatar-inline small')}${teamLogoHTML(teamById(driverCurrentTeamId(d.short)||d.team),'team-logo-inline small')}<span><b>${e.pos}º | ${d.short}</b><small>${teamById(driverCurrentTeamId(d.short)||d.team).name}</small></span></span>`; if(cond) cond.style.width = `${Math.round(e.condition)}%`; if(card){ card.querySelectorAll('[data-pace]').forEach(btn=>btn.classList.toggle('active', btn.dataset.pace === (race.playerPace[i]||'normal'))); const status=card.querySelector('.pilot-status') || document.createElement('div'); status.className='pilot-status'; status.textContent = `Modo: ${(race.playerPace[i]||'normal').toUpperCase()} • ${compoundLabel(e.compound)} ${Math.round(e.tyre)}% • Cond ${Math.round(e.condition)}% • S${e.sector} • Pit alvo V${e.plannedPitLap} • ${setupLabel(state.setup?.preset)}`; if(!status.parentElement) card.appendChild(status); hydrateAssets(card); } } });
+    const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const card=document.getElementById(`controlCard${i+1}`), name=document.getElementById(`controlDriver${i+1}`), cond=document.getElementById(`cond${i+1}`); if(e){ if(name) name.innerHTML = `<span class="control-head">${driverAvatarChip(d,'driver-avatar-inline small')}${teamLogoHTML(teamById(driverCurrentTeamId(d.short)||d.team),'team-logo-inline small')}<span><b>${e.pos}º | ${d.short}</b><small>${teamById(driverCurrentTeamId(d.short)||d.team).name}</small></span></span>`; if(cond) cond.style.width = `${Math.round(e.condition)}%`; if(card){ card.querySelectorAll('[data-pace]').forEach(btn=>btn.classList.toggle('active', btn.dataset.pace === (race.playerPace[i]||'normal'))); const status=card.querySelector('.pilot-status') || document.createElement('div'); status.className='pilot-status'; status.textContent = `Modo: ${(race.playerPace[i]||'normal').toUpperCase()} • ${compoundLabel(e.compound)} ${Math.round(e.tyre)}% • Gap ${e.gap.toFixed(1)}s • Cond ${Math.round(e.condition)}% • S${e.sector} • Pit V${e.plannedPitLap}`; if(!status.parentElement) card.appendChild(status); hydrateAssets(card); } } });
   }
   function finishRace(){
     if(!race) return;

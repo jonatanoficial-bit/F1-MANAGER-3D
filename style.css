@@ -317,3 +317,42 @@
 .race-fallback{position:absolute;inset:18%;z-index:8;display:grid;place-content:center;text-align:center;padding:24px;background:linear-gradient(135deg,#180b12e8,#10172cea);border:1px solid #ffffff22}
 .weekend-panel .primary.big{display:block;width:100%;margin:10px 0;background:linear-gradient(135deg,#b6ff35,#7fc313);color:#101827}
 .tab-content .secondary.active{outline:2px solid #b6ff35}
+
+
+/* v0.9.32 — corrida 3D beta final */
+.race-status-panel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 10px;font-family:system-ui,sans-serif;font-weight:900}
+.race-status-panel>div{background:#061027cc;border:1px solid #ffffff18;border-radius:12px;padding:8px 10px;min-width:0}
+.race-status-panel b{display:block;font-size:12px;color:#ffffff;letter-spacing:.04em}.race-status-panel span{display:block;font-size:11px;color:#c9d4ef;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.race-log-mini{grid-column:1/3;display:grid;gap:3px}.race-log-mini small{display:block;color:#ffd6d6;font-size:10px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.race-row{grid-template-columns:36px 34px 34px 1fr 58px 86px;align-items:center}
+.race-pos{display:flex;flex-direction:column;align-items:center;gap:1px}.race-pos small{font-size:9px;color:#9bff73}.race-row:not(.highlight) .race-pos small{color:#aeb8d0}
+.race-pits{font-size:10px;line-height:1.15}.driver-control button.active{outline:2px solid #b6ff35;background:linear-gradient(135deg,#c9ff4b,#608e11);color:#10131a}
+.race-fallback{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;width:min(620px,80vw);padding:28px;text-align:center}
+@media(max-width:900px){.race-status-panel{grid-template-columns:1fr}.race-log-mini{grid-column:1}.race-row{grid-template-columns:30px 30px 30px 1fr 48px 70px}.race-pits,.race-tyre{font-size:10px}}
+
+
+/* v0.9.33 — UI/UX Premium Mobile */
+:root{--safe-gap:clamp(10px,1.4vw,18px);--card-radius:20px;--touch:48px}
+button{min-height:var(--touch);-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.glass-panel{border-radius:var(--card-radius)}
+.topbar{border-radius:0 0 22px 22px;min-height:58px}
+.topbar h2{max-width:58vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hudbar{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12)}
+.hudbar>div:first-child{min-width:0}.hudbar b,.hudbar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hud-stats{min-width:0;flex-wrap:wrap;justify-content:flex-end}.hud-stats span{min-height:36px;display:flex;align-items:center}
+.tab-content{scroll-behavior:smooth;padding-bottom:22px}.cards-grid{gap:var(--safe-gap)}.dash-card{border-radius:20px;transition:transform .16s ease,border-color .16s ease,background .16s ease}.dash-card:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.26)}
+.dashboard-premium-grid .wide,.ux-coach-card{grid-column:span 2}.ux-coach-card{background:linear-gradient(135deg,rgba(var(--team-color-rgb,240,6,22),.22),rgba(12,18,36,.92));border-color:rgba(var(--team-color-rgb,240,6,22),.34)}
+.quick-action-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}.quick-action-row button{width:100%;font-size:12px;padding:10px 8px}
+.side-nav{width:96px;padding-top:58px}.dash-main{left:96px}.side-nav button{position:relative;display:flex;align-items:center;justify-content:center;font-size:23px;padding-bottom:14px}.side-nav button::after{content:attr(data-label);position:absolute;left:3px;right:3px;bottom:5px;font-family:system-ui,sans-serif;font-size:8px;font-weight:900;letter-spacing:.02em;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:currentColor;opacity:.82}.side-nav button.active::after{opacity:1}
+.team-select-grid{padding-bottom:28px}.team-card-premium{border-radius:22px}.team-stats.premium span{align-items:flex-start}.team-stats.premium b{max-width:58%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.standings-list .row,.row.rich-row{border-radius:14px}.driver-avatar-inline,.team-logo-inline{background:#090d18dd}
+.race-left,.race-right .glass-panel,.race-toolbar{backdrop-filter:blur(10px)}
+@media(max-width:900px){
+  .screen{padding:8px}.topbar{height:54px;padding:0 10px}.back{width:54px}.next{min-width:112px;font-size:14px}.topbar h2{font-size:18px;max-width:50vw}
+  .side-nav{width:72px;padding-top:52px}.dash-main{left:72px;padding:8px}.side-nav button{height:54px;min-height:54px;flex-basis:54px;font-size:20px;padding-bottom:13px}.side-nav button::after{font-size:7px;bottom:4px}
+  .hudbar{height:auto;min-height:62px;display:grid;grid-template-columns:1fr auto;gap:8px}.hudbar .primary{grid-column:1/-1;width:100%;min-height:42px}.hud-stats{gap:6px}.hud-stats span{font-size:11px;padding:6px 8px}
+  .cards-grid{grid-template-columns:1fr}.dashboard-premium-grid .wide,.ux-coach-card,.cards-grid .wide{grid-column:span 1!important}.quick-action-row{grid-template-columns:1fr 1fr}.dash-card{min-height:unset;padding:14px}.dash-card h3{font-size:21px}
+  .team-select-grid{grid-template-columns:1fr!important;height:calc(100% - 160px)!important;padding:10px}.team-card-premium{min-height:260px}.team-driver-strip{grid-template-columns:1fr 1fr}
+  .creator-grid{height:calc(100% - 62px);gap:10px}.mode-row{grid-template-columns:1fr}.home-logo-block{left:6%;top:14%;max-width:88vw}.home-actions{left:6%;right:6%;bottom:7%;width:auto}
+  .race-left{width:min(360px,54vw);left:8px;top:8px;bottom:78px}.race-right{right:8px;top:8px;bottom:78px;width:min(260px,38vw)}.race-toolbar{bottom:8px;max-width:96vw;overflow:auto}.race-toolbar button,.race-toolbar span{padding:9px 11px;min-height:40px}
+}
+@media(max-height:560px){.side-nav{padding-top:44px}.side-nav button{height:45px;min-height:45px;flex-basis:45px;font-size:18px}.side-nav button::after{display:none}.hudbar{min-height:52px}.dash-card p{font-size:12px}.quick-action-row{grid-template-columns:repeat(4,1fr)} }

@@ -9,6 +9,7 @@
 ./data/track-layouts.js
 ./docs/ASSET_MAP_REQUIRED.md
 ./docs/ASSET_PATHS_USED.md
+./docs/BALANCE_AUDIT_v0_9_31.md
 ./docs/CHANGELOG_v0_2_0.md
 ./docs/CHANGELOG_v0_4_0.md
 ./docs/CHANGELOG_v0_5_0.md
@@ -34,6 +35,9 @@
 ./docs/CHANGELOG_v0_9_28.md
 ./docs/CHANGELOG_v0_9_29.md
 ./docs/CHANGELOG_v0_9_30.md
+./docs/CHANGELOG_v0_9_31.md
+./docs/CHANGELOG_v0_9_32.md
+./docs/CHANGELOG_v0_9_33.md
 ./docs/F2_LOGOS_PENDING.md
 ./docs/PLAN_LOGOS_AVATARS_F2.md
 ./docs/ROADMAP.md

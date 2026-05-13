@@ -20,7 +20,7 @@
   <main id="app" class="app shell-bg">
     <section id="screen-home" class="screen active home-screen asset-bg" data-bg="assets/backgrounds/ui/global_lobby.png">
       <div class="dark-gradient"></div>
-      <div id="homeBuildPill" class="build-pill">Build v0.9.31 • 11/05/2026 • 20:15 BRT</div>
+      <div id="homeBuildPill" class="build-pill">Build v0.9.33 • 13/05/2026 • 16:32 BRT</div>
       <div class="home-logo-block">
         <div class="game-kicker">Vale Games apresenta</div>
         <h1>F1 MANAGER<br><span>CAREER 2026</span></h1>
@@ -63,21 +63,21 @@
 
     <section id="screen-lobby" class="screen dashboard asset-bg" data-bg="assets/backgrounds/ui/lobby_global.png">
       <div class="side-nav">
-        <button data-tab="dashboard" class="active">⌂</button>
-        <button data-tab="drivers">♟</button>
-        <button data-tab="garage">⚙</button>
-        <button data-tab="staff">☷</button>
-        <button data-tab="facilities">⌂</button>
-        <button data-tab="calendar">▦</button>
-        <button data-tab="season">📈</button>
-        <button data-tab="standings">🏆</button>
-        <button data-tab="driver-market">🧑</button>
-        <button data-tab="rivals">📡</button>
-        <button data-tab="media">📰</button>
-        <button data-tab="offers">⇄</button>
-        <button data-tab="inbox">✉</button>
-        <button data-tab="saves">💾</button>
-        <button data-tab="qa">✅</button>
+        <button data-tab="dashboard" title="Dashboard" aria-label="Dashboard" class="active">⌂</button>
+        <button data-tab="drivers" title="Pilotos" aria-label="Pilotos">♟</button>
+        <button data-tab="garage" title="Carro" aria-label="Carro">⚙</button>
+        <button data-tab="staff" title="Staff" aria-label="Staff">☷</button>
+        <button data-tab="facilities" title="Instalações" aria-label="Instalações">⌂</button>
+        <button data-tab="calendar" title="Agenda" aria-label="Agenda">▦</button>
+        <button data-tab="season" title="Temporadas" aria-label="Temporadas">📈</button>
+        <button data-tab="standings" title="Classificações" aria-label="Classificações">🏆</button>
+        <button data-tab="driver-market" title="Mercado" aria-label="Mercado">🧑</button>
+        <button data-tab="rivals" title="Rivais" aria-label="Rivais">📡</button>
+        <button data-tab="media" title="Mídia" aria-label="Mídia">📰</button>
+        <button data-tab="offers" title="Propostas" aria-label="Propostas">⇄</button>
+        <button data-tab="inbox" title="E-mails" aria-label="E-mails">✉</button>
+        <button data-tab="saves" title="Saves" aria-label="Saves">💾</button>
+        <button data-tab="qa" title="QA Beta" aria-label="QA Beta">✅</button>
       </div>
       <div class="dash-main">
         <header class="hudbar">
@@ -99,12 +99,12 @@
 
     <section id="screen-race" class="screen race-screen">
       <div id="raceCanvasWrap"><canvas id="raceCanvas"></canvas></div>
-      <aside class="race-left glass-panel"><h3 id="raceTitle">CORRIDA</h3><div id="raceBuildStamp" class="race-debug-stamp"></div><div id="raceLeaderboard"></div></aside>
+      <aside class="race-left glass-panel"><h3 id="raceTitle">CORRIDA</h3><div id="raceBuildStamp" class="race-debug-stamp"></div><div id="raceStatusPanel" class="race-status-panel"></div><div id="raceLeaderboard"></div></aside>
       <aside class="race-right">
         <article class="driver-control glass-panel" id="controlCard1"><h4 id="controlDriver1">Piloto 1</h4><div class="condition-bar"><span id="cond1"></span></div><button data-action="setPace" data-driver="0" data-pace="attack">⚡ ATAQUE</button><button data-action="setPace" data-driver="0" data-pace="normal">RITMO NORMAL</button><button data-action="setPace" data-driver="0" data-pace="save">🛞 POUPAR</button><button data-action="pitDriver" data-driver="0" class="primary">PIT STOP</button></article>
         <article class="driver-control glass-panel" id="controlCard2"><h4 id="controlDriver2">Piloto 2</h4><div class="condition-bar"><span id="cond2"></span></div><button data-action="setPace" data-driver="1" data-pace="attack">⚡ ATAQUE</button><button data-action="setPace" data-driver="1" data-pace="normal">RITMO NORMAL</button><button data-action="setPace" data-driver="1" data-pace="save">🛞 POUPAR</button><button data-action="pitDriver" data-driver="1" class="primary">PIT STOP</button></article>
       </aside>
-      <footer class="race-toolbar glass-panel"><button data-nav="lobby">☰</button><button data-action="toggleRaceSpeed">▶ x<span id="speedLabel">1</span></button><span id="lapLabel">VOLTA 1/22</span><span id="weatherLabel">☀ Seco</span><button data-action="finishRaceNow">FINALIZAR</button></footer>
+      <footer class="race-toolbar glass-panel"><button data-nav="lobby">☰</button><button data-action="toggleRaceSpeed">▶ x<span id="speedLabel">1</span></button><button data-action="toggleRaceCamera">CÂMERA</button><span id="lapLabel">VOLTA 1/22</span><span id="weatherLabel">☀ Seco</span><button data-action="finishRaceNow">FINALIZAR</button></footer>
     </section>
 
     <section id="screen-results" class="screen asset-bg" data-bg="assets/backgrounds/podium/podium_base.png">
@@ -122,7 +122,7 @@
       <header class="topbar"><button class="back" data-nav="home">‹</button><h2>CHECKLIST DE CHECK ASSETS</h2></header>
       <div class="asset-check glass-panel"><p>Este build não inclui assets pesados. Extraia os ZIPs de assets na raiz do projeto para formar a pasta <b>assets/</b>.</p><div id="assetChecklist"></div></div>
     </section>
-      <div id="globalBuildStamp" class="global-build-stamp">Build v0.9.31 • 11/05/2026 • 20:15 BRT</div>
+      <div id="globalBuildStamp" class="global-build-stamp">Build v0.9.33 • 13/05/2026 • 16:32 BRT</div>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
