@@ -1,11 +1,11 @@
 window.F1M_DATA = {
   "build": {
-    "version": "0.9.33",
+    "version": "0.9.34",
     "date": "13/05/2026",
-    "time_brt": "16:32",
+    "time_brt": "18:00",
     "timezone": "America/Sao_Paulo",
-    "label": "Build v0.9.33 • 13/05/2026 • 16:32 BRT",
-    "iso": "2026-05-13T16:32:00-03:00"
+    "label": "Build v0.9.34 • 13/05/2026 • 18:00 BRT",
+    "iso": "2026-05-13T18:00:00-03:00"
   },
   "assetPaths": {
     "menu": "backgrounds/ui/global_lobby.png",
@@ -418,7 +418,7 @@ window.F1M_DATA = {
       "rain": 82,
       "potential": 96,
       "salary": 9000000,
-      "portrait": "drivers/current_grid/andrea_antonelli.png"
+      "portrait": "assets/drivers/current_grid/andrea_antonelli.png"
     },
     {
       "name": "George Russell",
@@ -434,7 +434,7 @@ window.F1M_DATA = {
       "rain": 85,
       "potential": 91,
       "salary": 16000000,
-      "portrait": "drivers/current_grid/george_russell.png"
+      "portrait": "assets/drivers/current_grid/george_russell.png"
     },
     {
       "name": "Charles Leclerc",
@@ -450,7 +450,7 @@ window.F1M_DATA = {
       "rain": 84,
       "potential": 93,
       "salary": 26000000,
-      "portrait": "drivers/current_grid/charles_leclerc.png"
+      "portrait": "assets/drivers/current_grid/charles_leclerc.png"
     },
     {
       "name": "Lewis Hamilton",
@@ -466,7 +466,7 @@ window.F1M_DATA = {
       "rain": 93,
       "potential": 90,
       "salary": 30000000,
-      "portrait": "drivers/current_grid/lewis_hamilton.png"
+      "portrait": "assets/drivers/current_grid/lewis_hamilton.png"
     },
     {
       "name": "Lando Norris",
@@ -482,7 +482,7 @@ window.F1M_DATA = {
       "rain": 87,
       "potential": 94,
       "salary": 22000000,
-      "portrait": "drivers/current_grid/lando_norris.png"
+      "portrait": "assets/drivers/current_grid/lando_norris.png"
     },
     {
       "name": "Oscar Piastri",
@@ -498,7 +498,7 @@ window.F1M_DATA = {
       "rain": 83,
       "potential": 95,
       "salary": 18000000,
-      "portrait": "drivers/current_grid/oscar_piastri.png"
+      "portrait": "assets/drivers/current_grid/oscar_piastri.png"
     },
     {
       "name": "Oliver Bearman",
@@ -514,7 +514,7 @@ window.F1M_DATA = {
       "rain": 74,
       "potential": 90,
       "salary": 3000000,
-      "portrait": "drivers/current_grid/oliver_bearman.png"
+      "portrait": "assets/drivers/current_grid/oliver_bearman.png"
     },
     {
       "name": "Pierre Gasly",
@@ -530,7 +530,7 @@ window.F1M_DATA = {
       "rain": 82,
       "potential": 86,
       "salary": 9000000,
-      "portrait": "drivers/current_grid/pierre_gasly.png"
+      "portrait": "assets/drivers/current_grid/pierre_gasly.png"
     },
     {
       "name": "Max Verstappen",
@@ -546,7 +546,7 @@ window.F1M_DATA = {
       "rain": 96,
       "potential": 97,
       "salary": 45000000,
-      "portrait": "drivers/current_grid/max_verstappen.png"
+      "portrait": "assets/drivers/current_grid/max_verstappen.png"
     },
     {
       "name": "Liam Lawson",
@@ -562,7 +562,7 @@ window.F1M_DATA = {
       "rain": 78,
       "potential": 88,
       "salary": 3500000,
-      "portrait": "drivers/current_grid/liam_lawson.png"
+      "portrait": "assets/drivers/current_grid/liam_lawson.png"
     },
     {
       "name": "Arvid Lindblad",
@@ -578,7 +578,7 @@ window.F1M_DATA = {
       "rain": 73,
       "potential": 92,
       "salary": 2000000,
-      "portrait": "drivers/current_grid/arvid_lindblad.png"
+      "portrait": "assets/drivers/current_grid/arvid_lindblad.png"
     },
     {
       "name": "Isack Hadjar",
@@ -594,7 +594,7 @@ window.F1M_DATA = {
       "rain": 80,
       "potential": 91,
       "salary": 4500000,
-      "portrait": "drivers/current_grid/isack_hadjar.png"
+      "portrait": "assets/drivers/current_grid/isack_hadjar.png"
     },
     {
       "name": "Gabriel Bortoleto",
@@ -610,7 +610,7 @@ window.F1M_DATA = {
       "rain": 79,
       "potential": 92,
       "salary": 4000000,
-      "portrait": "drivers/current_grid/gabriel_bortoleto.png"
+      "portrait": "assets/drivers/current_grid/gabriel_bortoleto.png"
     },
     {
       "name": "Carlos Sainz Jr.",
@@ -626,7 +626,7 @@ window.F1M_DATA = {
       "rain": 84,
       "potential": 88,
       "salary": 14000000,
-      "portrait": "drivers/current_grid/carlos_sainz_jr.png"
+      "portrait": "assets/drivers/current_grid/carlos_sainz_jr.png"
     },
     {
       "name": "Esteban Ocon",
@@ -642,7 +642,7 @@ window.F1M_DATA = {
       "rain": 80,
       "potential": 84,
       "salary": 7000000,
-      "portrait": "drivers/current_grid/esteban_ocon.png"
+      "portrait": "assets/drivers/current_grid/esteban_ocon.png"
     },
     {
       "name": "Franco Colapinto",
@@ -658,7 +658,7 @@ window.F1M_DATA = {
       "rain": 76,
       "potential": 90,
       "salary": 3500000,
-      "portrait": "drivers/current_grid/franco_colapinto.png"
+      "portrait": "assets/drivers/current_grid/franco_colapinto.png"
     },
     {
       "name": "Nico Hulkenberg",
@@ -674,7 +674,7 @@ window.F1M_DATA = {
       "rain": 82,
       "potential": 82,
       "salary": 6000000,
-      "portrait": "drivers/current_grid/nico_hulkenberg.png"
+      "portrait": "assets/drivers/current_grid/nico_hulkenberg.png"
     },
     {
       "name": "Alex Albon",
@@ -690,7 +690,7 @@ window.F1M_DATA = {
       "rain": 82,
       "potential": 86,
       "salary": 8000000,
-      "portrait": "drivers/current_grid/alex_albon.png"
+      "portrait": "assets/drivers/current_grid/alex_albon.png"
     },
     {
       "name": "Valtteri Bottas",
@@ -706,7 +706,7 @@ window.F1M_DATA = {
       "rain": 80,
       "potential": 83,
       "salary": 7000000,
-      "portrait": "drivers/current_grid/valtteri_bottas.png"
+      "portrait": "assets/drivers/current_grid/valtteri_bottas.png"
     },
     {
       "name": "Sergio Perez",
@@ -722,7 +722,7 @@ window.F1M_DATA = {
       "rain": 82,
       "potential": 84,
       "salary": 9000000,
-      "portrait": "drivers/current_grid/sergio_perez.png"
+      "portrait": "assets/drivers/current_grid/sergio_perez.png"
     },
     {
       "name": "Fernando Alonso",
@@ -738,7 +738,7 @@ window.F1M_DATA = {
       "rain": 88,
       "potential": 88,
       "salary": 16000000,
-      "portrait": "drivers/current_grid/fernando_alonso.png"
+      "portrait": "assets/drivers/current_grid/fernando_alonso.png"
     },
     {
       "name": "Lance Stroll",
@@ -754,7 +754,7 @@ window.F1M_DATA = {
       "rain": 78,
       "potential": 82,
       "salary": 8000000,
-      "portrait": "drivers/current_grid/lance_stroll.png"
+      "portrait": "assets/drivers/current_grid/lance_stroll.png"
     }
   ],
   "f2Teams": [

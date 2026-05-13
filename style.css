@@ -356,3 +356,10 @@ button{min-height:var(--touch);-webkit-tap-highlight-color:transparent;touch-act
   .race-left{width:min(360px,54vw);left:8px;top:8px;bottom:78px}.race-right{right:8px;top:8px;bottom:78px;width:min(260px,38vw)}.race-toolbar{bottom:8px;max-width:96vw;overflow:auto}.race-toolbar button,.race-toolbar span{padding:9px 11px;min-height:40px}
 }
 @media(max-height:560px){.side-nav{padding-top:44px}.side-nav button{height:45px;min-height:45px;flex-basis:45px;font-size:18px}.side-nav button::after{display:none}.hudbar{min-height:52px}.dash-card p{font-size:12px}.quick-action-row{grid-template-columns:repeat(4,1fr)} }
+
+
+/* v0.9.34 — Data Lock */
+.data-lock-grid .asset-path-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
+.data-lock-grid code{display:block;white-space:normal;word-break:break-word;background:#060b18cc;border:1px solid #ffffff18;border-radius:10px;padding:9px 10px;color:#e7edff;font-family:ui-monospace,Consolas,monospace;font-size:12px}
+.data-lock-grid .qa-ok{border-left:3px solid #b6ff35}.data-lock-grid .qa-warn{border-left:3px solid #ffd233}
+@media(max-width:900px){.data-lock-grid .asset-path-list{grid-template-columns:1fr}}

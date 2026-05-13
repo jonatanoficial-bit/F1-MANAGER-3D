@@ -450,7 +450,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.33 • 13/05/2026 • 16:32 BRT';
+    const label = b.label || 'Build v0.9.34 • 13/05/2026 • 18:00 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -503,7 +503,7 @@
     const labels = {
       dashboard:'Dashboard', drivers:'Pilotos', garage:'Carro', staff:'Staff', facilities:'Base', calendar:'Agenda',
       season:'Temporadas', standings:'Tabelas', 'driver-market':'Mercado', rivals:'Rivais', media:'Mídia',
-      offers:'Propostas', inbox:'E-mails', saves:'Saves', qa:'QA'
+      offers:'Propostas', inbox:'E-mails', saves:'Saves', 'data-lock':'Dados', qa:'QA'
     };
     $$('.side-nav button[data-tab]').forEach(btn => {
       const label = labels[btn.dataset.tab] || btn.dataset.tab;
@@ -752,6 +752,7 @@
         <article class="dash-card glass-panel"><h3>Caixa de E-mails</h3><p>${unread ? `<b>${unread} mensagem(ns) nova(s)</b>` : 'Nenhuma mensagem não lida.'}</p><p>Convites, relatórios da diretoria e atualizações de agenda aparecem aqui.</p><button class="secondary" data-tab="inbox">ABRIR E-MAILS</button></article>
         <article class="dash-card glass-panel"><h3>Mídia e Moral</h3><p>Imprensa: <b>${mediaMoodLabel(state.pressReputation)}</b></p><p>Moral: <b>${moraleLabel(state.teamMorale)}</b> • Pressão: <b>${pressureLabel(state.boardPressure)}</b></p><button class="secondary" data-tab="media">ABRIR PADDOCK</button></article>
         <article class="dash-card glass-panel"><h3>Beta jogável</h3><p>Dificuldade: <b>${difficultyLabel()}</b></p><p>Score QA: <b>${state.quality?.betaScore || betaReadinessScore()}/100</b></p><button class="secondary" data-tab="qa">ABRIR QA</button></article>
+        <article class="dash-card glass-panel"><h3>Data Lock</h3><p>Conteúdo oficial: <b>${dataLockScore()}/100</b></p><p>Equipes, pilotos, calendário, assets e economia congelados para beta.</p><button class="secondary" data-tab="data-lock">VER DADOS</button></article>
         <article class="dash-card glass-panel"><h3>Balanceamento</h3><p>${balanceSummary()}</p><p>Objetivo esperado: melhor resultado até P${objectiveExpectedBest(team)}.</p><button class="secondary" data-tab="qa">AJUSTAR DIFICULDADE</button></article>
         <article class="dash-card glass-panel"><h3>Metas da Diretoria</h3><p>${team.objective || 'Pontuar e evoluir a equipe.'}</p><div class="progress"><i style="width:${Math.min(100,state.reputation)}%"></i></div><p>Reputação ${Math.round(state.reputation)}/100</p></article>
         <article class="dash-card glass-panel wide sponsor-card"><h3>Patrocinadores</h3><p>${state.sponsor ? 'Contrato ativo: ' + state.sponsor.name : 'Escolha um patrocinador principal. Metas geram bônus por corrida.'}</p>${sponsorButtons()}</article>
@@ -858,6 +859,19 @@
     }
 
 
+    if(tab === 'data-lock'){
+      ensureCareerSystems();
+      content.innerHTML = `<div class="cards-grid data-lock-grid">
+        <article class="dash-card glass-panel wide"><h3>Data Lock / Conteúdo Final</h3><p>Esta área congela os dados oficiais do beta: equipes, pilotos, calendário, pontuação, caminhos de assets, overalls, salários, valores de mercado e metas de diretoria.</p><p>Score de consistência: <b>${dataLockScore()}/100</b> • Build ${DATA.build?.version || '0.9.34'}</p></article>
+        <article class="dash-card glass-panel"><h3>Grid oficial</h3>${dataLockGridSummary()}</article>
+        <article class="dash-card glass-panel"><h3>Assets oficiais</h3>${dataLockAssetSummary()}</article>
+        <article class="dash-card glass-panel"><h3>Economia e atributos</h3>${dataLockEconomySummary()}</article>
+        <article class="dash-card glass-panel wide"><h3>Checklist Data Lock</h3><div class="standings-list rich-standings qa-list">${dataLockChecklistRows()}</div></article>
+        <article class="dash-card glass-panel wide"><h3>Caminhos críticos preservados</h3>${dataLockPathRows()}</article>
+      </div>`;
+    }
+
+
     if(tab === 'qa'){
       ensureCareerSystems();
       content.innerHTML = `<div class="cards-grid qa-grid">
@@ -884,6 +898,55 @@
   }
 
 
+
+  function dataLockTeams(){ return DATA.f1Teams2026.concat(DATA.f2Teams); }
+  function dataLockDrivers(){ return DATA.f1Drivers2026.concat(DATA.f2Drivers); }
+  function dataLockChecks(){
+    const teams = dataLockTeams();
+    const drivers = dataLockDrivers();
+    const calendar = DATA.calendar2026 || [];
+    const teamIds = new Set(teams.map(t=>t.id));
+    const uniqueDrivers = new Set(drivers.map(d=>d.short));
+    const checks = [
+      {name:'Equipes F1', ok:(DATA.f1Teams2026||[]).length===11, fix:'deve conter 11 equipes F1'},
+      {name:'Pilotos F1', ok:(DATA.f1Drivers2026||[]).length===22, fix:'deve conter 22 pilotos F1'},
+      {name:'Equipes F2', ok:(DATA.f2Teams||[]).length===11, fix:'deve conter 11 equipes F2'},
+      {name:'Pilotos F2', ok:(DATA.f2Drivers||[]).length===22, fix:'deve conter 22 pilotos F2'},
+      {name:'Pilotos por equipe', ok:teams.every(t => driversForTeam(t.id).length>=2), fix:'cada equipe precisa de 2 pilotos vinculados'},
+      {name:'IDs únicos de pilotos', ok:uniqueDrivers.size===drivers.length, fix:'pilotos não podem repetir short id'},
+      {name:'Logos de equipes', ok:teams.every(t => !!t.logo && String(t.logo).startsWith('assets/teams/logos')), fix:'cada equipe precisa de logo no caminho oficial'},
+      {name:'Avatares de pilotos', ok:drivers.every(d => !!d.portrait && String(d.portrait).startsWith('assets/drivers/')), fix:'cada piloto precisa de avatar/portrait mapeado'},
+      {name:'Calendário', ok:calendar.length>=20 && calendar.every(r => r.name && r.country && r.svgLayout), fix:'calendário precisa de GPs com país/bandeira e SVG'},
+      {name:'Pontuação', ok:Array.isArray(DATA.points) && DATA.points.length>=10, fix:'tabela de pontos precisa estar definida'},
+      {name:'Atributos de pilotos', ok:drivers.every(d => ['overall','speed','consistency','experience','aggression','rain','potential','salary'].every(k => Number.isFinite(Number(d[k])))), fix:'pilotos precisam de atributos numéricos completos'},
+      {name:'Atributos de carros', ok:teams.every(t => t.car && ['aero','engine','chassis','reliability','tyreWear','pitStop'].every(k => Number.isFinite(Number(t.car[k])))), fix:'equipes precisam de atributos técnicos completos'},
+      {name:'Metas e orçamento', ok:teams.every(t => t.objective && Number(t.budget)>0 && Number(t.reputation)>0), fix:'equipes precisam de meta, orçamento e reputação'},
+      {name:'Patrocinadores', ok:(DATA.sponsors||[]).length>=5 && DATA.sponsors.every(s => s.name && Number(s.advance)>0 && s.goal), fix:'patrocinadores precisam de nome, meta e adiantamento'}
+    ];
+    return checks;
+  }
+  function dataLockScore(){ const checks=dataLockChecks(); return Math.round(100*checks.filter(c=>c.ok).length/checks.length); }
+  function dataLockChecklistRows(){ return dataLockChecks().map(c=>`<div class="row rich-row ${c.ok?'qa-ok':'qa-warn'}"><span>${c.ok?'✓':'!'}</span><span><b>${c.name}</b><small>${c.ok?'OK':'Verificar: '+c.fix}</small></span><span>${c.ok?'Travado':'Pendente'}</span><span>${c.ok?'Beta':'Corrigir'}</span></div>`).join(''); }
+  function dataLockGridSummary(){
+    return `<p>F1: <b>${DATA.f1Teams2026.length} equipes</b> / <b>${DATA.f1Drivers2026.length} pilotos</b></p><p>F2: <b>${DATA.f2Teams.length} equipes</b> / <b>${DATA.f2Drivers.length} pilotos</b></p><p>Calendário: <b>${DATA.calendar2026.length} GPs</b></p><p>Pontuação: <b>${DATA.points.join('-')}</b></p>`;
+  }
+  function dataLockAssetSummary(){
+    const f1Logo = DATA.f1Teams2026.every(t=>String(t.logo||'').startsWith('assets/teams/logos/'));
+    const f2Logo = DATA.f2Teams.every(t=>String(t.logo||'').startsWith('assets/teams/logos/f2/'));
+    const f1Avatar = DATA.f1Drivers2026.every(d=>String(d.portrait||'').startsWith('assets/drivers/current_grid/'));
+    const f2Avatar = DATA.f2Drivers.every(d=>String(d.portrait||'').startsWith('assets/drivers/avatars/f2/'));
+    return `<p>Logos F1: <b>${f1Logo?'OK':'verificar'}</b></p><p>Logos F2: <b>${f2Logo?'OK':'verificar'}</b></p><p>Avatares F1: <b>${f1Avatar?'OK':'verificar'}</b></p><p>Avatares F2: <b>${f2Avatar?'OK':'verificar'}</b></p>`;
+  }
+  function dataLockEconomySummary(){
+    const drivers=dataLockDrivers(); const values=drivers.map(d=>driverMarketValue(d));
+    const avgOverall=Math.round(drivers.reduce((s,d)=>s+(Number(d.overall)||0),0)/Math.max(1,drivers.length));
+    const avgValue=Math.round(values.reduce((s,v)=>s+v,0)/Math.max(1,values.length));
+    return `<p>Overall médio: <b>${avgOverall}</b></p><p>Valor médio de mercado: <b>${money(avgValue)}</b></p><p>Patrocinadores: <b>${DATA.sponsors.length}</b></p><p>Dificuldade atual: <b>${difficultyLabel()}</b></p>`;
+  }
+  function dataLockPathRows(){
+    const paths=['assets/teams/logos/','assets/teams/logos/f2/','assets/drivers/current_grid/','assets/drivers/avatars/f2/','assets/backgrounds/','assets/icons/','assets/flags/all/','assets/tracks/svg/'];
+    return `<div class="asset-path-list">${paths.map(p=>`<code>${p}</code>`).join('')}</div>`;
+  }
 
   function slotKey(n){ return `f1_manager_career_2026_slot_${n}`; }
   function saveSlotCard(n){

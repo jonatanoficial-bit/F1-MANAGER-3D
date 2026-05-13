@@ -1,0 +1,940 @@
+{
+  "build": {
+    "version": "0.9.34",
+    "date": "13/05/2026",
+    "time_brt": "18:00",
+    "timezone": "America/Sao_Paulo",
+    "label": "Build v0.9.34 • 13/05/2026 • 18:00 BRT",
+    "iso": "2026-05-13T18:00:00-03:00"
+  },
+  "score": 100,
+  "counts": {
+    "f1Teams": 11,
+    "f1Drivers": 22,
+    "f2Teams": 11,
+    "f2Drivers": 22,
+    "calendar": 25,
+    "sponsors": 6
+  },
+  "officialPaths": {
+    "f1Logos": "assets/teams/logos/",
+    "f2Logos": "assets/teams/logos/f2/",
+    "f1Avatars": "assets/drivers/current_grid/",
+    "f2Avatars": "assets/drivers/avatars/f2/",
+    "backgrounds": "assets/backgrounds/",
+    "icons": "assets/icons/",
+    "flags": "assets/flags/all/"
+  },
+  "checks": [
+    {
+      "name": "Equipes F1",
+      "pass": true,
+      "detail": "11/11"
+    },
+    {
+      "name": "Pilotos F1",
+      "pass": true,
+      "detail": "22/22"
+    },
+    {
+      "name": "Equipes F2",
+      "pass": true,
+      "detail": "11/11"
+    },
+    {
+      "name": "Pilotos F2",
+      "pass": true,
+      "detail": "22/22"
+    },
+    {
+      "name": "Pilotos por equipe",
+      "pass": true,
+      "detail": ">=2 por equipe"
+    },
+    {
+      "name": "Logos equipes",
+      "pass": true,
+      "detail": "caminho oficial"
+    },
+    {
+      "name": "Avatares pilotos",
+      "pass": true,
+      "detail": "caminho oficial"
+    },
+    {
+      "name": "Calendario",
+      "pass": true,
+      "detail": "25 GPs com país/bandeira"
+    },
+    {
+      "name": "Pontuacao",
+      "pass": true,
+      "detail": "25-18-15-12-10-8-6-4-2-1"
+    },
+    {
+      "name": "Atributos pilotos",
+      "pass": true,
+      "detail": "completos"
+    },
+    {
+      "name": "Atributos carros",
+      "pass": true,
+      "detail": "completos"
+    },
+    {
+      "name": "Patrocinadores",
+      "pass": true,
+      "detail": "6 ativos"
+    }
+  ],
+  "teams": [
+    {
+      "id": "mercedes",
+      "name": "Mercedes",
+      "series": "F1",
+      "logo": "assets/teams/logos/mercedes.png",
+      "budget": 185000000,
+      "reputation": 91,
+      "objective": "Brigar por vitórias e título"
+    },
+    {
+      "id": "ferrari",
+      "name": "Ferrari",
+      "series": "F1",
+      "logo": "assets/teams/logos/ferrari.png",
+      "budget": 190000000,
+      "reputation": 93,
+      "objective": "Disputar o título mundial"
+    },
+    {
+      "id": "red_bull",
+      "name": "Red Bull Racing",
+      "series": "F1",
+      "logo": "assets/teams/logos/red_bull.png",
+      "budget": 195000000,
+      "reputation": 95,
+      "objective": "Vencer corridas e disputar títulos"
+    },
+    {
+      "id": "mclaren",
+      "name": "McLaren",
+      "series": "F1",
+      "logo": "assets/teams/logos/mclaren.png",
+      "budget": 188000000,
+      "reputation": 94,
+      "objective": "Vencer corridas e disputar títulos"
+    },
+    {
+      "id": "aston_martin",
+      "name": "Aston Martin Racing",
+      "series": "F1",
+      "logo": "assets/teams/logos/aston_martin.png",
+      "budget": 145000000,
+      "reputation": 86,
+      "objective": "Brigar por pódios"
+    },
+    {
+      "id": "alpine",
+      "name": "Alpine",
+      "series": "F1",
+      "logo": "assets/teams/logos/alpine.png",
+      "budget": 112000000,
+      "reputation": 78,
+      "objective": "Pontuar regularmente"
+    },
+    {
+      "id": "williams",
+      "name": "Williams",
+      "series": "F1",
+      "logo": "assets/teams/logos/williams.png",
+      "budget": 105000000,
+      "reputation": 76,
+      "objective": "Evoluir o carro e pontuar"
+    },
+    {
+      "id": "haas",
+      "name": "Haas F1 Team",
+      "series": "F1",
+      "logo": "assets/teams/logos/haas.png",
+      "budget": 98000000,
+      "reputation": 74,
+      "objective": "Pontuar ocasionalmente"
+    },
+    {
+      "id": "audi",
+      "name": "Audi",
+      "series": "F1",
+      "logo": "assets/teams/logos/audi.png",
+      "budget": 125000000,
+      "reputation": 77,
+      "objective": "Construir base competitiva"
+    },
+    {
+      "id": "cadillac",
+      "name": "Cadillac-Ferrari",
+      "series": "F1",
+      "logo": "assets/teams/logos/cadillac.png",
+      "budget": 118000000,
+      "reputation": 73,
+      "objective": "Estrear com evolução constante"
+    },
+    {
+      "id": "racing_bulls",
+      "name": "RB",
+      "series": "F1",
+      "logo": "assets/teams/logos/racing_bulls.png",
+      "budget": 102000000,
+      "reputation": 75,
+      "objective": "Desenvolver jovens pilotos e pontuar"
+    },
+    {
+      "id": "campos",
+      "name": "Campos Racing",
+      "series": "F2",
+      "logo": "assets/teams/logos/f2/campos_racing.png",
+      "budget": 4200000,
+      "reputation": 50,
+      "objective": "Meio do grid"
+    },
+    {
+      "id": "mp",
+      "name": "MP Motorsport",
+      "series": "F2",
+      "logo": "assets/teams/logos/f2/mp_motorsport.png",
+      "budget": 5200000,
+      "reputation": 63,
+      "objective": "Brigar por pódios"
+    },
+    {
+      "id": "invicta",
+      "name": "Invicta Racing",
+      "series": "F2",
+      "logo": "assets/teams/logos/f2/invicta_racing.png",
+      "budget": 6200000,
+      "reputation": 72,
+      "objective": "Brigar por vitórias"
+    },
+    {
+      "id": "trident",
+      "name": "Trident",
+      "series": "F2",
+      "logo": "assets/teams/logos/f2/trident.png",
+      "budget": 5600000,
+      "reputation": 65,
+      "objective": "Top 5 de construtores"
+    },
+    {
+      "id": "hitech",
+      "name": "HitechGP",
+      "series": "F2",
+      "logo": "assets/teams/logos/f2/hitech_gp.png",
+      "budget": 5100000,
+      "reputation": 60,
+      "objective": "Pontuar sempre"
+    },
+    {
+      "id": "dams",
+      "name": "DAMS Lucas Oil",
+      "series": "F2",
+      "logo": "assets/teams/logos/f2/dams_lucas_oil.png",
+      "budget": 5000000,
+      "reputation": 58,
+      "objective": "Top 8"
+    },
+    {
+      "id": "art",
+      "name": "ART Grand Prix",
+      "series": "F2",
+      "logo": "assets/teams/logos/f2/art_grand_prix.png",
+      "budget": 6500000,
+      "reputation": 74,
+      "objective": "Disputar o título"
+    },
+    {
+      "id": "rodin",
+      "name": "Rodin Motorsport",
+      "series": "F2",
+      "logo": "assets/teams/logos/f2/rodin_motorsport.png",
+      "budget": 4700000,
+      "reputation": 55,
+      "objective": "Evoluir jovens pilotos"
+    },
+    {
+      "id": "prema",
+      "name": "Prema Powerteam",
+      "series": "F2",
+      "logo": "assets/teams/logos/f2/prema_racing.png",
+      "budget": 6800000,
+      "reputation": 76,
+      "objective": "Disputar vitórias"
+    },
+    {
+      "id": "var",
+      "name": "Van Amersfoort Racing",
+      "series": "F2",
+      "logo": "assets/teams/logos/f2/van_amersfoort_racing.png",
+      "budget": 4300000,
+      "reputation": 51,
+      "objective": "Pontuar com regularidade"
+    },
+    {
+      "id": "aix",
+      "name": "AIX Racing",
+      "series": "F2",
+      "logo": "assets/teams/logos/f2/aix_racing.png",
+      "budget": 3900000,
+      "reputation": 47,
+      "objective": "Evitar últimas posições"
+    }
+  ],
+  "drivers": [
+    {
+      "name": "Andrea Kimi Antonelli",
+      "short": "A. Antonelli",
+      "team": "mercedes",
+      "portrait": "assets/drivers/current_grid/andrea_antonelli.png",
+      "overall": 86,
+      "potential": 96,
+      "salary": 9000000
+    },
+    {
+      "name": "George Russell",
+      "short": "G. Russell",
+      "team": "mercedes",
+      "portrait": "assets/drivers/current_grid/george_russell.png",
+      "overall": 88,
+      "potential": 91,
+      "salary": 16000000
+    },
+    {
+      "name": "Charles Leclerc",
+      "short": "C. Leclerc",
+      "team": "ferrari",
+      "portrait": "assets/drivers/current_grid/charles_leclerc.png",
+      "overall": 91,
+      "potential": 93,
+      "salary": 26000000
+    },
+    {
+      "name": "Lewis Hamilton",
+      "short": "L. Hamilton",
+      "team": "ferrari",
+      "portrait": "assets/drivers/current_grid/lewis_hamilton.png",
+      "overall": 90,
+      "potential": 90,
+      "salary": 30000000
+    },
+    {
+      "name": "Lando Norris",
+      "short": "L. Norris",
+      "team": "mclaren",
+      "portrait": "assets/drivers/current_grid/lando_norris.png",
+      "overall": 91,
+      "potential": 94,
+      "salary": 22000000
+    },
+    {
+      "name": "Oscar Piastri",
+      "short": "O. Piastri",
+      "team": "mclaren",
+      "portrait": "assets/drivers/current_grid/oscar_piastri.png",
+      "overall": 90,
+      "potential": 95,
+      "salary": 18000000
+    },
+    {
+      "name": "Oliver Bearman",
+      "short": "O. Bearman",
+      "team": "haas",
+      "portrait": "assets/drivers/current_grid/oliver_bearman.png",
+      "overall": 78,
+      "potential": 90,
+      "salary": 3000000
+    },
+    {
+      "name": "Pierre Gasly",
+      "short": "P. Gasly",
+      "team": "alpine",
+      "portrait": "assets/drivers/current_grid/pierre_gasly.png",
+      "overall": 84,
+      "potential": 86,
+      "salary": 9000000
+    },
+    {
+      "name": "Max Verstappen",
+      "short": "M. Verstappen",
+      "team": "red_bull",
+      "portrait": "assets/drivers/current_grid/max_verstappen.png",
+      "overall": 96,
+      "potential": 97,
+      "salary": 45000000
+    },
+    {
+      "name": "Liam Lawson",
+      "short": "L. Lawson",
+      "team": "racing_bulls",
+      "portrait": "assets/drivers/current_grid/liam_lawson.png",
+      "overall": 80,
+      "potential": 88,
+      "salary": 3500000
+    },
+    {
+      "name": "Arvid Lindblad",
+      "short": "A. Lindblad",
+      "team": "racing_bulls",
+      "portrait": "assets/drivers/current_grid/arvid_lindblad.png",
+      "overall": 76,
+      "potential": 92,
+      "salary": 2000000
+    },
+    {
+      "name": "Isack Hadjar",
+      "short": "I. Hadjar",
+      "team": "red_bull",
+      "portrait": "assets/drivers/current_grid/isack_hadjar.png",
+      "overall": 81,
+      "potential": 91,
+      "salary": 4500000
+    },
+    {
+      "name": "Gabriel Bortoleto",
+      "short": "G. Bortoleto",
+      "team": "audi",
+      "portrait": "assets/drivers/current_grid/gabriel_bortoleto.png",
+      "overall": 80,
+      "potential": 92,
+      "salary": 4000000
+    },
+    {
+      "name": "Carlos Sainz Jr.",
+      "short": "C. Sainz Jr.",
+      "team": "williams",
+      "portrait": "assets/drivers/current_grid/carlos_sainz_jr.png",
+      "overall": 87,
+      "potential": 88,
+      "salary": 14000000
+    },
+    {
+      "name": "Esteban Ocon",
+      "short": "E. Ocon",
+      "team": "haas",
+      "portrait": "assets/drivers/current_grid/esteban_ocon.png",
+      "overall": 83,
+      "potential": 84,
+      "salary": 7000000
+    },
+    {
+      "name": "Franco Colapinto",
+      "short": "F. Colapinto",
+      "team": "alpine",
+      "portrait": "assets/drivers/current_grid/franco_colapinto.png",
+      "overall": 79,
+      "potential": 90,
+      "salary": 3500000
+    },
+    {
+      "name": "Nico Hulkenberg",
+      "short": "N. Hulkenberg",
+      "team": "audi",
+      "portrait": "assets/drivers/current_grid/nico_hulkenberg.png",
+      "overall": 82,
+      "potential": 82,
+      "salary": 6000000
+    },
+    {
+      "name": "Alex Albon",
+      "short": "A. Albon",
+      "team": "williams",
+      "portrait": "assets/drivers/current_grid/alex_albon.png",
+      "overall": 84,
+      "potential": 86,
+      "salary": 8000000
+    },
+    {
+      "name": "Valtteri Bottas",
+      "short": "V. Bottas",
+      "team": "cadillac",
+      "portrait": "assets/drivers/current_grid/valtteri_bottas.png",
+      "overall": 83,
+      "potential": 83,
+      "salary": 7000000
+    },
+    {
+      "name": "Sergio Perez",
+      "short": "S. Perez",
+      "team": "cadillac",
+      "portrait": "assets/drivers/current_grid/sergio_perez.png",
+      "overall": 84,
+      "potential": 84,
+      "salary": 9000000
+    },
+    {
+      "name": "Fernando Alonso",
+      "short": "F. Alonso",
+      "team": "aston_martin",
+      "portrait": "assets/drivers/current_grid/fernando_alonso.png",
+      "overall": 88,
+      "potential": 88,
+      "salary": 16000000
+    },
+    {
+      "name": "Lance Stroll",
+      "short": "L. Stroll",
+      "team": "aston_martin",
+      "portrait": "assets/drivers/current_grid/lance_stroll.png",
+      "overall": 79,
+      "potential": 82,
+      "salary": 8000000
+    },
+    {
+      "name": "Nikola Tsolov",
+      "short": "N. Tsolov",
+      "team": "campos",
+      "portrait": "assets/drivers/avatars/f2/nikola_tsolov.png",
+      "overall": 72,
+      "potential": 88,
+      "salary": 782000
+    },
+    {
+      "name": "Gabriele Minì",
+      "short": "G. Minì",
+      "team": "mp",
+      "portrait": "assets/drivers/avatars/f2/gabriele_mini.png",
+      "overall": 74,
+      "potential": 89,
+      "salary": 794000
+    },
+    {
+      "name": "Rafael Câmara",
+      "short": "R. Câmara",
+      "team": "invicta",
+      "portrait": "assets/drivers/avatars/f2/rafael_camara.png",
+      "overall": 76,
+      "potential": 92,
+      "salary": 806000
+    },
+    {
+      "name": "Laurens Van Hoepen",
+      "short": "L. Van Hoepen",
+      "team": "trident",
+      "portrait": "assets/drivers/avatars/f2/laurens_van_hoepen.png",
+      "overall": 70,
+      "potential": 84,
+      "salary": 770000
+    },
+    {
+      "name": "Ritomo Miyata",
+      "short": "R. Miyata",
+      "team": "hitech",
+      "portrait": "assets/drivers/avatars/f2/ritomo_miyata.png",
+      "overall": 71,
+      "potential": 82,
+      "salary": 776000
+    },
+    {
+      "name": "Dino Beganovic",
+      "short": "D. Beganovic",
+      "team": "dams",
+      "portrait": "assets/drivers/avatars/f2/dino_beganovic.png",
+      "overall": 73,
+      "potential": 87,
+      "salary": 788000
+    },
+    {
+      "name": "Noel León",
+      "short": "N. León",
+      "team": "campos",
+      "portrait": "assets/drivers/avatars/f2/noel_leon.png",
+      "overall": 69,
+      "potential": 83,
+      "salary": 764000
+    },
+    {
+      "name": "Joshua Dürksen",
+      "short": "J. Dürksen",
+      "team": "invicta",
+      "portrait": "assets/drivers/avatars/f2/joshua_duerksen.png",
+      "overall": 72,
+      "potential": 84,
+      "salary": 782000
+    },
+    {
+      "name": "Tasanapol Inthraphuvasak",
+      "short": "T. Inthraphuvasak",
+      "team": "art",
+      "portrait": "assets/drivers/avatars/f2/tasanapol_inthraphuvasak.png",
+      "overall": 68,
+      "potential": 82,
+      "salary": 758000
+    },
+    {
+      "name": "Alex Dunne",
+      "short": "A. Dunne",
+      "team": "rodin",
+      "portrait": "assets/drivers/avatars/f2/alex_dunne.png",
+      "overall": 74,
+      "potential": 90,
+      "salary": 794000
+    },
+    {
+      "name": "Oliver Goethe",
+      "short": "O. Goethe",
+      "team": "mp",
+      "portrait": "assets/drivers/avatars/f2/oliver_goethe.png",
+      "overall": 72,
+      "potential": 86,
+      "salary": 782000
+    },
+    {
+      "name": "Kush Maini",
+      "short": "K. Maini",
+      "team": "art",
+      "portrait": "assets/drivers/avatars/f2/kush_maini.png",
+      "overall": 73,
+      "potential": 85,
+      "salary": 788000
+    },
+    {
+      "name": "Colton Herta",
+      "short": "C. Herta",
+      "team": "hitech",
+      "portrait": "assets/drivers/avatars/f2/colton_herta.png",
+      "overall": 74,
+      "potential": 86,
+      "salary": 794000
+    },
+    {
+      "name": "Mari Boya",
+      "short": "M. Boya",
+      "team": "prema",
+      "portrait": "assets/drivers/avatars/f2/mari_boya.png",
+      "overall": 70,
+      "potential": 84,
+      "salary": 770000
+    },
+    {
+      "name": "Nicolas Varrone",
+      "short": "N. Varrone",
+      "team": "var",
+      "portrait": "assets/drivers/avatars/f2/nicolas_varrone.png",
+      "overall": 71,
+      "potential": 83,
+      "salary": 776000
+    },
+    {
+      "name": "Martinius Stenshorne",
+      "short": "M. Stenshorne",
+      "team": "rodin",
+      "portrait": "assets/drivers/avatars/f2/martinius_stenshorne.png",
+      "overall": 71,
+      "potential": 88,
+      "salary": 776000
+    },
+    {
+      "name": "Sebastián Montoya",
+      "short": "S. Montoya",
+      "team": "prema",
+      "portrait": "assets/drivers/avatars/f2/sebastian_montoya.png",
+      "overall": 72,
+      "potential": 86,
+      "salary": 782000
+    },
+    {
+      "name": "Roman Bilinski",
+      "short": "R. Bilinski",
+      "team": "dams",
+      "portrait": "assets/drivers/avatars/f2/roman_bilinski.png",
+      "overall": 69,
+      "potential": 83,
+      "salary": 764000
+    },
+    {
+      "name": "Rafael Villagómez",
+      "short": "R. Villagómez",
+      "team": "var",
+      "portrait": "assets/drivers/avatars/f2/rafael_villagomez.png",
+      "overall": 68,
+      "potential": 81,
+      "salary": 758000
+    },
+    {
+      "name": "Enzo Fittipaldi Jr.",
+      "short": "E. Jr.",
+      "team": "aix",
+      "portrait": "assets/drivers/avatars/f2/enzo_fittipaldi_jr.png",
+      "overall": 72,
+      "potential": 84,
+      "salary": 782000
+    },
+    {
+      "name": "John Bennett",
+      "short": "J. Bennett",
+      "team": "trident",
+      "portrait": "assets/drivers/avatars/f2/john_bennett.png",
+      "overall": 67,
+      "potential": 81,
+      "salary": 752000
+    },
+    {
+      "name": "Cian Shields",
+      "short": "C. Shields",
+      "team": "aix",
+      "portrait": "assets/drivers/avatars/f2/cian_shields.png",
+      "overall": 66,
+      "potential": 80,
+      "salary": 746000
+    }
+  ],
+  "calendar": [
+    {
+      "round": 1,
+      "name": "GP do Bahrein",
+      "country": "BH",
+      "flagPath": "assets/flags/all/bh.png",
+      "svgLayout": "bahrein",
+      "svgPath": "assets/tracks/svg/bahrein.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 2,
+      "name": "GP da Arábia Saudita",
+      "country": "SA",
+      "flagPath": "assets/flags/all/sa.png",
+      "svgLayout": "arabia_saudita",
+      "svgPath": "assets/tracks/svg/arabia_saudita.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 3,
+      "name": "GP da Austrália",
+      "country": "AU",
+      "flagPath": "assets/flags/all/au.png",
+      "svgLayout": "australia",
+      "svgPath": "assets/tracks/svg/australia.svg",
+      "laps": 18,
+      "weather": "variable"
+    },
+    {
+      "round": 4,
+      "name": "GP do Japão",
+      "country": "JP",
+      "flagPath": "assets/flags/all/jp.png",
+      "svgLayout": "japao",
+      "svgPath": "assets/tracks/svg/japao.svg",
+      "laps": 18,
+      "weather": "variable"
+    },
+    {
+      "round": 5,
+      "name": "GP da China",
+      "country": "CN",
+      "flagPath": "assets/flags/all/cn.png",
+      "svgLayout": "china",
+      "svgPath": "assets/tracks/svg/china.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 6,
+      "name": "GP de Miami",
+      "country": "US",
+      "flagPath": "assets/flags/all/us.png",
+      "svgLayout": "miami",
+      "svgPath": "assets/tracks/svg/miami.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 7,
+      "name": "GP da Emilia-Romagna / Imola",
+      "country": "IT",
+      "flagPath": "assets/flags/all/it.png",
+      "svgLayout": "imola",
+      "svgPath": "assets/tracks/svg/imola.svg",
+      "laps": 18,
+      "weather": "variable"
+    },
+    {
+      "round": 8,
+      "name": "GP de Mônaco",
+      "country": "MC",
+      "flagPath": "assets/flags/all/mc.png",
+      "svgLayout": "monaco",
+      "svgPath": "assets/tracks/svg/monaco.svg",
+      "laps": 18,
+      "weather": "variable"
+    },
+    {
+      "round": 9,
+      "name": "GP do Canadá",
+      "country": "CA",
+      "flagPath": "assets/flags/all/ca.png",
+      "svgLayout": "canada",
+      "svgPath": "assets/tracks/svg/canada.svg",
+      "laps": 18,
+      "weather": "variable"
+    },
+    {
+      "round": 10,
+      "name": "GP da Espanha / Barcelona",
+      "country": "ES",
+      "flagPath": "assets/flags/all/es.png",
+      "svgLayout": "espanha",
+      "svgPath": "assets/tracks/svg/espanha.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 11,
+      "name": "GP de Madrid",
+      "country": "ES",
+      "flagPath": "assets/flags/all/es.png",
+      "svgLayout": "espanha_madrid",
+      "svgPath": "assets/tracks/svg/espanha_madrid.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 12,
+      "name": "GP da Áustria",
+      "country": "AT",
+      "flagPath": "assets/flags/all/at.png",
+      "svgLayout": "austria",
+      "svgPath": "assets/tracks/svg/austria.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 13,
+      "name": "GP da Grã-Bretanha",
+      "country": "GB",
+      "flagPath": "assets/flags/all/gb.png",
+      "svgLayout": "inglaterra",
+      "svgPath": "assets/tracks/svg/inglaterra.svg",
+      "laps": 18,
+      "weather": "variable"
+    },
+    {
+      "round": 14,
+      "name": "GP da Bélgica",
+      "country": "BE",
+      "flagPath": "assets/flags/all/be.png",
+      "svgLayout": "belgica",
+      "svgPath": "assets/tracks/svg/belgica.svg",
+      "laps": 18,
+      "weather": "rain"
+    },
+    {
+      "round": 15,
+      "name": "GP da Hungria",
+      "country": "HU",
+      "flagPath": "assets/flags/all/hu.png",
+      "svgLayout": "hungria",
+      "svgPath": "assets/tracks/svg/hungria.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 16,
+      "name": "GP da Holanda",
+      "country": "NL",
+      "flagPath": "assets/flags/all/nl.png",
+      "svgLayout": "holanda",
+      "svgPath": "assets/tracks/svg/holanda.svg",
+      "laps": 18,
+      "weather": "variable"
+    },
+    {
+      "round": 17,
+      "name": "GP da Itália / Monza",
+      "country": "IT",
+      "flagPath": "assets/flags/all/it.png",
+      "svgLayout": "italia_monza",
+      "svgPath": "assets/tracks/svg/italia_monza.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 18,
+      "name": "GP do Azerbaijão",
+      "country": "AZ",
+      "flagPath": "assets/flags/all/az.png",
+      "svgLayout": "azerbaijao",
+      "svgPath": "assets/tracks/svg/azerbaijao.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 19,
+      "name": "GP de Singapura",
+      "country": "SG",
+      "flagPath": "assets/flags/all/sg.png",
+      "svgLayout": "singapura",
+      "svgPath": "assets/tracks/svg/singapura.svg",
+      "laps": 18,
+      "weather": "humid"
+    },
+    {
+      "round": 20,
+      "name": "GP dos Estados Unidos",
+      "country": "US",
+      "flagPath": "assets/flags/all/us.png",
+      "svgLayout": "estados_unidos",
+      "svgPath": "assets/tracks/svg/estados_unidos.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 21,
+      "name": "GP do México",
+      "country": "MX",
+      "flagPath": "assets/flags/all/mx.png",
+      "svgLayout": "mexico",
+      "svgPath": "assets/tracks/svg/mexico.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 22,
+      "name": "GP do Brasil / São Paulo",
+      "country": "BR",
+      "flagPath": "assets/flags/all/br.png",
+      "svgLayout": "sao_paulo",
+      "svgPath": "assets/tracks/svg/sao_paulo.svg",
+      "laps": 18,
+      "weather": "variable"
+    },
+    {
+      "round": 23,
+      "name": "GP de Las Vegas",
+      "country": "US",
+      "flagPath": "assets/flags/all/us.png",
+      "svgLayout": "las_vegas",
+      "svgPath": "assets/tracks/svg/las_vegas.svg",
+      "laps": 18,
+      "weather": "night"
+    },
+    {
+      "round": 24,
+      "name": "GP do Catar",
+      "country": "QA",
+      "flagPath": "assets/flags/all/qa.png",
+      "svgLayout": "catar",
+      "svgPath": "assets/tracks/svg/catar.svg",
+      "laps": 18,
+      "weather": "dry"
+    },
+    {
+      "round": 25,
+      "name": "GP de Abu Dhabi",
+      "country": "AE",
+      "flagPath": "assets/flags/all/ae.png",
+      "svgLayout": "abu_dhabi",
+      "svgPath": "assets/tracks/svg/abu_dhabi.svg",
+      "laps": 18,
+      "weather": "night"
+    }
+  ]
+}
