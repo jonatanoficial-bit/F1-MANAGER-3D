@@ -367,3 +367,46 @@ button{min-height:var(--touch);-webkit-tap-highlight-color:transparent;touch-act
 
 /* v0.9.35 — PWA / APK Ready */
 .pwa-status-list .row{grid-template-columns:34px 1fr 130px 1px}.save-grid .wide button{margin:6px 8px 6px 0}.global-build-stamp{max-width:80vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.asset-path-list code{user-select:all}@media(max-width:900px){.pwa-status-list .row{grid-template-columns:28px 1fr 92px 1px;font-size:11px}.save-grid .wide button{width:100%;margin:6px 0}.global-build-stamp{font-size:10px}}
+
+
+/* v0.9.37 — Mobile fullscreen, real viewport and internal scrolling */
+:root{--app-height:100dvh;--app-width:100vw;--safe-top:env(safe-area-inset-top,0px);--safe-right:env(safe-area-inset-right,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--safe-left:env(safe-area-inset-left,0px)}
+html,body{width:100%;height:100%;height:100dvh;min-height:100dvh;margin:0;overflow:hidden;overscroll-behavior:none;touch-action:manipulation;background:#05050a;position:fixed;inset:0}
+body{padding:0!important;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+.app{position:fixed;left:0;top:0;width:100vw;width:var(--app-width);height:100vh;height:100dvh;height:var(--app-height);max-width:100vw;max-height:100dvh;overflow:hidden;padding:0;background:#05050a}
+.screen{inset:0;width:100%;height:100%;height:var(--app-height);max-height:var(--app-height);overflow:hidden;padding:calc(10px + var(--safe-top)) calc(10px + var(--safe-right)) calc(10px + var(--safe-bottom)) calc(10px + var(--safe-left))}
+.screen.active{display:block}
+.dashboard.screen{padding:0!important;height:var(--app-height)}
+.topbar{height:clamp(46px,9.2vh,58px);min-height:46px;flex-shrink:0;margin-top:0}
+#screen-team-select,#screen-career-create,#screen-qualifying,#screen-results,#screen-single-race,#screen-assets-check{display:none;grid-template-rows:auto auto auto 1fr;gap:0}
+#screen-team-select.active,#screen-career-create.active,#screen-qualifying.active,#screen-results.active,#screen-single-race.active,#screen-assets-check.active{display:grid}
+.creator-grid,.split-layout,.results-grid{height:auto!important;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(18px + var(--safe-bottom))}
+#screen-team-select .team-select-grid{height:auto!important;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(28px + var(--safe-bottom))}
+.series-chooser,.career-path{flex-shrink:0}
+#screen-lobby{height:var(--app-height)!important;min-height:0!important;overflow:hidden!important;padding:0!important}
+#screen-lobby .side-nav{top:0;bottom:0;height:var(--app-height);padding-top:calc(54px + var(--safe-top));padding-bottom:calc(10px + var(--safe-bottom));overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+#screen-lobby .dash-main{top:0;bottom:0;height:var(--app-height);padding:calc(10px + var(--safe-top)) calc(10px + var(--safe-right)) calc(10px + var(--safe-bottom)) 10px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+#screen-lobby .hudbar{position:relative;top:auto;flex:0 0 auto;z-index:8}
+#screen-lobby .tab-content{flex:1 1 auto;height:auto!important;min-height:0;max-height:none;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(40px + var(--safe-bottom))}
+.cards-grid,.data-lock-grid,.qa-grid,.save-grid,.media-grid,.rivals-grid,.offers-grid{min-height:0}
+.dash-card,.glass-panel{min-width:0}
+#screen-race{padding:0!important;height:var(--app-height);overflow:hidden}
+#raceCanvasWrap{inset:0!important;width:100%;height:100%}
+.race-left{top:calc(8px + var(--safe-top));left:calc(8px + var(--safe-left));bottom:calc(70px + var(--safe-bottom));overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.race-right{top:calc(8px + var(--safe-top));right:calc(8px + var(--safe-right));bottom:calc(70px + var(--safe-bottom));overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.race-toolbar{bottom:calc(8px + var(--safe-bottom));max-width:calc(100vw - var(--safe-left) - var(--safe-right) - 12px);overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.global-build-stamp{left:auto;right:calc(8px + var(--safe-right));bottom:calc(6px + var(--safe-bottom));z-index:30;pointer-events:none}
+.is-mobile-viewport .build-pill{top:calc(10px + var(--safe-top));right:calc(10px + var(--safe-right))}
+.is-mobile-viewport .home-actions{bottom:calc(8px + var(--safe-bottom))}
+@media(max-width:900px), (max-height:560px){
+  .screen{padding:calc(6px + var(--safe-top)) calc(6px + var(--safe-right)) calc(6px + var(--safe-bottom)) calc(6px + var(--safe-left))}
+  .topbar{height:48px;min-height:48px;border-radius:0 0 16px 16px}.back,.next{height:48px;min-height:48px}.next{min-width:104px;padding:8px 10px}.topbar h2{font-size:16px;max-width:48vw}
+  .side-nav{width:64px!important}.dash-main{left:64px!important}.side-nav button{height:48px!important;min-height:48px!important;flex-basis:48px!important;font-size:18px!important;padding-bottom:10px}.side-nav button::after{font-size:6px;bottom:2px}
+  #screen-lobby .dash-main{padding:calc(6px + var(--safe-top)) calc(6px + var(--safe-right)) calc(6px + var(--safe-bottom)) 6px}
+  .hudbar{min-height:50px!important;gap:6px}.hudbar b{font-size:17px}.hudbar span,.hud-stats span{font-size:10px}.hudbar .primary{min-height:36px;font-size:12px;padding:8px}
+  .tab-content{margin-top:8px!important}.dash-card{padding:12px}.dash-card h3{font-size:18px}.dash-card p,.dash-card li{font-size:12px;line-height:1.28}
+  .team-card-premium{min-height:225px!important}.team-card-premium .team-visual{height:66px!important}.team-stats.premium{font-size:10px}.team-driver-strip span{padding:4px}
+  .series-chooser{margin:6px 0 0;padding:8px;min-height:42px}.career-path{margin:6px 0!important;padding:8px;font-size:11px}
+  .race-left{width:min(330px,52vw);bottom:calc(58px + var(--safe-bottom));font-size:11px}.race-right{width:min(245px,39vw);bottom:calc(58px + var(--safe-bottom))}.driver-control{padding:8px}.driver-control button{min-height:34px;padding:7px;font-size:11px}.race-toolbar button,.race-toolbar span{min-height:34px;padding:7px 9px;font-size:11px}
+}
+@media(orientation:portrait) and (max-width:900px){.orientation-lock{display:flex;flex-direction:column}.app{filter:blur(5px)}}

@@ -437,6 +437,31 @@
     setScreenBg('screen-assets-check', DATA.assetPaths.lobbyGlobal);
   }
 
+  function setMobileViewport(){
+    const vh = Math.max(320, window.innerHeight || document.documentElement.clientHeight || screen.height || 720);
+    const vw = Math.max(320, window.innerWidth || document.documentElement.clientWidth || screen.width || 1280);
+    document.documentElement.style.setProperty('--app-height', `${vh}px`);
+    document.documentElement.style.setProperty('--app-width', `${vw}px`);
+    document.body.classList.toggle('is-mobile-viewport', Math.min(vw, vh) <= 900 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent));
+  }
+
+  function bindViewportFixes(){
+    setMobileViewport();
+    ['resize','orientationchange'].forEach(evt => window.addEventListener(evt, () => setTimeout(setMobileViewport, 120), { passive:true }));
+    if(window.visualViewport){
+      window.visualViewport.addEventListener('resize', () => setTimeout(setMobileViewport, 60), { passive:true });
+      window.visualViewport.addEventListener('scroll', () => setTimeout(setMobileViewport, 60), { passive:true });
+    }
+  }
+
+  function enterFullscreen(){
+    const el = document.documentElement;
+    const req = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+    if(req){ try { req.call(el); } catch(e){} }
+    if(screen.orientation && screen.orientation.lock){ screen.orientation.lock('landscape').catch(()=>{}); }
+    setTimeout(setMobileViewport, 120);
+  }
+
   function showScreen(name){
     $$('.screen').forEach(s => s.classList.remove('active'));
     const el = $('#screen-' + name);
@@ -450,7 +475,7 @@
 
   function updateBuildBadges(){
     const b = DATA.build || {};
-    const label = b.label || 'Build v0.9.36 • 13/05/2026 • 19:10 BRT';
+    const label = b.label || 'Build v0.9.37 • 14/05/2026 • 10:20 BRT';
     const home = document.getElementById('homeBuildPill');
     const global = document.getElementById('globalBuildStamp');
     if(home) home.textContent = label;
@@ -459,6 +484,7 @@
   }
 
   function init(){
+    bindViewportFixes();
     updateBuildBadges();
     ensureCareerSystems();
     screenBackgrounds();
@@ -522,6 +548,7 @@
   function handleAction(action, el){
     const actions = {
       continueCareer(){ if(state.profile) showScreen('lobby'); else showScreen('career-create'); },
+      enterFullscreen(){ enterFullscreen(); },
       createProfile(){ createProfile(); },
       startCareer(){ startCareer(); },
       goQualifying(){ ensureCareerSystems(); if((state.completedRaces||0) >= DATA.calendar2026.length){ renderTab('calendar'); return; } showScreen('qualifying'); },

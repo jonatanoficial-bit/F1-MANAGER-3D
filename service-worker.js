@@ -1,4 +1,4 @@
-const CACHE_NAME = 'f1-manager-career-2026-v0-9-36';
+const CACHE_NAME = 'f1-manager-career-2026-v0-9-37';
 const APP_SHELL = [
   './',
   './index.html',

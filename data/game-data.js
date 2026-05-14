@@ -1,11 +1,11 @@
 window.F1M_DATA = {
   "build": {
-    "version": "0.9.36",
-    "date": "13/05/2026",
-    "time_brt": "19:10",
+    "version": "0.9.37",
+    "date": "14/05/2026",
+    "time_brt": "10:20",
     "timezone": "America/Sao_Paulo",
-    "label": "Build v0.9.36 • 13/05/2026 • 19:10 BRT",
-    "iso": "2026-05-13T19:10:00-03:00"
+    "label": "Build v0.9.37 • 14/05/2026 • 10:20 BRT",
+    "iso": "2026-05-14T10:20:00-03:00"
   },
   "assetPaths": {
     "menu": "backgrounds/ui/global_lobby.png",

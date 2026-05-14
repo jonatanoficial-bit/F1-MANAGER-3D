@@ -1,12 +1,13 @@
 {
-  "version": "0.9.36",
-  "date": "13/05/2026",
-  "time_brt": "19:10",
+  "version": "0.9.37",
+  "date": "14/05/2026",
+  "time_brt": "10:20",
   "timezone": "America/Sao_Paulo",
-  "label": "Build v0.9.36 • 13/05/2026 • 19:10 BRT",
-  "base": "v0.9.35",
+  "label": "Build v0.9.37 • 14/05/2026 • 10:20 BRT",
+  "base": "v0.9.36",
   "assets": "sem assets binarios",
   "focus": "Beta Fechado",
   "phase": "validação final, checklist de temporada completa e correções pré-1.0",
-  "iso": "2026-05-13T19:10:00-03:00"
+  "iso": "2026-05-13T19:10:00-03:00",
+  "fix": "mobile fullscreen viewport and scrolling"
 }
