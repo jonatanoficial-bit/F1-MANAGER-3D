@@ -1,0 +1,35 @@
+{
+  "build": "F1M3D-0.10.0-F01",
+  "version": "0.10.0",
+  "phase": 1,
+  "status": "APROVADA_AUTOMATICAMENTE",
+  "tests": {
+    "static_checks": 8,
+    "project_checks": 44,
+    "browser_viewports": 3,
+    "browser_flows_passed": 3,
+    "http_status": 200,
+    "failed": 0
+  },
+  "fixes": [
+    "Data Lock",
+    "loop de corrida independente do Three.js",
+    "descarte do WebGL e listeners",
+    "alinhamento F2 na primeira etapa",
+    "build unificada",
+    "migração de save schema 1",
+    "registro de erro e backup simples",
+    "catálogo completo de assets"
+  ],
+  "asset_delivery": {
+    "binary_files_excluded": 416,
+    "original_asset_bytes": 185186558,
+    "catalogued_paths": 519,
+    "runtime_missing_original": 7
+  },
+  "limitations": [
+    "Browser automatizado validado em memória devido a bloqueio administrativo de localhost/file no Chromium do ambiente.",
+    "Homologação em aparelhos físicos continua pendente.",
+    "Banco esportivo oficial e tradução PT/ES/EN pertencem a fases posteriores."
+  ]
+}

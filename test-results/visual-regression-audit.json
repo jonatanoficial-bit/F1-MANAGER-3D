@@ -1,0 +1,215 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "generatedAt": "2026-06-18T14:42:19.131Z",
+  "snapshotHash": "d86e5a042e90c92c3dc14e5112604bbb597b13acf8280a0d2e499bb94804d8da",
+  "passed": 41,
+  "failed": 0,
+  "results": [
+    {
+      "name": "visual:baseline-current",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08/F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "visual:protected-selector:#homeBuildPill",
+      "ok": true,
+      "detail": "preservado no HTML"
+    },
+    {
+      "name": "visual:protected-selector:#globalBuildStamp",
+      "ok": true,
+      "detail": "preservado no HTML"
+    },
+    {
+      "name": "visual:protected-selector:#raceBuildStamp",
+      "ok": true,
+      "detail": "preservado no HTML"
+    },
+    {
+      "name": "visual:protected-selector:#tabContent",
+      "ok": true,
+      "detail": "preservado no HTML"
+    },
+    {
+      "name": "visual:protected-selector:#raceCanvasWrap",
+      "ok": true,
+      "detail": "preservado no HTML"
+    },
+    {
+      "name": "visual:protected-selector:#resultList",
+      "ok": true,
+      "detail": "preservado no HTML"
+    },
+    {
+      "name": "visual:protected-selector:#viewportDebugPill",
+      "ok": true,
+      "detail": "preservado no HTML"
+    },
+    {
+      "name": "visual:protected-selector:#mobileUxPanel",
+      "ok": true,
+      "detail": "preservado no HTML"
+    },
+    {
+      "name": "visual:text:F1 MANAGER",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Central Antiquebra",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Central de Assets",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:RESULTADO DA CORRIDA",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Tela cheia",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Sistema",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Mobile",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:IDIOMA",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Idioma e região",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:PT",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:EN",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:ES",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:responsive-css",
+      "ok": true,
+      "detail": "media queries presentes"
+    },
+    {
+      "name": "visual:safe-area-css",
+      "ok": true,
+      "detail": "safe area/notch"
+    },
+    {
+      "name": "visual:orientation-lock",
+      "ok": true,
+      "detail": "overlay horizontal"
+    },
+    {
+      "name": "visual:assets-placeholders",
+      "ok": true,
+      "detail": "fallback visual"
+    },
+    {
+      "name": "visual:browser-build",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "visual:viewport-executed:mobile_landscape",
+      "ok": true,
+      "detail": "844x390"
+    },
+    {
+      "name": "visual:viewport-pass:mobile_landscape",
+      "ok": true,
+      "detail": "fluxo passou"
+    },
+    {
+      "name": "visual:overflow:mobile_landscape",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "visual:orientation-overlay:mobile_landscape",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "name": "visual:race-results:mobile_landscape",
+      "ok": true,
+      "detail": "22 linhas"
+    },
+    {
+      "name": "visual:viewport-executed:tablet",
+      "ok": true,
+      "detail": "1180x820"
+    },
+    {
+      "name": "visual:viewport-pass:tablet",
+      "ok": true,
+      "detail": "fluxo passou"
+    },
+    {
+      "name": "visual:overflow:tablet",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "visual:orientation-overlay:tablet",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "name": "visual:race-results:tablet",
+      "ok": true,
+      "detail": "22 linhas"
+    },
+    {
+      "name": "visual:viewport-executed:desktop",
+      "ok": true,
+      "detail": "1440x900"
+    },
+    {
+      "name": "visual:viewport-pass:desktop",
+      "ok": true,
+      "detail": "fluxo passou"
+    },
+    {
+      "name": "visual:overflow:desktop",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "visual:orientation-overlay:desktop",
+      "ok": true,
+      "detail": "false"
+    },
+    {
+      "name": "visual:race-results:desktop",
+      "ok": true,
+      "detail": "22 linhas"
+    }
+  ],
+  "result": "approved"
+}

@@ -1,0 +1,618 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "generatedAt": "2026-06-18T14:42:19.707Z",
+  "passed": 122,
+  "failed": 0,
+  "results": [
+    {
+      "name": "json:BETA_CLOSED_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:BUILD_INFO.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:DATA_LOCK_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_01_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_02_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_03_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_04_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_06_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_07_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:assets/ASSET_MANIFEST.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:config/app-shell.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:config/build-source.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:config/quality-budgets.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:config/visual-baselines.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:data/app-shell.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:data/build.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:data/drivers.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:data/teams.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:data/tracks.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:docs/BASELINE_F01.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:manifest.webmanifest",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:package-lock.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:package.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/assets-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/browser-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/build-consistency.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/build-sync-report.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/ci-readiness-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/contracts-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/full-audit-summary.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/i18n-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/mobile-ux-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/module-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/npm-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/performance-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/persistence-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/project-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/static-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/visual-regression-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:script.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:service-worker.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/game-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/build-info.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/track-layouts.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/build-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/runtime-guard.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/event-bus.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/data-contracts.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/asset-catalog.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/asset-registry.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/systems/persistence-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/systems/career-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/systems/race-engine.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/ui/screen-manager.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/viewport-manager.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/performance-monitor.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/diagnostics.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:index.html",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:style.css",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/build-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/runtime-guard.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/event-bus.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/data-contracts.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/asset-catalog.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/asset-registry.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/systems/persistence-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/systems/career-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/systems/race-engine.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/ui/screen-manager.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/viewport-manager.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/performance-monitor.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/diagnostics.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/build-info.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/i18n.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/i18n-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/game-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/track-layouts.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:script.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:manifest.webmanifest",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "assets:no-binaries-in-phase-zip",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "assets:manifest-build",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "assets:manifest-version",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "assets:original-catalogue",
+      "ok": true,
+      "detail": "416"
+    },
+    {
+      "name": "assets:runtime-missing-documented",
+      "ok": true,
+      "detail": "7"
+    },
+    {
+      "name": "assets:missing-path-catalogued:assets/drivers/avatars/f2/alex_dunne.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "assets:missing-path-catalogued:assets/drivers/avatars/f2/enzo_fittipaldi_jr.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "assets:missing-path-catalogued:assets/drivers/avatars/f2/john_bennett.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "assets:missing-path-catalogued:assets/drivers/avatars/f2/nikola_tsolov.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "assets:missing-path-catalogued:assets/drivers/avatars/f2/tasanapol_inthraphuvasak.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "assets:missing-path-catalogued:assets/icons/app/icon-192.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "assets:missing-path-catalogued:assets/icons/app/icon-512.png",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "build:visible-home",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "build:visible-global",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "build:visible-race",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "build:source-exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "build:single-source-generator",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "build:save-schema",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "system:tab-visible",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "system:core-modules",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "persistence:v2-envelope",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "persistence:portable-export",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "persistence:atomic-commit",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "persistence:journal",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "persistence:audit-pass",
+      "ok": true,
+      "detail": "14 passed, 0 failed"
+    },
+    {
+      "name": "pwa:core-cached",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "browser:all-viewports-pass",
+      "ok": true,
+      "detail": "mobile_landscape:true, tablet:true, desktop:true"
+    },
+    {
+      "name": "browser:current-build",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "performance:audit-pass",
+      "ok": true,
+      "detail": "14 passed, 0 failed"
+    },
+    {
+      "name": "performance:current-build",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "mobile:audit-pass",
+      "ok": true,
+      "detail": "19 passed, 0 failed"
+    },
+    {
+      "name": "mobile:current-build",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "i18n:audit-pass",
+      "ok": true,
+      "detail": "16 passed, 0 failed"
+    },
+    {
+      "name": "i18n:current-build",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "visual:audit-pass",
+      "ok": true,
+      "detail": "41 passed, 0 failed"
+    },
+    {
+      "name": "visual:current-build",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "ci:audit-pass",
+      "ok": true,
+      "detail": "42 passed, 0 failed"
+    },
+    {
+      "name": "ci:current-build",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "ci:workflow-present",
+      "ok": true,
+      "detail": "quality-gate.yml"
+    },
+    {
+      "name": "performance:core-present",
+      "ok": true,
+      "detail": "performance-monitor.js"
+    },
+    {
+      "name": "viewport:core-present",
+      "ok": true,
+      "detail": "viewport-manager.js"
+    },
+    {
+      "name": "i18n:ui-present",
+      "ok": true,
+      "detail": "seletor + sistema"
+    },
+    {
+      "name": "viewport:mobile-ui-present",
+      "ok": true,
+      "detail": "safe area + HUD"
+    }
+  ]
+}

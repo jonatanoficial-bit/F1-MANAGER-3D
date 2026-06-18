@@ -1,0 +1,211 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "generatedAt": "2026-06-18T14:42:04.474Z",
+  "results": [
+    {
+      "name": "version:source",
+      "ok": true,
+      "detail": "0.17.0"
+    },
+    {
+      "name": "version:root",
+      "ok": true,
+      "detail": "0.17.0"
+    },
+    {
+      "name": "version:data",
+      "ok": true,
+      "detail": "0.17.0"
+    },
+    {
+      "name": "version:runtime",
+      "ok": true,
+      "detail": "0.17.0"
+    },
+    {
+      "name": "version:package",
+      "ok": true,
+      "detail": "0.17.0"
+    },
+    {
+      "name": "version:manifest",
+      "ok": true,
+      "detail": "0.17.0"
+    },
+    {
+      "name": "version:assets",
+      "ok": true,
+      "detail": "0.17.0"
+    },
+    {
+      "name": "version:package-lock",
+      "ok": true,
+      "detail": "0.17.0/0.17.0"
+    },
+    {
+      "name": "code:source",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "code:root",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "code:data",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "code:runtime",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "code:assets",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "code:shell",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "html:build-code",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "html:version",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "schema:save",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "schema:asset-manifest",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "schema:app-shell",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "shell:./index.html",
+      "ok": true,
+      "detail": "./index.html"
+    },
+    {
+      "name": "shell:./style.css",
+      "ok": true,
+      "detail": "./style.css"
+    },
+    {
+      "name": "shell:./src/core/build-system.js",
+      "ok": true,
+      "detail": "./src/core/build-system.js"
+    },
+    {
+      "name": "shell:./src/core/runtime-guard.js",
+      "ok": true,
+      "detail": "./src/core/runtime-guard.js"
+    },
+    {
+      "name": "shell:./src/core/event-bus.js",
+      "ok": true,
+      "detail": "./src/core/event-bus.js"
+    },
+    {
+      "name": "shell:./src/core/data-contracts.js",
+      "ok": true,
+      "detail": "./src/core/data-contracts.js"
+    },
+    {
+      "name": "shell:./data/asset-catalog.js",
+      "ok": true,
+      "detail": "./data/asset-catalog.js"
+    },
+    {
+      "name": "shell:./src/core/asset-registry.js",
+      "ok": true,
+      "detail": "./src/core/asset-registry.js"
+    },
+    {
+      "name": "shell:./src/systems/persistence-system.js",
+      "ok": true,
+      "detail": "./src/systems/persistence-system.js"
+    },
+    {
+      "name": "shell:./src/systems/career-system.js",
+      "ok": true,
+      "detail": "./src/systems/career-system.js"
+    },
+    {
+      "name": "shell:./src/systems/race-engine.js",
+      "ok": true,
+      "detail": "./src/systems/race-engine.js"
+    },
+    {
+      "name": "shell:./src/ui/screen-manager.js",
+      "ok": true,
+      "detail": "./src/ui/screen-manager.js"
+    },
+    {
+      "name": "shell:./src/core/viewport-manager.js",
+      "ok": true,
+      "detail": "./src/core/viewport-manager.js"
+    },
+    {
+      "name": "shell:./src/core/performance-monitor.js",
+      "ok": true,
+      "detail": "./src/core/performance-monitor.js"
+    },
+    {
+      "name": "shell:./src/core/diagnostics.js",
+      "ok": true,
+      "detail": "./src/core/diagnostics.js"
+    },
+    {
+      "name": "shell:./data/build-info.js",
+      "ok": true,
+      "detail": "./data/build-info.js"
+    },
+    {
+      "name": "shell:./data/i18n.js",
+      "ok": true,
+      "detail": "./data/i18n.js"
+    },
+    {
+      "name": "shell:./src/core/i18n-system.js",
+      "ok": true,
+      "detail": "./src/core/i18n-system.js"
+    },
+    {
+      "name": "shell:./data/game-data.js",
+      "ok": true,
+      "detail": "./data/game-data.js"
+    },
+    {
+      "name": "shell:./data/track-layouts.js",
+      "ok": true,
+      "detail": "./data/track-layouts.js"
+    },
+    {
+      "name": "shell:./script.js",
+      "ok": true,
+      "detail": "./script.js"
+    },
+    {
+      "name": "shell:./manifest.webmanifest",
+      "ok": true,
+      "detail": "./manifest.webmanifest"
+    }
+  ]
+}

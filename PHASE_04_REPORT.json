@@ -1,0 +1,29 @@
+{
+  "build": "F1M3D-0.13.0-F04",
+  "version": "0.13.0",
+  "phase": 4,
+  "save_schema": 4,
+  "status": "APPROVED",
+  "features": [
+    "central asset registry",
+    "runtime asset catalogue",
+    "safe in-memory SVG placeholders",
+    "path traversal rejection",
+    "case-sensitive collision audit",
+    "asset diagnostics UI",
+    "PWA app shell synchronization"
+  ],
+  "asset_counts": {
+    "catalogued": 519,
+    "runtime_referenced": 168,
+    "original_binary_files_excluded": 416,
+    "required_missing_in_original": 7
+  },
+  "audit": {
+    "passed": 217,
+    "failed": 0,
+    "browser_cases": 3,
+    "diagnostic_score_memory": 94,
+    "npm_vulnerabilities": 0
+  }
+}

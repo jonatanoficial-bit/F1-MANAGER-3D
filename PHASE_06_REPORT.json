@@ -1,0 +1,31 @@
+{
+  "phase": 6,
+  "version": "0.15.0",
+  "build_code": "F1M3D-0.15.0-F06",
+  "title": "Testes Automatizados, Regressão Visual e Performance Mobile",
+  "date_brt": "18/06/2026 10:36",
+  "save_schema": 6,
+  "result": "approved",
+  "audit": {
+    "passed": 343,
+    "failed": 0,
+    "npm_vulnerabilities": 0,
+    "browser_viewports": ["844x390", "1180x820", "1440x900"],
+    "system_diagnostic_score": 94
+  },
+  "deliverables": [
+    "src/core/performance-monitor.js",
+    "tests/performance-audit.mjs",
+    "tests/visual-regression-audit.mjs",
+    "tests/ci-readiness-audit.mjs",
+    "config/quality-budgets.json",
+    "config/visual-baselines.json",
+    ".github/workflows/quality-gate.yml"
+  ],
+  "assets_policy": {
+    "binary_assets_in_zip": 0,
+    "catalogued_paths": 519,
+    "original_binary_files_catalogued": 416,
+    "missing_required_original": 7
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "generatedAt": "2026-06-18T14:42:06.369Z",
+  "passed": 19,
+  "failed": 0,
+  "results": [
+    {
+      "name": "mobile:build-phase",
+      "ok": true,
+      "detail": "8/8"
+    },
+    {
+      "name": "mobile:module-present",
+      "ok": true,
+      "detail": "src/core/viewport-manager.js"
+    },
+    {
+      "name": "mobile:module-cached",
+      "ok": true,
+      "detail": "app shell + SW"
+    },
+    {
+      "name": "mobile:index-load-order",
+      "ok": true,
+      "detail": "entre UI e performance"
+    },
+    {
+      "name": "mobile:panel-present",
+      "ok": true,
+      "detail": "painel imersivo"
+    },
+    {
+      "name": "mobile:actions-present",
+      "ok": true,
+      "detail": "ações conectadas"
+    },
+    {
+      "name": "mobile:save-key-current",
+      "ok": true,
+      "detail": "v0170"
+    },
+    {
+      "name": "mobile:legacy-key-preserved",
+      "ok": true,
+      "detail": "v0150 legado"
+    },
+    {
+      "name": "mobile:safe-area-css",
+      "ok": true,
+      "detail": "safe area + viewport fit"
+    },
+    {
+      "name": "mobile:touch-target-css",
+      "ok": true,
+      "detail": "44px + touch action"
+    },
+    {
+      "name": "mobile:compact-landscape-css",
+      "ok": true,
+      "detail": "landscape compacto"
+    },
+    {
+      "name": "mobile:side-nav-scrollable",
+      "ok": true,
+      "detail": "nav rolável"
+    },
+    {
+      "name": "mobile:race-hud-adaptive",
+      "ok": true,
+      "detail": "HUD corrida compacto"
+    },
+    {
+      "name": "mobile:system-card",
+      "ok": true,
+      "detail": "Central Sistema"
+    },
+    {
+      "name": "mobile:api-classifies-mobile",
+      "ok": true,
+      "detail": "{\"width\":844,\"height\":390,\"visualWidth\":844,\"visualHeight\":390,\"orientation\":\"landscape\",\"device\":\"mobile\",\"compact\":true,\"veryCompact\":true,\"coarse\":true,\"standalone\":false,\"fullscreen\":false,\"dpr\":2,\"hudMode\":\"auto\",\"safe\":{\"top\":0,\"right\":0,\"bottom\":0,\"left\":0},\"updatedAt\":\"2026-06-18T14:42:06.369Z\"}"
+    },
+    {
+      "name": "mobile:api-report-score",
+      "ok": true,
+      "detail": "83/100"
+    },
+    {
+      "name": "mobile:api-hud-cycle",
+      "ok": true,
+      "detail": "auto"
+    },
+    {
+      "name": "mobile:budget-touch-target",
+      "ok": true,
+      "detail": "44"
+    },
+    {
+      "name": "mobile:budget-safe-area",
+      "ok": true,
+      "detail": "true"
+    }
+  ],
+  "result": "approved"
+}

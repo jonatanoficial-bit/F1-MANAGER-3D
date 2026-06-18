@@ -1,0 +1,219 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "generatedAt": "2026-06-18T14:42:19.411Z",
+  "passed": 42,
+  "failed": 0,
+  "results": [
+    {
+      "name": "ci:script:build:sync",
+      "ok": true,
+      "detail": "node tools/generate-build.mjs"
+    },
+    {
+      "name": "ci:script:manifest:generate",
+      "ok": true,
+      "detail": "node tools/generate-manifest.mjs"
+    },
+    {
+      "name": "ci:script:test:static",
+      "ok": true,
+      "detail": "node tests/static-audit.mjs"
+    },
+    {
+      "name": "ci:script:test:build",
+      "ok": true,
+      "detail": "node tests/build-consistency.mjs"
+    },
+    {
+      "name": "ci:script:test:modules",
+      "ok": true,
+      "detail": "node tests/module-audit.mjs"
+    },
+    {
+      "name": "ci:script:test:contracts",
+      "ok": true,
+      "detail": "node tests/contracts-audit.mjs"
+    },
+    {
+      "name": "ci:script:test:assets",
+      "ok": true,
+      "detail": "node tests/assets-audit.mjs"
+    },
+    {
+      "name": "ci:script:test:persistence",
+      "ok": true,
+      "detail": "node tests/persistence-audit.mjs"
+    },
+    {
+      "name": "ci:script:test:performance",
+      "ok": true,
+      "detail": "node tests/performance-audit.mjs"
+    },
+    {
+      "name": "ci:script:test:mobile",
+      "ok": true,
+      "detail": "node tests/mobile-ux-audit.mjs"
+    },
+    {
+      "name": "ci:script:test:browser",
+      "ok": true,
+      "detail": "node tests/browser-audit.mjs"
+    },
+    {
+      "name": "ci:script:test:visual",
+      "ok": true,
+      "detail": "node tests/visual-regression-audit.mjs"
+    },
+    {
+      "name": "ci:script:test:ci",
+      "ok": true,
+      "detail": "node tests/ci-readiness-audit.mjs"
+    },
+    {
+      "name": "ci:script:test:project",
+      "ok": true,
+      "detail": "node tests/project-audit.mjs"
+    },
+    {
+      "name": "ci:script:audit:summary",
+      "ok": true,
+      "detail": "node tools/generate-audit-summary.mjs"
+    },
+    {
+      "name": "ci:script:audit",
+      "ok": true,
+      "detail": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate"
+    },
+    {
+      "name": "ci:audit-chain:test:performance",
+      "ok": true,
+      "detail": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate"
+    },
+    {
+      "name": "ci:audit-chain:test:mobile",
+      "ok": true,
+      "detail": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate"
+    },
+    {
+      "name": "ci:audit-chain:test:browser",
+      "ok": true,
+      "detail": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate"
+    },
+    {
+      "name": "ci:audit-chain:test:visual",
+      "ok": true,
+      "detail": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate"
+    },
+    {
+      "name": "ci:audit-chain:test:ci",
+      "ok": true,
+      "detail": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate"
+    },
+    {
+      "name": "ci:audit-chain:test:project",
+      "ok": true,
+      "detail": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate"
+    },
+    {
+      "name": "ci:audit-chain:audit:summary",
+      "ok": true,
+      "detail": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate"
+    },
+    {
+      "name": "ci:audit-chain:manifest:generate",
+      "ok": true,
+      "detail": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate"
+    },
+    {
+      "name": "ci:workflow-file",
+      "ok": true,
+      "detail": ".github/workflows/quality-gate.yml"
+    },
+    {
+      "name": "ci:workflow-node20",
+      "ok": true,
+      "detail": "Node 20"
+    },
+    {
+      "name": "ci:workflow-npm-ci",
+      "ok": true,
+      "detail": "npm ci"
+    },
+    {
+      "name": "ci:workflow-audit",
+      "ok": true,
+      "detail": "npm run audit"
+    },
+    {
+      "name": "ci:workflow-artifacts",
+      "ok": true,
+      "detail": "relatórios exportáveis"
+    },
+    {
+      "name": "ci:file:config/quality-budgets.json",
+      "ok": true,
+      "detail": "config/quality-budgets.json"
+    },
+    {
+      "name": "ci:file:config/visual-baselines.json",
+      "ok": true,
+      "detail": "config/visual-baselines.json"
+    },
+    {
+      "name": "ci:file:src/core/performance-monitor.js",
+      "ok": true,
+      "detail": "src/core/performance-monitor.js"
+    },
+    {
+      "name": "ci:file:src/core/viewport-manager.js",
+      "ok": true,
+      "detail": "src/core/viewport-manager.js"
+    },
+    {
+      "name": "ci:file:tests/mobile-ux-audit.mjs",
+      "ok": true,
+      "detail": "tests/mobile-ux-audit.mjs"
+    },
+    {
+      "name": "ci:file:tests/performance-audit.mjs",
+      "ok": true,
+      "detail": "tests/performance-audit.mjs"
+    },
+    {
+      "name": "ci:file:tests/visual-regression-audit.mjs",
+      "ok": true,
+      "detail": "tests/visual-regression-audit.mjs"
+    },
+    {
+      "name": "ci:file:tests/ci-readiness-audit.mjs",
+      "ok": true,
+      "detail": "tests/ci-readiness-audit.mjs"
+    },
+    {
+      "name": "ci:app-shell-performance-module",
+      "ok": true,
+      "detail": "PWA cache"
+    },
+    {
+      "name": "ci:app-shell-viewport-module",
+      "ok": true,
+      "detail": "PWA cache"
+    },
+    {
+      "name": "ci:no-postinstall",
+      "ok": true,
+      "detail": "sem execução oculta"
+    },
+    {
+      "name": "ci:private-package",
+      "ok": true,
+      "detail": "não publicável acidentalmente"
+    },
+    {
+      "name": "ci:summary-readable",
+      "ok": true,
+      "detail": "F1M3D-0.16.0-F07"
+    }
+  ],
+  "result": "approved"
+}

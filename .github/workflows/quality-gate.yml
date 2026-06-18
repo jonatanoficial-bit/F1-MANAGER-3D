@@ -1,0 +1,36 @@
+name: F1 Manager 3D Quality Gate
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+  workflow_dispatch:
+
+jobs:
+  audit:
+    name: Build, audit and regression checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run antiquebra audit
+        run: npm run audit
+      - name: Upload audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: f1-manager-audit-reports
+          path: |
+            test-results/*.json
+            test-results/*.txt
+            AUDIT_REPORT.md
+            FILE_MANIFEST.sha256

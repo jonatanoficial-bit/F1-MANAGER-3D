@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#100000" />
+  <meta name="f1m-build-code" content="F1M3D-0.17.0-F08" />
+  <meta name="f1m-build-version" content="0.17.0" />
+  <meta name="f1m-i18n-languages" content="pt-BR,en,es" />
+  <title>F1 Manager Career 2026</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="F1 Manager 2026" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="orientationLock" class="orientation-lock">
+    <div class="phone-icon">↻</div>
+    <h1>Vire o celular</h1>
+    <p>F1 Manager Career 2026 foi projetado para jogar na horizontal.</p>
+  </div>
+
+  <div id="mobileUxPanel" class="mobile-ux-panel" aria-live="polite">
+    <button type="button" class="mobile-ux-btn" data-action="enterFullscreen">TELA CHEIA</button>
+    <button type="button" class="mobile-ux-btn" data-action="cycleHudMode">HUD AUTO</button>
+    <span id="viewportDebugPill" class="viewport-debug-pill">VIEWPORT</span>
+    <span class="language-mini" data-i18n-switcher aria-label="Idioma"></span>
+  </div>
+
+  <main id="app" class="app shell-bg">
+    <section id="screen-home" class="screen active home-screen asset-bg" data-bg="assets/backgrounds/ui/global_lobby.png">
+      <div class="dark-gradient"></div>
+      <div id="homeBuildPill" class="build-pill">Build carregando…</div>
+      <div class="home-logo-block">
+        <div class="game-kicker">Vale Games apresenta</div>
+        <h1>F1 MANAGER<br><span>CAREER 2026</span></h1>
+        <p>Seu legado. Sua equipe. Sua vitória.</p>
+      </div>
+      <div class="language-panel glass-panel"><span>IDIOMA</span><div data-i18n-switcher></div></div>
+      <div class="home-actions glass-panel">
+        <button class="primary big" data-action="continueCareer">CONTINUAR</button>
+        <button class="secondary big" data-nav="career-create">NOVO JOGO</button>
+        <button class="secondary" data-nav="single-race">CORRIDA RÁPIDA</button>
+        <button class="secondary" data-nav="assets-check">CHECK ASSETS</button>
+        <button class="secondary" data-action="enterFullscreen">TELA CHEIA / FULLSCREEN</button>
+        <button class="secondary" data-action="cycleHudMode">HUD MOBILE</button>
+      </div>
+    </section>
+
+    <section id="screen-career-create" class="screen form-screen asset-bg" data-bg="assets/backgrounds/ui/global_lobby.png">
+      <header class="topbar"><button class="back" data-nav="home">‹</button><h2>CRIAR CARREIRA</h2><button class="next" data-action="createProfile">PRÓXIMA</button></header>
+      <div class="creator-grid">
+        <article class="glass-panel avatar-picker">
+          <h3>Escolha seu avatar</h3>
+          <div id="avatarList" class="avatar-list"></div>
+        </article>
+        <article class="glass-panel form-card">
+          <h3>Insira seus detalhes</h3>
+          <label>Nome do gestor<input id="managerName" maxlength="18" placeholder="Jonatan Vale" /></label>
+          <label>País<select id="managerCountry"></select></label>
+          <h3>Modo de jogo</h3>
+          <div class="mode-row">
+            <button class="mode-card selected" data-mode="realistic"><b>REALISTA</b><span>Metas duras, convites por reputação e finanças restritas.</span></button>
+            <button class="mode-card" data-mode="sandbox"><b>SANDBOX</b><span>Mais orçamento, liberdade e evolução acelerada.</span></button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="screen-team-select" class="screen asset-bg" data-bg="assets/backgrounds/ui/global_lobby.png">
+      <header class="topbar"><button class="back" data-nav="career-create">‹</button><h2 id="teamSelectTitle">ESCOLHA SUA EQUIPE DE F2</h2><button class="next" data-action="startCareer">COMEÇAR</button></header>
+      <div id="seriesChooser" class="series-chooser glass-panel"></div>
+      <div id="careerPathText" class="career-path glass-panel"><b>Plano de carreira:</b> Fórmula 2 equipe fraca → F2 média → F2 forte → convite para F1 baixa → F1 média → equipe grande. No modo realista você só pode começar por equipes menores.</div>
+      <div id="teamSelectGrid" class="team-select-grid"></div>
+    </section>
+
+    <section id="screen-lobby" class="screen dashboard asset-bg" data-bg="assets/backgrounds/ui/global_lobby.png">
+      <div class="side-nav">
+        <button data-tab="dashboard" title="Dashboard" aria-label="Dashboard" class="active">⌂</button>
+        <button data-tab="drivers" title="Pilotos" aria-label="Pilotos">♟</button>
+        <button data-tab="garage" title="Carro" aria-label="Carro">⚙</button>
+        <button data-tab="staff" title="Staff" aria-label="Staff">☷</button>
+        <button data-tab="facilities" title="Instalações" aria-label="Instalações">⌂</button>
+        <button data-tab="calendar" title="Agenda" aria-label="Agenda">▦</button>
+        <button data-tab="season" title="Temporadas" aria-label="Temporadas">📈</button>
+        <button data-tab="standings" title="Classificações" aria-label="Classificações">🏆</button>
+        <button data-tab="driver-market" title="Mercado" aria-label="Mercado">🧑</button>
+        <button data-tab="rivals" title="Rivais" aria-label="Rivais">📡</button>
+        <button data-tab="media" title="Mídia" aria-label="Mídia">📰</button>
+        <button data-tab="offers" title="Propostas" aria-label="Propostas">⇄</button>
+        <button data-tab="inbox" title="E-mails" aria-label="E-mails">✉</button>
+        <button data-tab="saves" title="Saves" aria-label="Saves">💾</button>
+        <button data-tab="data-lock" title="Dados" aria-label="Dados">🗂</button>
+        <button data-tab="qa" title="QA Beta" aria-label="QA Beta">✅</button>
+        <button data-tab="system" title="Sistema" aria-label="Sistema">🛡</button>
+      </div>
+      <div class="dash-main">
+        <header class="hudbar">
+          <div><b id="hudTeam">Equipe</b><span id="hudManager">Gestor</span></div>
+          <div class="hud-stats"><span id="hudRep">REP 0</span><span id="hudMoney">$0</span><span id="hudRound">Corrida 1/24</span></div>
+          <button class="primary" data-action="goQualifying">PRÓXIMA CORRIDA</button>
+        </header>
+        <div id="tabContent" class="tab-content"></div>
+      </div>
+    </section>
+
+    <section id="screen-qualifying" class="screen race-prep asset-bg" data-bg="assets/backgrounds/ui/classification_clean.png">
+      <header class="topbar"><button class="back" data-nav="lobby">‹</button><h2 id="qualifyingHeaderTitle">CLASSIFICAÇÃO</h2><button class="next" data-action="startQualifying">SIMULAR Q</button></header>
+      <div class="split-layout">
+        <article class="glass-panel weekend-prep"><div id="weekendPanel" class="weekend-panel"></div><h3>Preparação</h3><p>Faça treino livre, escolha o composto inicial e defina o plano de corrida. A classificação passa a considerar treino, setup, staff e foco da equipe.</p><div class="strategy-pills"><button class="selected" data-compound="soft">Macio</button><button data-compound="medium">Médio</button><button data-compound="hard">Duro</button></div><div id="strategyPlan" class="strategy-plan"></div><button class="primary big" data-action="startQualifying">INICIAR CLASSIFICAÇÃO</button></article>
+        <article class="glass-panel"><h3>Grid provisório</h3><div id="qualifyingTable" class="standings-list"></div></article>
+      </div>
+    </section>
+
+    <section id="screen-race" class="screen race-screen">
+      <div id="raceCanvasWrap"><canvas id="raceCanvas"></canvas></div>
+      <aside class="race-left glass-panel"><h3 id="raceTitle">CORRIDA</h3><div id="raceBuildStamp" class="race-debug-stamp"></div><div id="raceStatusPanel" class="race-status-panel"></div><div id="raceLeaderboard"></div></aside>
+      <aside class="race-right">
+        <article class="driver-control glass-panel" id="controlCard1"><h4 id="controlDriver1">Piloto 1</h4><div class="condition-bar"><span id="cond1"></span></div><button data-action="setPace" data-driver="0" data-pace="attack">⚡ ATAQUE</button><button data-action="setPace" data-driver="0" data-pace="normal">RITMO NORMAL</button><button data-action="setPace" data-driver="0" data-pace="save">🛞 POUPAR</button><button data-action="pitDriver" data-driver="0" class="primary">PIT STOP</button></article>
+        <article class="driver-control glass-panel" id="controlCard2"><h4 id="controlDriver2">Piloto 2</h4><div class="condition-bar"><span id="cond2"></span></div><button data-action="setPace" data-driver="1" data-pace="attack">⚡ ATAQUE</button><button data-action="setPace" data-driver="1" data-pace="normal">RITMO NORMAL</button><button data-action="setPace" data-driver="1" data-pace="save">🛞 POUPAR</button><button data-action="pitDriver" data-driver="1" class="primary">PIT STOP</button></article>
+      </aside>
+      <footer class="race-toolbar glass-panel"><button data-nav="lobby">☰</button><button data-action="toggleRaceSpeed">▶ x<span id="speedLabel">1</span></button><button data-action="toggleRaceCamera">CÂMERA</button><span id="lapLabel">VOLTA 1/22</span><span id="weatherLabel">☀ Seco</span><button data-action="finishRaceNow">FINALIZAR</button></footer>
+    </section>
+
+    <section id="screen-results" class="screen asset-bg" data-bg="assets/backgrounds/podium/podium_stage.png">
+      <div class="dark-gradient"></div>
+      <header class="topbar"><h2>RESULTADO DA CORRIDA</h2><button class="next" data-action="returnLobbyAfterRace">CONTINUAR</button></header>
+      <div id="podiumHighlights" class="podium-strip"></div><div id="raceWeekendSummary" class="race-weekend-summary"></div><div class="results-grid"><article class="glass-panel"><h3>Resultado</h3><div id="resultList" class="standings-list rich-standings"></div></article><article class="glass-panel"><h3>Campeonato</h3><div id="championshipList" class="standings-list rich-standings"></div></article></div>
+    </section>
+
+    <section id="screen-single-race" class="screen asset-bg" data-bg="assets/backgrounds/race/tracks/miami_base_isometric.png">
+      <div class="dark-gradient"></div><header class="topbar"><button class="back" data-nav="home">‹</button><h2>CORRIDA RÁPIDA</h2><button class="next" data-action="startRaceDirect">INICIAR</button></header>
+      <div class="center-card glass-panel"><h3>Teste da corrida 3D</h3><p>Escolha qualquer pista SVG enviada. Todas estão jogáveis nesta build.</p><label class="quick-label">Pista<select id="quickRaceSelect"></select></label><button class="primary big" data-action="startRaceDirect">INICIAR TESTE 3D</button></div>
+    </section>
+
+    <section id="screen-assets-check" class="screen asset-bg" data-bg="assets/backgrounds/ui/global_lobby.png">
+      <header class="topbar"><button class="back" data-nav="home">‹</button><h2>CENTRAL DE ASSETS</h2></header>
+      <div class="asset-check glass-panel"><p>Esta build não inclui binários pesados. O registro central preserva caminhos, hashes e tipos; quando um arquivo não existe, um placeholder seguro mantém a interface funcional.</p><div class="asset-check-actions"><button class="primary" data-action="runAssetAudit">REESCANEAR TELA</button><button class="secondary" data-action="exportAssetReport">EXPORTAR RELATÓRIO</button></div><div id="assetChecklist"></div></div>
+    </section>
+      <div id="globalBuildStamp" class="global-build-stamp">Build carregando…</div>
+  </main>
+
+  <script src="data/build-info.js"></script>
+  <script src="src/core/build-system.js"></script>
+  <script src="src/core/runtime-guard.js"></script>
+  <script src="src/core/event-bus.js"></script>
+  <script src="src/core/data-contracts.js"></script>
+  <script src="data/asset-catalog.js"></script>
+  <script src="src/core/asset-registry.js"></script>
+  <script src="src/systems/persistence-system.js"></script>
+  <script src="src/systems/career-system.js"></script>
+  <script src="src/systems/race-engine.js"></script>
+  <script src="src/ui/screen-manager.js"></script>
+  <script src="src/core/viewport-manager.js"></script>
+  <script src="src/core/performance-monitor.js"></script>
+  <script src="src/core/diagnostics.js"></script>
+  <script src="data/i18n.js"></script>
+  <script src="src/core/i18n-system.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="data/game-data.js"></script>
+  <script src="data/track-layouts.js"></script>
+  <script src="script.js"></script>
+  <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('service-worker.js').catch(()=>{}));}</script>
+</body>
+</html>

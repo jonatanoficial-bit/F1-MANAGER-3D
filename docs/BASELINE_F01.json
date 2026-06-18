@@ -1,0 +1,40 @@
+{
+  "baseline_id": "F1M3D-BASELINE-F01",
+  "source_archive": "F1-MANAGER-3D-main.zip",
+  "source_archive_sha256": "65bb78db8fa96187c712f58e00d0da116b7bf90f2c15b0029ffbc5431092ff8e",
+  "source_archive_bytes": 180637352,
+  "source_file_count": 480,
+  "source_zip_comment": "257887d290569a15fe1dd8090bccaf0ebf1c5440",
+  "phase_build": "F1M3D-0.10.0-F01",
+  "created_at": "2026-06-17T17:10:00-03:00",
+  "key_files_current": {
+    "index.html": {
+      "bytes": 11113,
+      "sha256": "82d7ecda33121566677dcae769d27f5ded5728c002363c434d2eac5ced0cf062"
+    },
+    "script.js": {
+      "bytes": 179017,
+      "sha256": "f802bd2489b36421bffc3b49558099f9b76294161848e11f8cffc82722070627"
+    },
+    "style.css": {
+      "bytes": 53029,
+      "sha256": "b0ba6094e1f16a946c48d65e29f08d0f5a66d40829edfef9efb3b8e49d088969"
+    },
+    "data/game-data.js": {
+      "bytes": 41618,
+      "sha256": "df31b57e11fbb021cf3563ab4c46d9e39ab48a6a56d5410a9a6e5fb0079a080a"
+    },
+    "data/track-layouts.js": {
+      "bytes": 126483,
+      "sha256": "fd73f8aebd4014be3efb1f403e7462eb2446311c90b6f01d5374305dd33baae0"
+    },
+    "service-worker.js": {
+      "bytes": 1587,
+      "sha256": "b5af1a8ccc3c59e872a36c4a7f751d676048b9e03cd2b1e293e9ad721792817a"
+    },
+    "manifest.webmanifest": {
+      "bytes": 1339,
+      "sha256": "af49eb187fd4b3b613c146c0e65058250b086b298e005c43f90809c23a01d3cd"
+    }
+  }
+}

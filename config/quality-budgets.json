@@ -1,0 +1,33 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "profile": "mobile-first",
+  "budgets": {
+    "directory_bytes_without_assets": 2200000,
+    "javascript_bytes": 700000,
+    "css_bytes": 98000,
+    "html_bytes": 30000,
+    "app_shell_files_max": 26,
+    "asset_binary_files_in_phase_zip": 0,
+    "dom_nodes": 2200,
+    "buttons": 260,
+    "images_tracked": 180,
+    "local_storage_bytes": 900000,
+    "active_save_bytes": 260000,
+    "browser_score_min": 85,
+    "system_score_min": 85,
+    "diagnostic_score_min": 90,
+    "max_runtime_errors": 0,
+    "mobile_horizontal_scroll_extra_px": 40,
+    "mobile_orientation_overlay_required": true,
+    "touch_target_min_px": 44,
+    "compact_landscape_height_px": 520,
+    "safe_area_required": true
+  },
+  "notes": [
+    "Orçamentos conservadores para builds leves sem assets binários.",
+    "A sonda de FPS em ambiente headless é indicativa; homologação física Android/iOS continua obrigatória.",
+    "Qualquer fase futura que ultrapassar o orçamento deve registrar justificativa em KNOWN_ISSUES.md e AUDIT_REPORT.md.",
+    "Fase 7 adiciona safe area, modo imersivo, HUD compacto e trilho touch sem assets binários.",
+    "Fase 8 adiciona internacionalização PT-BR/EN/ES, seletor de idioma e auditoria i18n mantendo orçamento mobile."
+  ]
+}

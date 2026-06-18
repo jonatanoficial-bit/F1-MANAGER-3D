@@ -1,0 +1,206 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "generatedAt": "2026-06-18T14:42:04.190Z",
+  "checks": [
+    {
+      "name": "build version synchronized",
+      "ok": true,
+      "detail": "0.17.0/0.17.0/0.17.0"
+    },
+    {
+      "name": "build code present",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "phase 8 build code",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "save schema 8",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "Data Lock typo removed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "race simulation loop modular",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "old renderer recursive animate removed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "renderer removes resize listener",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "F2 starts aligned at round zero",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "diagnostic filename dynamic",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "system diagnostics present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "performance audit UI present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "quality budgets present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "save vault UI present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "portable save export present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "active save key v0170",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "viewport manager present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile UX panel present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "safe area CSS present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:script.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:service-worker.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/game-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/build-info.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/track-layouts.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/build-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/runtime-guard.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/event-bus.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/data-contracts.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/asset-catalog.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/asset-registry.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/systems/persistence-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/systems/career-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/systems/race-engine.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/ui/screen-manager.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/viewport-manager.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/performance-monitor.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/diagnostics.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/i18n.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/i18n-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "runtime build JS matches JSON",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

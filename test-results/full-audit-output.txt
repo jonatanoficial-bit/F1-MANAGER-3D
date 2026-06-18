@@ -1,0 +1,419 @@
+
+> f1-manager-career-2026@0.15.0 audit
+> npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate
+
+
+> f1-manager-career-2026@0.15.0 build:sync
+> node tools/generate-build.mjs
+
+Build sincronizada: F1M3D-0.15.0-F06 • fonte DCED96F27D2D
+
+> f1-manager-career-2026@0.15.0 assets:catalog
+> node tools/generate-asset-catalog.mjs
+
+Catálogo runtime gerado: 519 assets • /mnt/data/F1-MANAGER-3D-v0.15.0-F06/data/asset-catalog.js
+
+> f1-manager-career-2026@0.15.0 test:static
+> node tests/static-audit.mjs
+
+PASS build version synchronized — 0.15.0/0.15.0/0.15.0
+PASS build code present — F1M3D-0.15.0-F06
+PASS phase 6 build code — F1M3D-0.15.0-F06
+PASS save schema 6 — 6
+PASS Data Lock typo removed
+PASS race simulation loop modular
+PASS old renderer recursive animate removed
+PASS renderer removes resize listener
+PASS F2 starts aligned at round zero
+PASS diagnostic filename dynamic
+PASS system diagnostics present
+PASS performance audit UI present
+PASS quality budgets present
+PASS save vault UI present
+PASS portable save export present
+PASS active save key v0150
+PASS syntax:script.js
+PASS syntax:service-worker.js
+PASS syntax:data/game-data.js
+PASS syntax:data/build-info.js
+PASS syntax:data/track-layouts.js
+PASS syntax:src/core/build-system.js
+PASS syntax:src/core/runtime-guard.js
+PASS syntax:src/core/event-bus.js
+PASS syntax:src/core/data-contracts.js
+PASS syntax:data/asset-catalog.js
+PASS syntax:src/core/asset-registry.js
+PASS syntax:src/systems/persistence-system.js
+PASS syntax:src/systems/career-system.js
+PASS syntax:src/systems/race-engine.js
+PASS syntax:src/ui/screen-manager.js
+PASS syntax:src/core/performance-monitor.js
+PASS syntax:src/core/diagnostics.js
+PASS runtime build JS matches JSON
+
+> f1-manager-career-2026@0.15.0 test:build
+> node tests/build-consistency.mjs
+
+PASS version:source — 0.15.0
+PASS version:root — 0.15.0
+PASS version:data — 0.15.0
+PASS version:runtime — 0.15.0
+PASS version:package — 0.15.0
+PASS version:manifest — 0.15.0
+PASS version:assets — 0.15.0
+PASS version:package-lock — 0.15.0/0.15.0
+PASS code:source — F1M3D-0.15.0-F06
+PASS code:root — F1M3D-0.15.0-F06
+PASS code:data — F1M3D-0.15.0-F06
+PASS code:runtime — F1M3D-0.15.0-F06
+PASS code:assets — F1M3D-0.15.0-F06
+PASS code:shell — F1M3D-0.15.0-F06
+PASS html:build-code
+PASS html:version
+PASS schema:save — 6
+PASS schema:asset-manifest — 6
+PASS schema:app-shell — 6
+PASS shell:./index.html — ./index.html
+PASS shell:./style.css — ./style.css
+PASS shell:./src/core/build-system.js — ./src/core/build-system.js
+PASS shell:./src/core/runtime-guard.js — ./src/core/runtime-guard.js
+PASS shell:./src/core/event-bus.js — ./src/core/event-bus.js
+PASS shell:./src/core/data-contracts.js — ./src/core/data-contracts.js
+PASS shell:./data/asset-catalog.js — ./data/asset-catalog.js
+PASS shell:./src/core/asset-registry.js — ./src/core/asset-registry.js
+PASS shell:./src/systems/persistence-system.js — ./src/systems/persistence-system.js
+PASS shell:./src/systems/career-system.js — ./src/systems/career-system.js
+PASS shell:./src/systems/race-engine.js — ./src/systems/race-engine.js
+PASS shell:./src/ui/screen-manager.js — ./src/ui/screen-manager.js
+PASS shell:./src/core/performance-monitor.js — ./src/core/performance-monitor.js
+PASS shell:./src/core/diagnostics.js — ./src/core/diagnostics.js
+PASS shell:./data/build-info.js — ./data/build-info.js
+PASS shell:./data/game-data.js — ./data/game-data.js
+PASS shell:./data/track-layouts.js — ./data/track-layouts.js
+PASS shell:./script.js — ./script.js
+PASS shell:./manifest.webmanifest — ./manifest.webmanifest
+
+> f1-manager-career-2026@0.15.0 test:modules
+> node tests/module-audit.mjs
+
+PASS syntax:src/core/build-system.js
+PASS syntax:src/core/runtime-guard.js
+PASS syntax:src/core/event-bus.js
+PASS syntax:src/core/data-contracts.js
+PASS syntax:data/asset-catalog.js
+PASS syntax:src/core/asset-registry.js
+PASS syntax:src/systems/persistence-system.js
+PASS syntax:src/systems/career-system.js
+PASS syntax:src/systems/race-engine.js
+PASS syntax:src/ui/screen-manager.js
+PASS syntax:src/core/performance-monitor.js
+PASS syntax:src/core/diagnostics.js
+PASS modules:load-order — 11022,11067,11118,11170,11218,11271,11319,11372,11432,11487,11540,11591,11649,11787,11831,11879
+PASS architecture:data-registry
+PASS architecture:event-bus
+PASS architecture:persistence
+PASS architecture:career
+PASS architecture:race-engine
+PASS architecture:screen-manager
+PASS system:tab
+PASS system:diagnostic-action
+PASS save:new-key
+PASS save:migration-schema-4
+PASS save:envelope-format
+PASS runtime:guard-used
+PASS build:core-used
+
+> f1-manager-career-2026@0.15.0 test:contracts
+> node tests/contracts-audit.mjs
+
+PASS assets:catalogue — 519
+PASS assets:path-safety
+PASS contracts:data-valid — 100/100
+PASS contracts:team-index — mercedes
+PASS contracts:driver-index — A. Antonelli
+PASS contracts:counts — {"valid":true,"score":100,"f1Teams":11,"f2Teams":11,"f1Drivers":22,"f2Drivers":22,"calendar":25,"assets":28}
+PASS events:on-off — {"listenerGroups":0,"listeners":0,"history":[{"event":"audit","at":"2026-06-18T13:42:49.049Z"},{"event":"audit","at":"2026-06-18T13:42:49.048Z"}]}
+PASS persistence:legacy-read — audit_legacy
+PASS career:migration-6 — 3,4,5,6
+PASS career:state-contract
+PASS persistence:envelope — F1M_SAVE_ENVELOPE_V2/1195
+PASS persistence:checksum — ok-v2
+PASS persistence:backup-rotation — 2
+PASS race-engine:lifecycle — {"running":false,"frames":1,"startedAt":1000,"uptimeMs":0,"maxDelta":0.05}
+PASS ui:screen-manager
+TOTAL: 15 passed, 0 failed
+
+> f1-manager-career-2026@0.15.0 test:assets
+> node tests/assets-audit.mjs
+
+PASS catalog:build — F1M3D-0.15.0-F06
+PASS catalog:version — 6
+PASS catalog:entry-count — 519
+PASS catalog:519-paths — 519
+PASS catalog:runtime-count — 168
+PASS catalog:required-missing — 7
+PASS catalog:no-case-collisions — 0
+PASS path:relative-normalized
+PASS path:assets-preserved
+PASS path:traversal-rejected
+PASS path:backslash-normalized
+PASS path:candidate — assets/flags/all/br.png
+PASS placeholder:data-uri — data:image/svg+xml;charset=UTF
+PASS type:background
+PASS type:avatar
+PASS type:logo
+PASS type:track
+PASS metadata:hash
+PASS missing:list-seven — assets/drivers/avatars/f2/alex_dunne.png,assets/drivers/avatars/f2/enzo_fittipaldi_jr.png,assets/drivers/avatars/f2/john_bennett.png,assets/drivers/avatars/f2/nikola_tsolov.png,assets/drivers/avatars/f2/tasanapol_inthraphuvasak.png,assets/icons/app/icon-192.png,assets/icons/app/icon-512.png
+PASS delivery:no-asset-binaries
+PASS catalog:generated-runtime
+PASS integration:registry-created
+PASS integration:hydrate-delegated
+PASS integration:diagnostics-context
+TOTAL: 24 passed, 0 failed
+
+> f1-manager-career-2026@0.15.0 test:persistence
+> node tests/persistence-audit.mjs
+
+PASS save:commit-ok — ok
+PASS save:format-v2 — F1M_SAVE_ENVELOPE_V2
+PASS save:schema-current — 6
+PASS save:journal-created — 1
+PASS backups:five-slots — 5
+PASS backups:valid-count — 5
+PASS tmp:clean-after-commit — {"exists":false,"valid":null,"bytes":0}
+PASS corruption:detected — json-invalid
+PASS recovery:auto-loads-backup — {"profile":{"name":"Auditoria Save"},"currentSeries":"F2","currentTeam":"prema","completedRaces":4,"money":1004,"saveSchema":6,"updatedAt":"2026-06-18T13:42:49.614Z","saveVault":{"format":"F1M_SAVE_ENVELOPE_V2","journal":"F1M_SAVE_JOURNAL_V1","backups":5,"lastWriteAt":"2026-06-18T13:42:49.614Z","buildCode":"F1M3D-0.15.0-F06"}}
+PASS recovery:active-restored — ok-v2
+PASS export:portable-format — F1M_PORTABLE_SAVE_V1
+PASS export:checksum-valid — 890869ee
+PASS import:portable-ok — ok
+PASS import:tamper-rejected — checksum mismatch esperado
+TOTAL: 14 passed, 0 failed
+
+> f1-manager-career-2026@0.15.0 test:performance
+> node tests/performance-audit.mjs
+
+PASS budget:build-current — F1M3D-0.15.0-F06/F1M3D-0.15.0-F06
+PASS budget:javascript-bytes — 624414/700000
+PASS budget:css-bytes — 55435/75000
+PASS budget:html-bytes — 12196/30000
+PASS budget:directory-without-assets — 982965/2200000
+PASS budget:app-shell-size — 20/24
+PASS budget:no-asset-binaries
+PASS performance:module-present
+PASS performance:module-cached
+PASS performance:html-load-order
+PASS performance:script-action
+PASS performance:diagnostics-integrated
+PASS performance:api-loaded
+PASS performance:static-probe-pass — 8/8
+TOTAL: 14 passed, 0 failed
+
+> f1-manager-career-2026@0.15.0 test:browser
+> node tests/browser-audit.mjs
+
+PASS mobile_landscape 844x390 • diagnóstico 94/100
+PASS tablet 1180x820 • diagnóstico 94/100
+PASS desktop 1440x900 • diagnóstico 94/100
+
+> f1-manager-career-2026@0.15.0 test:visual
+> node tests/visual-regression-audit.mjs
+
+PASS visual:baseline-current — F1M3D-0.15.0-F06/F1M3D-0.15.0-F06
+PASS visual:protected-selector:#homeBuildPill — preservado no HTML
+PASS visual:protected-selector:#globalBuildStamp — preservado no HTML
+PASS visual:protected-selector:#raceBuildStamp — preservado no HTML
+PASS visual:protected-selector:#tabContent — preservado no HTML
+PASS visual:protected-selector:#raceCanvasWrap — preservado no HTML
+PASS visual:protected-selector:#resultList — preservado no HTML
+PASS visual:text:F1 MANAGER — texto base
+PASS visual:text:Central Antiquebra — texto base
+PASS visual:text:Central de Assets — texto base
+PASS visual:text:RESULTADO DA CORRIDA — texto base
+PASS visual:responsive-css — media queries presentes
+PASS visual:safe-area-css — safe area/notch
+PASS visual:orientation-lock — overlay horizontal
+PASS visual:assets-placeholders — fallback visual
+PASS visual:browser-build — F1M3D-0.15.0-F06
+PASS visual:viewport-executed:mobile_landscape — 844x390
+PASS visual:viewport-pass:mobile_landscape — fluxo passou
+PASS visual:overflow:mobile_landscape — 0px
+PASS visual:orientation-overlay:mobile_landscape — false
+PASS visual:race-results:mobile_landscape — 22 linhas
+PASS visual:viewport-executed:tablet — 1180x820
+PASS visual:viewport-pass:tablet — fluxo passou
+PASS visual:overflow:tablet — 0px
+PASS visual:orientation-overlay:tablet — false
+PASS visual:race-results:tablet — 22 linhas
+PASS visual:viewport-executed:desktop — 1440x900
+PASS visual:viewport-pass:desktop — fluxo passou
+PASS visual:overflow:desktop — 0px
+PASS visual:orientation-overlay:desktop — false
+PASS visual:race-results:desktop — 22 linhas
+SNAPSHOT: 2cefd7a84d3dd4b0c543064e9da592c15dba5775a1e7ea56d9248bedd111e898
+TOTAL: 31 passed, 0 failed
+
+> f1-manager-career-2026@0.15.0 test:ci
+> node tests/ci-readiness-audit.mjs
+
+PASS ci:script:build:sync — node tools/generate-build.mjs
+PASS ci:script:manifest:generate — node tools/generate-manifest.mjs
+PASS ci:script:test:static — node tests/static-audit.mjs
+PASS ci:script:test:build — node tests/build-consistency.mjs
+PASS ci:script:test:modules — node tests/module-audit.mjs
+PASS ci:script:test:contracts — node tests/contracts-audit.mjs
+PASS ci:script:test:assets — node tests/assets-audit.mjs
+PASS ci:script:test:persistence — node tests/persistence-audit.mjs
+PASS ci:script:test:performance — node tests/performance-audit.mjs
+PASS ci:script:test:browser — node tests/browser-audit.mjs
+PASS ci:script:test:visual — node tests/visual-regression-audit.mjs
+PASS ci:script:test:ci — node tests/ci-readiness-audit.mjs
+PASS ci:script:test:project — node tests/project-audit.mjs
+PASS ci:script:audit:summary — node tools/generate-audit-summary.mjs
+PASS ci:script:audit — npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate
+PASS ci:audit-chain:test:performance — npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate
+PASS ci:audit-chain:test:browser — npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate
+PASS ci:audit-chain:test:visual — npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate
+PASS ci:audit-chain:test:ci — npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate
+PASS ci:audit-chain:test:project — npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate
+PASS ci:audit-chain:audit:summary — npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate
+PASS ci:audit-chain:manifest:generate — npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate
+PASS ci:workflow-file — .github/workflows/quality-gate.yml
+PASS ci:workflow-node20 — Node 20
+PASS ci:workflow-npm-ci — npm ci
+PASS ci:workflow-audit — npm run audit
+PASS ci:workflow-artifacts — relatórios exportáveis
+PASS ci:file:config/quality-budgets.json — config/quality-budgets.json
+PASS ci:file:config/visual-baselines.json — config/visual-baselines.json
+PASS ci:file:src/core/performance-monitor.js — src/core/performance-monitor.js
+PASS ci:file:tests/performance-audit.mjs — tests/performance-audit.mjs
+PASS ci:file:tests/visual-regression-audit.mjs — tests/visual-regression-audit.mjs
+PASS ci:file:tests/ci-readiness-audit.mjs — tests/ci-readiness-audit.mjs
+PASS ci:app-shell-performance-module — PWA cache
+PASS ci:no-postinstall — sem execução oculta
+PASS ci:private-package — não publicável acidentalmente
+PASS ci:summary-readable — F1M3D-0.15.0-F06
+TOTAL: 37 passed, 0 failed
+
+> f1-manager-career-2026@0.15.0 test:project
+> node tests/project-audit.mjs
+
+PASS json:BETA_CLOSED_REPORT.json
+PASS json:BUILD_INFO.json
+PASS json:DATA_LOCK_REPORT.json
+PASS json:PHASE_01_REPORT.json
+PASS json:PHASE_02_REPORT.json
+PASS json:PHASE_03_REPORT.json
+PASS json:PHASE_04_REPORT.json
+PASS json:assets/ASSET_MANIFEST.json
+PASS json:config/app-shell.json
+PASS json:config/build-source.json
+PASS json:config/quality-budgets.json
+PASS json:config/visual-baselines.json
+PASS json:data/app-shell.json
+PASS json:data/build.json
+PASS json:data/drivers.json
+PASS json:data/teams.json
+PASS json:data/tracks.json
+PASS json:docs/BASELINE_F01.json
+PASS json:manifest.webmanifest
+PASS json:package-lock.json
+PASS json:package.json
+PASS json:test-results/assets-audit.json
+PASS json:test-results/browser-audit.json
+PASS json:test-results/build-consistency.json
+PASS json:test-results/build-sync-report.json
+PASS json:test-results/ci-readiness-audit.json
+PASS json:test-results/contracts-audit.json
+PASS json:test-results/full-audit-summary.json
+PASS json:test-results/module-audit.json
+PASS json:test-results/npm-audit.json
+PASS json:test-results/performance-audit.json
+PASS json:test-results/persistence-audit.json
+PASS json:test-results/project-audit.json
+PASS json:test-results/static-audit.json
+PASS json:test-results/visual-regression-audit.json
+PASS syntax:script.js
+PASS syntax:service-worker.js
+PASS syntax:data/game-data.js
+PASS syntax:data/build-info.js
+PASS syntax:data/track-layouts.js
+PASS syntax:src/core/build-system.js
+PASS syntax:src/core/runtime-guard.js
+PASS syntax:src/core/event-bus.js
+PASS syntax:src/core/data-contracts.js
+PASS syntax:data/asset-catalog.js
+PASS syntax:src/core/asset-registry.js
+PASS syntax:src/systems/persistence-system.js
+PASS syntax:src/systems/career-system.js
+PASS syntax:src/systems/race-engine.js
+PASS syntax:src/ui/screen-manager.js
+PASS syntax:src/core/performance-monitor.js
+PASS syntax:src/core/diagnostics.js
+PASS app-shell:index.html
+PASS app-shell:style.css
+PASS app-shell:src/core/build-system.js
+PASS app-shell:src/core/runtime-guard.js
+PASS app-shell:src/core/event-bus.js
+PASS app-shell:src/core/data-contracts.js
+PASS app-shell:data/asset-catalog.js
+PASS app-shell:src/core/asset-registry.js
+PASS app-shell:src/systems/persistence-system.js
+PASS app-shell:src/systems/career-system.js
+PASS app-shell:src/systems/race-engine.js
+PASS app-shell:src/ui/screen-manager.js
+PASS app-shell:src/core/performance-monitor.js
+PASS app-shell:src/core/diagnostics.js
+PASS app-shell:data/build-info.js
+PASS app-shell:data/game-data.js
+PASS app-shell:data/track-layouts.js
+PASS app-shell:script.js
+PASS app-shell:manifest.webmanifest
+PASS assets:no-binaries-in-phase-zip
+PASS assets:manifest-build — F1M3D-0.15.0-F06
+PASS assets:manifest-version — 6
+PASS assets:original-catalogue — 416
+PASS assets:runtime-missing-documented — 7
+PASS assets:missing-path-catalogued:assets/drivers/avatars/f2/alex_dunne.png
+PASS assets:missing-path-catalogued:assets/drivers/avatars/f2/enzo_fittipaldi_jr.png
+PASS assets:missing-path-catalogued:assets/drivers/avatars/f2/john_bennett.png
+PASS assets:missing-path-catalogued:assets/drivers/avatars/f2/nikola_tsolov.png
+PASS assets:missing-path-catalogued:assets/drivers/avatars/f2/tasanapol_inthraphuvasak.png
+PASS assets:missing-path-catalogued:assets/icons/app/icon-192.png
+PASS assets:missing-path-catalogued:assets/icons/app/icon-512.png
+PASS build:visible-home
+PASS build:visible-global
+PASS build:visible-race
+PASS build:source-exists
+PASS build:single-source-generator
+PASS build:save-schema — 6
+PASS system:tab-visible
+PASS system:core-modules
+PASS persistence:v2-envelope
+PASS persistence:portable-export
+PASS persistence:atomic-commit
+PASS persistence:journal
+PASS persistence:audit-pass — 14 passed, 0 failed
+PASS pwa:core-cached
+PASS browser:all-viewports-pass — mobile_landscape:true, tablet:true, desktop:true
+PASS browser:current-build — F1M3D-0.15.0-F06
+PASS performance:audit-pass — 14 passed, 0 failed
+PASS performance:current-build — F1M3D-0.15.0-F06
+PASS visual:audit-pass — 31 passed, 0 failed
+PASS visual:current-build — F1M3D-0.15.0-F06
+PASS ci:audit-pass — 37 passed, 0 failed
+PASS ci:current-build — F1M3D-0.15.0-F06
+PASS ci:workflow-present — quality-gate.yml
+PASS performance:core-present — performance-monitor.js
+TOTAL: 107 passed, 0 failed
+
+> f1-manager-career-2026@0.15.0 audit:summary
+> node tools/generate-audit-summary.mjs
+
+Resumo de auditoria: 343 aprovadas, 0 falhas
+
+> f1-manager-career-2026@0.15.0 manifest:generate
+> node tools/generate-manifest.mjs
+
+Manifesto gerado: 136 arquivos

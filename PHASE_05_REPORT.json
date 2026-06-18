@@ -1,0 +1,69 @@
+{
+  "build": "F1M3D-0.14.0-F05",
+  "version": "0.14.0",
+  "phase": 5,
+  "phase_name": "Persistência Avançada, Recuperação e Exportação Segura",
+  "generated_at": "2026-06-18T13:34:00Z",
+  "status": "approved",
+  "save_schema": 5,
+  "implemented": [
+    "Envelope de save F1M_SAVE_ENVELOPE_V2 com payloadChecksum e envelopeChecksum",
+    "Escrita atômica com chave temporária, validação e commit apenas após verificação",
+    "Cinco backups rotativos automáticos",
+    "Journal de persistência com até 20 eventos recentes",
+    "Recuperação automática quando o save ativo está corrompido",
+    "Botões de verificação e recuperação na aba Saves",
+    "Exportação/importação portátil F1M_PORTABLE_SAVE_V1 com checksum",
+    "Rejeição de pacote adulterado ou incompleto",
+    "Migração automática para save schema 5",
+    "Compatibilidade de leitura com envelopes V1 e saves legados brutos"
+  ],
+  "audit_summary": {
+    "build": "F1M3D-0.14.0-F05",
+    "version": "0.14.0",
+    "phase": 5,
+    "generated_at": "2026-06-18T13:28:58.620Z",
+    "static": {
+      "passed": 31,
+      "failed": 0
+    },
+    "build_consistency": {
+      "passed": 36,
+      "failed": 0
+    },
+    "modules": {
+      "passed": 25,
+      "failed": 0
+    },
+    "contracts": {
+      "passed": 15,
+      "failed": 0
+    },
+    "assets": {
+      "passed": 24,
+      "failed": 0
+    },
+    "persistence": {
+      "passed": 14,
+      "failed": 0
+    },
+    "browser_cases": {
+      "passed": 3,
+      "failed": 0
+    },
+    "project": {
+      "passed": 92,
+      "failed": 0
+    },
+    "total": {
+      "passed": 240,
+      "failed": 0
+    },
+    "result": "approved"
+  },
+  "asset_policy": {
+    "binary_assets_removed": 416,
+    "catalogued_paths": 519,
+    "missing_runtime_required_paths": 7
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "f1-manager-career-2026",
+  "private": true,
+  "version": "0.17.0",
+  "type": "module",
+  "scripts": {
+    "build:sync": "node tools/generate-build.mjs",
+    "manifest:generate": "node tools/generate-manifest.mjs",
+    "test:static": "node tests/static-audit.mjs",
+    "test:build": "node tests/build-consistency.mjs",
+    "test:modules": "node tests/module-audit.mjs",
+    "test:project": "node tests/project-audit.mjs",
+    "audit": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate",
+    "test:browser": "node tests/browser-audit.mjs",
+    "test:contracts": "node tests/contracts-audit.mjs",
+    "audit:summary": "node tools/generate-audit-summary.mjs",
+    "assets:catalog": "node tools/generate-asset-catalog.mjs",
+    "test:assets": "node tests/assets-audit.mjs",
+    "test:persistence": "node tests/persistence-audit.mjs",
+    "test:performance": "node tests/performance-audit.mjs",
+    "test:visual": "node tests/visual-regression-audit.mjs",
+    "test:ci": "node tests/ci-readiness-audit.mjs",
+    "test:mobile": "node tests/mobile-ux-audit.mjs",
+    "test:i18n": "node tests/i18n-audit.mjs"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "generatedAt": "2026-06-18T14:42:05.406Z",
+  "passed": 24,
+  "failed": 0,
+  "results": [
+    {
+      "name": "catalog:build",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "catalog:version",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "catalog:entry-count",
+      "ok": true,
+      "detail": "519"
+    },
+    {
+      "name": "catalog:519-paths",
+      "ok": true,
+      "detail": "519"
+    },
+    {
+      "name": "catalog:runtime-count",
+      "ok": true,
+      "detail": "168"
+    },
+    {
+      "name": "catalog:required-missing",
+      "ok": true,
+      "detail": "7"
+    },
+    {
+      "name": "catalog:no-case-collisions",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "name": "path:relative-normalized",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "path:assets-preserved",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "path:traversal-rejected",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "path:backslash-normalized",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "path:candidate",
+      "ok": true,
+      "detail": "assets/flags/all/br.png"
+    },
+    {
+      "name": "placeholder:data-uri",
+      "ok": true,
+      "detail": "data:image/svg+xml;charset=UTF"
+    },
+    {
+      "name": "type:background",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "type:avatar",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "type:logo",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "type:track",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "metadata:hash",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "missing:list-seven",
+      "ok": true,
+      "detail": "assets/drivers/avatars/f2/alex_dunne.png,assets/drivers/avatars/f2/enzo_fittipaldi_jr.png,assets/drivers/avatars/f2/john_bennett.png,assets/drivers/avatars/f2/nikola_tsolov.png,assets/drivers/avatars/f2/tasanapol_inthraphuvasak.png,assets/icons/app/icon-192.png,assets/icons/app/icon-512.png"
+    },
+    {
+      "name": "delivery:no-asset-binaries",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "catalog:generated-runtime",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "integration:registry-created",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "integration:hydrate-delegated",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "integration:diagnostics-context",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

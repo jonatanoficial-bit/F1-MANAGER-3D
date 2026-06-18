@@ -1,0 +1,83 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "generatedAt": "2026-06-18T14:42:05.124Z",
+  "passed": 15,
+  "failed": 0,
+  "results": [
+    {
+      "name": "assets:catalogue",
+      "ok": true,
+      "detail": "519"
+    },
+    {
+      "name": "assets:path-safety",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "contracts:data-valid",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "contracts:team-index",
+      "ok": true,
+      "detail": "mercedes"
+    },
+    {
+      "name": "contracts:driver-index",
+      "ok": true,
+      "detail": "A. Antonelli"
+    },
+    {
+      "name": "contracts:counts",
+      "ok": true,
+      "detail": "{\"valid\":true,\"score\":100,\"f1Teams\":11,\"f2Teams\":11,\"f1Drivers\":22,\"f2Drivers\":22,\"calendar\":25,\"assets\":28}"
+    },
+    {
+      "name": "events:on-off",
+      "ok": true,
+      "detail": "{\"listenerGroups\":0,\"listeners\":0,\"history\":[{\"event\":\"audit\",\"at\":\"2026-06-18T14:42:05.111Z\"},{\"event\":\"audit\",\"at\":\"2026-06-18T14:42:05.110Z\"}]}"
+    },
+    {
+      "name": "persistence:legacy-read",
+      "ok": true,
+      "detail": "audit_legacy"
+    },
+    {
+      "name": "career:migration-current",
+      "ok": true,
+      "detail": "3,4,5,6,7,8"
+    },
+    {
+      "name": "career:state-contract",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "persistence:envelope",
+      "ok": true,
+      "detail": "F1M_SAVE_ENVELOPE_V2/1711"
+    },
+    {
+      "name": "persistence:checksum",
+      "ok": true,
+      "detail": "ok-v2"
+    },
+    {
+      "name": "persistence:backup-rotation",
+      "ok": true,
+      "detail": "2"
+    },
+    {
+      "name": "race-engine:lifecycle",
+      "ok": true,
+      "detail": "{\"running\":false,\"frames\":1,\"startedAt\":1000,\"uptimeMs\":0,\"maxDelta\":0.05}"
+    },
+    {
+      "name": "ui:screen-manager",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

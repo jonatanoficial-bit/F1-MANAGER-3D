@@ -1,0 +1,229 @@
+{
+  "mode": "chromium-cdp-inline-memory-no-three",
+  "build": "F1M3D-0.17.0-F08",
+  "generatedAt": "2026-06-18T14:42:18.759Z",
+  "cases": [
+    {
+      "name": "mobile_landscape",
+      "viewport": [
+        844,
+        390
+      ],
+      "steps": [
+        {
+          "home": true,
+          "build": "Build v0.17.0-F08 • 18/06/2026 • 11:47 BRT",
+          "core": true,
+          "buildCode": "F1M3D-0.17.0-F08",
+          "activeScreen": "home"
+        },
+        {
+          "viewport": true,
+          "manager": true,
+          "panel": true,
+          "pill": true,
+          "classified": true,
+          "device": "mobile",
+          "orientation": "landscape",
+          "compact": "true"
+        },
+        {
+          "career_started": true,
+          "round": "T1 2026 • Corrida 1/25 • ✉ 2",
+          "saveSchema": 8,
+          "saveFormat": "F1M_SAVE_ENVELOPE_V2"
+        },
+        {
+          "i18n": true,
+          "lang": "en",
+          "homeNewGame": true,
+          "hasSystemEnglish": true
+        },
+        {
+          "system": true,
+          "score": 95,
+          "rows": 32,
+          "errors": 0
+        },
+        {
+          "performance": true,
+          "score": null,
+          "text": true
+        },
+        {
+          "assets": true,
+          "catalogued": 519,
+          "placeholders": 71,
+          "invalid": 0
+        },
+        {
+          "race": true,
+          "lap_before": "VOLTA 1/18",
+          "lap_after": "VOLTA 2/18",
+          "progressed": true,
+          "results": 22
+        }
+      ],
+      "layout": {
+        "scrollWidth": 844,
+        "clientWidth": 844,
+        "scrollHeight": 390,
+        "clientHeight": 390,
+        "orientationVisible": false
+      },
+      "runtime_banner": 0,
+      "runtime_stored": 0,
+      "passed": true,
+      "page_errors": [],
+      "console_errors": []
+    },
+    {
+      "name": "tablet",
+      "viewport": [
+        1180,
+        820
+      ],
+      "steps": [
+        {
+          "home": true,
+          "build": "Build v0.17.0-F08 • 18/06/2026 • 11:47 BRT",
+          "core": true,
+          "buildCode": "F1M3D-0.17.0-F08",
+          "activeScreen": "home"
+        },
+        {
+          "viewport": true,
+          "manager": true,
+          "panel": true,
+          "pill": true,
+          "classified": true,
+          "device": "tablet",
+          "orientation": "landscape",
+          "compact": "false"
+        },
+        {
+          "career_started": true,
+          "round": "T1 2026 • Corrida 1/25 • ✉ 2",
+          "saveSchema": 8,
+          "saveFormat": "F1M_SAVE_ENVELOPE_V2"
+        },
+        {
+          "i18n": true,
+          "lang": "en",
+          "homeNewGame": true,
+          "hasSystemEnglish": true
+        },
+        {
+          "system": true,
+          "score": 94,
+          "rows": 32,
+          "errors": 0
+        },
+        {
+          "performance": true,
+          "score": null,
+          "text": true
+        },
+        {
+          "assets": true,
+          "catalogued": 519,
+          "placeholders": 71,
+          "invalid": 0
+        },
+        {
+          "race": true,
+          "lap_before": "VOLTA 1/18",
+          "lap_after": "VOLTA 2/18",
+          "progressed": true,
+          "results": 22
+        }
+      ],
+      "layout": {
+        "scrollWidth": 1180,
+        "clientWidth": 1180,
+        "scrollHeight": 820,
+        "clientHeight": 820,
+        "orientationVisible": false
+      },
+      "runtime_banner": 0,
+      "runtime_stored": 0,
+      "passed": true,
+      "page_errors": [],
+      "console_errors": []
+    },
+    {
+      "name": "desktop",
+      "viewport": [
+        1440,
+        900
+      ],
+      "steps": [
+        {
+          "home": true,
+          "build": "Build v0.17.0-F08 • 18/06/2026 • 11:47 BRT",
+          "core": true,
+          "buildCode": "F1M3D-0.17.0-F08",
+          "activeScreen": "home"
+        },
+        {
+          "viewport": true,
+          "manager": true,
+          "panel": true,
+          "pill": true,
+          "classified": true,
+          "device": "desktop",
+          "orientation": "landscape",
+          "compact": "false"
+        },
+        {
+          "career_started": true,
+          "round": "T1 2026 • Corrida 1/25 • ✉ 2",
+          "saveSchema": 8,
+          "saveFormat": "F1M_SAVE_ENVELOPE_V2"
+        },
+        {
+          "i18n": true,
+          "lang": "en",
+          "homeNewGame": true,
+          "hasSystemEnglish": true
+        },
+        {
+          "system": true,
+          "score": 94,
+          "rows": 32,
+          "errors": 0
+        },
+        {
+          "performance": true,
+          "score": null,
+          "text": true
+        },
+        {
+          "assets": true,
+          "catalogued": 519,
+          "placeholders": 71,
+          "invalid": 0
+        },
+        {
+          "race": true,
+          "lap_before": "VOLTA 1/18",
+          "lap_after": "VOLTA 2/18",
+          "progressed": true,
+          "results": 22
+        }
+      ],
+      "layout": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 900,
+        "clientHeight": 900,
+        "orientationVisible": false
+      },
+      "runtime_banner": 0,
+      "runtime_stored": 0,
+      "passed": true,
+      "page_errors": [],
+      "console_errors": []
+    }
+  ]
+}

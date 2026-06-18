@@ -1,0 +1,150 @@
+{
+  "generatedAt": "2026-06-18T14:42:04.835Z",
+  "results": [
+    {
+      "name": "syntax:src/core/build-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/runtime-guard.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/event-bus.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/data-contracts.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/asset-catalog.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/asset-registry.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/systems/persistence-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/systems/career-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/systems/race-engine.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/ui/screen-manager.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/performance-monitor.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/diagnostics.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/i18n.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/i18n-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "modules:load-order",
+      "ok": true,
+      "detail": "11704,11749,11800,11852,11900,11953,12001,12054,12114,12169,12222,12328,12386,12436,12475,12613,12657,12705"
+    },
+    {
+      "name": "architecture:data-registry",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:event-bus",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:persistence",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:career",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:race-engine",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:screen-manager",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:i18n",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "system:tab",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "system:diagnostic-action",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "save:new-key",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "save:migration-schema-4",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "save:envelope-format",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "runtime:guard-used",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "build:core-used",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

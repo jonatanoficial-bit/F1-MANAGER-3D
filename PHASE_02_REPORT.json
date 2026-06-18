@@ -1,0 +1,32 @@
+{
+  "build": "F1M3D-0.11.0-F02",
+  "version": "0.11.0",
+  "phase": 2,
+  "phase_name": "Build Unificado, Diagnóstico e Fundação Modular",
+  "generated_at": "2026-06-17T18:04:00-03:00",
+  "save_schema": 2,
+  "base": "v0.10.0-F01",
+  "deliverables": [
+    "single build source",
+    "automatic build synchronization",
+    "runtime guard module",
+    "build system module",
+    "diagnostics module",
+    "in-game System tab",
+    "schema 2 migration",
+    "versioned PWA app shell",
+    "browser audit in three viewports"
+  ],
+  "browser_cases": [
+    {"name": "mobile_landscape", "viewport": "844x390", "passed": true, "diagnostic_score": 98},
+    {"name": "tablet", "viewport": "1180x820", "passed": true, "diagnostic_score": 98},
+    {"name": "desktop", "viewport": "1440x900", "passed": true, "diagnostic_score": 98}
+  ],
+  "assets": {
+    "binary_files_included": 0,
+    "original_binary_files_catalogued": 416,
+    "catalogued_paths": 519,
+    "missing_required_paths": 7
+  },
+  "status": "approved"
+}

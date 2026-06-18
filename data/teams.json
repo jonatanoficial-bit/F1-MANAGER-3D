@@ -1,0 +1,90 @@
+[
+  {
+    "id": "invicta-racing",
+    "series": "F2",
+    "name": "Invicta Racing",
+    "color": "#16e6b0",
+    "logo": "assets/teams/logos/f2/invicta_racing.png",
+    "logoAliases": []
+  },
+  {
+    "id": "hitech",
+    "series": "F2",
+    "name": "Hitech",
+    "color": "#7a22ff",
+    "logo": "assets/teams/logos/f2/hitech_gp.png",
+    "logoAliases": []
+  },
+  {
+    "id": "campos-racing",
+    "series": "F2",
+    "name": "Campos Racing",
+    "color": "#ffdf00",
+    "logo": "assets/teams/logos/f2/campos_racing.png",
+    "logoAliases": []
+  },
+  {
+    "id": "dams-lucas-oil",
+    "series": "F2",
+    "name": "DAMS Lucas Oil",
+    "color": "#0f57ff",
+    "logo": "assets/teams/logos/f2/dams_lucas_oil.png",
+    "logoAliases": []
+  },
+  {
+    "id": "mp-motorsport",
+    "series": "F2",
+    "name": "MP Motorsport",
+    "color": "#ff7a00",
+    "logo": "assets/teams/logos/f2/mp_motorsport.png",
+    "logoAliases": []
+  },
+  {
+    "id": "prema-racing",
+    "series": "F2",
+    "name": "PREMA Racing",
+    "color": "#ff1f2d",
+    "logo": "assets/teams/logos/f2/prema_racing.png",
+    "logoAliases": []
+  },
+  {
+    "id": "rodin-motorsport",
+    "series": "F2",
+    "name": "Rodin Motorsport",
+    "color": "#c7f000",
+    "logo": "assets/teams/logos/f2/rodin_motorsport.png",
+    "logoAliases": []
+  },
+  {
+    "id": "art-grand-prix",
+    "series": "F2",
+    "name": "ART Grand Prix",
+    "color": "#f6f6f6",
+    "logo": "assets/teams/logos/f2/art_grand_prix.png",
+    "logoAliases": []
+  },
+  {
+    "id": "aix-racing",
+    "series": "F2",
+    "name": "AIX Racing",
+    "color": "#00b6ff",
+    "logo": "assets/teams/logos/f2/aix_racing.png",
+    "logoAliases": []
+  },
+  {
+    "id": "van-amersfoort-racing",
+    "series": "F2",
+    "name": "Van Amersfoort Racing",
+    "color": "#ff4b00",
+    "logo": "assets/teams/logos/f2/van_amersfoort_racing.png",
+    "logoAliases": []
+  },
+  {
+    "id": "trident",
+    "series": "F2",
+    "name": "Trident",
+    "color": "#0047ff",
+    "logo": "assets/teams/logos/f2/trident.png",
+    "logoAliases": []
+  }
+]

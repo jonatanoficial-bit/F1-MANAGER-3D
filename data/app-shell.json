@@ -1,0 +1,29 @@
+{
+  "schema": 8,
+  "build_code": "F1M3D-0.17.0-F08",
+  "files": [
+    "./",
+    "./index.html",
+    "./style.css",
+    "./src/core/build-system.js",
+    "./src/core/runtime-guard.js",
+    "./src/core/event-bus.js",
+    "./src/core/data-contracts.js",
+    "./data/asset-catalog.js",
+    "./src/core/asset-registry.js",
+    "./src/systems/persistence-system.js",
+    "./src/systems/career-system.js",
+    "./src/systems/race-engine.js",
+    "./src/ui/screen-manager.js",
+    "./src/core/viewport-manager.js",
+    "./src/core/performance-monitor.js",
+    "./src/core/diagnostics.js",
+    "./data/build-info.js",
+    "./data/i18n.js",
+    "./src/core/i18n-system.js",
+    "./data/game-data.js",
+    "./data/track-layouts.js",
+    "./script.js",
+    "./manifest.webmanifest"
+  ]
+}

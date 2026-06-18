@@ -1,0 +1,89 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "generatedAt": "2026-06-18T14:42:06.637Z",
+  "passed": 16,
+  "failed": 0,
+  "results": [
+    {
+      "name": "i18n:catalog-syntax",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "i18n:manager-syntax",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "i18n:supported-three-languages",
+      "ok": true,
+      "detail": "pt-BR,en,es"
+    },
+    {
+      "name": "i18n:fallback-ptbr",
+      "ok": true,
+      "detail": "pt-BR/pt-BR"
+    },
+    {
+      "name": "i18n:phrase-volume",
+      "ok": true,
+      "detail": "124"
+    },
+    {
+      "name": "i18n:english-coverage",
+      "ok": true,
+      "detail": "124"
+    },
+    {
+      "name": "i18n:spanish-coverage",
+      "ok": true,
+      "detail": "124"
+    },
+    {
+      "name": "i18n:translate-home-english",
+      "ok": true,
+      "detail": "NEW GAME/RACE"
+    },
+    {
+      "name": "i18n:translate-home-spanish",
+      "ok": true,
+      "detail": "NUEVA PARTIDA/CARRERA"
+    },
+    {
+      "name": "i18n:unsupported-normalizes-fallback",
+      "ok": true,
+      "detail": "pt-BR"
+    },
+    {
+      "name": "i18n:index-meta",
+      "ok": true,
+      "detail": "meta languages"
+    },
+    {
+      "name": "i18n:home-switcher",
+      "ok": true,
+      "detail": "home + mobile switcher"
+    },
+    {
+      "name": "i18n:script-integration",
+      "ok": true,
+      "detail": "manager + UI"
+    },
+    {
+      "name": "i18n:system-panel",
+      "ok": true,
+      "detail": "system card"
+    },
+    {
+      "name": "i18n:app-shell",
+      "ok": true,
+      "detail": "shell + SW"
+    },
+    {
+      "name": "i18n:build-phase",
+      "ok": true,
+      "detail": "8/8"
+    }
+  ],
+  "result": "approved"
+}

@@ -1,0 +1,3645 @@
+F1 MANAGER 3D — CAMINHOS EXATOS DE ASSETS
+BUILD: F1M3D-0.17.0-F08
+POLÍTICA: este ZIP não contém imagens, áudios, vídeos ou modelos pesados.
+RESTAURAÇÃO: copie os arquivos para os caminhos abaixo sem renomear e respeitando maiúsculas/minúsculas.
+LEGENDA: [OBRIGATÓRIO-FALTANTE] carregado pela build atual e ausente no ZIP original; [OBRIGATÓRIO-ORIGINAL] carregado e existente; [ARQUIVO-ORIGINAL] existia mas não é carregado diretamente; [LEGADO] aparece apenas em dados antigos/documentação.
+
+RESUMO:
+  arquivos binários originais: 416
+  tamanho original total: 185186558 bytes
+  caminhos usados pela build atual: 168
+  obrigatórios faltantes no material original: 7
+  caminhos apenas legados/documentais: 102
+
+[ARQUIVO-ORIGINAL] assets/avatars/generated/avatar_generated_01.png
+  tamanho_original_bytes: 294334
+  sha256_original: ea396a2c8fb362aaf69ce9f47cbc0fde9ce1ba239111428595cd94391196c252
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/avatars/generated/avatar_generated_02.png
+  tamanho_original_bytes: 263445
+  sha256_original: 9518036ae20821c3bc855d2e1d7a36a3e70020a2f132f6b6fa7855033ef6a705
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/avatars/generated/avatar_generated_03.png
+  tamanho_original_bytes: 297651
+  sha256_original: b9a9eae5bcbfb8c3e2d10369155cadf98c96411e3a13f1ce486b77f699442a1a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/avatars/generated/avatar_generated_04.png
+  tamanho_original_bytes: 276927
+  sha256_original: a6df758e195f08e55631f087de58eee789b371ebb9cdf8708f35a22b4762d847
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/avatars/generated/avatar_generated_05.png
+  tamanho_original_bytes: 277490
+  sha256_original: 5e2b75fbf012b96abe4a2a3562d43519f863a22566035c9bbb64d33aef0d4440
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/avatars/generated/avatar_generated_06.png
+  tamanho_original_bytes: 246902
+  sha256_original: 3f4bb61572a54726663f1fa3d7b9bdabe3e01b8fa0eb92140b9517591edd8f9d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/avatars/generated/avatar_generated_07.png
+  tamanho_original_bytes: 256841
+  sha256_original: 422a8da8491f1351c5cbf5a9f06412191c8ac4214a3159e9540e7383c6ef1643
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/avatars/generated/avatar_generated_08.png
+  tamanho_original_bytes: 263585
+  sha256_original: d9c3e97de0caef028586349744126a1e7244d380c58f6ead69e519228aa58175
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/avatars/selectable/avatar_01.png
+  tamanho_original_bytes: 294334
+  sha256_original: ea396a2c8fb362aaf69ce9f47cbc0fde9ce1ba239111428595cd94391196c252
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/avatars/selectable/avatar_02.png
+  tamanho_original_bytes: 263585
+  sha256_original: d9c3e97de0caef028586349744126a1e7244d380c58f6ead69e519228aa58175
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/avatars/selectable/avatar_03.png
+  tamanho_original_bytes: 256841
+  sha256_original: 422a8da8491f1351c5cbf5a9f06412191c8ac4214a3159e9540e7383c6ef1643
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/avatars/selectable/avatar_04.png
+  tamanho_original_bytes: 246902
+  sha256_original: 3f4bb61572a54726663f1fa3d7b9bdabe3e01b8fa0eb92140b9517591edd8f9d
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/avatars/selectable/avatar_05.png
+  tamanho_original_bytes: 277490
+  sha256_original: 5e2b75fbf012b96abe4a2a3562d43519f863a22566035c9bbb64d33aef0d4440
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/avatars/selectable/avatar_06.png
+  tamanho_original_bytes: 276927
+  sha256_original: a6df758e195f08e55631f087de58eee789b371ebb9cdf8708f35a22b4762d847
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/avatars/selectable/avatar_07.png
+  tamanho_original_bytes: 297651
+  sha256_original: b9a9eae5bcbfb8c3e2d10369155cadf98c96411e3a13f1ce486b77f699442a1a
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/avatars/selectable/avatar_08.png
+  tamanho_original_bytes: 263445
+  sha256_original: 9518036ae20821c3bc855d2e1d7a36a3e70020a2f132f6b6fa7855033ef6a705
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/garage/garage_base.png
+  tamanho_original_bytes: 2195900
+  sha256_original: c75a34e3ba833d10b8292c11c8f9a83f7d90b0bb9a6a4e961ef200abd982d0af
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/podium/podium_stage.png
+  tamanho_original_bytes: 1741360
+  sha256_original: eaf769bb8e7545e111e01351afd18055cabb62435f96c7505624045036844bcc
+  carregado_por_build_atual: data/game-data.js, index.html
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/race/boxes/box_garage_interior_01.png
+  tamanho_original_bytes: 2680950
+  sha256_original: 926d333c2f05db1d51013a5380c6c1b08c3c1029908be1e169de8861f0cdf53b
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/backgrounds/race/boxes/box_garage_interior_02.png
+  tamanho_original_bytes: 2680950
+  sha256_original: 926d333c2f05db1d51013a5380c6c1b08c3c1029908be1e169de8861f0cdf53b
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/race/pit_lane/pit_lane_01.png
+  tamanho_original_bytes: 3092942
+  sha256_original: 1a3ba767212f255aa2201f90ed2528f8159f6715397aa3243da5c31c660caa39
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/backgrounds/race/pit_lane/pit_lane_02.png
+  tamanho_original_bytes: 3092942
+  sha256_original: 1a3ba767212f255aa2201f90ed2528f8159f6715397aa3243da5c31c660caa39
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/race/tracks/miami_base_isometric.png
+  tamanho_original_bytes: 3531436
+  sha256_original: 81ecdcbf80204bd3af6c520c7f7738f6f5438c8528e55c00eddb37df76df2e15
+  carregado_por_build_atual: data/game-data.js, index.html
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/teams/lobby/alpine_lobby_01.png
+  tamanho_original_bytes: 2340616
+  sha256_original: e1d91a780ead1e00f59854af474aff5ac5e9244f6198f54047e59c11165478bd
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/backgrounds/teams/lobby/alpine_lobby_02.png
+  tamanho_original_bytes: 2383647
+  sha256_original: bac26ca966b7c6b985dfce935864999c8ecbf649ff3742d1be56fc57701871a7
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/teams/lobby/aston_martin_lobby.png
+  tamanho_original_bytes: 2403412
+  sha256_original: e746a912ed992441aee2ad0cfc6f7e91e840931c3a8b4cfc7fe2be6c2cd87cc3
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/teams/lobby/audi_lobby_01.png
+  tamanho_original_bytes: 2333928
+  sha256_original: a06efcbc7928862a4b4892bfe8e6d4cb4f9951ef644111d1288a7c1b9a03cd55
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/backgrounds/teams/lobby/audi_lobby_02.png
+  tamanho_original_bytes: 2355250
+  sha256_original: d8c77d4f33b239d722d2fd999e1241ee3f6d37aed03252d465f7896ec1d4d0bb
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/teams/lobby/cadillac_lobby.png
+  tamanho_original_bytes: 2361777
+  sha256_original: 48327bf736a39bef480ad71a6a5bfe75cf9e01a3fb3caca5ab35aab45d9720d8
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/teams/lobby/haas_lobby.png
+  tamanho_original_bytes: 2527369
+  sha256_original: 9ae1bd461602e2a1bdc09374cca83cb593caf62f96609387beedc2d9849a73ba
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/teams/lobby/mclaren_lobby.png
+  tamanho_original_bytes: 2393039
+  sha256_original: c430cac31d409544b43fc02a527e923fc453d9c5ab21b5b703c0b56a5b6a3eba
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/teams/lobby/racing_bulls_lobby.png
+  tamanho_original_bytes: 2405065
+  sha256_original: c6e162d31c3b11a6501a587e2fb929a2b1ce3366916147b1379a7210e49cd8d8
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/teams/lobby/red_bull_lobby.png
+  tamanho_original_bytes: 2431830
+  sha256_original: 97f7101aa72c3015c6b84499fa8422cbf0447a3846c58d76401040baf22b977e
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/teams/lobby/williams_lobby.png
+  tamanho_original_bytes: 2645057
+  sha256_original: 5d9bdd34679521710a7581b2bcd93d2c5600f565fc3313d974c45de8fa0e988d
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/ui/calendar_world_map.png
+  tamanho_original_bytes: 1918236
+  sha256_original: 96575e7d9e7dffaf8b9d83c2e0e681d1dbbae159be1775cabae6cfe8e8027211
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/ui/classification_clean.png
+  tamanho_original_bytes: 1628928
+  sha256_original: e35d65c03fa8778e8e9711c8ed77b359f9b44f3b6f6ea5c9cdf6d3a41180597b
+  carregado_por_build_atual: data/game-data.js, index.html
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/backgrounds/ui/classification_reference_with_text.png
+  tamanho_original_bytes: 1877459
+  sha256_original: 0272143e3b7619db969a0b67f24f0bc548e1bc7249c75f2cb33027f10eb1a974
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/backgrounds/ui/global_lobby.png
+  tamanho_original_bytes: 2163316
+  sha256_original: 3f686a6403abba2ea8336dc31a2a450d0a383284545758960d6d69b12f4b9ea9
+  carregado_por_build_atual: data/game-data.js, index.html
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/backgrounds/ui/menu_title_reference_with_text.png
+  tamanho_original_bytes: 1574737
+  sha256_original: 0fcf863a7fbaa6ef52a703aa15c03a1a1cea81042fd58d2ce8fe1fe8b8c3a9c3
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[LEGADO] assets/drivers/avatars/alex-dunne.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/alex-dunne.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/alex-dunne.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/alex-dunne.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/cian-shields.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/cian-shields.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/cian-shields.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/cian-shields.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/colton-herta.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/colton-herta.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/colton-herta.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/colton-herta.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/dino-beganovic.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/dino-beganovic.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/dino-beganovic.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/dino-beganovic.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/enzo-fittipaldi.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/enzo-fittipaldi.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/enzo-fittipaldi.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/enzo-fittipaldi.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[ARQUIVO-ORIGINAL] assets/drivers/avatars/f2/1
+  tamanho_original_bytes: 1
+  sha256_original: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-FALTANTE] assets/drivers/avatars/f2/alex_dunne.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Criar/restaurar exatamente neste caminho. O jogo usa fallback para não quebrar, mas a versão comercial exige o arquivo.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/cian_shields.png
+  tamanho_original_bytes: 139687
+  sha256_original: 0e827cef6556ae57997d10f52370ca869e77db94a7e18bbba7b518a8a266aec5
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/colton_herta.png
+  tamanho_original_bytes: 140223
+  sha256_original: 09288af057e5c04a1764ca14d8440fa2567495c96b9859914dacb8566dda91ec
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/dino_beganovic.png
+  tamanho_original_bytes: 36062
+  sha256_original: b6c318f2106ead797a836476c3717c292a0c56932c63af966cbe9dbe3703d052
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-FALTANTE] assets/drivers/avatars/f2/enzo_fittipaldi_jr.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Criar/restaurar exatamente neste caminho. O jogo usa fallback para não quebrar, mas a versão comercial exige o arquivo.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/gabriele_mini.png
+  tamanho_original_bytes: 36614
+  sha256_original: 29c7d7eb63b6680ccd05a7be16e55a69b88fbfeaa39dc8b05feb6da4921fe39c
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-FALTANTE] assets/drivers/avatars/f2/john_bennett.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Criar/restaurar exatamente neste caminho. O jogo usa fallback para não quebrar, mas a versão comercial exige o arquivo.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/joshua_duerksen.png
+  tamanho_original_bytes: 57199
+  sha256_original: e3aa4d51a4aa932a697be44572b72a28fc6f253f32ff5198db5f02fe2751add2
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/kush_maini.png
+  tamanho_original_bytes: 35014
+  sha256_original: a723899ea3e038d4316b0da950ea493032eacb380a15607c01b550d42d6e5d17
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/laurens_van_hoepen.png
+  tamanho_original_bytes: 33849
+  sha256_original: ae853d51ea690ed16c45063f5abd8eeed0d66c73d85ae5c2ccff636c35129db3
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/mari_boya.png
+  tamanho_original_bytes: 35442
+  sha256_original: f42b89aff442514b29ef88b9d1add7a2e25365d45e656d8e10e496e9fdd38cc9
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/martinius_stenshorne.png
+  tamanho_original_bytes: 48525
+  sha256_original: ad039560c3ef646a33ff06a289f48338cd399e67c906d012e554e5cb149a7359
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/nicolas_varrone.png
+  tamanho_original_bytes: 26773
+  sha256_original: 68d63dbc8715566d26ac7b1317a529b7746141c4252cec8cca409b0b6feda432
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-FALTANTE] assets/drivers/avatars/f2/nikola_tsolov.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Criar/restaurar exatamente neste caminho. O jogo usa fallback para não quebrar, mas a versão comercial exige o arquivo.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/noel_leon.png
+  tamanho_original_bytes: 53085
+  sha256_original: 7e91db5f1242f59f54c862f7e342ae9b746bcff1608275d187847e0cbb2ca835
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/oliver_goethe.png
+  tamanho_original_bytes: 60626
+  sha256_original: 60c505210b04db831ed3602cb0b60a73a3e9619b768e24cb207f6c753eec1d12
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/rafael_camara.png
+  tamanho_original_bytes: 135379
+  sha256_original: 6ae2811449addbfd55d944effff0442e32878cee4575554f93f71672ad0c2bfa
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/rafael_villagomez.png
+  tamanho_original_bytes: 153405
+  sha256_original: c55b0758579862173edf033c98535615ff9791b706cebfbd4bf532c0ea6dc808
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/ritomo_miyata.png
+  tamanho_original_bytes: 128611
+  sha256_original: 8f90c57c53566d9e9cdc467032788b15c0b85dd1a4d2393cb768362f03d28f05
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/roman_bilinski.png
+  tamanho_original_bytes: 54275
+  sha256_original: 6c8c68b1a09c76c86a4493d32fb49db9e7c3c4f8cf6799d86006e37c01564580
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/avatars/f2/sebastian_montoya.png
+  tamanho_original_bytes: 69331
+  sha256_original: 83914bed57b0c4b48d5a20b93eb771e2f194221e57b6a6bc465a386566a6caec
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-FALTANTE] assets/drivers/avatars/f2/tasanapol_inthraphuvasak.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Criar/restaurar exatamente neste caminho. O jogo usa fallback para não quebrar, mas a versão comercial exige o arquivo.
+
+[LEGADO] assets/drivers/avatars/gabriele-mini.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/gabriele-mini.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/gabriele-mini.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/gabriele-mini.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/john-bennett.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/john-bennett.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/john-bennett.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/john-bennett.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/joshua-durksen.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/joshua-durksen.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/joshua-durksen.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/joshua-durksen.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/kush-maini.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/kush-maini.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/kush-maini.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/kush-maini.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/laurens-van-hoepen.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/laurens-van-hoepen.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/laurens-van-hoepen.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/laurens-van-hoepen.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/mari-boya.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/mari-boya.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/mari-boya.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/mari-boya.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/martinius-stenshorne.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/martinius-stenshorne.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/martinius-stenshorne.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/martinius-stenshorne.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/nicolas-varrone.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/nicolas-varrone.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/nicolas-varrone.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/nicolas-varrone.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/nikola-tsolov.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/nikola-tsolov.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/nikola-tsolov.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/nikola-tsolov.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/noel-leon.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/noel-leon.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/noel-leon.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/noel-leon.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/oliver-goethe.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/oliver-goethe.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/oliver-goethe.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/oliver-goethe.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/rafael-camara.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/rafael-camara.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/rafael-camara.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/rafael-camara.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/rafael-villagomez.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/rafael-villagomez.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/rafael-villagomez.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/rafael-villagomez.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/ritomo-miyata.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/ritomo-miyata.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/ritomo-miyata.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/ritomo-miyata.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/roman-bilinski.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/roman-bilinski.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/roman-bilinski.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/roman-bilinski.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/sebastian-montoya.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/sebastian-montoya.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/sebastian-montoya.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/sebastian-montoya.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/tasanapol-inthraphuvasak.jpg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/tasanapol-inthraphuvasak.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/tasanapol-inthraphuvasak.svg
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/drivers/avatars/tasanapol-inthraphuvasak.webp
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: data/drivers.json
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/alex_albon.png
+  tamanho_original_bytes: 346075
+  sha256_original: f1a4e683a5fc736253797206bb6b3171d50d5a9e3a045b3d37cbf95ebf870092
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/andrea_antonelli.png
+  tamanho_original_bytes: 2078583
+  sha256_original: cdde295a8b2b776328d2ce18aa861adf6e7b37e76d1ce5e6045ee0790e8a9afb
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/arvid_lindblad.png
+  tamanho_original_bytes: 381565
+  sha256_original: f73a502036c8622910e11a27e240d79374846f3cec2e1d6beff8d70b87144a18
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/carlos_sainz_jr.png
+  tamanho_original_bytes: 2319638
+  sha256_original: dc31a82bba361d596518cb089e9add355b5af0ce0845e610fbeac9ae9707e6ac
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/charles_leclerc.png
+  tamanho_original_bytes: 222629
+  sha256_original: 85cf70c06520f627bf395e229a506c25acfa252b848318eafbac07189acd2f68
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/drivers/current_grid/daniel_ricciardo.png
+  tamanho_original_bytes: 365698
+  sha256_original: f0cd53900f5b4104877e4d59c043a7efc679376099bac68ba48cb405cdc5eff2
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/esteban_ocon.png
+  tamanho_original_bytes: 385424
+  sha256_original: f583cfe7041bfc348d5bdd3dab7ce2f31172ceecd3d0348d9e63166f311e0774
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/fernando_alonso.png
+  tamanho_original_bytes: 384811
+  sha256_original: 68adcfd3a69e65f5c5e8f00ff167a9e3af043c0da44fe03e76a8d5b967cc264b
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/franco_colapinto.png
+  tamanho_original_bytes: 2463945
+  sha256_original: 63b5e7690d20d3a155267e0629beef8af919e54216135e4144e59d6fc95e2fc3
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/gabriel_bortoleto.png
+  tamanho_original_bytes: 324158
+  sha256_original: f09dcc008b9ecbca87ad3a6c3e816977413693fa5439e1b6ba13ec27309fc2b4
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/george_russell.png
+  tamanho_original_bytes: 281078
+  sha256_original: 181aadb2c663cbc2b5625d868dc4c5a032a30eb7f3a5de610d7539bc693ba121
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/isack_hadjar.png
+  tamanho_original_bytes: 383766
+  sha256_original: 11ecec278168fa461b490b0f2877db75e360a9730e3cd2f01e7ffd9f1f502bc1
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/lance_stroll.png
+  tamanho_original_bytes: 376411
+  sha256_original: 8d44897c8adf255992b7ab682440196b5ab3463e4ddcc1431ff0efc14311929a
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/lando_norris.png
+  tamanho_original_bytes: 362839
+  sha256_original: 25cf8170814e84d1b04bb6602a2435bbf313569942e5d9bed197bc1be3faaf76
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/lewis_hamilton.png
+  tamanho_original_bytes: 264164
+  sha256_original: ad014ffd1b1fe309ebbbd5a361e90e1a6038dea62b54ce01a2ba9b0ed1770616
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/liam_lawson.png
+  tamanho_original_bytes: 378183
+  sha256_original: fa9403982368a1b1a3097592a70e69a639c843a161dcf424c472534ab8ee316c
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/drivers/current_grid/logan_sargeant.png
+  tamanho_original_bytes: 353393
+  sha256_original: e0642ebd2131abb526e2c7b65c388c77b9f46c555ae7c8d12ac4b10b90e9c280
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/max_verstappen.png
+  tamanho_original_bytes: 373358
+  sha256_original: 5bfa389a414c72e5dd40bdc29565712c7173bb92ca2f2d5af492ac1a1ec9a922
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/nico_hulkenberg.png
+  tamanho_original_bytes: 320668
+  sha256_original: 404eae132eb20ae49edf028280b95ed18b5a029ae1b16d7b32d69738a0d17994
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/oliver_bearman.png
+  tamanho_original_bytes: 350866
+  sha256_original: cdf0faf5c44d18d13a7240347b74fadb3c664aecf78ec003e6656e68510b2296
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/oscar_piastri.png
+  tamanho_original_bytes: 357349
+  sha256_original: bd7c2889d4a626fafcc7e79b1b2c07d4598bde64d95680f2a73d2f48503e0b7e
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/pierre_gasly.png
+  tamanho_original_bytes: 365986
+  sha256_original: f4c9537fb3582e365c768eb8274406ec345676d9bda5e0f84a31272388c3a32a
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/sergio_perez.png
+  tamanho_original_bytes: 2234077
+  sha256_original: 007df5436b1ed31af730367e65dbbb5e4f64f4aaeeced1c79dcd97285bc62c03
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/drivers/current_grid/valtteri_bottas.png
+  tamanho_original_bytes: 327924
+  sha256_original: 0d6bfcf8da43faf77ace456bab30125daf17c1f57fc917d9731747f0429d1922
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/drivers/current_grid/yuki_tsunoda.png
+  tamanho_original_bytes: 361633
+  sha256_original: a74ee6fca68c12f0db3eb1b51184a3344a988911018255aa8758c040b03f0fc8
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ad.png
+  tamanho_original_bytes: 45163
+  sha256_original: 1b7e4da59551c170685f1a15748ffbcc7ce083b88e53cb9f4f3f26e71a834c58
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ae.png
+  tamanho_original_bytes: 3344
+  sha256_original: 86f89ceb5daa4267ae090302f8a9c91f59880da89610e0a390305850154870f4
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/af.png
+  tamanho_original_bytes: 140339
+  sha256_original: 1aa82a6a0632047b4e283840821e165d7fe82597f98ae4dbb9eb09f70aea4cd1
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ag.png
+  tamanho_original_bytes: 18845
+  sha256_original: 4256555a31722d459e129041d73bdc709013e01ae537438527cc3b21617f0ee7
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ai.png
+  tamanho_original_bytes: 13645
+  sha256_original: 0397e305ee317bc49383655977732419d17c0102b2699c957530382f070f1f24
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/al.png
+  tamanho_original_bytes: 27844
+  sha256_original: c11a454646842e69af0dc969dcec134184f3f489d0bae7dda601a3b94f3e81ae
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/am.png
+  tamanho_original_bytes: 2670
+  sha256_original: efb03948a1103217f1f28e82184093bbe2a1540c8aa2ffc29a759d47bde77755
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ao.png
+  tamanho_original_bytes: 13231
+  sha256_original: 8a2eb910f20be50cc53f745e280a8cf467e6c01e4b9ae594d5ea9d5065f809fc
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/aq.png
+  tamanho_original_bytes: 11195
+  sha256_original: 25cd5789d5656efca3e3c40ba0557bebf7b5d7a92fee49a26dd0803f10079114
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ar.png
+  tamanho_original_bytes: 24787
+  sha256_original: ba08dd46daf0c6d177d4328827748bba8e5d90c6fc86f0a4a11df62c8bbd042d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/as.png
+  tamanho_original_bytes: 48779
+  sha256_original: b433767d6fdeff0f191d439dc730687f07f4614c8826e3a047ae89412f49972f
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/at.png
+  tamanho_original_bytes: 1133
+  sha256_original: ed9d21c9a38c8572c4e2da207c2ef245f63c9cf88ef0773501a2f3bb2998270d
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/au.png
+  tamanho_original_bytes: 16526
+  sha256_original: 92cef5e20e80a6344a5f606965c3f6e4c9e2de23a9d838a0391a2b62cae1b482
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/aw.png
+  tamanho_original_bytes: 6093
+  sha256_original: a18f1e79efa4132d1e187fdc8d35db2f36426ff202a87584e7d3c1042864e577
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ax.png
+  tamanho_original_bytes: 4403
+  sha256_original: 3a17c40ad12228a0155ffb43015b196d0b832890033e78746cf640b3888b87b1
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/az.png
+  tamanho_original_bytes: 7364
+  sha256_original: 2c821d6eea3808cb36e4ec87a5c4b319116b4e953f2858622c9171a003159159
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ba.png
+  tamanho_original_bytes: 17555
+  sha256_original: feb71af92aa4c7caa2094e5e71ac5f7de7d991ee5685bcefe13f192a89afa843
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bb.png
+  tamanho_original_bytes: 10575
+  sha256_original: 33c366f2a3175c41c21a21f8b71154a402a170f298e53fd3de7c3fcde32c3236
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bd.png
+  tamanho_original_bytes: 4067
+  sha256_original: 6138a89cbab9ccc6382d10c30111e5c9e6f1591b51bf5d2c0159b958424f263d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/be.png
+  tamanho_original_bytes: 4005
+  sha256_original: 16d5c422818e0fa03fdb007c2442104e6d529446c9a46402a08007b4a424bfe8
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bf.png
+  tamanho_original_bytes: 5730
+  sha256_original: 1c8ee5aa7d4479e8236ef312306bbf153eaa741942a6767708f714059431066d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/bg.png
+  tamanho_original_bytes: 2221
+  sha256_original: 721aa6b5444489a476f714a28edc42891eafd29c7677cfeefc7316841d64ccc1
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/bh.png
+  tamanho_original_bytes: 6675
+  sha256_original: 5d12f56d1d628090c5faea33863370e659a49bdf4b74e930b38d915c6d8e25aa
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bi.png
+  tamanho_original_bytes: 17969
+  sha256_original: cdb17f4b339fc2e950eb0d65e9b016f0573f9feaf41b743f5cfe280e48395ea2
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bj.png
+  tamanho_original_bytes: 3110
+  sha256_original: 7d5a0cc2edbadf5bbae3a164817c98f954103fb0c4d95f6cb9580360b170005f
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bl.png
+  tamanho_original_bytes: 129016
+  sha256_original: 1d65ffe75ceb98f6b9a7a9c62ccb7bc7532584cbeb73dc58a540e8ff66b49e4d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bm.png
+  tamanho_original_bytes: 48890
+  sha256_original: b51e0a56cc607d21c528e772dedd079f900add38e1bdb17dce64d6ed972c9f70
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bn.png
+  tamanho_original_bytes: 29323
+  sha256_original: f8ccc3dce8b17287e259689fa7f492ae73d4f92862c17d9fa4fb6a79dfee6b08
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bo.png
+  tamanho_original_bytes: 55332
+  sha256_original: f5d4c4a250e4985793614e27470d32dff5aaed8f2b45304edc869b264b6f7ceb
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bq.png
+  tamanho_original_bytes: 19230
+  sha256_original: 0dd995f829ff7121850413c8457804c3310dff0ca24431e98be7e2331947f53b
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/br.png
+  tamanho_original_bytes: 23852
+  sha256_original: b8657ad4d21138d8aacba33d6da6b902209d26171fb29ba5b08a58952bcedaae
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bs.png
+  tamanho_original_bytes: 6045
+  sha256_original: e02ae288063b3b37cb3f7e566116f0b7838e8455bbbc561529f76934c5ea8c27
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bt.png
+  tamanho_original_bytes: 110938
+  sha256_original: ab3aecb0c065784b4469540f8e6be2bab5681fb49bab6c53dd51682d091cb675
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bv.png
+  tamanho_original_bytes: 4886
+  sha256_original: 362b07e6345f6c079d898ef6f3e7b701ba780886a9c7e6b4df9961f241d6e332
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bw.png
+  tamanho_original_bytes: 2947
+  sha256_original: 9de17404070d62f6f738fbccb90e71015b505a0da653372899748e5043a7063a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/by.png
+  tamanho_original_bytes: 9420
+  sha256_original: e43aa17b7442f281d04ea045d60ee914561e6bd7409c752fd4c0f9c6dce163c4
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/bz.png
+  tamanho_original_bytes: 86604
+  sha256_original: ee69722f4143a75581451ea2d2d9cf6df7e3ce2a7d3c9ce3e4bfef54158377d8
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/ca.png
+  tamanho_original_bytes: 12706
+  sha256_original: a101e8c1259da97b951a960b757335beb80c03fb4351b1636c4735d29542b7c7
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cc.png
+  tamanho_original_bytes: 15758
+  sha256_original: 3fddbf528faa605784f8cb43c4bc11eec44665ec2ecd09a0f1741477107a5135
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cd.png
+  tamanho_original_bytes: 17257
+  sha256_original: 8d0411ea1ace4e8a382ebcc14eb9ccfd57da833a38ea5499e9f78e8f37276288
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cf.png
+  tamanho_original_bytes: 7211
+  sha256_original: 81dfbf5eaacbfb316785a8936c7965e71b94ecb13520b302464140504f5e1006
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cg.png
+  tamanho_original_bytes: 9966
+  sha256_original: d96ec4b5c346708a61ea6e0f307fa17e604f9638e338a2c1eca3dc4a46e69814
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ch.png
+  tamanho_original_bytes: 2522
+  sha256_original: 294aa9689e52dab3c2a2d0bd404975af5b426cb5eb2b509721c102bf2b3a85d6
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ci.png
+  tamanho_original_bytes: 3109
+  sha256_original: b8b41708217b5cf0ad28729ef1ba047ec514bd5dba74ece8e61bff141739ce87
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ck.png
+  tamanho_original_bytes: 23112
+  sha256_original: a2105782dd00feb215400cc564bf8d8d83d107a80415954deecf261eb6cdda87
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cl.png
+  tamanho_original_bytes: 7284
+  sha256_original: 00d23cb148bcf67e0cdfaaa7c9b1312b20f01517f95e62ac1d6b1a31245e4407
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cm.png
+  tamanho_original_bytes: 7255
+  sha256_original: 3fff6d968effa34e4b86a2fb8cf5bd47b98e1a784c7e5c1068d8782aa532fa33
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/cn.png
+  tamanho_original_bytes: 7339
+  sha256_original: 7c1b5c69020c2f2a5381caf95f5f912a9c558a30e2a89df595b56efef4c9e11d
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/co.png
+  tamanho_original_bytes: 3853
+  sha256_original: 27111087ee9bb203e547b5c6b8881a36dd11e6b5c816c3eb2d5e33b01ffaa96d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cr.png
+  tamanho_original_bytes: 26693
+  sha256_original: dc6b3be893c9adb9cbfab917efbc5f41c7ff3833f2fd2f68a440b495a764aedb
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cu.png
+  tamanho_original_bytes: 8216
+  sha256_original: 23e85c773320d72715925950b2b9b69f8d6b39f04d535bb5d9294abaf2476e79
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cv.png
+  tamanho_original_bytes: 7224
+  sha256_original: 65392d8df151ebedacd724b98742cffbbc1c934f56b92e94295df1d73cbd1c19
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cw.png
+  tamanho_original_bytes: 6436
+  sha256_original: 27ec201222587e737568f0d98824a56f609e5544fbd97857a0ed74c60a4296fc
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cx.png
+  tamanho_original_bytes: 17403
+  sha256_original: f8158051eb83ebc3c62bd924b233cc98f16f498494e20aa7cffa2704061b2732
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cy.png
+  tamanho_original_bytes: 16183
+  sha256_original: ad504e99aa8a6e0a0ac74a6177ef395267627af4c321b9aa56ed25f4023f9699
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/cz.png
+  tamanho_original_bytes: 7770
+  sha256_original: 61fff8cb1f4acef6f3f5fee19be9de337fe96d2e5a348fd9471d82cf70813773
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/de.png
+  tamanho_original_bytes: 2221
+  sha256_original: 899e852353e3448fe23f53b7bae06beabb361469ae91ad31c32b6c78d9b70919
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/dj.png
+  tamanho_original_bytes: 9901
+  sha256_original: 17eb71ff80622403a495c02cffc91b0cb1a0bdf2d7f9d4a400debc4213cfb0f9
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/dk.png
+  tamanho_original_bytes: 3548
+  sha256_original: 66ba2264aef9f639454346a7ba13f26f105a3b1d34f92363eef1b9ccbfa23e38
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/dm.png
+  tamanho_original_bytes: 20847
+  sha256_original: a88c5f8973da6c66811cc7b7cdb2900444a487da7ae8a80d74461754c71306f4
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/do.png
+  tamanho_original_bytes: 33129
+  sha256_original: 05c2a1abe8c7302489271cef8f8a8e25a9dc8504afa21050ceae358c99061425
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/dz.png
+  tamanho_original_bytes: 12598
+  sha256_original: fba056e9947b0c1f55362156f01d26debc01f45e23585f54b21c654020b52456
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ec.png
+  tamanho_original_bytes: 76964
+  sha256_original: aa3cfb8e4745b7df8fb2551ee62aef8afecabc941765f379f5ad7333303672a5
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ee.png
+  tamanho_original_bytes: 2349
+  sha256_original: 9af477955513f881f831f5a180475e02473ad86a88614afc9e8ffe26639fac2e
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/eg.png
+  tamanho_original_bytes: 18213
+  sha256_original: d1fac2d8b394c6bd4383573337680e2eb4593b0fe5a54a25fc6bdfebf8cc0beb
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/eh.png
+  tamanho_original_bytes: 8377
+  sha256_original: c512957d0387e19f47345b29cb96d97a9516bf47dac3b7c2d9c8b183681dd38a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/er.png
+  tamanho_original_bytes: 20588
+  sha256_original: 96d7765c3af9c343100344fea32ed43fee08dc4d27b6677bb8b552ac0c7d48d3
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/es.png
+  tamanho_original_bytes: 44980
+  sha256_original: 9d4b57156f9bbd2dd0af60af878ca3362591af52b55bd21b22db5089ce400cf9
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/et.png
+  tamanho_original_bytes: 15127
+  sha256_original: a41db451827d39bc8fa9873f23dd905ff70a2b04ba46b78fff2f0a9b4e9e3ff7
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/fi.png
+  tamanho_original_bytes: 3544
+  sha256_original: 401631834e1ab280c52d0a598b7d4ba417c7de3d1fdd78bccd122037caa65606
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/fj.png
+  tamanho_original_bytes: 39609
+  sha256_original: d1cef2fdd6a419c3669c0e71622c351e5d68b0d671c6481e7b67aa168067a2be
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/fk.png
+  tamanho_original_bytes: 69251
+  sha256_original: 4d01d3796538695949bbd4f80c3bf1c34a2ffb57435f83f07cb8ddc481040d7c
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/fm.png
+  tamanho_original_bytes: 6399
+  sha256_original: 1c41b4eb9eb9ac323e06507caa22e29275be0e26f57004af7b0c6ef8eb0b34f3
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/fo.png
+  tamanho_original_bytes: 7538
+  sha256_original: dc2a2f4337b76bfc1f561f145e567ba0359233bc689c31ac31bce0f0e12ec7ba
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/fr.png
+  tamanho_original_bytes: 3106
+  sha256_original: 8920dd1226a0a0d891977507a54358a97c84db131a7e006b3d74a688e55559e1
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ga.png
+  tamanho_original_bytes: 2749
+  sha256_original: fd39fe1896aa636bc75d4a986243453735876c3e01385e7b7a79a233d9defac8
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gb-eng.png
+  tamanho_original_bytes: 2510
+  sha256_original: e8e6b02556ea8dfdf56187c69787405f703911bfc874707edab7366ada7c106d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gb-nir.png
+  tamanho_original_bytes: 31805
+  sha256_original: 7ad01f9973114d3aabe83e0a708c6e78d4eeceff3201b57391695bd694771185
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gb-sct.png
+  tamanho_original_bytes: 11777
+  sha256_original: 06a7be8f47206f3b78e902ad086c216726195289be8d9625fe734627329649bb
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gb-wls.png
+  tamanho_original_bytes: 83517
+  sha256_original: 7ba520f09093037cd2cc8517c6eaa618421bf46b695b6f316a6186fe81a68b18
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/gb.png
+  tamanho_original_bytes: 8815
+  sha256_original: c853879a6908cedae732a457c1a76609e54c3bd005c99a5bc9dfbef7812a62b6
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gd.png
+  tamanho_original_bytes: 16633
+  sha256_original: f9e2df94ae66c8f9fd3c94f1e721fad01fa12af622317ac58a7f850f970d0fdd
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ge.png
+  tamanho_original_bytes: 14114
+  sha256_original: 2495dd11f2b2e5e8c872718bdf59af130d75d6d84a491e744e788d0fbf9bf028
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gf.png
+  tamanho_original_bytes: 9677
+  sha256_original: d798308da760d89ed83aea30ae249d94ca34bb3b6f4329cf6b924194be667ae5
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gg.png
+  tamanho_original_bytes: 5737
+  sha256_original: 2accf8c8e1e82c96dd0894dccb346edd03b9b65c66351d791900060c4bb31bb0
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gh.png
+  tamanho_original_bytes: 6486
+  sha256_original: b4277b9aafe62bbaf0ed223081f0d0b32c5861d72eb214d639f97552cbfb2f9e
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gi.png
+  tamanho_original_bytes: 11852
+  sha256_original: ac99e440026aaf20dfd590a7eccfa01c5d35bb3a4a7caa76fde4a2ee7edd8460
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gl.png
+  tamanho_original_bytes: 9270
+  sha256_original: 720795c67ceb79d54f2408fdc12b7769058ee3d508d72ba694ab27d1df703b95
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gm.png
+  tamanho_original_bytes: 3676
+  sha256_original: d1bd6011d68e9be93b4df52dede8dd71a1f3c729bf99f3a470c8612a88bd3704
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gn.png
+  tamanho_original_bytes: 3109
+  sha256_original: 2a25be54b37f0f734ab4c31a65f05809b036a3ffcfb5eaed2291f5ad8a124029
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gp.png
+  tamanho_original_bytes: 46204
+  sha256_original: e81182460da128511272d4b2fb6c1475eda01ffbfe16e3a43ea0945e199b0245
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gq.png
+  tamanho_original_bytes: 23793
+  sha256_original: 7aebe5906a437d8ab5c1c72356054c0b3a055d04745acc6f6aed309fdf799ef4
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gr.png
+  tamanho_original_bytes: 4011
+  sha256_original: afc87d941612405fe0ada497c7d97d0eb19d4c267b21cf7d4104c075d48c5b56
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gs.png
+  tamanho_original_bytes: 71115
+  sha256_original: 76c3e776d1071e22d1ddcfe9ac6bfc67264889e7f68f74958720a6c3a805d874
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gt.png
+  tamanho_original_bytes: 49763
+  sha256_original: c617d36d8784022d458e1fbc55ffadea28d2203c49d048091599a4a45f9d3501
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gu.png
+  tamanho_original_bytes: 17015
+  sha256_original: 685db5d7f2689027ba10f5801d017281b36103db3464d4ee1138459b4f309655
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gw.png
+  tamanho_original_bytes: 6188
+  sha256_original: efca614f4a3fcc1410995efebd34dfc255878d57d37aba838cd8e6ac8b10d357
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/gy.png
+  tamanho_original_bytes: 11876
+  sha256_original: e28f6aacfc043c7811da47d2f014b709dbdb2d8f815d30ed53b6b5c8eedcc144
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/hk.png
+  tamanho_original_bytes: 18145
+  sha256_original: 482b6493dd4758a41fe615dd77fbb06c5f8dfc8426690dca27681f778cc3ca98
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/hm.png
+  tamanho_original_bytes: 14684
+  sha256_original: 4a3cc8f5745e96465a108b3a146349715c17e690edaa7a306fe54b549ed6c430
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/hn.png
+  tamanho_original_bytes: 4758
+  sha256_original: c8df8f8d3f334b675d95bbdaa31d01065ad21cd11a3e7631888ef5937d12b0be
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/hr.png
+  tamanho_original_bytes: 21143
+  sha256_original: 96cf635a03435fcd2ab84ba81167c94960c6f10bc49acef8593aa3090be788e7
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ht.png
+  tamanho_original_bytes: 63250
+  sha256_original: dd15d34457d530fe3c5ff9f68f4127dc2229d073eb8ee75b9c9e2e706d82a439
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/hu.png
+  tamanho_original_bytes: 2670
+  sha256_original: 25d4f007843503bda1e1a154c6539c81f25316a926f943511e510166a6c8ad6f
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/id.png
+  tamanho_original_bytes: 2133
+  sha256_original: 7ae21e16919f0c58136d7e8d64d6294a54f9f74b205d28436786aeb52a0b1c15
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ie.png
+  tamanho_original_bytes: 2361
+  sha256_original: 9553c933121218f3a240ff4aac2427142ebf3bd6aabe8fcef0b5a030a405a7de
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/il.png
+  tamanho_original_bytes: 9028
+  sha256_original: 93e48c0e44b90352c0c8fdc24b6002ff8c2f1e245e981f0468613575324ef1e9
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/im.png
+  tamanho_original_bytes: 22229
+  sha256_original: 4f53cb31b618f507e1e4c85d6935b7b5bada6abb6bc00beed6a5c64a1b840c95
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/in.png
+  tamanho_original_bytes: 17140
+  sha256_original: ff5890e6228a9070dd2c1d70b55279b03a9a8272cc6f7237d57ddbbb4813049c
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/io.png
+  tamanho_original_bytes: 73733
+  sha256_original: 38dcc8fa8614b78961cf27c65146d7d3e4e7e8fa654db3df7dce0aca68c25d22
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/iq.png
+  tamanho_original_bytes: 7582
+  sha256_original: 024dccbb806cb4d33bfd1bab89715b7daf7c6030c0770b7e91c714e01b4485a5
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ir.png
+  tamanho_original_bytes: 12412
+  sha256_original: 5d34620d8e1459c196cf2e38822ddd41e19ac89fac2470c86c603b1079f6aa37
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/is.png
+  tamanho_original_bytes: 4814
+  sha256_original: c12c9d1d19c7ccd66d278c2fd65d99fa981cf33ffe19b591ab3709c997cbbcd1
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/it.png
+  tamanho_original_bytes: 3108
+  sha256_original: ae67d734bf37a86868e3243ce32bdf3237ba61797c6b7a77bb1350cfb61b4690
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/je.png
+  tamanho_original_bytes: 36497
+  sha256_original: 4ad3560f6e3c5b000ebcbfe2afbf2d1cc85fe35f708ea6a74a59b6adda1e3f9f
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/jm.png
+  tamanho_original_bytes: 7879
+  sha256_original: 3893e73fa859f9748cc5cf2c6228a04f7365e5d51ff0240f1f90c832f103d7f3
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/jo.png
+  tamanho_original_bytes: 6391
+  sha256_original: 516f95be3f2ab46bf0f22cbc6d59bdc7ffd1a70440efec99676a614b1e7a26da
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/jp.png
+  tamanho_original_bytes: 9735
+  sha256_original: 3eaf238797b716371819bb2185ad239880f16e6914fb13f7c424d3d5ba287d79
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ke.png
+  tamanho_original_bytes: 19110
+  sha256_original: 3d3748f789ea385bba9d007088e677f59a4b8b12c65a70bdd89bbbe9bd330480
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/kg.png
+  tamanho_original_bytes: 37947
+  sha256_original: eeda0b61dbb2bd867b5d112dff80ef9c7986ffda22e8795c74621e696fd9d3eb
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/kh.png
+  tamanho_original_bytes: 26394
+  sha256_original: 8bdb8d3931066d9629a8cce7db9609b542020f4e25a07548437ef3242eb0521f
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ki.png
+  tamanho_original_bytes: 30965
+  sha256_original: f44796c78768972c6344e1f5171f6ed28f9989e6eea4d01ee510b84d8120115d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/km.png
+  tamanho_original_bytes: 12968
+  sha256_original: bb97740b09d0cffe861017b499814222c0106e1cd9163d18a8d84aac8db3737d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/kn.png
+  tamanho_original_bytes: 17211
+  sha256_original: 9f07547adcbe4a7f0e52785b798d930cde922f1f2c063e875fb1d70047e30bb2
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/kp.png
+  tamanho_original_bytes: 7430
+  sha256_original: fb6f8ccf4ee1b5f9cf8828ac7497e95828ad067cfcad79e2cabcadb8bcfaf0c7
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/kr.png
+  tamanho_original_bytes: 17355
+  sha256_original: 5ebe9f3e722dc1396ecf39b0fa06305f2ccb915ac0eb2602da0673d83231ef91
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/kw.png
+  tamanho_original_bytes: 5665
+  sha256_original: 2ac0e1d1757fe42f76475d09899445cb404da0855b23735c46734fbc132d345a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ky.png
+  tamanho_original_bytes: 52545
+  sha256_original: 2fd228bb623bc58b475c1e6b291c97d5213bde0ec0e6273950260bb97c6cd7b8
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/kz.png
+  tamanho_original_bytes: 33350
+  sha256_original: 0d150a53da6d6e87707d3c85c226d1678600b4b8117323ed4b42b01cf03efa7a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/la.png
+  tamanho_original_bytes: 7074
+  sha256_original: 83981a5300aecb9d9eeba60fd5b3529e238f4c9bf2609617f938c13843026a3d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/lb.png
+  tamanho_original_bytes: 11808
+  sha256_original: 5eaf91b29f59f577fdec13becd770f8cbb28005ee3d8f3843ddc1c7d859edb79
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/lc.png
+  tamanho_original_bytes: 10605
+  sha256_original: 2c32e047881c4ab59ef9f4b2a547124b82a45b8f412a03ad8d1ff8b309d6b5d1
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/li.png
+  tamanho_original_bytes: 15908
+  sha256_original: 75506c2fc72a73ac0514c898da351940c07114d87b13cf3e602ef44aba79e112
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/lk.png
+  tamanho_original_bytes: 41448
+  sha256_original: af61d573e34dd94b939dddbf87d4d7b126c025f39179fcd5357cd87423597fee
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/lr.png
+  tamanho_original_bytes: 6370
+  sha256_original: cbf997bb884fa5d6d1ac25fa658c09789e668fcff325a596504407a707c73d7c
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ls.png
+  tamanho_original_bytes: 9646
+  sha256_original: 2968b1697a070564732a0b3747a4731f1f0ba9e201694a156a04ed67938a5590
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/lt.png
+  tamanho_original_bytes: 2219
+  sha256_original: 55333b096ea46eacc09ae5490686191a939a588f08b5d784535e09b986246daa
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/lu.png
+  tamanho_original_bytes: 2221
+  sha256_original: aec881f94b80bac64c8e269588e7a2e7ecc44f5ac669e03bfc5f1ebe7f6399f4
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/lv.png
+  tamanho_original_bytes: 726
+  sha256_original: e081f475dca14fe1f5804a6e68278f54d5e2deaf305fa8c78e6027e83c410cc8
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ly.png
+  tamanho_original_bytes: 5481
+  sha256_original: 7078a0f2a66b74e9196cd65fb158e66f8531e01967080631eb0025ae271e380c
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ma.png
+  tamanho_original_bytes: 7228
+  sha256_original: 4f99ec61438ba96150818b41f834e072885b2a5270731ea40d788c3560df8090
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/mc.png
+  tamanho_original_bytes: 1636
+  sha256_original: e13dc10a619f5fce81c164a1d35ef13b749b5bfcd246a26345bcfd523e0452a1
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/md.png
+  tamanho_original_bytes: 35019
+  sha256_original: 3a072e5d893a1bf9647fd5b057dbcf1f8010ba2d719d07f9a585d6ec6220a7fe
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/me.png
+  tamanho_original_bytes: 48347
+  sha256_original: bb0345d14c8ad1a78b12158bad82b74eb02eb19ff112ca240a54e837291ed0d8
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mf.png
+  tamanho_original_bytes: 3106
+  sha256_original: 8920dd1226a0a0d891977507a54358a97c84db131a7e006b3d74a688e55559e1
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mg.png
+  tamanho_original_bytes: 4398
+  sha256_original: 69679a977f5d81383c8c0d2347d04feb820629a5c640dfc6a293c21110c9f378
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mh.png
+  tamanho_original_bytes: 21071
+  sha256_original: 1dc706492a4a663eb3ebb0786931885e047d3599e28997ab0b5f6d2d85b4d4bf
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mk.png
+  tamanho_original_bytes: 18084
+  sha256_original: d4e0abc3e59b5f6ab88698b3378caa63232ccd6a90b1e5328d2aeddc10453c74
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ml.png
+  tamanho_original_bytes: 4399
+  sha256_original: 6d3dfde4b3feaa2db2d659a69c13cb0358b482f1d2b1c83c61d7db51bbfbd4a1
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mm.png
+  tamanho_original_bytes: 11707
+  sha256_original: c6d2df0e1c531ea43f5d30f51a4d48d53ec2cd318b4ddea652a14ddf9bf57bd4
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mn.png
+  tamanho_original_bytes: 10666
+  sha256_original: 200fe3088582303f4b2216274456ca99c495570015b53ce8be696f210761791d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mo.png
+  tamanho_original_bytes: 15931
+  sha256_original: a260fe8b9cbe66497958db4e14a3d95856096e041a109adb2dc5ea463a8a0558
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mp.png
+  tamanho_original_bytes: 109660
+  sha256_original: 008fe2827d6817ae2f6fb465def317d724038bc9fcac1c0fafbf26a5b23e3efa
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mq.png
+  tamanho_original_bytes: 7718
+  sha256_original: bf591b3191cad22e98d2cca313a1f84cd908e55e7f7ebe2eda5a308cadc6fb5b
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mr.png
+  tamanho_original_bytes: 10436
+  sha256_original: cd2da2107d4bac1bc11c98e36e30a9d0bb131276eb51cdd499b99177947449c9
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ms.png
+  tamanho_original_bytes: 25863
+  sha256_original: 22bee324f12dd9e925b8030efa6cef520c9c5e203be8ce65a42fb76b7aa0b053
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mt.png
+  tamanho_original_bytes: 17439
+  sha256_original: 6000db90cca791aaf71bd1fe6d77291f1d10d0fa82a26ecc98861b3e06c2d422
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mu.png
+  tamanho_original_bytes: 3803
+  sha256_original: 04018b2b4b3e3790223586ae344425bfb6dc2dd46f71caf0103f87c779d5e1a6
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mv.png
+  tamanho_original_bytes: 6695
+  sha256_original: 2d34c075d55d57da41616dc367f782e31ed70aadd3f374f7785750c8e48bc2fc
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mw.png
+  tamanho_original_bytes: 17030
+  sha256_original: 27d874cd7dd24cb156e48ba3df99492c3b1ecf88344c8b0612af184c2d864dbb
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/mx.png
+  tamanho_original_bytes: 58070
+  sha256_original: 2e5d3741f629b6e2666900f4bb6657fff4e47f8c976861ded81eeb54a0544820
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/my.png
+  tamanho_original_bytes: 12394
+  sha256_original: 09c4abe5f3fac066068ff1af33ec7782c8db133127f6579910bbb9c9351b6dab
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/mz.png
+  tamanho_original_bytes: 20143
+  sha256_original: 2711787dfc47e49503679a038f864f62857453f4a3f65c5bb9be620aeabefd8f
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/na.png
+  tamanho_original_bytes: 18660
+  sha256_original: 53e39415518f1d61c7932d21bdc32b22bfb2fa2ccd22fafd44b1e8c65be8f48d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/nc.png
+  tamanho_original_bytes: 11584
+  sha256_original: 140d60dd6625c81089086fe724d59157dc3b1877564c5afb131321bb7279bfe3
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ne.png
+  tamanho_original_bytes: 7510
+  sha256_original: 3b285b2c516bd60d926c7c9e4fb93a183ff9e6f3c56fb0d4355615ce16451451
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/nf.png
+  tamanho_original_bytes: 19491
+  sha256_original: a2b79d566c95384cf4cc1fe5a371bf9f1d0ae6047dd8f0dd3e32a0cb595e052d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ng.png
+  tamanho_original_bytes: 2358
+  sha256_original: d568e859cc66f206bb374a863c2fc9fa8de3fb72592df7041dcea69f60b380bf
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ni.png
+  tamanho_original_bytes: 24667
+  sha256_original: 9a4cd39a7393f8f938009e18fb953e3134fad4b339e96baddad1d7a51adf12c7
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/nl.png
+  tamanho_original_bytes: 2466
+  sha256_original: fe554fe9291f8518217cc0747c92063a034984bd880334a352d78d689fd4a97f
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/no.png
+  tamanho_original_bytes: 4886
+  sha256_original: 362b07e6345f6c079d898ef6f3e7b701ba780886a9c7e6b4df9961f241d6e332
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/np.png
+  tamanho_original_bytes: 28740
+  sha256_original: f137d4de630c850b6709ee0f76f4291de9d3d05e99cfa97be1cb1736c1373a82
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/nr.png
+  tamanho_original_bytes: 5468
+  sha256_original: ed2c9fd0bec4dd580fd0c360bc31a9a449d4e3b91230cab9d2391e9445e6a899
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/nu.png
+  tamanho_original_bytes: 11737
+  sha256_original: e12ddee03c4a47fb73ff16db4b384fbe7456cbc53f077a5aefa935b98ffdba3d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/nz.png
+  tamanho_original_bytes: 13797
+  sha256_original: 7cb2021024c9bc036c3045d058251570e9ef35fe756566c04dac64e3a8bec111
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/om.png
+  tamanho_original_bytes: 21226
+  sha256_original: de7342ad8785c81b5ad87f899686ac9ace8644569db61622b31413628729c6e5
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/pa.png
+  tamanho_original_bytes: 10760
+  sha256_original: 42a57c48b82554deabb4b55076f2af1bb860cfa0ecdb29a9f498cb94184ba0fa
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/pe.png
+  tamanho_original_bytes: 3103
+  sha256_original: acddf861c1e2b619628d16709be2b76fd21bd19f8fbb3926b573a5cb20715c5a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/pf.png
+  tamanho_original_bytes: 25079
+  sha256_original: 779e6d537650d826f9f5c36f77de7af835c8b90459ad8e412abd87371b4c3cff
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/pg.png
+  tamanho_original_bytes: 23463
+  sha256_original: e4a0cb7b31896a7487a969bc9cbcb1ff49650db99beef3e929e749d4a44258eb
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/ph.png
+  tamanho_original_bytes: 18961
+  sha256_original: e3d413e5ae15453d4c7692b99a9d7ebf5a0c198d99b2f7507dd9be2f94e61e35
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/pk.png
+  tamanho_original_bytes: 14160
+  sha256_original: 8bb3362231be777746da5ceab2abdf0ad864725577298bd950e5f683032368d3
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/pl.png
+  tamanho_original_bytes: 1308
+  sha256_original: 97d2b5bf6850838704657006ff36d8eaf74e6f6d80031f61e180040e142173be
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/pm.png
+  tamanho_original_bytes: 140177
+  sha256_original: 79e60d22cc10ae53596245502b162133472408beaf98684c696616acd5786c05
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/pn.png
+  tamanho_original_bytes: 51646
+  sha256_original: e335d1d759952691f2ca3201ed7cd44d0e3a64168ac16491b89eb48140b87151
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/pr.png
+  tamanho_original_bytes: 10590
+  sha256_original: dc13e93d74b8dd6474d0f92696c2b58b32a91d25dbde1bb42a8c5642fac04cf3
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ps.png
+  tamanho_original_bytes: 5845
+  sha256_original: 3069d47123ab513aa37621073f54db48380f1e811a790f4cd3fa9b712f850f57
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/pt.png
+  tamanho_original_bytes: 48818
+  sha256_original: 1dcb0973be6e21324e115227ff6fcea4bc06962a83dbd536b85e84f27176048f
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/pw.png
+  tamanho_original_bytes: 6911
+  sha256_original: ac506be8cff32815ec4c375aeab9de1c15109ba1797add0c5a6017847aea3d04
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/py.png
+  tamanho_original_bytes: 17423
+  sha256_original: eef5db148a28bae3b6096cc432a631ddf46e2ea060c0481e449726b4e1425540
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/qa.png
+  tamanho_original_bytes: 4789
+  sha256_original: 1639cb0cd118f1184f3ed5716c96d9feceac0eda895cd0b3b4de15a5f7e4494f
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/re.png
+  tamanho_original_bytes: 16146
+  sha256_original: d95a09064b055170f8c7ecfe9b950387345f92ac391e7c77220aebed956180b9
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ro.png
+  tamanho_original_bytes: 3108
+  sha256_original: 644f71cb1742576b87c100a279947a98513072a302834b2d4b1b031c9bf80fe4
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/rs.png
+  tamanho_original_bytes: 85588
+  sha256_original: 4ada36d87fbe8c2c14ca40a87d783248f1ae98a9df6b50059fcec57b823ee024
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ru.png
+  tamanho_original_bytes: 2455
+  sha256_original: 8c3c531486059f482fdc2c565a354be355563efb5dc8fa07c5dcb6b343a42cd2
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/rw.png
+  tamanho_original_bytes: 13999
+  sha256_original: f0f3ab5d9a8621c63c1fbca87c7c32b640142405ead1d909a1248bb4fd7d8cc9
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/sa.png
+  tamanho_original_bytes: 34686
+  sha256_original: c8ef1d4cda138d06eb40a669fd1962a8832518a4b5e4e304835974c47fbd0e43
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sb.png
+  tamanho_original_bytes: 13205
+  sha256_original: 8623ab3072555ad62e21f25844eebff815689e5cde8ba64e329af94582dc36aa
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sc.png
+  tamanho_original_bytes: 11889
+  sha256_original: 4241da7a8f8aff4bd8bcb958317db56fd75871d874f9eb65b863419a29fef7f1
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sd.png
+  tamanho_original_bytes: 5812
+  sha256_original: e80496dde97e7151d266948c9c120bf3776ebb28bac5df9cc0716bd41d4010e9
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/se.png
+  tamanho_original_bytes: 1834
+  sha256_original: 04a2abfc9ea03b5f85bdc0a346bc6a7c8af98db170793c71134ec98ba65907fc
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sg.png
+  tamanho_original_bytes: 12203
+  sha256_original: 46ede22dc47e7f5f5c1a345a36d7472ed48217807fdf386d20ccf4dff3f1b750
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sh.png
+  tamanho_original_bytes: 31246
+  sha256_original: 263a1e4315998e679afa5bd4508620c310959344da9cfb1c9e9ec300e50e68b6
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/si.png
+  tamanho_original_bytes: 7973
+  sha256_original: 44d432f9c63cc08b258d038881d912750a92e6015fa6286c771eba8d554dc16d
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sj.png
+  tamanho_original_bytes: 4886
+  sha256_original: 362b07e6345f6c079d898ef6f3e7b701ba780886a9c7e6b4df9961f241d6e332
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sk.png
+  tamanho_original_bytes: 11555
+  sha256_original: 0e754531021502852b85df2aff15e797b633fd19e39a13c9c1d1b37e2e456e27
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sl.png
+  tamanho_original_bytes: 2456
+  sha256_original: 701484f29b4cf5c5fdc08c0cdaccabb1da2836e6536e6099a6c1ecf03c706375
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sm.png
+  tamanho_original_bytes: 95981
+  sha256_original: 2f87d78a3be6144b80e3ba31d5f4a433b4b02a996336f6229d5a65a55135b022
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sn.png
+  tamanho_original_bytes: 7109
+  sha256_original: f2b9aafd1c95847df142fb3abfd164b93a29eed50031d03eafecf918dd2eb5de
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/so.png
+  tamanho_original_bytes: 5519
+  sha256_original: 6f042bf63ca905003c20d8b23182a8d88841c438e03687f1ae74c498fbe7243a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sr.png
+  tamanho_original_bytes: 6367
+  sha256_original: 26a727e8d0fadc8886510fae83c602cbd8a0637847d26aa16352427ad39d9657
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ss.png
+  tamanho_original_bytes: 7755
+  sha256_original: 5ecd9b984979b48e8a5e356158ccfa02a7060a630b1ed35e0abb07ba446df990
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/st.png
+  tamanho_original_bytes: 9407
+  sha256_original: 5d5df0d1310256eca809937de37090a9736d41c10c5178403940e077da83af64
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sv.png
+  tamanho_original_bytes: 40633
+  sha256_original: cef4e92ff4812d23eb8b98992e4f1e01e13cf0ed1d266264fbe8291265798ad2
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sx.png
+  tamanho_original_bytes: 33058
+  sha256_original: 8fd74d4c2cfb4480f6f7359d44e714b03e136f53fa6c9bb0168addd3b44ca749
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sy.png
+  tamanho_original_bytes: 7962
+  sha256_original: 2a4648dfab8c3cc396ddb7471fdb247f29b9e54233aa3144d8ff0cd4b5c7a4ce
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/sz.png
+  tamanho_original_bytes: 20222
+  sha256_original: 14490bff67c77181551eca7461ad0900f63c610c2b98559b22dd0979d9face67
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tc.png
+  tamanho_original_bytes: 26672
+  sha256_original: 4c85c0cef4a34e45edf8f09a71db0722e0c54e4419f2b2cee8ae2633b5d4367e
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/td.png
+  tamanho_original_bytes: 3109
+  sha256_original: 4685be45138f9068ff8abb9a528fc52f7709f3231a361ea3a2607f96019679f2
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tf.png
+  tamanho_original_bytes: 11455
+  sha256_original: 05d7b2f7dc8b0e4edb52ba3050f9bb74bc4da590403261cf54994eff93a40e6c
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tg.png
+  tamanho_original_bytes: 8239
+  sha256_original: 9a0f6a959432cdda83c733c0e5459fd8270a78451e74cadbce2d0d8174655827
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/th.png
+  tamanho_original_bytes: 2468
+  sha256_original: 6b37d5516e030db65e3a47812834ca40316a9d600f92178d3953607c1d32a74b
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tj.png
+  tamanho_original_bytes: 7642
+  sha256_original: a4fa6336fe53c8d0e0475053cc9b3234862835bb4a1801f1ded09949fc2c73df
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tk.png
+  tamanho_original_bytes: 11544
+  sha256_original: b1611333c6e076f732e31cc9fb961d4c96197af37d841843d7453fbb969cc515
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tl.png
+  tamanho_original_bytes: 10438
+  sha256_original: 929ec1036b1cf3d269ee0b9f8f6baf0c68c2bef78d320a1525f5330a287f3ffe
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tm.png
+  tamanho_original_bytes: 84867
+  sha256_original: b88196c717e2bdde338ad81786ad215257cb739f08c9e11bcb8093521c95539a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tn.png
+  tamanho_original_bytes: 12184
+  sha256_original: a8a1b7dc6bb018a7093abf40a221536a6a89b90538428b2c2a1882a88dea0ac9
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/to.png
+  tamanho_original_bytes: 1686
+  sha256_original: 6b1d56f7e94c1519f911a4d3c33ff9d6bbc781f34ee77215a41634b64c8b6a8e
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tr.png
+  tamanho_original_bytes: 9764
+  sha256_original: c593d26bd577727f2dee6881c4024b14c198c824bb6d0a4a6097b713b7a911a0
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tt.png
+  tamanho_original_bytes: 15150
+  sha256_original: e5f0c1184abe74ffac77d7be7820e59d696342b77ae2b7083eb315877cf6a003
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tv.png
+  tamanho_original_bytes: 17078
+  sha256_original: ffcce4fa213a93eb437d8e47e61b8b3e5c039970c9265e610c8cb67c60de80e0
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tw.png
+  tamanho_original_bytes: 12916
+  sha256_original: 4313ed3388c59d4fe9e6145639bc8ce0a3fe82c9c7e4e451f2341e187bd35eb9
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/tz.png
+  tamanho_original_bytes: 11399
+  sha256_original: 1cb5bfc65f53858c9ff7f4451543c97daadd40841b2f8f5d6e2479e747e4928a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ua.png
+  tamanho_original_bytes: 2133
+  sha256_original: 6b22a647b4dbc25001e1e8addb75cbdf4e840b43d2ede7490763042980b2f9c2
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ug.png
+  tamanho_original_bytes: 13473
+  sha256_original: 2c9ab13a764d2bdc9399bd9fad0b2e6a5b60f8efce0249ddb0965c56c4c9ae28
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/um.png
+  tamanho_original_bytes: 17645
+  sha256_original: f150c5b73d2dc30168a514e6ec8ec1ff1a4465e0ed487839b1143dbd57c59c70
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/flags/all/us.png
+  tamanho_original_bytes: 17645
+  sha256_original: f150c5b73d2dc30168a514e6ec8ec1ff1a4465e0ed487839b1143dbd57c59c70
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/uy.png
+  tamanho_original_bytes: 21203
+  sha256_original: c6cb4159b07018ba3e009c219d5312872e9743bb45bf2f7773499d8bac1fffc4
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/uz.png
+  tamanho_original_bytes: 6081
+  sha256_original: 46e030fd154f7d7034edb2a43fc8dfb29df1e7a0c9bce6a245ec1b232d08a758
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/va.png
+  tamanho_original_bytes: 97088
+  sha256_original: b92ae83f00c9c1de56c9b5b222c1ca1d034ebf7e71ee8c1c1a0499e5b145162a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/vc.png
+  tamanho_original_bytes: 12489
+  sha256_original: 8555874aff3bd22b33c1253d8d74ce5a5e003d10273ade94702fa5eb23628107
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ve.png
+  tamanho_original_bytes: 9348
+  sha256_original: 4169864c6b1efce4b9969e79fb217b21f72cea4475932a4bb52a1a658e2e65c5
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/vg.png
+  tamanho_original_bytes: 51809
+  sha256_original: 5d66a826578a963ff41433655c3bf2d1d0ba4f849ea18a4e188614c2bb75a1a5
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/vi.png
+  tamanho_original_bytes: 100624
+  sha256_original: c6237adf5f6ee1e738e0ead2f64ca2f293c1a92a1f0e4620da3255364f0e49c3
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/vn.png
+  tamanho_original_bytes: 8026
+  sha256_original: 15038ffd847f6cadb09573504277315964592a0c6587ae31fdfe452ddfe05478
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/vu.png
+  tamanho_original_bytes: 15112
+  sha256_original: f936fc1d29ae96b2bc91e7430e2a1bd135707f07ed1a48f6640cf9ec052f72e4
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/wf.png
+  tamanho_original_bytes: 6515
+  sha256_original: e30bfed5d54a769bd84e32cbe64f19c24eda2daa7cc070f581a1593ebbe9fe86
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ws.png
+  tamanho_original_bytes: 7538
+  sha256_original: 01ac8db21ab349670f35d038558f3b726cb5dfc543d2321fc02d1c78e8175471
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/xk.png
+  tamanho_original_bytes: 13927
+  sha256_original: e54a5df59ce7c14e620fb8a8379e393733e41a2a5940243da19df52f2beb00fc
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/ye.png
+  tamanho_original_bytes: 2456
+  sha256_original: 153c943ea2205aeb6eab4bbfaa7a12ca310bdf16e97fac29ece4077cf2323e26
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/yt.png
+  tamanho_original_bytes: 84994
+  sha256_original: 23320220431f96db37d899de997ea094a29b7b83f85161dece0547ddf2efad9a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/za.png
+  tamanho_original_bytes: 10018
+  sha256_original: a6fec5911039ce64381afc03ff225b8b9290de4d2b0cdcd3253f7680421c149e
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/zm.png
+  tamanho_original_bytes: 18460
+  sha256_original: e97e100cc03ba019ca00af82e4ded3ef386f8762c1861c214e765bb87a24f111
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/flags/all/zw.png
+  tamanho_original_bytes: 14164
+  sha256_original: 0a3fbca540284499d25b9ec7da4955ac6fad3a0334c101c9e44797f4f4ce198e
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-FALTANTE] assets/icons/app/icon-192.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: manifest.webmanifest
+  referencias_legadas_documentais: -
+  observacao: Criar/restaurar exatamente neste caminho. O jogo usa fallback para não quebrar, mas a versão comercial exige o arquivo.
+
+[OBRIGATÓRIO-FALTANTE] assets/icons/app/icon-512.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: manifest.webmanifest
+  referencias_legadas_documentais: -
+  observacao: Criar/restaurar exatamente neste caminho. O jogo usa fallback para não quebrar, mas a versão comercial exige o arquivo.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/car_parts/aerodynamics_rear_wing.png
+  tamanho_original_bytes: 1608547
+  sha256_original: a235e483e4f4a6319eae63639717e36bad3b6448ac34269fd2f6b8c2f330d323
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/car_parts/chassis.png
+  tamanho_original_bytes: 1871236
+  sha256_original: d71d252fcac2fabbb91dc16ff4bf593a28f015f9585ce15c917f463c32384a0b
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/car_parts/engine.png
+  tamanho_original_bytes: 2004064
+  sha256_original: 0231a24f2c4c933dbea65e2a74b122caa72ce9eaf080d3182a5a95b666b54499
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/car_parts/fuel_efficiency_orange.png
+  tamanho_original_bytes: 1787055
+  sha256_original: b429f1f4206d0e38004a99e6a563f8ec96000f9da391d537a789afef58035d90
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/car_parts/reliability_shield.png
+  tamanho_original_bytes: 1966737
+  sha256_original: 840401d3386f09d67aa16150bc6a5e63b8f448f532280ec147eef3b075b3a221
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/hud/mini_car_topdown.png
+  tamanho_original_bytes: 2019714
+  sha256_original: 95b092bf18597cbfb1cb5cdab5a2f6e3af963dff46bfa5d2b17e28b18239a2e2
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/hud/position_badge_01.png
+  tamanho_original_bytes: 1697930
+  sha256_original: b90eb40ec9b70cbdf69bd4422af56e3cb93d1679f1c3a633bedea3409c072123
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/race_controls/attack_mode_orange_01.png
+  tamanho_original_bytes: 2124986
+  sha256_original: 1a0d6eddb906f3051cd2f3c9d95f2d9ea771abfea586dfa92d89c179bfac4b31
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/icons/race_controls/attack_mode_orange_02.png
+  tamanho_original_bytes: 2124986
+  sha256_original: 1a0d6eddb906f3051cd2f3c9d95f2d9ea771abfea586dfa92d89c179bfac4b31
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/icons/race_controls/attack_mode_orange_03.png
+  tamanho_original_bytes: 2124986
+  sha256_original: 1a0d6eddb906f3051cd2f3c9d95f2d9ea771abfea586dfa92d89c179bfac4b31
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/race_controls/pit_stop_timer_with_text.png
+  tamanho_original_bytes: 1968729
+  sha256_original: 887173aa15b15539c75e1c81e62de7913027ad61f32f51170a544e62148ec596
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/race_controls/save_fuel_green_01.png
+  tamanho_original_bytes: 2079671
+  sha256_original: 03b68923193856e35fdb3ac63e66df6ee481fec0b5c6411f5119a34bceb47b1a
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/icons/race_controls/save_fuel_green_02.png
+  tamanho_original_bytes: 2079671
+  sha256_original: 03b68923193856e35fdb3ac63e66df6ee481fec0b5c6411f5119a34bceb47b1a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/icons/race_controls/save_fuel_green_03.png
+  tamanho_original_bytes: 2079671
+  sha256_original: 03b68923193856e35fdb3ac63e66df6ee481fec0b5c6411f5119a34bceb47b1a
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/race_controls/save_tires_green.png
+  tamanho_original_bytes: 2169516
+  sha256_original: 59f49e7096df2ad9d7b1efc62edc1444af57ab823e3b0def70ec81c55feb87f6
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/race_controls/strategy_change_blue_01.png
+  tamanho_original_bytes: 2122555
+  sha256_original: beb87fd0f417a9ee97575206510536d9a08631f09f541024563a5412f73a57cb
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[ARQUIVO-ORIGINAL] assets/icons/race_controls/strategy_change_blue_02.png
+  tamanho_original_bytes: 2122555
+  sha256_original: beb87fd0f417a9ee97575206510536d9a08631f09f541024563a5412f73a57cb
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/tires/hard_white.png
+  tamanho_original_bytes: 1598982
+  sha256_original: 1050816320e9aee084d3b375bcdc3e1e236082bcc3de43efce0ec9e0f4943677
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/tires/intermediate_green.png
+  tamanho_original_bytes: 1888887
+  sha256_original: 1941e7851418c9e98ec3f953ebc6e8e037ee71e13a20d0f5621fa6755e98dafc
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/tires/medium_yellow.png
+  tamanho_original_bytes: 1635838
+  sha256_original: 60ac5fa9a0f9a203243aea409578361295580894fa242875647817f6fe5998a1
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/tires/soft_red.png
+  tamanho_original_bytes: 1551862
+  sha256_original: e18dc51025f44f35ca2181366ede7f121cea2fb2445ae930590bca2343c20141
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/icons/tires/wet_blue.png
+  tamanho_original_bytes: 2197339
+  sha256_original: e9ae01b32834cdbc24277ca05bbb40a8e2aec6528bf82f765d760306b2b274d3
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/cards/alpine.png
+  tamanho_original_bytes: 2089434
+  sha256_original: 1e37724b3ffc3d405c1230a437a91588558d46583a5d72a7ba165d3bece7e437
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/cards/aston_martin.png
+  tamanho_original_bytes: 2114185
+  sha256_original: 65568d400118da7b5db957e7bf9c0203b6eaebb57203d77a5dbda717099281aa
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/cards/audi.png
+  tamanho_original_bytes: 2036318
+  sha256_original: 869e5d63dbbbc6f056e82a63bc783a1bff9369a42abf37859e6f5d1fe56153ca
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/cards/cadillac.png
+  tamanho_original_bytes: 2096158
+  sha256_original: bc8df3062dba7676ffc15e9e612c6506ed599b87c31d2472e7665a902727fae1
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/cards/ferrari.png
+  tamanho_original_bytes: 2198720
+  sha256_original: 2392e8ba3feeba5d78c26535e318b844ef7b7fb548e41a28cd99cebabd0e7be2
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/cards/haas.png
+  tamanho_original_bytes: 2184583
+  sha256_original: a2aae916f8ee7ca96ade12b4e58077b6fda4ecf85a12d7975747b3d5a59a192c
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/cards/mclaren.png
+  tamanho_original_bytes: 2127854
+  sha256_original: e35f5bcf4cabf37c666e41a36d7503423a385e39bb00af35eddb4420c4611f55
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/cards/mercedes.png
+  tamanho_original_bytes: 2347667
+  sha256_original: 2b57a5dd1302f3533d4479332c11c72a8cac014b8b7545f61c6deef929aad465
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/cards/racing_bulls.png
+  tamanho_original_bytes: 2006667
+  sha256_original: 6dec4e5e3afe0906a7a790170a2fe96709e9aa093b8661d123fec84847fcac7f
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/cards/red_bull.png
+  tamanho_original_bytes: 2271791
+  sha256_original: 2c8340b7a2e44999f789d5b26f0ef13f2106a9d4deb40eb486cdb72891a1fcd9
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/cards/williams.png
+  tamanho_original_bytes: 2011717
+  sha256_original: 1d9906580710fd6d53db5ead6383c50ecfa633df1443ceab4e7deb98377deafd
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: -
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[LEGADO] assets/teams/f2/cards/aurora_motorsport.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: docs/F2_LOGOS_PENDING.md
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/teams/f2/cards/nexa_gp.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: docs/F2_LOGOS_PENDING.md
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/teams/f2/cards/summit_f2.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: docs/F2_LOGOS_PENDING.md
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/teams/f2/cards/vortex_racing.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: docs/F2_LOGOS_PENDING.md
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/teams/f2/logos/aurora_motorsport.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: docs/F2_LOGOS_PENDING.md
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/teams/f2/logos/nexa_gp.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: docs/F2_LOGOS_PENDING.md
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/teams/f2/logos/summit_f2.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: docs/F2_LOGOS_PENDING.md
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[LEGADO] assets/teams/f2/logos/vortex_racing.png
+  tamanho_original_bytes: 0
+  sha256_original: -
+  carregado_por_build_atual: -
+  referencias_legadas_documentais: docs/F2_LOGOS_PENDING.md
+  observacao: Caminho encontrado apenas em banco legado ou documentação; não é carregado pela build atual.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/alpine.png
+  tamanho_original_bytes: 2034245
+  sha256_original: 73f56bfdfacdc72fe29e2ed7d52b1b1dc47fecbe1d52d42dc5814292f005d1d4
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/aston_martin.png
+  tamanho_original_bytes: 2097585
+  sha256_original: 9cd7e948a658f7de90ce2aef86808c3659a22fe4176d0ca2d665b2350b9a1270
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/audi.png
+  tamanho_original_bytes: 2385603
+  sha256_original: a0f17b98c2de1760f523585f51900237fc5d3dcbbb4d569fde2f92f665e12270
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/cadillac.png
+  tamanho_original_bytes: 2377837
+  sha256_original: 6a46ec825edc0bb6a8d3429e9e2162ae054eaac2b97857ef218265df331f7861
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/f2/aix_racing.png
+  tamanho_original_bytes: 492045
+  sha256_original: f7ae0972d256911839fb649b5e807d4c697ac34713ee7efe4a1299d8a3c03249
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/teams.json, docs/ASSET_PATHS_USED.md, docs/F2_LOGO_PATHS_FOR_GAME.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/f2/art_grand_prix.png
+  tamanho_original_bytes: 483234
+  sha256_original: 85f016f3ab1c2c67f67e38eb8029f8f9ea17726d2b2fea05c68191b3b7b099d4
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/teams.json, docs/ASSET_PATHS_USED.md, docs/F2_LOGO_PATHS_FOR_GAME.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/f2/campos_racing.png
+  tamanho_original_bytes: 729652
+  sha256_original: 4d028690c3bed1b528d00b827d8dcb047e9caef5ec48647b5b37c0f156d960d0
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/teams.json, docs/ASSET_PATHS_USED.md, docs/F2_LOGO_PATHS_FOR_GAME.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/f2/dams_lucas_oil.png
+  tamanho_original_bytes: 1225794
+  sha256_original: cb1a11efb680906fab0187d05905fe8837d1a1290b8fadba637bf5a5b71959d3
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/teams.json, docs/ASSET_PATHS_USED.md, docs/F2_LOGO_PATHS_FOR_GAME.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/f2/hitech_gp.png
+  tamanho_original_bytes: 1571277
+  sha256_original: 0802ebdd0ca899d28202df58b044631f586c23c884e2357c5ae47508b2fb7cb7
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/teams.json, docs/ASSET_PATHS_USED.md, docs/F2_LOGO_PATHS_FOR_GAME.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/f2/invicta_racing.png
+  tamanho_original_bytes: 1980515
+  sha256_original: cc4cafd6c472af4d11826dcdce0d554a30af34570bec45b6b4426c5446c93481
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/teams.json, docs/ASSET_PATHS_USED.md, docs/F2_LOGO_PATHS_FOR_GAME.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/f2/mp_motorsport.png
+  tamanho_original_bytes: 1703997
+  sha256_original: cac1843c316c763897db166eda28a408ea707abe935facdfb38252863e7dba09
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/teams.json, docs/ASSET_PATHS_USED.md, docs/F2_LOGO_PATHS_FOR_GAME.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/f2/prema_racing.png
+  tamanho_original_bytes: 1124287
+  sha256_original: a6ccdd3369e821cd8fffb38da3934e8f9122c34640fcef496f65ad5d2e2e1915
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/teams.json, docs/ASSET_PATHS_USED.md, docs/F2_LOGO_PATHS_FOR_GAME.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/f2/rodin_motorsport.png
+  tamanho_original_bytes: 1571526
+  sha256_original: 6054dc67671fcc3b7d1de3559330ae292f9b3c7c2cb301ad37fc146fffc5489d
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/teams.json, docs/ASSET_PATHS_USED.md, docs/F2_LOGO_PATHS_FOR_GAME.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/f2/trident.png
+  tamanho_original_bytes: 1045677
+  sha256_original: b6eed2295b08457fc841171b82c205fd3d6a7b3abef02ed7ba8168ddad844ea5
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/teams.json, docs/ASSET_PATHS_USED.md, docs/F2_LOGO_PATHS_FOR_GAME.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/f2/van_amersfoort_racing.png
+  tamanho_original_bytes: 531828
+  sha256_original: c489186011766a954e893567a77428a6f8281323e403f5869ab16d2d9d9ed5e0
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/teams.json, docs/ASSET_PATHS_USED.md, docs/F2_LOGO_PATHS_FOR_GAME.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/ferrari.png
+  tamanho_original_bytes: 1841355
+  sha256_original: 27494c20ec0846d045784da9995d9699e39d6e8b30bf5aac9f0b655d7f00e49b
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/haas.png
+  tamanho_original_bytes: 2162878
+  sha256_original: 75ab13eb1d77c2030d9926ae264d947818c0fa6bfd79a126415eb1b6a521ed61
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/mclaren.png
+  tamanho_original_bytes: 2065557
+  sha256_original: 1ab785e426cb8a09780ea9c3c226b2f10d2fb6e75eafb15bb15e0373abe2a053
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/mercedes.png
+  tamanho_original_bytes: 1917667
+  sha256_original: a3c2e93debbbaf448859304c5e76668deaf928d4f86907685b196099aca868f3
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/racing_bulls.png
+  tamanho_original_bytes: 2426658
+  sha256_original: ece58188594dbc779d6c6e65048bb8325809a971ff953ae73d2d50d723bb7b0e
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/red_bull.png
+  tamanho_original_bytes: 2001266
+  sha256_original: 0fd502a00c4d877a2a99c2054599812aa225dbaa41ec8b62d3b63066aa2598fc
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/teams/logos/williams.png
+  tamanho_original_bytes: 2194666
+  sha256_original: 8dd84efd4f49203341c3ff218a92469773f75d9db78e9a82820ed5ae47521b95
+  carregado_por_build_atual: data/game-data.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/ASSET_PATHS_USED.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/abu_dhabi.svg
+  tamanho_original_bytes: 6378
+  sha256_original: 6e0e1cc0c01bae59e8fb002ef236e53efac43387058a401f407233b56605c926
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/arabia_saudita.svg
+  tamanho_original_bytes: 24572
+  sha256_original: 356805eab49a43e639259d419cd7859b7060b3ca892dfff9106afa1dea55fad9
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/australia.svg
+  tamanho_original_bytes: 45239
+  sha256_original: 7b073994268726f608a6859fc051b72a8e1e9c2d270e4e152e91c5587dfa3fe5
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/austria.svg
+  tamanho_original_bytes: 18973
+  sha256_original: 682d19a8cbad221cbfd09f96ac0baacee578fd50ace489caefb634effec91259
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/azerbaijao.svg
+  tamanho_original_bytes: 893
+  sha256_original: 93cebe03098b08bee08ee9fc1cea1d7a9747ae85cf1ebcc8d116544f1c5af037
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/bahrein.svg
+  tamanho_original_bytes: 35608
+  sha256_original: aa5845e042ca33a5165a74980817f60f0455a155fc2fb87b1bc4692c6f2fb166
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, data/tracks.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/belgica.svg
+  tamanho_original_bytes: 82804
+  sha256_original: 504ecfe106777b8ab915e219ed7ed41bfa48f6c3bc0b84f0cdb5136fa19d394a
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/canada.svg
+  tamanho_original_bytes: 23384
+  sha256_original: 63030a8e3cd431bded2c6e0920c94875fb8ee6f5c63d9656cd99bf1d4b034480
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/catar.svg
+  tamanho_original_bytes: 45916
+  sha256_original: 9c928681d957f6dd007f95d036caad74d940a7bbff95e03654ce91ea2d45483f
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/china.svg
+  tamanho_original_bytes: 51017
+  sha256_original: 6e12b3eb7a99f51497d75b8d0d35a87353677806bbebad4f5c7ef4522a5c18c0
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/espanha.svg
+  tamanho_original_bytes: 60840
+  sha256_original: 8a0884bdfbccc70a37667ad6e1a08b0a4a1f5929391f791506fb063125d1cbbd
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/espanha_madrid.svg
+  tamanho_original_bytes: 1072
+  sha256_original: e6b7d3bac9584152f59ae833e7a9d3f8cd79e6780627f92fcc8b7496c0c83627
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/estados_unidos.svg
+  tamanho_original_bytes: 106041
+  sha256_original: a10c7657a2c8a49fa6f3289c73cd424abcf7c049b696818a4e0669c9bd3ed103
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/holanda.svg
+  tamanho_original_bytes: 50761
+  sha256_original: 2307c23062da9e28022466ce5fe09d8544135dcbd68d493e002999e6241bc082
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/hungria.svg
+  tamanho_original_bytes: 41129
+  sha256_original: 1e5d042701c931af2c76fe2eb311d0b7d4f8298c0feb7041e1304e37ca0f5247
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/imola.svg
+  tamanho_original_bytes: 52555
+  sha256_original: b840c78ee7cd5b687ec3ef205e8db68888081e23be562097e7e8288deb5552ea
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/inglaterra.svg
+  tamanho_original_bytes: 112911
+  sha256_original: a96c3297f12128d51552002d7e7b7f171e1185cbcda2c901c574f8f55e828025
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/italia_monza.svg
+  tamanho_original_bytes: 40335
+  sha256_original: 034291ac54453ca5317d40bddede78d41804eb370bfafd65f746e3faca0a8f7d
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/japao.svg
+  tamanho_original_bytes: 65754
+  sha256_original: 063ee5111f5a52f1d45f7c31d89fe5a850a75ae54e41a67eb23a7f099c43c8d6
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/las_vegas.svg
+  tamanho_original_bytes: 83721
+  sha256_original: 7a415f6903a678305eac81f0202dc9c1d3a0fc61ce6954a0733e61d67af2f5be
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/mexico.svg
+  tamanho_original_bytes: 42614
+  sha256_original: c34ccbf1d891d02368474d3ffe0e9bd7ebe4d4df2cf240fe1ec46d0ca4709dd6
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/miami.svg
+  tamanho_original_bytes: 16714
+  sha256_original: 1abfb85e381617b698e56d08e810596edd3f3ac10b73b81977488b9f8b422e14
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/monaco.svg
+  tamanho_original_bytes: 57387
+  sha256_original: f04cd78884a4e2c763e5bbe9ab59c2bb9f00bb8b63358743c8d0f079c3c0d9df
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/sao_paulo.svg
+  tamanho_original_bytes: 26758
+  sha256_original: 175472c356b31cd23a281bcf9c23324524f08ee136c84179d947dc2b518ac9c9
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.
+
+[OBRIGATÓRIO-ORIGINAL] assets/tracks/svg/singapura.svg
+  tamanho_original_bytes: 42558
+  sha256_original: 76af27d4f6dea5b5fc6ba2f890baaa3e8cb93c168b252f53d8c969f839e00cb2
+  carregado_por_build_atual: data/game-data.js, data/track-layouts.js
+  referencias_legadas_documentais: DATA_LOCK_REPORT.json, docs/TRACK_SVG_MAP.md
+  observacao: Existia no ZIP original; restaurar exatamente neste caminho, preservando maiúsculas/minúsculas.

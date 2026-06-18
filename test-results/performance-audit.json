@@ -1,0 +1,86 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "generatedAt": "2026-06-18T14:42:06.079Z",
+  "passed": 14,
+  "failed": 0,
+  "metrics": {
+    "jsBytes": 659729,
+    "cssBytes": 64698,
+    "htmlBytes": 13022,
+    "dirBytesNoAssets": 1081815,
+    "appShellFiles": 23
+  },
+  "results": [
+    {
+      "name": "budget:build-current",
+      "ok": true,
+      "detail": "F1M3D-0.17.0-F08/F1M3D-0.17.0-F08"
+    },
+    {
+      "name": "budget:javascript-bytes",
+      "ok": true,
+      "detail": "659729/700000"
+    },
+    {
+      "name": "budget:css-bytes",
+      "ok": true,
+      "detail": "64698/98000"
+    },
+    {
+      "name": "budget:html-bytes",
+      "ok": true,
+      "detail": "13022/30000"
+    },
+    {
+      "name": "budget:directory-without-assets",
+      "ok": true,
+      "detail": "1081815/2200000"
+    },
+    {
+      "name": "budget:app-shell-size",
+      "ok": true,
+      "detail": "23/26"
+    },
+    {
+      "name": "budget:no-asset-binaries",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "performance:module-present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "performance:module-cached",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "performance:html-load-order",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "performance:script-action",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "performance:diagnostics-integrated",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "performance:api-loaded",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "performance:static-probe-pass",
+      "ok": true,
+      "detail": "8/8"
+    }
+  ],
+  "result": "approved"
+}

@@ -1,0 +1,63 @@
+{
+  "build": "F1M3D-0.17.0-F08",
+  "schema": 1,
+  "viewports": {
+    "mobile_landscape": {
+      "width": 844,
+      "height": 390,
+      "requiredScreens": [
+        "home",
+        "lobby",
+        "race",
+        "results"
+      ],
+      "maxHorizontalOverflowPx": 40
+    },
+    "tablet": {
+      "width": 1180,
+      "height": 820,
+      "requiredScreens": [
+        "home",
+        "lobby",
+        "race",
+        "results"
+      ],
+      "maxHorizontalOverflowPx": 40
+    },
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "requiredScreens": [
+        "home",
+        "lobby",
+        "race",
+        "results"
+      ],
+      "maxHorizontalOverflowPx": 40
+    }
+  },
+  "requiredText": [
+    "F1 MANAGER",
+    "Central Antiquebra",
+    "Central de Assets",
+    "RESULTADO DA CORRIDA",
+    "Tela cheia",
+    "Sistema",
+    "Mobile",
+    "IDIOMA",
+    "Idioma e região",
+    "PT",
+    "EN",
+    "ES"
+  ],
+  "protectedSelectors": [
+    "#homeBuildPill",
+    "#globalBuildStamp",
+    "#raceBuildStamp",
+    "#tabContent",
+    "#raceCanvasWrap",
+    "#resultList",
+    "#viewportDebugPill",
+    "#mobileUxPanel"
+  ]
+}

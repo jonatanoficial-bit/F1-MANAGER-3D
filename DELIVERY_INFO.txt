@@ -1,0 +1,5 @@
+F1 Manager 3D — Fase 7 v0.16.0-F07
+Build: F1M3D-0.16.0-F07
+Data: 18/06/2026 11:18 BRT
+Auditoria: 385 aprovadas, 0 falhas
+Assets: sem binários pesados; caminhos preservados em assets/ASSET_PATHS_REQUIRED.txt
