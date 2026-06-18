@@ -1,5 +1,5 @@
 {
-  "build": "F1M3D-0.17.0-F08",
+  "build": "F1M3D-0.21.0-F12",
   "schema": 1,
   "viewports": {
     "mobile_landscape": {
@@ -48,7 +48,18 @@
     "Idioma e região",
     "PT",
     "EN",
-    "ES"
+    "ES",
+    "Banco esportivo 2026",
+    "F2",
+    "F1",
+    "Física do veículo",
+    "AUDITAR FÍSICA",
+    "Pneus",
+    "ERS",
+    "DRS",
+    "IA e estratégia F12",
+    "AUDITAR IA",
+    "Imagens e caminhos"
   ],
   "protectedSelectors": [
     "#homeBuildPill",
@@ -59,5 +70,10 @@
     "#resultList",
     "#viewportDebugPill",
     "#mobileUxPanel"
+  ],
+  "notes": [
+    "Fase 10 adiciona faixas visuais de regulamento no painel de fim de semana e Central Sistema.",
+    "Fase 11 adiciona card de física do veículo e telemetria de corrida para pneus, ERS, DRS, freios, motor e danos.",
+    "Fase 12 adiciona card IA e estratégia, auditoria de IA, correção de rolagem e exibição dos caminhos dos assets nos placeholders."
   ]
 }

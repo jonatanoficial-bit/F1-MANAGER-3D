@@ -1,13 +1,13 @@
 {
-  "build": "F1M3D-0.17.0-F08",
-  "generatedAt": "2026-06-18T14:42:06.369Z",
+  "build": "F1M3D-0.21.0-F12",
+  "generatedAt": "2026-06-18T22:03:18.048Z",
   "passed": 19,
   "failed": 0,
   "results": [
     {
       "name": "mobile:build-phase",
       "ok": true,
-      "detail": "8/8"
+      "detail": "12/12"
     },
     {
       "name": "mobile:module-present",
@@ -77,7 +77,7 @@
     {
       "name": "mobile:api-classifies-mobile",
       "ok": true,
-      "detail": "{\"width\":844,\"height\":390,\"visualWidth\":844,\"visualHeight\":390,\"orientation\":\"landscape\",\"device\":\"mobile\",\"compact\":true,\"veryCompact\":true,\"coarse\":true,\"standalone\":false,\"fullscreen\":false,\"dpr\":2,\"hudMode\":\"auto\",\"safe\":{\"top\":0,\"right\":0,\"bottom\":0,\"left\":0},\"updatedAt\":\"2026-06-18T14:42:06.369Z\"}"
+      "detail": "{\"width\":844,\"height\":390,\"visualWidth\":844,\"visualHeight\":390,\"orientation\":\"landscape\",\"device\":\"mobile\",\"compact\":true,\"veryCompact\":true,\"coarse\":true,\"standalone\":false,\"fullscreen\":false,\"dpr\":2,\"hudMode\":\"auto\",\"safe\":{\"top\":0,\"right\":0,\"bottom\":0,\"left\":0},\"updatedAt\":\"2026-06-18T22:03:18.048Z\"}"
     },
     {
       "name": "mobile:api-report-score",

@@ -1,0 +1,143 @@
+{
+  "build": "F1M3D-0.21.0-F12",
+  "generatedAt": "2026-06-18T22:03:18.485Z",
+  "passed": 17,
+  "failed": 0,
+  "results": [
+    {
+      "name": "build:phase-at-least-10",
+      "ok": true,
+      "detail": "12"
+    },
+    {
+      "name": "f1:calendar-22",
+      "ok": true,
+      "detail": "22"
+    },
+    {
+      "name": "f1:first-australia",
+      "ok": true,
+      "detail": "{\"round\":1,\"id\":\"australia\",\"svgLayout\":\"australia\",\"svgPath\":\"assets/tracks/svg/australia.svg\",\"name\":\"GP da Austrália\",\"officialName\":\"FORMULA 1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026\",\"venue\":\"Melbourne\",\"country\":\"AU\",\"dateStart\":\"2026-03-06\",\"dateEnd\":\"2026-03-08\",\"laps\":58,\"weather\":\"variable\",\"track\":\"park\",\"playable\":true,\"status\":\"completed\"}"
+    },
+    {
+      "name": "f1:next-austria-after-barcelona",
+      "ok": true,
+      "detail": "{\"round\":8,\"id\":\"austria\",\"svgLayout\":\"austria\",\"svgPath\":\"assets/tracks/svg/austria.svg\",\"name\":\"GP da Áustria\",\"officialName\":\"FORMULA 1 LENOVO AUSTRIAN GRAND PRIX 2026\",\"venue\":\"Spielberg\",\"country\":\"AT\",\"dateStart\":\"2026-06-26\",\"dateEnd\":\"2026-06-28\",\"laps\":71,\"weather\":\"dry\",\"track\":\"classic\",\"playable\":true,\"status\":\"next\"}"
+    },
+    {
+      "name": "f1:no-bahrain-saudi-in-current-calendar",
+      "ok": true,
+      "detail": "australia,china,japao,miami,canada"
+    },
+    {
+      "name": "f2:calendar-14",
+      "ok": true,
+      "detail": "14"
+    },
+    {
+      "name": "f2:first-melbourne",
+      "ok": true,
+      "detail": "{\"round\":1,\"id\":\"melbourne\",\"svgLayout\":\"australia\",\"svgPath\":\"assets/tracks/svg/australia.svg\",\"name\":\"F2 Melbourne\",\"officialName\":\"FIA Formula 2 Championship 2026 — Melbourne\",\"venue\":\"Melbourne\",\"country\":\"AU\",\"dateStart\":\"2026-03-06\",\"dateEnd\":\"2026-03-08\",\"laps\":32,\"weekendFormat\":\"SPRINT_AND_FEATURE\",\"sessions\":[\"practice\",\"qualifying\",\"sprint\",\"feature\"],\"weather\":\"dry\",\"track\":\"classic\",\"playable\":true,\"status\":\"completed\"}"
+    },
+    {
+      "name": "f2:final-yas-marina",
+      "ok": true,
+      "detail": "{\"round\":14,\"id\":\"yas_marina\",\"svgLayout\":\"abu_dhabi\",\"svgPath\":\"assets/tracks/svg/abu_dhabi.svg\",\"name\":\"F2 Yas Island\",\"officialName\":\"FIA Formula 2 Championship 2026 — Yas Island\",\"venue\":\"Yas Island\",\"country\":\"AE\",\"dateStart\":\"2026-12-04\",\"dateEnd\":\"2026-12-06\",\"laps\":32,\"weekendFormat\":\"SPRINT_AND_FEATURE\",\"sessions\":[\"practice\",\"qualifying\",\"sprint\",\"feature\"],\"weather\":\"dry\",\"track\":\"classic\",\"playable\":true,\"status\":\"scheduled\"}"
+    },
+    {
+      "name": "f2:drivers-22",
+      "ok": true,
+      "detail": "22"
+    },
+    {
+      "name": "f2:teams-11",
+      "ok": true,
+      "detail": "11"
+    },
+    {
+      "name": "f2:emerson-fittipaldi-aix",
+      "ok": true,
+      "detail": "AIX Racing"
+    },
+    {
+      "name": "f2:no-enzo-jr",
+      "ok": true,
+      "detail": "Rafael Câmara, Joshua Dürksen, Ritomo Miyata, Colton Herta, Noel León, Nikola Tsolov, Dino Beganovic, Roman Bilinski, Gabriele Minì, Oliver Goethe, Sebastián Montoya, Mari Boya, Martinius Stenshorne, Alexander Dunne, Kush Maini, Tasanapol Inthraphuvasak, Emerson Fittipaldi, Cian Shields, Nico Varrone, Rafael Villagómez, Laurens van Hoepen, John Bennett"
+    },
+    {
+      "name": "legacy:data-current-calendar-f2",
+      "ok": true,
+      "detail": "14"
+    },
+    {
+      "name": "legacy:data-f2-drivers-official",
+      "ok": true,
+      "detail": "F2 roster"
+    },
+    {
+      "name": "rules:f2-sprint-feature",
+      "ok": true,
+      "detail": "F2 rules"
+    },
+    {
+      "name": "legal:commercial-review",
+      "ok": true,
+      "detail": "requires-licensing-review"
+    },
+    {
+      "name": "audit:internal-pass",
+      "ok": true,
+      "detail": "8/0"
+    }
+  ],
+  "audit": {
+    "schema": 1,
+    "season": 2026,
+    "sourceTag": "official-snapshot-2026-06-18",
+    "score": 100,
+    "passed": 8,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "f1-calendar-22",
+        "ok": true,
+        "detail": "22"
+      },
+      {
+        "id": "f2-calendar-14",
+        "ok": true,
+        "detail": "14"
+      },
+      {
+        "id": "f2-drivers-22",
+        "ok": true,
+        "detail": "22"
+      },
+      {
+        "id": "f2-teams-11",
+        "ok": true,
+        "detail": "11"
+      },
+      {
+        "id": "f2-emerson-fittipaldi",
+        "ok": true,
+        "detail": "AIX Racing"
+      },
+      {
+        "id": "f2-no-enzo-jr",
+        "ok": true,
+        "detail": "grid oficial 2026"
+      },
+      {
+        "id": "category-rules",
+        "ok": true,
+        "detail": "F1/F2"
+      },
+      {
+        "id": "legal-mode",
+        "ok": true,
+        "detail": "requires-licensing-review"
+      }
+    ]
+  }
+}

@@ -132,6 +132,10 @@
       checks.push(check('performance-module', 'Módulo de performance', false, 'módulo indisponível', 'warning'));
     }
 
+    const vehicleReport = context.vehiclePhysics?.audit?.();
+    checks.push(check('vehicle-physics', 'Física e estado do veículo', Boolean(vehicleReport) && vehicleReport.score >= 92, vehicleReport ? `${vehicleReport.score}/100 • ${vehicleReport.passed} aprovado(s), ${vehicleReport.failed} pendente(s)` : 'módulo indisponível'));
+    checks.push(check('vehicle-telemetry', 'Telemetria de pneus, ERS, DRS, freios e motor', Boolean(vehicleReport) && vehicleReport.checks?.some(item=>item.id==='drs'&&item.ok) && vehicleReport.checks?.some(item=>item.id==='engine-temperature'&&item.ok), vehicleReport ? `${vehicleReport.systems?.length || 0} sistema(s) físicos` : 'módulo indisponível'));
+
     const runtimeErrors = runtimeGuard?.list?.() || [];
     checks.push(check('runtime-errors', 'Erros de execução registrados', runtimeErrors.length === 0, runtimeErrors.length ? `${runtimeErrors.length} ocorrência(s)` : 'nenhum erro', 'warning'));
 
@@ -156,7 +160,8 @@
         assets:assetInfo ? assetInfo.counts : null,
         i18n:i18nInfo || null,
         viewportManager:viewportReport ? { score:viewportReport.score, state:viewportReport.state } : null,
-        performance:performanceReport ? { score:performanceReport.score, metrics:performanceReport.metrics, frameProbe:performanceReport.frameProbe } : null
+        performance:performanceReport ? { score:performanceReport.score, metrics:performanceReport.metrics, frameProbe:performanceReport.frameProbe } : null,
+        vehiclePhysics:vehicleReport ? { score:vehicleReport.score, passed:vehicleReport.passed, failed:vehicleReport.failed, systems:vehicleReport.systems } : null
       }
     };
   }

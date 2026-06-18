@@ -1,7 +1,7 @@
 {
   "name": "f1-manager-career-2026",
   "private": true,
-  "version": "0.17.0",
+  "version": "0.21.0",
   "type": "module",
   "scripts": {
     "build:sync": "node tools/generate-build.mjs",
@@ -10,7 +10,7 @@
     "test:build": "node tests/build-consistency.mjs",
     "test:modules": "node tests/module-audit.mjs",
     "test:project": "node tests/project-audit.mjs",
-    "audit": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate",
+    "audit": "npm run build:sync && npm run assets:catalog && npm run test:static && npm run test:build && npm run test:modules && npm run test:contracts && npm run test:assets && npm run test:persistence && npm run test:performance && npm run test:mobile && npm run test:i18n && npm run test:sporting && npm run test:regulations && npm run test:vehicle && npm run test:strategy && npm run test:browser && npm run test:visual && npm run test:ci && npm run test:project && npm run audit:summary && npm run manifest:generate",
     "test:browser": "node tests/browser-audit.mjs",
     "test:contracts": "node tests/contracts-audit.mjs",
     "audit:summary": "node tools/generate-audit-summary.mjs",
@@ -21,6 +21,10 @@
     "test:visual": "node tests/visual-regression-audit.mjs",
     "test:ci": "node tests/ci-readiness-audit.mjs",
     "test:mobile": "node tests/mobile-ux-audit.mjs",
-    "test:i18n": "node tests/i18n-audit.mjs"
+    "test:i18n": "node tests/i18n-audit.mjs",
+    "test:sporting": "node tests/sporting-data-audit.mjs",
+    "test:regulations": "node tests/regulation-audit.mjs",
+    "test:vehicle": "node tests/vehicle-physics-audit.mjs",
+    "test:strategy": "node tests/strategy-ai-audit.mjs"
   }
 }

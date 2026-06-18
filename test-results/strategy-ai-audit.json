@@ -1,0 +1,197 @@
+{
+  "build": "F1M3D-0.21.0-F12",
+  "generatedAt": "2026-06-18T22:03:19.158Z",
+  "passed": 23,
+  "failed": 0,
+  "results": [
+    {
+      "name": "strategy:factory",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:audit-score",
+      "ok": true,
+      "detail": "100"
+    },
+    {
+      "name": "strategy:initial-plan",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:undercut-overcut",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:traffic",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:attack-defense",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:human-error",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:pit-crew",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:double-stacking",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:unsafe-release",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:safety-car",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:vsc",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:red-flag",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:restart",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:overtake-resolution",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "strategy:plan-has-pit-window",
+      "ok": true,
+      "detail": "{\"plan\":\"balanced\",\"startCompound\":\"soft\",\"stopBias\":\"balanced\",\"pitWindow\":[6,10],\"undercutLap\":5,\"overcutLap\":11,\"aggressiveness\":0.53,\"defenseBias\":0.8555555555555555,\"tyreCareBias\":0.7}"
+    },
+    {
+      "name": "strategy:traffic-pressure",
+      "ok": true,
+      "detail": "{\"gapAhead\":0.8199999999999825,\"gapBehind\":99,\"carAhead\":{\"driver\":{\"short\":\"BBB\",\"aggression\":62,\"consistency\":78,\"racecraft\":66},\"team\":{\"id\":\"t2\",\"name\":\"Equipe B\",\"car\":{\"pitStop\":54,\"reliability\":58,\"tyreWear\":58}},\"pos\":1,\"distance\":2.11,\"progress\":2.11,\"lap\":8,\"compound\":\"medium\",\"tyre\":43,\"fuel\":71,\"condition\":90,\"pits\":0,\"car\":{\"pitStop\":54,\"reliability\":58,\"tyreWear\":58},\"strategy\":{\"plan\":\"conservative\",\"startCompound\":\"medium\",\"stopBias\":\"late\",\"pitWindow\":[9,15],\"undercutLap\":8,\"overcutLap\":16,\"aggressiveness\":0.19666666666666666,\"defenseBias\":0.7777777777777778,\"tyreCareBias\":0.58},\"pace\":\"normal\"},\"carBehind\":null,\"traffic\":true,\"underAttack\":false,\"drsRange\":true,\"cleanAir\":false}"
+    },
+    {
+      "name": "strategy:decision-pace",
+      "ok": true,
+      "detail": "attack"
+    },
+    {
+      "name": "strategy:decision-intent",
+      "ok": true,
+      "detail": "tráfego"
+    },
+    {
+      "name": "strategy:pit-service",
+      "ok": true,
+      "detail": "{\"label\":\"PIT ESTRATÉGICO -4.4s\",\"loss\":0.043615384615384625,\"compound\":\"medium\"}"
+    },
+    {
+      "name": "strategy:safety-car-deploys",
+      "ok": true,
+      "detail": "20.14898011444739"
+    },
+    {
+      "name": "strategy:red-flag-deploys",
+      "ok": true,
+      "detail": "9.702388060159716"
+    },
+    {
+      "name": "strategy:overtake-safe",
+      "ok": true,
+      "detail": "2.118807990836883/2.11"
+    }
+  ],
+  "audit": {
+    "score": 100,
+    "passed": 13,
+    "failed": 0,
+    "systems": [
+      "initial-plan",
+      "undercut-overcut",
+      "traffic",
+      "attack-defense",
+      "human-error",
+      "pit-crew",
+      "double-stacking",
+      "unsafe-release",
+      "safety-car",
+      "vsc",
+      "red-flag",
+      "restart",
+      "overtake-resolution"
+    ],
+    "checks": [
+      {
+        "id": "initial-plan",
+        "ok": true
+      },
+      {
+        "id": "undercut-overcut",
+        "ok": true
+      },
+      {
+        "id": "traffic",
+        "ok": true
+      },
+      {
+        "id": "attack-defense",
+        "ok": true
+      },
+      {
+        "id": "human-error",
+        "ok": true
+      },
+      {
+        "id": "pit-crew",
+        "ok": true
+      },
+      {
+        "id": "double-stacking",
+        "ok": true
+      },
+      {
+        "id": "unsafe-release",
+        "ok": true
+      },
+      {
+        "id": "safety-car",
+        "ok": true
+      },
+      {
+        "id": "vsc",
+        "ok": true
+      },
+      {
+        "id": "red-flag",
+        "ok": true
+      },
+      {
+        "id": "restart",
+        "ok": true
+      },
+      {
+        "id": "overtake-resolution",
+        "ok": true
+      }
+    ]
+  }
+}

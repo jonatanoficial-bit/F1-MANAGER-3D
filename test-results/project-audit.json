@@ -1,7 +1,7 @@
 {
-  "build": "F1M3D-0.17.0-F08",
-  "generatedAt": "2026-06-18T14:42:19.707Z",
-  "passed": 122,
+  "build": "F1M3D-0.21.0-F12",
+  "generatedAt": "2026-06-18T22:05:39.886Z",
+  "passed": 156,
   "failed": 0,
   "results": [
     {
@@ -46,6 +46,21 @@
     },
     {
       "name": "json:PHASE_07_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_10_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_11_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_12_REPORT.json",
       "ok": true,
       "detail": ""
     },
@@ -190,7 +205,27 @@
       "detail": ""
     },
     {
+      "name": "json:test-results/regulation-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/sporting-data-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "json:test-results/static-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/strategy-ai-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/vehicle-physics-audit.json",
       "ok": true,
       "detail": ""
     },
@@ -290,12 +325,57 @@
       "detail": ""
     },
     {
+      "name": "syntax:data/sporting-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/sporting-database.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/regulation-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/regulation-engine.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/vehicle-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/vehicle-physics.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/strategy-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/race-strategy-ai.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "app-shell:index.html",
       "ok": true,
       "detail": ""
     },
     {
       "name": "app-shell:style.css",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/build-info.js",
       "ok": true,
       "detail": ""
     },
@@ -365,17 +445,42 @@
       "detail": ""
     },
     {
-      "name": "app-shell:data/build-info.js",
-      "ok": true,
-      "detail": ""
-    },
-    {
       "name": "app-shell:data/i18n.js",
       "ok": true,
       "detail": ""
     },
     {
       "name": "app-shell:src/core/i18n-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/sporting-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/sporting-database.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/regulation-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/regulation-engine.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/vehicle-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/vehicle-physics.js",
       "ok": true,
       "detail": ""
     },
@@ -400,6 +505,16 @@
       "detail": ""
     },
     {
+      "name": "app-shell:data/strategy-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/race-strategy-ai.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "assets:no-binaries-in-phase-zip",
       "ok": true,
       "detail": ""
@@ -407,12 +522,12 @@
     {
       "name": "assets:manifest-build",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "assets:manifest-version",
       "ok": true,
-      "detail": "8"
+      "detail": "12"
     },
     {
       "name": "assets:original-catalogue",
@@ -487,7 +602,7 @@
     {
       "name": "build:save-schema",
       "ok": true,
-      "detail": "8"
+      "detail": "12"
     },
     {
       "name": "system:tab-visible",
@@ -537,7 +652,7 @@
     {
       "name": "browser:current-build",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "performance:audit-pass",
@@ -547,7 +662,7 @@
     {
       "name": "performance:current-build",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "mobile:audit-pass",
@@ -557,7 +672,7 @@
     {
       "name": "mobile:current-build",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "i18n:audit-pass",
@@ -567,17 +682,17 @@
     {
       "name": "i18n:current-build",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "visual:audit-pass",
       "ok": true,
-      "detail": "41 passed, 0 failed"
+      "detail": "52 passed, 0 failed"
     },
     {
       "name": "visual:current-build",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "ci:audit-pass",
@@ -587,7 +702,7 @@
     {
       "name": "ci:current-build",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "ci:workflow-present",
@@ -603,6 +718,61 @@
       "name": "viewport:core-present",
       "ok": true,
       "detail": "viewport-manager.js"
+    },
+    {
+      "name": "sporting:data-present",
+      "ok": true,
+      "detail": "sporting database"
+    },
+    {
+      "name": "sporting:audit-present",
+      "ok": true,
+      "detail": "sporting audit"
+    },
+    {
+      "name": "regulations:data-present",
+      "ok": true,
+      "detail": "regulation engine"
+    },
+    {
+      "name": "regulations:audit-present",
+      "ok": true,
+      "detail": "regulation audit"
+    },
+    {
+      "name": "vehicle:data-present",
+      "ok": true,
+      "detail": "vehicle physics"
+    },
+    {
+      "name": "vehicle:audit-present",
+      "ok": true,
+      "detail": "vehicle audit"
+    },
+    {
+      "name": "vehicle:ui-present",
+      "ok": true,
+      "detail": "system card + telemetry"
+    },
+    {
+      "name": "strategy:data-present",
+      "ok": true,
+      "detail": "strategy ai"
+    },
+    {
+      "name": "strategy:audit-present",
+      "ok": true,
+      "detail": "strategy audit"
+    },
+    {
+      "name": "strategy:ui-present",
+      "ok": true,
+      "detail": "system card + action"
+    },
+    {
+      "name": "scroll:creator-fix-present",
+      "ok": true,
+      "detail": "scroll + paths visible"
     },
     {
       "name": "i18n:ui-present",

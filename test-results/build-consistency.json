@@ -1,76 +1,76 @@
 {
-  "build": "F1M3D-0.17.0-F08",
-  "generatedAt": "2026-06-18T14:42:04.474Z",
+  "build": "F1M3D-0.21.0-F12",
+  "generatedAt": "2026-06-18T22:03:16.653Z",
   "results": [
     {
       "name": "version:source",
       "ok": true,
-      "detail": "0.17.0"
+      "detail": "0.21.0"
     },
     {
       "name": "version:root",
       "ok": true,
-      "detail": "0.17.0"
+      "detail": "0.21.0"
     },
     {
       "name": "version:data",
       "ok": true,
-      "detail": "0.17.0"
+      "detail": "0.21.0"
     },
     {
       "name": "version:runtime",
       "ok": true,
-      "detail": "0.17.0"
+      "detail": "0.21.0"
     },
     {
       "name": "version:package",
       "ok": true,
-      "detail": "0.17.0"
+      "detail": "0.21.0"
     },
     {
       "name": "version:manifest",
       "ok": true,
-      "detail": "0.17.0"
+      "detail": "0.21.0"
     },
     {
       "name": "version:assets",
       "ok": true,
-      "detail": "0.17.0"
+      "detail": "0.21.0"
     },
     {
       "name": "version:package-lock",
       "ok": true,
-      "detail": "0.17.0/0.17.0"
+      "detail": "0.21.0/0.21.0"
     },
     {
       "name": "code:source",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "code:root",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "code:data",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "code:runtime",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "code:assets",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "code:shell",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "html:build-code",
@@ -85,17 +85,17 @@
     {
       "name": "schema:save",
       "ok": true,
-      "detail": "8"
+      "detail": "12"
     },
     {
       "name": "schema:asset-manifest",
       "ok": true,
-      "detail": "8"
+      "detail": "12"
     },
     {
       "name": "schema:app-shell",
       "ok": true,
-      "detail": "8"
+      "detail": "11"
     },
     {
       "name": "shell:./index.html",
@@ -106,6 +106,11 @@
       "name": "shell:./style.css",
       "ok": true,
       "detail": "./style.css"
+    },
+    {
+      "name": "shell:./data/build-info.js",
+      "ok": true,
+      "detail": "./data/build-info.js"
     },
     {
       "name": "shell:./src/core/build-system.js",
@@ -173,11 +178,6 @@
       "detail": "./src/core/diagnostics.js"
     },
     {
-      "name": "shell:./data/build-info.js",
-      "ok": true,
-      "detail": "./data/build-info.js"
-    },
-    {
       "name": "shell:./data/i18n.js",
       "ok": true,
       "detail": "./data/i18n.js"
@@ -186,6 +186,36 @@
       "name": "shell:./src/core/i18n-system.js",
       "ok": true,
       "detail": "./src/core/i18n-system.js"
+    },
+    {
+      "name": "shell:./data/sporting-data.js",
+      "ok": true,
+      "detail": "./data/sporting-data.js"
+    },
+    {
+      "name": "shell:./src/core/sporting-database.js",
+      "ok": true,
+      "detail": "./src/core/sporting-database.js"
+    },
+    {
+      "name": "shell:./data/regulation-data.js",
+      "ok": true,
+      "detail": "./data/regulation-data.js"
+    },
+    {
+      "name": "shell:./src/core/regulation-engine.js",
+      "ok": true,
+      "detail": "./src/core/regulation-engine.js"
+    },
+    {
+      "name": "shell:./data/vehicle-data.js",
+      "ok": true,
+      "detail": "./data/vehicle-data.js"
+    },
+    {
+      "name": "shell:./src/core/vehicle-physics.js",
+      "ok": true,
+      "detail": "./src/core/vehicle-physics.js"
     },
     {
       "name": "shell:./data/game-data.js",
@@ -206,6 +236,16 @@
       "name": "shell:./manifest.webmanifest",
       "ok": true,
       "detail": "./manifest.webmanifest"
+    },
+    {
+      "name": "shell:./data/strategy-data.js",
+      "ok": true,
+      "detail": "./data/strategy-data.js"
+    },
+    {
+      "name": "shell:./src/core/race-strategy-ai.js",
+      "ok": true,
+      "detail": "./src/core/race-strategy-ai.js"
     }
   ]
 }

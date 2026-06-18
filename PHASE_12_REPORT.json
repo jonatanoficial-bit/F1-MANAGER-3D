@@ -1,0 +1,152 @@
+{
+  "build": "F1M3D-0.21.0-F12",
+  "version": "0.21.0",
+  "phase": 12,
+  "summary": {
+    "build": "F1M3D-0.21.0-F12",
+    "version": "0.21.0",
+    "phase": 12,
+    "generated_at": "2026-06-18T22:04:49.166Z",
+    "static": {
+      "passed": 47,
+      "failed": 0
+    },
+    "build_consistency": {
+      "passed": 49,
+      "failed": 0
+    },
+    "modules": {
+      "passed": 41,
+      "failed": 0
+    },
+    "contracts": {
+      "passed": 15,
+      "failed": 0
+    },
+    "assets": {
+      "passed": 24,
+      "failed": 0
+    },
+    "persistence": {
+      "passed": 14,
+      "failed": 0
+    },
+    "browser_cases": {
+      "passed": 3,
+      "failed": 0
+    },
+    "performance": {
+      "passed": 14,
+      "failed": 0
+    },
+    "mobile": {
+      "passed": 19,
+      "failed": 0
+    },
+    "visual": {
+      "passed": 52,
+      "failed": 0
+    },
+    "ci": {
+      "passed": 42,
+      "failed": 0
+    },
+    "vehicle": {
+      "passed": 21,
+      "failed": 0
+    },
+    "strategy": {
+      "passed": 23,
+      "failed": 0
+    },
+    "project": {
+      "passed": 155,
+      "failed": 0
+    },
+    "total": {
+      "passed": 519,
+      "failed": 0
+    },
+    "result": "approved"
+  },
+  "assetsPolicy": "sem binários pesados; caminhos preservados em assets",
+  "fixes": [
+    "scroll-career-create",
+    "visible-asset-paths",
+    "placeholder-caminho-preservado"
+  ],
+  "strategyAI": {
+    "score": 100,
+    "passed": 13,
+    "failed": 0,
+    "systems": [
+      "initial-plan",
+      "undercut-overcut",
+      "traffic",
+      "attack-defense",
+      "human-error",
+      "pit-crew",
+      "double-stacking",
+      "unsafe-release",
+      "safety-car",
+      "vsc",
+      "red-flag",
+      "restart",
+      "overtake-resolution"
+    ],
+    "checks": [
+      {
+        "id": "initial-plan",
+        "ok": true
+      },
+      {
+        "id": "undercut-overcut",
+        "ok": true
+      },
+      {
+        "id": "traffic",
+        "ok": true
+      },
+      {
+        "id": "attack-defense",
+        "ok": true
+      },
+      {
+        "id": "human-error",
+        "ok": true
+      },
+      {
+        "id": "pit-crew",
+        "ok": true
+      },
+      {
+        "id": "double-stacking",
+        "ok": true
+      },
+      {
+        "id": "unsafe-release",
+        "ok": true
+      },
+      {
+        "id": "safety-car",
+        "ok": true
+      },
+      {
+        "id": "vsc",
+        "ok": true
+      },
+      {
+        "id": "red-flag",
+        "ok": true
+      },
+      {
+        "id": "restart",
+        "ok": true
+      },
+      {
+        "id": "overtake-resolution",
+        "ok": true
+      }
+    ]
+  }
+}

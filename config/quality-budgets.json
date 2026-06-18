@@ -1,12 +1,12 @@
 {
-  "build": "F1M3D-0.17.0-F08",
+  "build": "F1M3D-0.21.0-F12",
   "profile": "mobile-first",
   "budgets": {
     "directory_bytes_without_assets": 2200000,
-    "javascript_bytes": 700000,
+    "javascript_bytes": 820000,
     "css_bytes": 98000,
     "html_bytes": 30000,
-    "app_shell_files_max": 26,
+    "app_shell_files_max": 34,
     "asset_binary_files_in_phase_zip": 0,
     "dom_nodes": 2200,
     "buttons": 260,
@@ -28,6 +28,10 @@
     "A sonda de FPS em ambiente headless é indicativa; homologação física Android/iOS continua obrigatória.",
     "Qualquer fase futura que ultrapassar o orçamento deve registrar justificativa em KNOWN_ISSUES.md e AUDIT_REPORT.md.",
     "Fase 7 adiciona safe area, modo imersivo, HUD compacto e trilho touch sem assets binários.",
-    "Fase 8 adiciona internacionalização PT-BR/EN/ES, seletor de idioma e auditoria i18n mantendo orçamento mobile."
+    "Fase 8 adiciona internacionalização PT-BR/EN/ES, seletor de idioma e auditoria i18n mantendo orçamento mobile.",
+    "Fase 9 adiciona banco esportivo F1/F2 2026, calendário separado, grid F2 oficial e auditoria sporting.",
+    "Fase 10 adiciona motor de regulamento, sessões oficiais, Q1/Q2/Q3, Sprint, F2 Sprint/Feature, punições e classificação oficial.",
+    "Fase 11 adiciona física veicular modular, telemetria de pneus/ERS/DRS/freios/motor/danos e auditoria específica mantendo ZIP sem assets binários.",
+    "Fase 12 adiciona IA estratégica, ultrapassagem, pit crew, neutralizações e correção de rolagem/caminhos de assets mantendo ZIP sem assets binários."
   ]
 }

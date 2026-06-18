@@ -1,7 +1,7 @@
 {
   "mode": "chromium-cdp-inline-memory-no-three",
-  "build": "F1M3D-0.17.0-F08",
-  "generatedAt": "2026-06-18T14:42:18.759Z",
+  "build": "F1M3D-0.21.0-F12",
+  "generatedAt": "2026-06-18T22:03:31.507Z",
   "cases": [
     {
       "name": "mobile_landscape",
@@ -12,9 +12,9 @@
       "steps": [
         {
           "home": true,
-          "build": "Build v0.17.0-F08 • 18/06/2026 • 11:47 BRT",
+          "build": "Build v0.21.0-F12 • 18/06/2026 • 19:05 BRT",
           "core": true,
-          "buildCode": "F1M3D-0.17.0-F08",
+          "buildCode": "F1M3D-0.21.0-F12",
           "activeScreen": "home"
         },
         {
@@ -29,8 +29,8 @@
         },
         {
           "career_started": true,
-          "round": "T1 2026 • Corrida 1/25 • ✉ 2",
-          "saveSchema": 8,
+          "round": "T1 2026 • Corrida 1/14 • ✉ 2",
+          "saveSchema": 12,
           "saveFormat": "F1M_SAVE_ENVELOPE_V2"
         },
         {
@@ -41,8 +41,8 @@
         },
         {
           "system": true,
-          "score": 95,
-          "rows": 32,
+          "score": 87,
+          "rows": 34,
           "errors": 0
         },
         {
@@ -58,8 +58,8 @@
         },
         {
           "race": true,
-          "lap_before": "VOLTA 1/18",
-          "lap_after": "VOLTA 2/18",
+          "lap_before": "VOLTA 1/32",
+          "lap_after": "VOLTA 2/32",
           "progressed": true,
           "results": 22
         }
@@ -86,9 +86,9 @@
       "steps": [
         {
           "home": true,
-          "build": "Build v0.17.0-F08 • 18/06/2026 • 11:47 BRT",
+          "build": "Build v0.21.0-F12 • 18/06/2026 • 19:05 BRT",
           "core": true,
-          "buildCode": "F1M3D-0.17.0-F08",
+          "buildCode": "F1M3D-0.21.0-F12",
           "activeScreen": "home"
         },
         {
@@ -103,8 +103,8 @@
         },
         {
           "career_started": true,
-          "round": "T1 2026 • Corrida 1/25 • ✉ 2",
-          "saveSchema": 8,
+          "round": "T1 2026 • Corrida 1/14 • ✉ 2",
+          "saveSchema": 12,
           "saveFormat": "F1M_SAVE_ENVELOPE_V2"
         },
         {
@@ -115,8 +115,8 @@
         },
         {
           "system": true,
-          "score": 94,
-          "rows": 32,
+          "score": 87,
+          "rows": 34,
           "errors": 0
         },
         {
@@ -132,8 +132,8 @@
         },
         {
           "race": true,
-          "lap_before": "VOLTA 1/18",
-          "lap_after": "VOLTA 2/18",
+          "lap_before": "VOLTA 1/32",
+          "lap_after": "VOLTA 2/32",
           "progressed": true,
           "results": 22
         }
@@ -160,9 +160,9 @@
       "steps": [
         {
           "home": true,
-          "build": "Build v0.17.0-F08 • 18/06/2026 • 11:47 BRT",
+          "build": "Build v0.21.0-F12 • 18/06/2026 • 19:05 BRT",
           "core": true,
-          "buildCode": "F1M3D-0.17.0-F08",
+          "buildCode": "F1M3D-0.21.0-F12",
           "activeScreen": "home"
         },
         {
@@ -177,8 +177,8 @@
         },
         {
           "career_started": true,
-          "round": "T1 2026 • Corrida 1/25 • ✉ 2",
-          "saveSchema": 8,
+          "round": "T1 2026 • Corrida 1/14 • ✉ 2",
+          "saveSchema": 12,
           "saveFormat": "F1M_SAVE_ENVELOPE_V2"
         },
         {
@@ -189,8 +189,8 @@
         },
         {
           "system": true,
-          "score": 94,
-          "rows": 32,
+          "score": 87,
+          "rows": 34,
           "errors": 0
         },
         {
@@ -206,8 +206,8 @@
         },
         {
           "race": true,
-          "lap_before": "VOLTA 1/18",
-          "lap_after": "VOLTA 2/18",
+          "lap_before": "VOLTA 1/32",
+          "lap_after": "VOLTA 2/32",
           "progressed": true,
           "results": 22
         }

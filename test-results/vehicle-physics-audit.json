@@ -1,0 +1,200 @@
+{
+  "build": "F1M3D-0.21.0-F12",
+  "generatedAt": "2026-06-18T22:03:18.938Z",
+  "passed": 21,
+  "failed": 0,
+  "results": [
+    {
+      "name": "vehicle:factory",
+      "ok": true,
+      "detail": "createVehiclePhysics"
+    },
+    {
+      "name": "vehicle:audit-score",
+      "ok": true,
+      "detail": "100"
+    },
+    {
+      "name": "vehicle:systems-count",
+      "ok": true,
+      "detail": "10"
+    },
+    {
+      "name": "vehicle:tyre-temperature",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "vehicle:fuel-mass",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "vehicle:ers",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "vehicle:drs",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "vehicle:brakes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "vehicle:engine-temperature",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "vehicle:damage",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "vehicle:reliability",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "vehicle:dirty-air",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "vehicle:track-evolution",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "vehicle:snapshot",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "vehicle:fuel-decreases",
+      "ok": true,
+      "detail": "100 -> 95"
+    },
+    {
+      "name": "vehicle:tyres-decrease",
+      "ok": true,
+      "detail": "100 -> 94"
+    },
+    {
+      "name": "vehicle:ers-bounds",
+      "ok": true,
+      "detail": "54"
+    },
+    {
+      "name": "vehicle:track-rubbers-in",
+      "ok": true,
+      "detail": "0.965 -> 0.9701072"
+    },
+    {
+      "name": "vehicle:drs-telemetry",
+      "ok": true,
+      "detail": "true"
+    },
+    {
+      "name": "vehicle:temperatures",
+      "ok": true,
+      "detail": "111/1078/112"
+    },
+    {
+      "name": "vehicle:pit-resets-tyres",
+      "ok": true,
+      "detail": "100 medium"
+    }
+  ],
+  "audit": {
+    "schema": 1,
+    "season": 2026,
+    "sourceTag": "vehicle-physics-development-model-2026-06-18",
+    "systems": [
+      "tyreTemperature",
+      "fuelMass",
+      "ers",
+      "drs",
+      "brakes",
+      "engineTemperature",
+      "damage",
+      "reliability",
+      "dirtyAir",
+      "trackEvolution"
+    ],
+    "score": 100,
+    "passed": 13,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "compounds",
+        "ok": true,
+        "detail": "5"
+      },
+      {
+        "id": "pace-modes",
+        "ok": true,
+        "detail": "3"
+      },
+      {
+        "id": "tyre-temperature",
+        "ok": true,
+        "detail": "95"
+      },
+      {
+        "id": "fuel-mass",
+        "ok": true,
+        "detail": "99.49"
+      },
+      {
+        "id": "ers",
+        "ok": true,
+        "detail": "72.0"
+      },
+      {
+        "id": "drs",
+        "ok": true,
+        "detail": "enabled in sector 3 close gap"
+      },
+      {
+        "id": "brakes",
+        "ok": true,
+        "detail": "609"
+      },
+      {
+        "id": "engine-temperature",
+        "ok": true,
+        "detail": "97"
+      },
+      {
+        "id": "damage",
+        "ok": true,
+        "detail": "0.12"
+      },
+      {
+        "id": "reliability",
+        "ok": true,
+        "detail": "99.9"
+      },
+      {
+        "id": "dirty-air",
+        "ok": true,
+        "detail": "0.985"
+      },
+      {
+        "id": "track-evolution",
+        "ok": true,
+        "detail": "grip 0.966"
+      },
+      {
+        "id": "snapshot",
+        "ok": true,
+        "detail": "telemetry snapshot"
+      }
+    ]
+  }
+}

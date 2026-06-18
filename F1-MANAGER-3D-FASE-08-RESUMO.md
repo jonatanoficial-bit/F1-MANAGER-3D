@@ -2,7 +2,7 @@
 
 **Versão:** v0.17.0-F08  
 **Build:** F1M3D-0.17.0-F08  
-**Data:** 18/06/2026 às 11:43 BRT  
+**Data:** 18/06/2026 às 11:47 BRT  
 **Save schema:** 8  
 **Base preservada:** v0.16.0-F07
 

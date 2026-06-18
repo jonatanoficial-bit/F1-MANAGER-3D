@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T14:42:04.835Z",
+  "generatedAt": "2026-06-18T22:03:16.884Z",
   "results": [
     {
       "name": "syntax:src/core/build-system.js",
@@ -72,9 +72,49 @@
       "detail": ""
     },
     {
+      "name": "syntax:data/sporting-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/sporting-database.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/regulation-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/regulation-engine.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/vehicle-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/vehicle-physics.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/strategy-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/race-strategy-ai.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "modules:load-order",
       "ok": true,
-      "detail": "11704,11749,11800,11852,11900,11953,12001,12054,12114,12169,12222,12328,12386,12436,12475,12613,12657,12705"
+      "detail": "11704,11749,11800,11852,11900,11953,12001,12054,12114,12169,12222,12328,12386,12436,12475,12525,12573,12629,12679,12735,12782,12836,12884,13027,13071,13119"
     },
     {
       "name": "architecture:data-registry",
@@ -108,6 +148,26 @@
     },
     {
       "name": "architecture:i18n",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:sporting",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:regulations",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:vehicle-physics",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:strategy-ai",
       "ok": true,
       "detail": ""
     },

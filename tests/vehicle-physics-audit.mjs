@@ -1,0 +1,38 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const results=[]; const add=(name,ok,detail='')=>{results.push({name,ok:Boolean(ok),detail}); if(!ok) process.exitCode=1;};
+const context={ console, Math, Date, setTimeout, clearTimeout };
+context.globalThis=context; context.window=context;
+for(const rel of ['data/vehicle-data.js','src/core/vehicle-physics.js']) vm.runInNewContext(fs.readFileSync(path.join(root,rel),'utf8'),context,{filename:rel});
+const factory=context.F1M_CORE?.vehiclePhysics?.createVehiclePhysics;
+add('vehicle:factory', typeof factory === 'function', 'createVehiclePhysics');
+const physics=factory({data:context.F1M_VEHICLE_DATA});
+const audit=physics.audit();
+add('vehicle:audit-score', audit.score >= 92, String(audit.score));
+add('vehicle:systems-count', (audit.systems || []).length >= 10, String((audit.systems||[]).length));
+for(const id of ['tyre-temperature','fuel-mass','ers','drs','brakes','engine-temperature','damage','reliability','dirty-air','track-evolution','snapshot']) add(`vehicle:${id}`, audit.checks.some(item=>item.id===id && item.ok));
+const track=physics.trackState({weather:'dry',laps:22});
+const entry={compound:'soft',pace:'attack',car:{reliability:58,engine:70,tyreWear:55,fuel:52},tyre:100,fuel:100,condition:100,lap:4,sector:3,distance:2.4};
+entry.vehicle=physics.initialState({compound:'soft',fuel:100,condition:100,car:entry.car});
+const before={fuel:entry.vehicle.fuelMass, tyre:entry.vehicle.tyreLife, ers:entry.vehicle.ers, grip:track.grip};
+for(let i=0;i<12;i++){
+  physics.updateTrack(track,{dt:0.8,speed:4,cars:22,weather:'dry'});
+  physics.updateVehicle(entry,{dt:0.8,speed:4,trackState:track,traffic:{gapAhead:.04,dirtyAir:.985,slipstream:1.009,pressure:1,defending:false},safetyCarActive:false});
+}
+const snap=physics.snapshot(entry);
+add('vehicle:fuel-decreases', snap.fuelMass < before.fuel, `${before.fuel} -> ${snap.fuelMass}`);
+add('vehicle:tyres-decrease', snap.tyreLife < before.tyre, `${before.tyre} -> ${snap.tyreLife}`);
+add('vehicle:ers-bounds', snap.ers >= 0 && snap.ers <= 100, String(snap.ers));
+add('vehicle:track-rubbers-in', track.grip > before.grip, `${before.grip} -> ${track.grip}`);
+add('vehicle:drs-telemetry', Object.prototype.hasOwnProperty.call(snap,'drs'), String(snap.drs));
+add('vehicle:temperatures', snap.tyreTemperature > 40 && snap.brakeTemperature > 250 && snap.engineTemperature > 70, `${snap.tyreTemperature}/${snap.brakeTemperature}/${snap.engineTemperature}`);
+physics.pitService(entry,{compound:'medium'});
+const afterPit=physics.snapshot(entry);
+add('vehicle:pit-resets-tyres', afterPit.tyreLife === 100 && entry.compound === 'medium', `${afterPit.tyreLife} ${entry.compound}`);
+const report={build:JSON.parse(fs.readFileSync(path.join(root,'BUILD_INFO.json'),'utf8')).build_code,generatedAt:new Date().toISOString(),passed:results.filter(r=>r.ok).length,failed:results.filter(r=>!r.ok).length,results,audit};
+fs.writeFileSync(path.join(root,'test-results/vehicle-physics-audit.json'),JSON.stringify(report,null,2)+'\n');
+console.log(results.map(r=>`${r.ok?'PASS':'FAIL'} ${r.name}${r.detail?' — '+r.detail:''}`).join('\n'));
+console.log(`TOTAL: ${report.passed} passed, ${report.failed} failed`);

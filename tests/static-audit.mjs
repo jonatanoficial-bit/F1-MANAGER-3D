@@ -29,11 +29,14 @@ ok('quality budgets present', script.includes('QUALITY_BUDGETS') && fs.existsSyn
 ok('save vault UI present', script.includes('function saveVaultHTML()') && script.includes('RECUPERAR MELHOR BACKUP'));
 const persistenceSource = fs.readFileSync(path.join(root,'src/systems/persistence-system.js'),'utf8');
 ok('portable save export present', script.includes('createPortableExport') && persistenceSource.includes('F1M_PORTABLE_SAVE_V1'));
-ok('active save key v0170', script.includes('f1_manager_career_2026_v0170'));
+ok('active save key v0180', script.includes('f1_manager_career_2026_v0180'));
+ok('sporting database present', fs.existsSync(path.join(root,'data/sporting-data.js')) && fs.existsSync(path.join(root,'src/core/sporting-database.js')) && script.includes('sportingDb'));
+ok('regulation engine present', fs.existsSync(path.join(root,'data/regulation-data.js')) && fs.existsSync(path.join(root,'src/core/regulation-engine.js')) && script.includes('regulationEngine'));
+ok('active calendar adapter present', script.includes('function activeCalendar') && script.includes('sportingMiniHTML'));
 ok('viewport manager present', fs.existsSync(path.join(root,'src/core/viewport-manager.js')) && script.includes('viewportController') && script.includes('cycleHudMode'));
 ok('mobile UX panel present', fs.readFileSync(path.join(root,'index.html'),'utf8').includes('mobileUxPanel'));
 ok('safe area CSS present', fs.readFileSync(path.join(root,'style.css'),'utf8').includes('safe-area-inset') && fs.readFileSync(path.join(root,'style.css'),'utf8').includes('hud-compact')); 
-const syntaxFiles = ['script.js','service-worker.js','data/game-data.js','data/build-info.js','data/track-layouts.js','src/core/build-system.js','src/core/runtime-guard.js','src/core/event-bus.js','src/core/data-contracts.js','data/asset-catalog.js','src/core/asset-registry.js','src/systems/persistence-system.js','src/systems/career-system.js','src/systems/race-engine.js','src/ui/screen-manager.js','src/core/viewport-manager.js','src/core/performance-monitor.js','src/core/diagnostics.js','data/i18n.js','src/core/i18n-system.js'];
+const syntaxFiles = ['script.js','service-worker.js','data/game-data.js','data/build-info.js','data/track-layouts.js','src/core/build-system.js','src/core/runtime-guard.js','src/core/event-bus.js','src/core/data-contracts.js','data/asset-catalog.js','src/core/asset-registry.js','src/systems/persistence-system.js','src/systems/career-system.js','src/systems/race-engine.js','src/ui/screen-manager.js','src/core/viewport-manager.js','src/core/performance-monitor.js','src/core/diagnostics.js','data/i18n.js','src/core/i18n-system.js','data/sporting-data.js','src/core/sporting-database.js','data/regulation-data.js','src/core/regulation-engine.js'];
 for(const rel of syntaxFiles){
   try { new vm.Script(fs.readFileSync(path.join(root,rel),'utf8'),{filename:rel}); ok(`syntax:${rel}`,true); }
   catch(error){ ok(`syntax:${rel}`,false,error.message); }

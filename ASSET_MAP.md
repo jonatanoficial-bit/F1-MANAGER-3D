@@ -203,3 +203,8 @@ Build sem assets binários. Mantenha os arquivos nos caminhos abaixo.
 - Manifest: `manifest.webmanifest`
 - Service Worker: `service-worker.js`
 - Sem assets binários no ZIP; usar assets já existentes no GitHub.
+
+
+## Fase 12 — observação para Vercel/GitHub
+
+O ZIP de fase mantém apenas manifestos de assets. Quando os binários reais não estiverem no deploy, o jogo exibirá placeholder com caminho preservado. Restaure os arquivos físicos nos caminhos listados em `assets/ASSET_PATHS_REQUIRED.txt`.

@@ -1,7 +1,7 @@
 {
-  "build_code": "F1M3D-0.17.0-F08",
-  "version": "0.17.0",
-  "source_hash": "9DAC7370CBD1",
+  "build_code": "F1M3D-0.21.0-F12",
+  "version": "0.21.0",
+  "source_hash": "EE59613F59A2",
   "synchronized": [
     "BUILD_INFO.json",
     "data/build.json",
@@ -13,5 +13,5 @@
     "data/app-shell.json",
     "service-worker.js"
   ],
-  "generated_at": "2026-06-18T14:44:00.889Z"
+  "generated_at": "2026-06-18T22:04:24.367Z"
 }

@@ -1,6 +1,6 @@
 F1 MANAGER 3D — ASSETS EXTERNOS
 
-Build: F1M3D-0.17.0-F08
+Build: F1M3D-0.21.0-F12
 
 Este pacote foi entregue sem os 416 arquivos binários de assets (176.61 MiB no ZIP original).
 

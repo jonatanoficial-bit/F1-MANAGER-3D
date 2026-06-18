@@ -1,0 +1,15 @@
+{
+  "phase": 11,
+  "build": "F1M3D-0.20.0-F11",
+  "version": "0.20.0",
+  "generated_at": "2026-06-18T21:52:36.310Z",
+  "audit": {
+    "passed": 478,
+    "failed": 0
+  },
+  "vehicle": {
+    "passed": 21,
+    "failed": 0
+  },
+  "assets_policy": "sem binarios pesados; caminhos preservados"
+}

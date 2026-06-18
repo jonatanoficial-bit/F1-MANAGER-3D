@@ -1,14 +1,14 @@
 {
-  "build": "F1M3D-0.17.0-F08",
-  "generatedAt": "2026-06-18T14:42:19.131Z",
-  "snapshotHash": "d86e5a042e90c92c3dc14e5112604bbb597b13acf8280a0d2e499bb94804d8da",
-  "passed": 41,
+  "build": "F1M3D-0.21.0-F12",
+  "generatedAt": "2026-06-18T22:03:31.895Z",
+  "snapshotHash": "f8c5100b899b372e5e59d3dc8a476f1b7b77c7d1d906382cad08b9961feafe1b",
+  "passed": 52,
   "failed": 0,
   "results": [
     {
       "name": "visual:baseline-current",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08/F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12/F1M3D-0.21.0-F12"
     },
     {
       "name": "visual:protected-selector:#homeBuildPill",
@@ -111,6 +111,61 @@
       "detail": "texto base"
     },
     {
+      "name": "visual:text:Banco esportivo 2026",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:F2",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:F1",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Física do veículo",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:AUDITAR FÍSICA",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Pneus",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:ERS",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:DRS",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:IA e estratégia F12",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:AUDITAR IA",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Imagens e caminhos",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
       "name": "visual:responsive-css",
       "ok": true,
       "detail": "media queries presentes"
@@ -133,7 +188,7 @@
     {
       "name": "visual:browser-build",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12"
     },
     {
       "name": "visual:viewport-executed:mobile_landscape",

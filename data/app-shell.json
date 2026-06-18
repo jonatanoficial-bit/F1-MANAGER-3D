@@ -1,10 +1,11 @@
 {
-  "schema": 8,
-  "build_code": "F1M3D-0.17.0-F08",
+  "schema": 11,
+  "build_code": "F1M3D-0.21.0-F12",
   "files": [
     "./",
     "./index.html",
     "./style.css",
+    "./data/build-info.js",
     "./src/core/build-system.js",
     "./src/core/runtime-guard.js",
     "./src/core/event-bus.js",
@@ -18,12 +19,19 @@
     "./src/core/viewport-manager.js",
     "./src/core/performance-monitor.js",
     "./src/core/diagnostics.js",
-    "./data/build-info.js",
     "./data/i18n.js",
     "./src/core/i18n-system.js",
+    "./data/sporting-data.js",
+    "./src/core/sporting-database.js",
+    "./data/regulation-data.js",
+    "./src/core/regulation-engine.js",
+    "./data/vehicle-data.js",
+    "./src/core/vehicle-physics.js",
     "./data/game-data.js",
     "./data/track-layouts.js",
     "./script.js",
-    "./manifest.webmanifest"
+    "./manifest.webmanifest",
+    "./data/strategy-data.js",
+    "./src/core/race-strategy-ai.js"
   ]
 }

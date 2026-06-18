@@ -60,7 +60,7 @@ add('i18n:home-switcher', index.includes('data-i18n-switcher') && index.includes
 add('i18n:script-integration', script.includes('CORE.i18n?.createManager') && script.includes('setLanguage(lang)') && script.includes('i18nMiniHTML'), 'manager + UI');
 add('i18n:system-panel', script.includes('Idioma e região') && script.includes('Interface preparada para português, inglês e espanhol'), 'system card');
 add('i18n:app-shell', appShell.includes('./data/i18n.js') && appShell.includes('./src/core/i18n-system.js') && sw.includes('./data/i18n.js') && sw.includes('./src/core/i18n-system.js'), 'shell + SW');
-add('i18n:build-phase', Number(build.phase) === 8 && Number(build.save_schema) === 8, `${build.phase}/${build.save_schema}`);
+add('i18n:build-phase', Number(build.phase) >= 8 && Number(build.save_schema) >= 8, `${build.phase}/${build.save_schema}`);
 const summary = { build:build.build_code, generatedAt:new Date().toISOString(), passed:results.filter(r=>r.ok).length, failed:results.filter(r=>!r.ok).length, results, result:results.every(r=>r.ok) ? 'approved' : 'failed' };
 fs.mkdirSync(path.join(root,'test-results'), { recursive:true });
 fs.writeFileSync(path.join(root,'test-results/i18n-audit.json'), JSON.stringify(summary, null, 2)+'\n');

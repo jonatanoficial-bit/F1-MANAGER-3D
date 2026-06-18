@@ -1,45 +1,45 @@
 {
-  "build": "F1M3D-0.17.0-F08",
-  "generatedAt": "2026-06-18T14:42:06.079Z",
+  "build": "F1M3D-0.21.0-F12",
+  "generatedAt": "2026-06-18T22:03:17.840Z",
   "passed": 14,
   "failed": 0,
   "metrics": {
-    "jsBytes": 659729,
-    "cssBytes": 64698,
-    "htmlBytes": 13022,
-    "dirBytesNoAssets": 1081815,
-    "appShellFiles": 23
+    "jsBytes": 753867,
+    "cssBytes": 68300,
+    "htmlBytes": 13436,
+    "dirBytesNoAssets": 1260981,
+    "appShellFiles": 31
   },
   "results": [
     {
       "name": "budget:build-current",
       "ok": true,
-      "detail": "F1M3D-0.17.0-F08/F1M3D-0.17.0-F08"
+      "detail": "F1M3D-0.21.0-F12/F1M3D-0.21.0-F12"
     },
     {
       "name": "budget:javascript-bytes",
       "ok": true,
-      "detail": "659729/700000"
+      "detail": "753867/820000"
     },
     {
       "name": "budget:css-bytes",
       "ok": true,
-      "detail": "64698/98000"
+      "detail": "68300/98000"
     },
     {
       "name": "budget:html-bytes",
       "ok": true,
-      "detail": "13022/30000"
+      "detail": "13436/30000"
     },
     {
       "name": "budget:directory-without-assets",
       "ok": true,
-      "detail": "1081815/2200000"
+      "detail": "1260981/2200000"
     },
     {
       "name": "budget:app-shell-size",
       "ok": true,
-      "detail": "23/26"
+      "detail": "31/34"
     },
     {
       "name": "budget:no-asset-binaries",

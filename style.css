@@ -500,3 +500,49 @@ body.hud-expanded .race-left{width:330px}body.hud-expanded .race-right{width:270
 .i18n-meter b{font-size:1.15rem}
 .i18n-switcher-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
 @media (max-width: 920px){.language-panel{left:calc(16px + env(safe-area-inset-left));right:auto;top:calc(58px + env(safe-area-inset-top));padding:7px 9px}.language-panel span{display:none}.language-panel .lang-btn{min-width:36px;min-height:30px;font-size:.72rem}}
+
+/* Fase 10 — sessões e regulamento */
+.regulation-strip{
+  margin:10px 0 12px;
+  padding:10px 12px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;
+  background:rgba(0,0,0,.22);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+}
+.regulation-strip b{display:block;margin-bottom:6px;color:#fff;letter-spacing:.02em;}
+.regulation-strip div{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;}
+.regulation-strip span{
+  display:inline-flex;align-items:center;min-height:28px;padding:5px 8px;
+  border-radius:999px;background:rgba(255,255,255,.09);font-size:.78rem;font-weight:700;
+}
+.regulation-strip small{display:block;color:rgba(255,255,255,.68);line-height:1.35;}
+@media (max-width: 900px){.regulation-strip div{gap:4px}.regulation-strip span{font-size:.72rem;padding:4px 7px;}}
+
+
+/* Fase 12 — correção de rolagem PC/mobile e caminhos visíveis de assets */
+html,body{overflow:hidden!important;position:fixed!important;inset:0!important;}
+.app{overflow:hidden!important;}
+.screen.active{min-height:0;}
+#screen-career-create.active,#screen-team-select.active,#screen-qualifying.active,#screen-results.active,#screen-single-race.active,#screen-assets-check.active{display:grid!important;grid-template-rows:auto minmax(0,1fr)!important;}
+.creator-grid,.split-layout,.results-grid,#screen-team-select .team-select-grid{height:auto!important;min-height:0!important;max-height:none!important;overflow:auto!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-gutter:stable both-edges;}
+.creator-grid{grid-template-columns:minmax(260px,.72fr) minmax(320px,1fr);align-items:stretch;}
+.creator-grid>.glass-panel,.split-layout>.glass-panel,.results-grid>.glass-panel{min-height:0;max-height:100%;overflow:auto!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-gutter:stable;}
+.avatar-picker{max-height:100%;overflow:auto!important;}
+.form-card{max-height:100%;overflow:auto!important;}
+.avatar-option{position:relative;min-height:0;}
+.avatar-option .asset-path-hint{position:absolute;left:7px;right:7px;bottom:7px;z-index:3;padding:3px 5px;border-radius:7px;background:rgba(0,0,0,.56);color:#dbe7ff;font-family:ui-monospace,Consolas,monospace;font-size:7px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none;}
+.asset-placeholder-active + .fallback-badge{display:none!important;}
+@media(max-width:900px),(max-height:560px){
+  #screen-career-create.active,#screen-team-select.active,#screen-qualifying.active,#screen-results.active,#screen-single-race.active,#screen-assets-check.active{grid-template-rows:auto minmax(0,1fr)!important;}
+  .creator-grid,.split-layout,.results-grid{grid-template-columns:1fr!important;gap:10px!important;overflow:auto!important;padding-bottom:calc(24px + var(--safe-bottom))!important;}
+  .creator-grid>.glass-panel,.split-layout>.glass-panel,.results-grid>.glass-panel{overflow:visible!important;max-height:none!important;}
+  .avatar-list{grid-template-columns:repeat(3,minmax(88px,1fr));}
+  .avatar-option .asset-path-hint{font-size:6px;}
+}
+@media(max-height:430px) and (orientation:landscape){
+  .creator-grid{grid-template-columns:minmax(220px,.7fr) minmax(300px,1fr)!important;overflow:auto!important;}
+  .avatar-list{grid-template-columns:repeat(3,minmax(70px,1fr));gap:8px;}
+  .avatar-option .asset-path-hint{display:none;}
+}
+.strategy-ai-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;background:rgba(182,255,53,.12);border:1px solid rgba(182,255,53,.25);color:#dfff9c;font-size:10px;font-weight:900;}

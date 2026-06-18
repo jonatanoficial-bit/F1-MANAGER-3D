@@ -5,6 +5,7 @@ const APP_SHELL = [
   "./",
   "./index.html",
   "./style.css",
+  "./data/build-info.js",
   "./src/core/build-system.js",
   "./src/core/runtime-guard.js",
   "./src/core/event-bus.js",
@@ -18,13 +19,20 @@ const APP_SHELL = [
   "./src/core/viewport-manager.js",
   "./src/core/performance-monitor.js",
   "./src/core/diagnostics.js",
-  "./data/build-info.js",
   "./data/i18n.js",
   "./src/core/i18n-system.js",
+  "./data/sporting-data.js",
+  "./src/core/sporting-database.js",
+  "./data/regulation-data.js",
+  "./src/core/regulation-engine.js",
+  "./data/vehicle-data.js",
+  "./src/core/vehicle-physics.js",
   "./data/game-data.js",
   "./data/track-layouts.js",
   "./script.js",
-  "./manifest.webmanifest"
+  "./manifest.webmanifest",
+  "./data/strategy-data.js",
+  "./src/core/race-strategy-ai.js"
 ];
 
 self.addEventListener('install', event => {

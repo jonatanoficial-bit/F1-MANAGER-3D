@@ -1,6 +1,6 @@
 {
-  "build": "F1M3D-0.17.0-F08",
-  "generatedAt": "2026-06-18T14:42:05.124Z",
+  "build": "F1M3D-0.21.0-F12",
+  "generatedAt": "2026-06-18T22:03:17.141Z",
   "passed": 15,
   "failed": 0,
   "results": [
@@ -32,12 +32,12 @@
     {
       "name": "contracts:counts",
       "ok": true,
-      "detail": "{\"valid\":true,\"score\":100,\"f1Teams\":11,\"f2Teams\":11,\"f1Drivers\":22,\"f2Drivers\":22,\"calendar\":25,\"assets\":28}"
+      "detail": "{\"valid\":true,\"score\":100,\"f1Teams\":11,\"f2Teams\":11,\"f1Drivers\":22,\"f2Drivers\":22,\"calendar\":14,\"assets\":28}"
     },
     {
       "name": "events:on-off",
       "ok": true,
-      "detail": "{\"listenerGroups\":0,\"listeners\":0,\"history\":[{\"event\":\"audit\",\"at\":\"2026-06-18T14:42:05.111Z\"},{\"event\":\"audit\",\"at\":\"2026-06-18T14:42:05.110Z\"}]}"
+      "detail": "{\"listenerGroups\":0,\"listeners\":0,\"history\":[{\"event\":\"audit\",\"at\":\"2026-06-18T22:03:17.121Z\"},{\"event\":\"audit\",\"at\":\"2026-06-18T22:03:17.121Z\"}]}"
     },
     {
       "name": "persistence:legacy-read",
@@ -47,7 +47,7 @@
     {
       "name": "career:migration-current",
       "ok": true,
-      "detail": "3,4,5,6,7,8"
+      "detail": "3,4,5,6,7,8,9,10,11,12"
     },
     {
       "name": "career:state-contract",
@@ -57,7 +57,7 @@
     {
       "name": "persistence:envelope",
       "ok": true,
-      "detail": "F1M_SAVE_ENVELOPE_V2/1711"
+      "detail": "F1M_SAVE_ENVELOPE_V2/3940"
     },
     {
       "name": "persistence:checksum",

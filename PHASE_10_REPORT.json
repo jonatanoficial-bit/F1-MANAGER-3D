@@ -1,0 +1,22 @@
+{
+  "phase": 10,
+  "version": "0.19.0",
+  "build_code": "F1M3D-0.19.0-F10",
+  "date_brt": "18/06/2026 16:54",
+  "base": "v0.18.0-F09",
+  "save_schema": 10,
+  "summary": "Sessões e regulamento: Q1/Q2/Q3, Sprint, F2 Sprint/Feature, punições, bandeiras, parque fechado e classificação oficial auditável.",
+  "audits": {
+    "passed": 438,
+    "failed": 0
+  },
+  "result": "approved",
+  "sources": [
+    "2026.06.18-regulation-weekend-sessions",
+    "Formula1.com /en/racing/2026",
+    "FIA Formula 2 Calendar",
+    "FIA Formula 1 Sporting Regulations category",
+    "2026 FIA Formula 2 Sporting Regulations v1"
+  ],
+  "asset_policy": "ZIP completo sem binários pesados; assets contém apenas manifestos e caminhos exatos."
+}
