@@ -1,0 +1,20 @@
+{
+  "phase": 15,
+  "build": "F1M3D-0.24.0-F15",
+  "version": "0.24.0",
+  "save_schema": 15,
+  "result": "approved",
+  "passed": 652,
+  "failed": 0,
+  "features": [
+    "procedural audio",
+    "radio and pit wall",
+    "dynamic mix",
+    "premium design system",
+    "contextual tutorial",
+    "accessibility",
+    "reduced motion",
+    "no binary audio assets"
+  ],
+  "assets_policy": "sem binários; caminhos preservados em assets/ASSET_PATHS_REQUIRED.txt"
+}

@@ -1,0 +1,396 @@
+{
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:15:53.204Z",
+  "passed": 25,
+  "failed": 0,
+  "results": [
+    {
+      "name": "balance:data-global",
+      "ok": true,
+      "detail": "balance-data.js"
+    },
+    {
+      "name": "balance:factory",
+      "ok": true,
+      "detail": "createBalanceSimulator"
+    },
+    {
+      "name": "balance:audit-score",
+      "ok": true,
+      "detail": "100"
+    },
+    {
+      "name": "balance:monte-carlo-engine",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:deterministic-seed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:dnf-distribution",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:overtake-distribution",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:pit-stop-distribution",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:gap-distribution",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:team-tier-shares",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:backmarker-points",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:progression-model",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:difficulty-no-cheat",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:recommendations",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:confidence-bands",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "balance:monte-carlo-runs",
+      "ok": true,
+      "detail": "64"
+    },
+    {
+      "name": "balance:deterministic-report",
+      "ok": true,
+      "detail": "{\"dnfRate\":0.0599,\"pitStopsPerDriver\":1.224,\"overtakesPerRace\":5.0469,\"winningGapSeconds\":16.3791,\"fieldSpreadSeconds\":70.5091,\"topTeamWinShare\":0.6875,\"midfieldPointsShare\":0.3187,\"backmarkerPointsShare\":0.2494}"
+    },
+    {
+      "name": "balance:metrics-present",
+      "ok": true,
+      "detail": "{\"dnfRate\":0.0599,\"pitStopsPerDriver\":1.224,\"overtakesPerRace\":5.0469,\"winningGapSeconds\":16.3791,\"fieldSpreadSeconds\":70.5091,\"topTeamWinShare\":0.6875,\"midfieldPointsShare\":0.3187,\"backmarkerPointsShare\":0.2494}"
+    },
+    {
+      "name": "balance:score-cards",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "balance:distributions",
+      "ok": true,
+      "detail": "{\"min\":0,\"p05\":0,\"p25\":1,\"median\":4,\"p75\":8,\"p95\":12,\"max\":16}"
+    },
+    {
+      "name": "balance:recommendations-array",
+      "ok": true,
+      "detail": "Aumentar efeito de DRS/slipstream e erro sob pressão. | Reduzir aleatoriedade de pontos de equipes fracas."
+    },
+    {
+      "name": "balance:progression-teams",
+      "ok": true,
+      "detail": "[{\"id\":\"top\",\"name\":\"Top Racing\",\"tier\":\"top\",\"history\":[{\"season\":1,\"performance\":82.14,\"delta\":-1.02},{\"season\":2,\"performance\":83.97,\"delta\":1.82},{\"season\":3,\"performance\":87.77,\"delta\":3.8}]},{\"id\":\"mid\",\"name\":\"Mid Motorsport\",\"tier\":\"mid\",\"history\":[{\"season\":1,\"performance\":61.28,\"delta\":-2.89},{\"season\":2,\"performance\":63.84,\"delta\":2.56},{\"season\":3,\"performance\":70.84,\"delta\":7}]},{\"id\":\"back\",\"name\":\"Backmarker GP\",\"tier\":\"back\",\"history\":[{\"season\":1,\"performance\":51.32,\"delta\":0.32},{\"season\":2,\"performance\":46.37,\"delta\":-4.95},{\"season\":3,\"performance\":41.42,\"delta\":-4.95}]}]"
+    },
+    {
+      "name": "balance:difficulty-no-hidden-grip",
+      "ok": true,
+      "detail": "[{\"id\":\"easy\",\"noHiddenGrip\":true,\"economyChanges\":true,\"rivalGrowthDeclared\":true,\"playerBonusWithinLimit\":true,\"description\":\"alivia economia e pressão sem dar velocidade invisível\"},{\"id\":\"normal\",\"noHiddenGrip\":true,\"economyChanges\":true,\"rivalGrowthDeclared\":true,\"playerBonusWithinLimit\":true,\"description\":\"referência neutra sem assistências ocultas\"},{\"id\":\"hard\",\"noHiddenGrip\":true,\"economyChanges\":true,\"rivalGrowthDeclared\":true,\"playerBonusWithinLimit\":true,\"description\":\"pressiona orçamento e rivais, não altera física contra o jogador\"},{\"id\":\"sandbox\",\"noHiddenGrip\":true,\"economyChanges\":true,\"rivalGrowthDeclared\":true,\"playerBonusWithinLimit\":true,\"description\":\"liberdade de testes, ainda sem rubber band agressivo\"}]"
+    },
+    {
+      "name": "balance:index-scripts",
+      "ok": true,
+      "detail": "index scripts"
+    },
+    {
+      "name": "balance:system-ui",
+      "ok": true,
+      "detail": "script UI"
+    }
+  ],
+  "audit": {
+    "score": 100,
+    "passed": 12,
+    "failed": 0,
+    "systems": [
+      "monte-carlo-engine",
+      "deterministic-seed",
+      "dnf-distribution",
+      "overtake-distribution",
+      "pit-stop-distribution",
+      "gap-distribution",
+      "team-tier-shares",
+      "backmarker-points",
+      "progression-model",
+      "difficulty-no-cheat",
+      "recommendations",
+      "confidence-bands"
+    ],
+    "checks": [
+      {
+        "id": "monte-carlo-engine",
+        "ok": true
+      },
+      {
+        "id": "deterministic-seed",
+        "ok": true
+      },
+      {
+        "id": "dnf-distribution",
+        "ok": true
+      },
+      {
+        "id": "overtake-distribution",
+        "ok": true
+      },
+      {
+        "id": "pit-stop-distribution",
+        "ok": true
+      },
+      {
+        "id": "gap-distribution",
+        "ok": true
+      },
+      {
+        "id": "team-tier-shares",
+        "ok": true
+      },
+      {
+        "id": "backmarker-points",
+        "ok": true
+      },
+      {
+        "id": "progression-model",
+        "ok": true
+      },
+      {
+        "id": "difficulty-no-cheat",
+        "ok": true
+      },
+      {
+        "id": "recommendations",
+        "ok": true
+      },
+      {
+        "id": "confidence-bands",
+        "ok": true
+      }
+    ]
+  },
+  "monteCarlo": {
+    "schema": 1,
+    "generatedAt": "2026-06-19T19:15:53.195Z",
+    "runs": 64,
+    "seed": 777,
+    "difficulty": "normal",
+    "driverCount": 6,
+    "score": 91,
+    "metrics": {
+      "dnfRate": 0.0599,
+      "pitStopsPerDriver": 1.224,
+      "overtakesPerRace": 5.0469,
+      "winningGapSeconds": 16.3791,
+      "fieldSpreadSeconds": 70.5091,
+      "topTeamWinShare": 0.6875,
+      "midfieldPointsShare": 0.3187,
+      "backmarkerPointsShare": 0.2494
+    },
+    "scoreCards": [
+      {
+        "id": "dnfRate",
+        "value": 0.0599,
+        "target": {
+          "min": 0.025,
+          "ideal": 0.075,
+          "max": 0.16
+        },
+        "score": 98,
+        "status": "green"
+      },
+      {
+        "id": "pitStopsPerDriver",
+        "value": 1.224,
+        "target": {
+          "min": 0.72,
+          "ideal": 1.18,
+          "max": 2.05
+        },
+        "score": 99,
+        "status": "green"
+      },
+      {
+        "id": "overtakesPerRace",
+        "value": 5.0469,
+        "target": {
+          "min": 18,
+          "ideal": 43,
+          "max": 78
+        },
+        "score": 77,
+        "status": "yellow"
+      },
+      {
+        "id": "winningGapSeconds",
+        "value": 16.3791,
+        "target": {
+          "min": 2.5,
+          "ideal": 13.5,
+          "max": 41
+        },
+        "score": 99,
+        "status": "green"
+      },
+      {
+        "id": "fieldSpreadSeconds",
+        "value": 70.5091,
+        "target": {
+          "min": 38,
+          "ideal": 84,
+          "max": 180
+        },
+        "score": 98,
+        "status": "green"
+      },
+      {
+        "id": "topTeamWinShare",
+        "value": 0.6875,
+        "target": {
+          "min": 0.38,
+          "ideal": 0.58,
+          "max": 0.78
+        },
+        "score": 95,
+        "status": "green"
+      },
+      {
+        "id": "midfieldPointsShare",
+        "value": 0.3187,
+        "target": {
+          "min": 0.2,
+          "ideal": 0.34,
+          "max": 0.48
+        },
+        "score": 99,
+        "status": "green"
+      },
+      {
+        "id": "backmarkerPointsShare",
+        "value": 0.2494,
+        "target": {
+          "min": 0.01,
+          "ideal": 0.06,
+          "max": 0.16
+        },
+        "score": 60,
+        "status": "red"
+      }
+    ],
+    "distributions": {
+      "dnfCount": {
+        "min": 0,
+        "p05": 0,
+        "p25": 0,
+        "median": 0,
+        "p75": 0.25,
+        "p95": 2,
+        "max": 3
+      },
+      "overtakes": {
+        "min": 0,
+        "p05": 0,
+        "p25": 1,
+        "median": 4,
+        "p75": 8,
+        "p95": 12,
+        "max": 16
+      },
+      "pitStops": {
+        "min": 4,
+        "p05": 5.15,
+        "p25": 7,
+        "median": 7,
+        "p75": 8,
+        "p95": 9,
+        "max": 10
+      },
+      "winningGapSeconds": {
+        "min": 0.53,
+        "p05": 2.09,
+        "p25": 5.24,
+        "median": 12.57,
+        "p75": 23.53,
+        "p95": 37.27,
+        "max": 67.14
+      },
+      "fieldSpreadSeconds": {
+        "min": 27,
+        "p05": 36.45,
+        "p25": 54.47,
+        "median": 67.32,
+        "p75": 85.85,
+        "p95": 110.24,
+        "max": 126.93
+      }
+    },
+    "recommendations": [
+      "Aumentar efeito de DRS/slipstream e erro sob pressão.",
+      "Reduzir aleatoriedade de pontos de equipes fracas."
+    ],
+    "antiCheat": [
+      {
+        "id": "easy",
+        "noHiddenGrip": true,
+        "economyChanges": true,
+        "rivalGrowthDeclared": true,
+        "playerBonusWithinLimit": true,
+        "description": "alivia economia e pressão sem dar velocidade invisível"
+      },
+      {
+        "id": "normal",
+        "noHiddenGrip": true,
+        "economyChanges": true,
+        "rivalGrowthDeclared": true,
+        "playerBonusWithinLimit": true,
+        "description": "referência neutra sem assistências ocultas"
+      },
+      {
+        "id": "hard",
+        "noHiddenGrip": true,
+        "economyChanges": true,
+        "rivalGrowthDeclared": true,
+        "playerBonusWithinLimit": true,
+        "description": "pressiona orçamento e rivais, não altera física contra o jogador"
+      },
+      {
+        "id": "sandbox",
+        "noHiddenGrip": true,
+        "economyChanges": true,
+        "rivalGrowthDeclared": true,
+        "playerBonusWithinLimit": true,
+        "description": "liberdade de testes, ainda sem rubber band agressivo"
+      }
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "build": "F1M3D-0.21.0-F12",
+  "build": "F1M3D-0.29.0-F20",
   "schema": 1,
   "viewports": {
     "mobile_landscape": {
@@ -59,7 +59,46 @@
     "DRS",
     "IA e estratégia F12",
     "AUDITAR IA",
-    "Imagens e caminhos"
+    "Imagens e caminhos",
+    "Balanceamento F13",
+    "AUDITAR BALANCEAMENTO",
+    "RODAR MONTE CARLO",
+    "Monte Carlo",
+    "Corrida 3D F14",
+    "AUDITAR 3D",
+    "Pista",
+    "Replay lógico",
+    "Câmeras",
+    "Áudio, UI e acessibilidade F15",
+    "AUDITAR ÁUDIO/UI",
+    "ÁUDIO ON/OFF",
+    "áudio procedural",
+    "tutorial contextual",
+    "acessibilidade",
+    "Carreira viva F16",
+    "AUDITAR CARREIRA",
+    "REVISÃO DO CONSELHO",
+    "Staff profundo",
+    "Fábricas",
+    "P&D",
+    "Backend, segurança e lançamento F17",
+    "AUDITAR LANÇAMENTO",
+    "PREPARAR RC",
+    "CONSENTIMENTO",
+    "cloud save",
+    "telemetria",
+    "Release Candidate comercial F18",
+    "AUDITAR RC",
+    "PACOTE FINAL",
+    "CHECKLIST LOJAS",
+    "homologação física",
+    "revisão jurídica",
+    "Operação beta F20",
+    "AUDITAR OPERAÇÃO",
+    "SIMULAR FEEDBACK",
+    "PLANO HOTFIX",
+    "feedback",
+    "hotfix"
   ],
   "protectedSelectors": [
     "#homeBuildPill",
@@ -74,6 +113,10 @@
   "notes": [
     "Fase 10 adiciona faixas visuais de regulamento no painel de fim de semana e Central Sistema.",
     "Fase 11 adiciona card de física do veículo e telemetria de corrida para pneus, ERS, DRS, freios, motor e danos.",
-    "Fase 12 adiciona card IA e estratégia, auditoria de IA, correção de rolagem e exibição dos caminhos dos assets nos placeholders."
+    "Fase 12 adiciona card IA e estratégia, auditoria de IA, correção de rolagem e exibição dos caminhos dos assets nos placeholders.",
+    "Fase 13 adiciona card de balanceamento científico, auditoria de balanceamento e execução Monte Carlo na Central Sistema.",
+    "Fase 14 adiciona corrida 3D profissional procedural, largura de pista, elevação, pit lane, setores, DRS, racing lines, câmeras TV/onboard/pit wall/helicóptero e replay lógico sem assets binários.",
+    "Fase 15 adiciona card de áudio/UI/acessibilidade, Web Audio procedural, rádio/box, mixagem dinâmica, foco visível e tutorial contextual sem assets binários.",
+    "Fase 16 adiciona card de carreira viva, auditoria da carreira e revisão do conselho com staff profundo, fábricas, P&D, academia, patrocinadores e projeção multi-temporada."
   ]
 }

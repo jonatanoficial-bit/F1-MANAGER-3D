@@ -135,6 +135,12 @@ globalThis.F1M_I18N_CATALOG = Object.freeze({
     'Chaves traduzíveis': { en:'Translatable keys', es:'Claves traducibles' },
     'Catálogo': { en:'Catalog', es:'Catálogo' },
     'Aplicar idioma': { en:'Apply language', es:'Aplicar idioma' },
-    'Idioma alterado': { en:'Language changed', es:'Idioma cambiado' }
+    'Idioma alterado': { en:'Language changed', es:'Idioma cambiado' },
+    'Carreira viva F16': { en:'Living Career F16', es:'Carrera viva F16' },
+    'AUDITAR CARREIRA': { en:'AUDIT CAREER', es:'AUDITAR CARRERA' },
+    'REVISÃO DO CONSELHO': { en:'BOARD REVIEW', es:'REVISIÓN DEL CONSEJO' },
+    'Staff profundo': { en:'Deep staff', es:'Staff profundo' },
+    'Fábricas': { en:'Factories', es:'Fábricas' },
+    'P&D': { en:'R&D', es:'I+D' }
   }
 });

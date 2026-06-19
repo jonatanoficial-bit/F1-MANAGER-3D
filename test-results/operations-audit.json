@@ -1,0 +1,98 @@
+{
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:15:55.263Z",
+  "passed": 18,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/operations-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/operations-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "ops:data-loaded",
+      "ok": true,
+      "detail": "schema 1"
+    },
+    {
+      "name": "ops:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "ops:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "ops:feedback-categories",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "ops:redaction",
+      "ok": true,
+      "detail": "token=[redacted] rolagem travada no mobile"
+    },
+    {
+      "name": "ops:triage",
+      "ok": true,
+      "detail": "{\"generatedAt\":\"2026-06-19T19:15:55.259Z\",\"buckets\":{\"mobile-viewport\":{\"count\":1,\"priority\":100,\"critical\":1,\"high\":0,\"items\":[\"FB-MQLB79IZ-UQ5E\"]}},\"total\":1}"
+    },
+    {
+      "name": "ops:hotfix-plan",
+      "ok": true,
+      "detail": "{\"id\":\"F1M3D-F20-HOTFIX-MQLB79IZ\",\"buildCode\":\"TEST-F20\",\"generatedAt\":\"2026-06-19T19:15:55.259Z\",\"channel\":\"public-beta-ops\",\"artifacts\":[\"CHANGELOG.md\",\"AUDIT_REPORT.md\",\"FILE_MANIFEST.sha256\",\"test-results/full-audit-summary.json\",\"F1-MANAGER-3D-FASE-20-RESUMO.md\"],\"gates\":[\"sem regressão mobile\",\"sem erro de console crítico\",\"assets obrigatórios documentados\",\"save migrado\",\"rollback disponível\",\"telemetria opt-in\"],\"rollbackSchemas\":[18,19,20],\"triage\":{\"generatedAt\":\"2026-06-19T19:15:55.259Z\",\"buckets\":{\"mobile-viewport\":{\"count\":1,\"priority\":100,\"critical\":1,\"high\":0,\"items\":[\"FB-MQLB79IZ-UQ5E\"]}},\"total\":1},\"blockers\":[\"existem críticos pendentes\",\"produção continua bloqueada até homologação física e revisão jurídica\"],\"productionAllowed\":false}"
+    },
+    {
+      "name": "ops:device-matrix",
+      "ok": true,
+      "detail": "5"
+    },
+    {
+      "name": "ops:checklist",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "ops:status",
+      "ok": true,
+      "detail": "{\"score\":86,\"channel\":\"public-beta-ops\",\"feedbackCount\":2,\"critical\":1,\"high\":1,\"devices\":5,\"checklist\":8,\"evidence\":7,\"productionBlocked\":true,\"hotfixPlans\":2}"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F20"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:state-init",
+      "ok": true,
+      "detail": "runtime state"
+    },
+    {
+      "name": "script:actions",
+      "ok": true,
+      "detail": "actions"
+    },
+    {
+      "name": "css:operations",
+      "ok": true,
+      "detail": "css"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:operations"
+    }
+  ]
+}

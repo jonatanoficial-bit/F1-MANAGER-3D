@@ -1,0 +1,24 @@
+{
+  "phase": 17,
+  "build": "F1M3D-0.26.0-F17",
+  "title": "Backend, segurança e lançamento",
+  "implemented": [
+    "contas por adaptador",
+    "cloud save preparado",
+    "resolução de conflitos",
+    "telemetria com consentimento",
+    "crash reporting local",
+    "remote config local",
+    "rollback",
+    "canais alpha/beta/RC",
+    "platform targets",
+    "privacidade",
+    "classificação etária",
+    "suporte",
+    "live ops"
+  ],
+  "assets": "sem binários pesados; caminhos preservados",
+  "audit": "approved",
+  "passed": 693,
+  "failed": 0
+}

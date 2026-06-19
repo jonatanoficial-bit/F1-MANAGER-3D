@@ -1,0 +1,30 @@
+{
+  "phase": 16,
+  "version": "0.25.0",
+  "build_code": "F1M3D-0.25.0-F16",
+  "title": "Carreira viva profunda",
+  "save_schema": 16,
+  "features": [
+    "staff profundo",
+    "fábricas",
+    "departamentos",
+    "P&D",
+    "patrocinadores",
+    "orçamento",
+    "política interna",
+    "academia",
+    "mercado",
+    "imprensa",
+    "rivalidades",
+    "mudanças de regulamento",
+    "evolução das equipes",
+    "múltiplas temporadas"
+  ],
+  "assets_policy": "sem binários pesados; caminhos preservados",
+  "generated_at": "2026-06-19T15:39:00Z",
+  "audit": {
+    "passed": 673,
+    "failed": 0,
+    "result": "approved"
+  }
+}

@@ -27,12 +27,28 @@ const APP_SHELL = [
   "./src/core/regulation-engine.js",
   "./data/vehicle-data.js",
   "./src/core/vehicle-physics.js",
+  "./data/balance-data.js",
+  "./src/core/balance-simulator.js",
+  "./data/visual-data.js",
+  "./src/core/track-visual-system.js",
+  "./data/audio-ui-data.js",
+  "./src/core/audio-ui-system.js",
+  "./src/core/living-career-system.js",
+  "./data/living-career-data.js",
+  "./data/backend-launch-data.js",
+  "./src/core/backend-launch-system.js",
+  "./data/release-candidate-data.js",
+  "./src/core/release-candidate-system.js",
   "./data/game-data.js",
   "./data/track-layouts.js",
   "./script.js",
   "./manifest.webmanifest",
   "./data/strategy-data.js",
-  "./src/core/race-strategy-ai.js"
+  "./src/core/race-strategy-ai.js",
+  "./data/deployment-data.js",
+  "./src/core/deployment-system.js",
+  "./data/operations-data.js",
+  "./src/core/operations-system.js"
 ];
 
 self.addEventListener('install', event => {

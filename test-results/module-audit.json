@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T22:03:16.884Z",
+  "generatedAt": "2026-06-19T19:15:50.118Z",
   "results": [
     {
       "name": "syntax:src/core/build-system.js",
@@ -112,9 +112,89 @@
       "detail": ""
     },
     {
+      "name": "syntax:data/balance-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/balance-simulator.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/visual-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/track-visual-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/audio-ui-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/audio-ui-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/living-career-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/living-career-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/backend-launch-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/backend-launch-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/release-candidate-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/release-candidate-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/deployment-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/deployment-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/operations-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/operations-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "modules:load-order",
       "ok": true,
-      "detail": "11704,11749,11800,11852,11900,11953,12001,12054,12114,12169,12222,12328,12386,12436,12475,12525,12573,12629,12679,12735,12782,12836,12884,13027,13071,13119"
+      "detail": "11745,11790,11841,11893,11941,11994,12042,12095,12155,12210,12263,12369,12427,12477,12516,12566,12614,12670,12720,12776,12823,12877,12925,12980,13027,13083,13129,13187,13235,13289,13342,13401,13455,13515,13572,13635,13685,13741,13791,13935,13979,14027"
     },
     {
       "name": "architecture:data-registry",
@@ -168,6 +248,46 @@
     },
     {
       "name": "architecture:strategy-ai",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:balance-simulator",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:visual3d",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:audio-ui",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:living-career",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:backend-launch",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:release-candidate",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:deployment",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "architecture:operations",
       "ok": true,
       "detail": ""
     },

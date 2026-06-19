@@ -86,6 +86,10 @@ function buildInlineHtml(){
     'src/core/diagnostics.js':fs.readFileSync(path.join(root,'src/core/diagnostics.js'),'utf8'),
     'data/i18n.js':fs.readFileSync(path.join(root,'data/i18n.js'),'utf8'),
     'src/core/i18n-system.js':fs.readFileSync(path.join(root,'src/core/i18n-system.js'),'utf8'),
+    'data/visual-data.js':fs.readFileSync(path.join(root,'data/visual-data.js'),'utf8'),
+    'src/core/track-visual-system.js':fs.readFileSync(path.join(root,'src/core/track-visual-system.js'),'utf8'),
+    'data/audio-ui-data.js':fs.readFileSync(path.join(root,'data/audio-ui-data.js'),'utf8'),
+    'src/core/audio-ui-system.js':fs.readFileSync(path.join(root,'src/core/audio-ui-system.js'),'utf8'),
     'data/game-data.js':fs.readFileSync(path.join(root,'data/game-data.js'),'utf8'),
     'data/track-layouts.js':fs.readFileSync(path.join(root,'data/track-layouts.js'),'utf8'),
     'script.js':fs.readFileSync(path.join(root,'script.js'),'utf8')
@@ -148,7 +152,9 @@ async function runCase(name,width,height){
   steps.push(await evaluate(cdp,`({i18n:true,lang:document.documentElement.lang,homeNewGame:window.F1M_CORE.i18n ? true : false,hasSystemEnglish:document.body.innerText.includes('Anti-break')})`));
   await evaluate(cdp,`document.querySelector('[data-lang="pt-BR"]')?.click()`);
   await waitFor(cdp,`document.documentElement.lang === 'pt-BR'`,8000);
-  await evaluate(cdp,`document.querySelector('[data-action="runSystemDiagnostics"]').click()`);
+  await evaluate(cdp,`document.querySelector('.side-nav [data-tab="system"]')?.click()`);
+  await waitFor(cdp,`document.querySelector('[data-action="runSystemDiagnostics"]')`,8000);
+  await evaluate(cdp,`document.querySelector('[data-action="runSystemDiagnostics"]')?.click()`);
   await waitFor(cdp,`!document.querySelector('[data-action="runSystemDiagnostics"]')?.disabled && document.getElementById('tabContent').textContent.includes('aprovados')`,20000);
   steps.push(await evaluate(cdp,`(()=>{const t=document.getElementById('tabContent').textContent;const start=t.indexOf('Resultado:');const after=start>=0?t.slice(start+'Resultado:'.length):'';const marker=after.indexOf('/100');const scoreText=marker>=0?after.slice(0,marker).trim():'';return {system:true,score:scoreText?Number(scoreText):null,rows:document.querySelectorAll('.system-grid .qa-list .row').length,errors:document.querySelectorAll('#runtimeErrorBanner').length}})()`));
 

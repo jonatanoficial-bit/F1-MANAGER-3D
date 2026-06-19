@@ -1,0 +1,113 @@
+{
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:15:54.111Z",
+  "passed": 21,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/living-career-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/living-career-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "living:data-loaded",
+      "ok": true,
+      "detail": "schema 1"
+    },
+    {
+      "name": "living:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "living:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "living:departments",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "name": "living:facilities",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "living:staff-archetypes",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "name": "living:sponsor-tiers",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "name": "living:academy-pipeline",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "name": "living:board-politics",
+      "ok": true,
+      "detail": "{\"finance\":66,\"technical\":25,\"commercial\":55,\"sporting\":51}"
+    },
+    {
+      "name": "living:regulation-watch",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "name": "living:multi-season",
+      "ok": true,
+      "detail": "[{\"season\":2026,\"progression\":40,\"regulationRisk\":10,\"expectedIdentity\":\"projeto de reconstrução\"},{\"season\":2027,\"progression\":44,\"regulationRisk\":11,\"expectedIdentity\":\"projeto de reconstrução\"},{\"season\":2028,\"progression\":48,\"regulationRisk\":11,\"expectedIdentity\":\"meio do pelotão\"}]"
+    },
+    {
+      "name": "living:recommendations",
+      "ok": true,
+      "detail": "3"
+    },
+    {
+      "name": "living:sponsor-portfolio",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F16"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:state-init",
+      "ok": true,
+      "detail": "runtime state"
+    },
+    {
+      "name": "script:actions",
+      "ok": true,
+      "detail": "actions"
+    },
+    {
+      "name": "css:living-career",
+      "ok": true,
+      "detail": "css"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:living-career"
+    }
+  ]
+}

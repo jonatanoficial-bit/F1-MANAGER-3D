@@ -1,0 +1,106 @@
+{
+  "phase": 13,
+  "version": "0.22.0",
+  "build_code": "F1M3D-0.22.0-F13",
+  "title": "Balanceamento científico, Monte Carlo e dificuldade justa",
+  "base": "v0.21.0-F12",
+  "save_schema": 13,
+  "generated_at": "2026-06-19T12:46:35.021806+00:00",
+  "implemented": [
+    "data/balance-data.js",
+    "src/core/balance-simulator.js",
+    "tests/balance-audit.mjs",
+    "Central Sistema com card Balanceamento F13",
+    "simulação Monte Carlo determinística",
+    "distribuições de DNF, ultrapassagens, pit stops e gaps",
+    "progressão de equipes por temporada",
+    "auditoria de dificuldade sem trapaça invisível"
+  ],
+  "audit": {
+    "build": "F1M3D-0.22.0-F13",
+    "version": "0.22.0",
+    "phase": 13,
+    "generated_at": "2026-06-19T12:46:54.285Z",
+    "static": {
+      "passed": 47,
+      "failed": 0
+    },
+    "build_consistency": {
+      "passed": 51,
+      "failed": 0
+    },
+    "modules": {
+      "passed": 44,
+      "failed": 0
+    },
+    "contracts": {
+      "passed": 15,
+      "failed": 0
+    },
+    "assets": {
+      "passed": 24,
+      "failed": 0
+    },
+    "persistence": {
+      "passed": 14,
+      "failed": 0
+    },
+    "browser_cases": {
+      "passed": 3,
+      "failed": 0
+    },
+    "performance": {
+      "passed": 14,
+      "failed": 0
+    },
+    "mobile": {
+      "passed": 19,
+      "failed": 0
+    },
+    "visual": {
+      "passed": 56,
+      "failed": 0
+    },
+    "ci": {
+      "passed": 42,
+      "failed": 0
+    },
+    "vehicle": {
+      "passed": 21,
+      "failed": 0
+    },
+    "strategy": {
+      "passed": 23,
+      "failed": 0
+    },
+    "balance": {
+      "passed": 25,
+      "failed": 0
+    },
+    "project": {
+      "passed": 165,
+      "failed": 0
+    },
+    "total": {
+      "passed": 563,
+      "failed": 0
+    },
+    "result": "approved"
+  },
+  "balance": {
+    "score": 100,
+    "passed": 25,
+    "failed": 0,
+    "sample_monte_carlo": {
+      "dnfRate": 0.0599,
+      "pitStopsPerDriver": 1.224,
+      "overtakesPerRace": 5.0469,
+      "winningGapSeconds": 16.3791,
+      "fieldSpreadSeconds": 70.5091,
+      "topTeamWinShare": 0.6875,
+      "midfieldPointsShare": 0.3187,
+      "backmarkerPointsShare": 0.2494
+    }
+  },
+  "assets_policy": "ZIP completo sem assets binários pesados; caminhos preservados em assets/ASSET_PATHS_REQUIRED.txt e assets/ASSET_MANIFEST.json"
+}

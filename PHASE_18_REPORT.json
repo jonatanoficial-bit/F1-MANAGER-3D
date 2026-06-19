@@ -1,0 +1,11 @@
+{
+  "phase": 18,
+  "version": "0.27.0",
+  "build_code": "F1M3D-0.27.0-F18",
+  "status": "approved",
+  "save_schema": 18,
+  "passed": 712,
+  "failed": 0,
+  "assets_policy": "no heavy binaries, paths preserved",
+  "release_blockers": ["restore-heavy-assets", "physical-device-homologation", "legal-review", "production-backend"]
+}

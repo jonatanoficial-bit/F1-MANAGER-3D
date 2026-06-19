@@ -1,7 +1,6 @@
-# Known Issues — Fase 12
+# Known Issues — v0.29.0-F20
 
-- As imagens reais não acompanham o ZIP por regra do projeto; o jogo preserva caminhos e mostra placeholders quando o arquivo físico não está no repositório/deploy. Para o Vercel exibir as imagens, copie a pasta `assets` real seguindo `assets/ASSET_PATHS_REQUIRED.txt`.
-- A IA estratégica F12 é um modelo de desenvolvimento; balanceamento fino de undercut/overcut, Safety Car e taxa de ultrapassagens ainda depende de simulações longas da Fase 13.
-- Homologação física em celulares Android/iOS e PWA instalada ainda é obrigatória.
-- O motor 3D continua opcional; no executor automatizado a corrida é validada sem Three.js.
-- Uso comercial com nomes/logos/pilotos/circuitos reais ainda exige revisão jurídica/licença ou data pack genérico.
+- Assets pesados reais continuam fora do ZIP por regra do projeto; para produção, restaurar a pasta `assets` completa seguindo `assets/ASSET_PATHS_REQUIRED.txt`.
+- Publicação em lojas permanece bloqueada até revisão jurídica de marcas, pilotos, equipes, circuitos e imagens.
+- Backend real ainda precisa ser conectado por adaptador seguro antes de cloud save em produção.
+- Homologação física Android/iOS/PWA instalada continua obrigatória.

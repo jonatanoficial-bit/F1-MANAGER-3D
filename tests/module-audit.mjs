@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const results=[]; const add=(name,ok,detail='')=>{results.push({name,ok:Boolean(ok),detail});if(!ok)process.exitCode=1;};
-const modules=['src/core/build-system.js','src/core/runtime-guard.js','src/core/event-bus.js','src/core/data-contracts.js','data/asset-catalog.js','src/core/asset-registry.js','src/systems/persistence-system.js','src/systems/career-system.js','src/systems/race-engine.js','src/ui/screen-manager.js','src/core/performance-monitor.js','src/core/diagnostics.js','data/i18n.js','src/core/i18n-system.js','data/sporting-data.js','src/core/sporting-database.js','data/regulation-data.js','src/core/regulation-engine.js','data/vehicle-data.js','src/core/vehicle-physics.js','data/strategy-data.js','src/core/race-strategy-ai.js'];
+const modules=['src/core/build-system.js','src/core/runtime-guard.js','src/core/event-bus.js','src/core/data-contracts.js','data/asset-catalog.js','src/core/asset-registry.js','src/systems/persistence-system.js','src/systems/career-system.js','src/systems/race-engine.js','src/ui/screen-manager.js','src/core/performance-monitor.js','src/core/diagnostics.js','data/i18n.js','src/core/i18n-system.js','data/sporting-data.js','src/core/sporting-database.js','data/regulation-data.js','src/core/regulation-engine.js','data/vehicle-data.js','src/core/vehicle-physics.js','data/strategy-data.js','src/core/race-strategy-ai.js','data/balance-data.js','src/core/balance-simulator.js','data/visual-data.js','src/core/track-visual-system.js','data/audio-ui-data.js','src/core/audio-ui-system.js','data/living-career-data.js','src/core/living-career-system.js','data/backend-launch-data.js','src/core/backend-launch-system.js','data/release-candidate-data.js','src/core/release-candidate-system.js','data/deployment-data.js','src/core/deployment-system.js','data/operations-data.js','src/core/operations-system.js'];
 for(const rel of modules){ try{new vm.Script(fs.readFileSync(path.join(root,rel),'utf8'),{filename:rel});add(`syntax:${rel}`,true);}catch(e){add(`syntax:${rel}`,false,e.message);} }
 const index=fs.readFileSync(path.join(root,'index.html'),'utf8');
 const order=['data/build-info.js',...modules,'data/game-data.js','data/track-layouts.js','script.js'].map(x=>index.indexOf(x));
@@ -21,9 +21,17 @@ add('architecture:sporting',script.includes('CORE.sporting?.createDatabase') && 
 add('architecture:regulations',script.includes('CORE.regulations?.createRegulationEngine') && script.includes('regulationMiniHTML'));
 add('architecture:vehicle-physics',script.includes('CORE.vehiclePhysics?.createVehiclePhysics') && script.includes('vehicleMiniHTML') && script.includes('vehicleTelemetryText')); 
 add('architecture:strategy-ai',script.includes('CORE.strategyAI?.createRaceStrategyAI') && script.includes('strategyMiniHTML') && script.includes('runStrategyAIAudit')); 
+add('architecture:balance-simulator',script.includes('CORE.balance?.createBalanceSimulator') && script.includes('balanceMiniHTML') && script.includes('runBalanceMonteCarlo'));
+add('architecture:visual3d',script.includes('CORE.visual3d?.createTrackVisualSystem') && script.includes('visual3dMiniHTML') && script.includes('runVisual3DAudit'));
+add('architecture:audio-ui',script.includes('CORE.audioUI?.createAudioUISystem') && script.includes('audioUiMiniHTML') && script.includes('runAudioUIAudit')); 
+add('architecture:living-career',script.includes('CORE.livingCareer?.createLivingCareerSystem') && script.includes('livingCareerMiniHTML') && script.includes('runLivingCareerReview')); 
+add('architecture:backend-launch',script.includes('CORE.launch?.createBackendLaunchSystem') && script.includes('backendLaunchMiniHTML') && script.includes('prepareReleaseCandidate')); 
+add('architecture:release-candidate',script.includes('CORE.releaseCandidate?.createReleaseCandidateSystem') && script.includes('releaseCandidateMiniHTML') && script.includes('prepareCommercialPackage')); 
+add('architecture:deployment',script.includes('CORE.deployValidation?.createDeploymentValidationSystem') && script.includes('deploymentMiniHTML') && script.includes('preparePublicBeta')); 
+add('architecture:operations',script.includes('CORE.operations?.createOperationsSystem') && script.includes('operationsMiniHTML') && script.includes('prepareHotfixPlan')); 
 add('system:tab',index.includes('data-tab="system"'));
 add('system:diagnostic-action',script.includes('runSystemDiagnostics(){ runSystemDiagnostics(); }'));
-add('save:new-key',script.includes('f1_manager_career_2026_v0210')); 
+add('save:new-key',script.includes('f1_manager_career_2026_v0290'));        
 add('save:migration-schema-4',script.includes('targetSchema:SAVE_SCHEMA'));
 add('save:envelope-format',fs.readFileSync(path.join(root,'src/systems/persistence-system.js'),'utf8').includes('F1M_SAVE_ENVELOPE_V2'));
 add('runtime:guard-used',script.includes('runtimeGuard?.capture'));

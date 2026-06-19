@@ -1,0 +1,415 @@
+{
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:15:53.497Z",
+  "passed": 31,
+  "failed": 0,
+  "results": [
+    {
+      "name": "visual:data-global",
+      "ok": true,
+      "detail": "visual-data.js"
+    },
+    {
+      "name": "visual:factory",
+      "ok": true,
+      "detail": "createTrackVisualSystem"
+    },
+    {
+      "name": "visual:audit-score",
+      "ok": true,
+      "detail": "100"
+    },
+    {
+      "name": "visual:realTrackWidth",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:elevationMesh",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:pitLaneAndBoxes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:sectorBoards",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:drsZoneMarkers",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:racingLineOverlay",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:carLod",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:damageVisuals",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:rainAndSpray",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:tvCameras",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:onboardCamera",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:pitWallCamera",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:replayBuffer",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:rendererDisposal",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:noBinaryAssetsRequired",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:camera-presets",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:quality-profiles",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:legal-procedural",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "visual:model-width",
+      "ok": true,
+      "detail": "{\"worldWidth\":4.6,\"widthMeters\":12.5}"
+    },
+    {
+      "name": "visual:model-sectors",
+      "ok": true,
+      "detail": "[{\"id\":1,\"start\":0,\"end\":0.3333,\"label\":\"S1\"},{\"id\":2,\"start\":0.3333,\"end\":0.6667,\"label\":\"S2\"},{\"id\":3,\"start\":0.6667,\"end\":1,\"label\":\"S3\"}]"
+    },
+    {
+      "name": "visual:elevation-varies",
+      "ok": true,
+      "detail": "0.5348/-0.4471"
+    },
+    {
+      "name": "visual:drs-lookup",
+      "ok": true,
+      "detail": "{\"id\":\"drs-1\",\"start\":0.16,\"end\":0.28,\"detection\":0.13,\"label\":\"DRS 1\"}"
+    },
+    {
+      "name": "visual:replay-limit",
+      "ok": true,
+      "detail": "3"
+    },
+    {
+      "name": "visual:replay-markers",
+      "ok": true,
+      "detail": "[{\"tick\":3,\"marker\":\"overtake\",\"at\":1781896553494}]"
+    },
+    {
+      "name": "visual:capture-frame",
+      "ok": true,
+      "detail": "{\"tick\":12.2,\"lap\":2,\"camera\":\"tv\",\"leader\":\"PIL\",\"sector\":\"S1\",\"neutralized\":false,\"cars\":[{\"driver\":\"PIL\",\"pos\":1,\"progress\":1.21,\"lap\":2,\"pit\":1,\"damage\":11}]}"
+    },
+    {
+      "name": "visual:index-scripts",
+      "ok": true,
+      "detail": "index scripts"
+    },
+    {
+      "name": "visual:system-ui",
+      "ok": true,
+      "detail": "script UI"
+    },
+    {
+      "name": "visual:renderer-hooks",
+      "ok": true,
+      "detail": "renderer hooks"
+    }
+  ],
+  "audit": {
+    "schema": 1,
+    "score": 100,
+    "passed": 18,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "realTrackWidth",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "elevationMesh",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "pitLaneAndBoxes",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "sectorBoards",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "drsZoneMarkers",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "racingLineOverlay",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "carLod",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "damageVisuals",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "rainAndSpray",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "tvCameras",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "onboardCamera",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "pitWallCamera",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "replayBuffer",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "rendererDisposal",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "noBinaryAssetsRequired",
+        "ok": true,
+        "detail": "ativo"
+      },
+      {
+        "id": "camera-presets",
+        "ok": true,
+        "detail": "tv,follow,overhead,onboard,pitwall,replay"
+      },
+      {
+        "id": "quality-profiles",
+        "ok": true,
+        "detail": "low,medium,high"
+      },
+      {
+        "id": "legal-procedural",
+        "ok": true,
+        "detail": "procedural-original"
+      }
+    ],
+    "rendererName": "F14 Professional Track Presentation",
+    "cameraPresets": {
+      "tv": {
+        "label": "TV dinâmica",
+        "height": 18,
+        "distance": 16,
+        "stiffness": 0.025
+      },
+      "follow": {
+        "label": "Follow cam",
+        "height": 8,
+        "distance": 10,
+        "stiffness": 0.055
+      },
+      "overhead": {
+        "label": "Helicóptero",
+        "height": 43,
+        "distance": 2,
+        "stiffness": 0.035
+      },
+      "onboard": {
+        "label": "Onboard",
+        "height": 1.15,
+        "distance": 1.6,
+        "stiffness": 0.18
+      },
+      "pitwall": {
+        "label": "Pit wall",
+        "height": 7,
+        "distance": 22,
+        "stiffness": 0.04
+      },
+      "replay": {
+        "label": "Replay",
+        "height": 13,
+        "distance": 18,
+        "stiffness": 0.06
+      }
+    },
+    "systems": {
+      "realTrackWidth": true,
+      "elevationMesh": true,
+      "pitLaneAndBoxes": true,
+      "sectorBoards": true,
+      "drsZoneMarkers": true,
+      "racingLineOverlay": true,
+      "carLod": true,
+      "damageVisuals": true,
+      "rainAndSpray": true,
+      "tvCameras": true,
+      "onboardCamera": true,
+      "pitWallCamera": true,
+      "replayBuffer": true,
+      "rendererDisposal": true,
+      "noBinaryAssetsRequired": true
+    }
+  },
+  "model": {
+    "schema": 1,
+    "trackId": "spain",
+    "name": "Spain GP",
+    "theme": "classic",
+    "weather": "variable",
+    "widthMeters": 12.5,
+    "worldWidth": 4.6,
+    "shoulderWorld": 0.185,
+    "pitLaneWidthWorld": 0.769,
+    "elevationAmplitude": 0.76,
+    "bankingDegrees": 5,
+    "sectors": [
+      {
+        "id": 1,
+        "start": 0,
+        "end": 0.3333,
+        "label": "S1"
+      },
+      {
+        "id": 2,
+        "start": 0.3333,
+        "end": 0.6667,
+        "label": "S2"
+      },
+      {
+        "id": 3,
+        "start": 0.6667,
+        "end": 1,
+        "label": "S3"
+      }
+    ],
+    "drsZones": [
+      {
+        "id": "drs-1",
+        "start": 0.16,
+        "end": 0.28,
+        "detection": 0.13,
+        "label": "DRS 1"
+      },
+      {
+        "id": "drs-2",
+        "start": 0.61,
+        "end": 0.74,
+        "detection": 0.58,
+        "label": "DRS 2"
+      }
+    ],
+    "racingLines": [
+      "ideal",
+      "inside",
+      "outside",
+      "defensive"
+    ],
+    "replay": {
+      "enabled": true,
+      "maxFrames": 420,
+      "captureEveryTicks": 0.38,
+      "markers": [
+        "overtake",
+        "pit",
+        "incident",
+        "safety-car",
+        "restart",
+        "finish"
+      ]
+    },
+    "legal": {
+      "mode": "procedural-original",
+      "note": "Elementos visuais 3D gerados por código, sem marcas, logos, modelos proprietários ou assets binários pesados no ZIP."
+    },
+    "qualityHint": {
+      "id": "low",
+      "maxCarsHighDetail": 10,
+      "trackSamples": 160,
+      "environmentObjects": 28,
+      "particles": 18,
+      "shadows": false
+    }
+  },
+  "frame": {
+    "tick": 12.2,
+    "lap": 2,
+    "camera": "tv",
+    "leader": "PIL",
+    "sector": "S1",
+    "neutralized": false,
+    "cars": [
+      {
+        "driver": "PIL",
+        "pos": 1,
+        "progress": 1.21,
+        "lap": 2,
+        "pit": 1,
+        "damage": 11
+      }
+    ]
+  }
+}

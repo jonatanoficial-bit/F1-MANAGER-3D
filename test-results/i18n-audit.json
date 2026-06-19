@@ -1,6 +1,6 @@
 {
-  "build": "F1M3D-0.21.0-F12",
-  "generatedAt": "2026-06-18T22:03:18.271Z",
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:15:51.850Z",
   "passed": 16,
   "failed": 0,
   "results": [
@@ -27,17 +27,17 @@
     {
       "name": "i18n:phrase-volume",
       "ok": true,
-      "detail": "124"
+      "detail": "130"
     },
     {
       "name": "i18n:english-coverage",
       "ok": true,
-      "detail": "124"
+      "detail": "130"
     },
     {
       "name": "i18n:spanish-coverage",
       "ok": true,
-      "detail": "124"
+      "detail": "130"
     },
     {
       "name": "i18n:translate-home-english",
@@ -82,7 +82,7 @@
     {
       "name": "i18n:build-phase",
       "ok": true,
-      "detail": "12/12"
+      "detail": "20/20"
     }
   ],
   "result": "approved"

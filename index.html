@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#100000" />
-  <meta name="f1m-build-code" content="F1M3D-0.21.0-F12" />
-  <meta name="f1m-build-version" content="0.21.0" />
+  <meta name="f1m-build-code" content="F1M3D-0.29.0-F20" />
+  <meta name="f1m-build-version" content="0.29.0" />
   <meta name="f1m-i18n-languages" content="pt-BR,en,es" />
   <title>F1 Manager Career 2026</title>
   <link rel="manifest" href="manifest.webmanifest" />
@@ -120,7 +120,7 @@
         <article class="driver-control glass-panel" id="controlCard1"><h4 id="controlDriver1">Piloto 1</h4><div class="condition-bar"><span id="cond1"></span></div><button data-action="setPace" data-driver="0" data-pace="attack">⚡ ATAQUE</button><button data-action="setPace" data-driver="0" data-pace="normal">RITMO NORMAL</button><button data-action="setPace" data-driver="0" data-pace="save">🛞 POUPAR</button><button data-action="pitDriver" data-driver="0" class="primary">PIT STOP</button></article>
         <article class="driver-control glass-panel" id="controlCard2"><h4 id="controlDriver2">Piloto 2</h4><div class="condition-bar"><span id="cond2"></span></div><button data-action="setPace" data-driver="1" data-pace="attack">⚡ ATAQUE</button><button data-action="setPace" data-driver="1" data-pace="normal">RITMO NORMAL</button><button data-action="setPace" data-driver="1" data-pace="save">🛞 POUPAR</button><button data-action="pitDriver" data-driver="1" class="primary">PIT STOP</button></article>
       </aside>
-      <footer class="race-toolbar glass-panel"><button data-nav="lobby">☰</button><button data-action="toggleRaceSpeed">▶ x<span id="speedLabel">1</span></button><button data-action="toggleRaceCamera">CÂMERA</button><span id="lapLabel">VOLTA 1/22</span><span id="weatherLabel">☀ Seco</span><button data-action="finishRaceNow">FINALIZAR</button></footer>
+      <footer class="race-toolbar glass-panel"><button data-nav="lobby">☰</button><button data-action="toggleRaceSpeed">▶ x<span id="speedLabel">1</span></button><button data-action="toggleRaceCamera">CÂMERA</button><span id="cameraLabel">TV dinâmica</span><span id="lapLabel">VOLTA 1/22</span><span id="weatherLabel">☀ Seco</span><button data-action="finishRaceNow">FINALIZAR</button></footer>
     </section>
 
     <section id="screen-results" class="screen asset-bg" data-bg="assets/backgrounds/podium/podium_stage.png">
@@ -165,6 +165,22 @@
   <script src="src/core/vehicle-physics.js"></script>
   <script src="data/strategy-data.js"></script>
   <script src="src/core/race-strategy-ai.js"></script>
+  <script src="data/balance-data.js"></script>
+  <script src="src/core/balance-simulator.js"></script>
+  <script src="data/visual-data.js"></script>
+  <script src="src/core/track-visual-system.js"></script>
+  <script src="data/audio-ui-data.js"></script>
+  <script src="src/core/audio-ui-system.js"></script>
+  <script src="data/living-career-data.js"></script>
+  <script src="src/core/living-career-system.js"></script>
+  <script src="data/backend-launch-data.js"></script>
+  <script src="src/core/backend-launch-system.js"></script>
+  <script src="data/release-candidate-data.js"></script>
+  <script src="src/core/release-candidate-system.js"></script>
+  <script src="data/deployment-data.js"></script>
+  <script src="src/core/deployment-system.js"></script>
+  <script src="data/operations-data.js"></script>
+  <script src="src/core/operations-system.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
   <script src="data/game-data.js"></script>
   <script src="data/track-layouts.js"></script>

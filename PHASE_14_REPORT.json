@@ -1,0 +1,20 @@
+{
+  "phase": 14,
+  "version": "0.23.0",
+  "build_code": "F1M3D-0.23.0-F14",
+  "title": "Corrida 3D profissional, câmeras e replay",
+  "systems": [
+    "real_track_width",
+    "elevation",
+    "pit_lane",
+    "sectors",
+    "drs_zones",
+    "racing_lines",
+    "lod",
+    "damage_visuals",
+    "rain_spray",
+    "tv_onboard_pitwall_cameras",
+    "replay_buffer"
+  ],
+  "assets_policy": "sem binários pesados; caminhos preservados"
+}

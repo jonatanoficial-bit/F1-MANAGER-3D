@@ -1,76 +1,76 @@
 {
-  "build": "F1M3D-0.21.0-F12",
-  "generatedAt": "2026-06-18T22:03:16.653Z",
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:15:49.836Z",
   "results": [
     {
       "name": "version:source",
       "ok": true,
-      "detail": "0.21.0"
+      "detail": "0.29.0"
     },
     {
       "name": "version:root",
       "ok": true,
-      "detail": "0.21.0"
+      "detail": "0.29.0"
     },
     {
       "name": "version:data",
       "ok": true,
-      "detail": "0.21.0"
+      "detail": "0.29.0"
     },
     {
       "name": "version:runtime",
       "ok": true,
-      "detail": "0.21.0"
+      "detail": "0.29.0"
     },
     {
       "name": "version:package",
       "ok": true,
-      "detail": "0.21.0"
+      "detail": "0.29.0"
     },
     {
       "name": "version:manifest",
       "ok": true,
-      "detail": "0.21.0"
+      "detail": "0.29.0"
     },
     {
       "name": "version:assets",
       "ok": true,
-      "detail": "0.21.0"
+      "detail": "0.29.0"
     },
     {
       "name": "version:package-lock",
       "ok": true,
-      "detail": "0.21.0/0.21.0"
+      "detail": "0.29.0/0.29.0"
     },
     {
       "name": "code:source",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "code:root",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "code:data",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "code:runtime",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "code:assets",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "code:shell",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "html:build-code",
@@ -85,17 +85,17 @@
     {
       "name": "schema:save",
       "ok": true,
-      "detail": "12"
+      "detail": "20"
     },
     {
       "name": "schema:asset-manifest",
       "ok": true,
-      "detail": "12"
+      "detail": "20"
     },
     {
       "name": "schema:app-shell",
       "ok": true,
-      "detail": "11"
+      "detail": "20"
     },
     {
       "name": "shell:./index.html",
@@ -218,6 +218,66 @@
       "detail": "./src/core/vehicle-physics.js"
     },
     {
+      "name": "shell:./data/balance-data.js",
+      "ok": true,
+      "detail": "./data/balance-data.js"
+    },
+    {
+      "name": "shell:./src/core/balance-simulator.js",
+      "ok": true,
+      "detail": "./src/core/balance-simulator.js"
+    },
+    {
+      "name": "shell:./data/visual-data.js",
+      "ok": true,
+      "detail": "./data/visual-data.js"
+    },
+    {
+      "name": "shell:./src/core/track-visual-system.js",
+      "ok": true,
+      "detail": "./src/core/track-visual-system.js"
+    },
+    {
+      "name": "shell:./data/audio-ui-data.js",
+      "ok": true,
+      "detail": "./data/audio-ui-data.js"
+    },
+    {
+      "name": "shell:./src/core/audio-ui-system.js",
+      "ok": true,
+      "detail": "./src/core/audio-ui-system.js"
+    },
+    {
+      "name": "shell:./src/core/living-career-system.js",
+      "ok": true,
+      "detail": "./src/core/living-career-system.js"
+    },
+    {
+      "name": "shell:./data/living-career-data.js",
+      "ok": true,
+      "detail": "./data/living-career-data.js"
+    },
+    {
+      "name": "shell:./data/backend-launch-data.js",
+      "ok": true,
+      "detail": "./data/backend-launch-data.js"
+    },
+    {
+      "name": "shell:./src/core/backend-launch-system.js",
+      "ok": true,
+      "detail": "./src/core/backend-launch-system.js"
+    },
+    {
+      "name": "shell:./data/release-candidate-data.js",
+      "ok": true,
+      "detail": "./data/release-candidate-data.js"
+    },
+    {
+      "name": "shell:./src/core/release-candidate-system.js",
+      "ok": true,
+      "detail": "./src/core/release-candidate-system.js"
+    },
+    {
       "name": "shell:./data/game-data.js",
       "ok": true,
       "detail": "./data/game-data.js"
@@ -246,6 +306,26 @@
       "name": "shell:./src/core/race-strategy-ai.js",
       "ok": true,
       "detail": "./src/core/race-strategy-ai.js"
+    },
+    {
+      "name": "shell:./data/deployment-data.js",
+      "ok": true,
+      "detail": "./data/deployment-data.js"
+    },
+    {
+      "name": "shell:./src/core/deployment-system.js",
+      "ok": true,
+      "detail": "./src/core/deployment-system.js"
+    },
+    {
+      "name": "shell:./data/operations-data.js",
+      "ok": true,
+      "detail": "./data/operations-data.js"
+    },
+    {
+      "name": "shell:./src/core/operations-system.js",
+      "ok": true,
+      "detail": "./src/core/operations-system.js"
     }
   ]
 }

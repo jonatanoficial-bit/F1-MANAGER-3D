@@ -1,5 +1,5 @@
 F1 MANAGER 3D — CAMINHOS EXATOS DE ASSETS
-BUILD: F1M3D-0.21.0-F12
+BUILD: F1M3D-0.29.0-F20
 POLÍTICA: este ZIP não contém imagens, áudios, vídeos ou modelos pesados.
 RESTAURAÇÃO: copie os arquivos para os caminhos abaixo sem renomear e respeitando maiúsculas/minúsculas.
 LEGENDA: [OBRIGATÓRIO-FALTANTE] carregado pela build atual e ausente no ZIP original; [OBRIGATÓRIO-ORIGINAL] carregado e existente; [ARQUIVO-ORIGINAL] existia mas não é carregado diretamente; [LEGADO] aparece apenas em dados antigos/documentação.

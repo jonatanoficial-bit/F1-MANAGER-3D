@@ -1,18 +1,18 @@
 {
-  "build": "F1M3D-0.21.0-F12",
-  "generatedAt": "2026-06-18T22:03:17.373Z",
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:15:50.763Z",
   "passed": 24,
   "failed": 0,
   "results": [
     {
       "name": "catalog:build",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "catalog:version",
       "ok": true,
-      "detail": "12"
+      "detail": "20"
     },
     {
       "name": "catalog:entry-count",

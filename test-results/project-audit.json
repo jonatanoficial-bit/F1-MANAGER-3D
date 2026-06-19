@@ -1,7 +1,7 @@
 {
-  "build": "F1M3D-0.21.0-F12",
-  "generatedAt": "2026-06-18T22:05:39.886Z",
-  "passed": 156,
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:16:10.493Z",
+  "passed": 227,
   "failed": 0,
   "results": [
     {
@@ -61,6 +61,41 @@
     },
     {
       "name": "json:PHASE_12_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_13_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_14_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_15_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_16_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_17_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_18_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_19_REPORT.json",
       "ok": true,
       "detail": ""
     },
@@ -140,6 +175,21 @@
       "detail": ""
     },
     {
+      "name": "json:test-results/audio-ui-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/backend-launch-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/balance-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "json:test-results/browser-audit.json",
       "ok": true,
       "detail": ""
@@ -165,12 +215,22 @@
       "detail": ""
     },
     {
+      "name": "json:test-results/deployment-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "json:test-results/full-audit-summary.json",
       "ok": true,
       "detail": ""
     },
     {
       "name": "json:test-results/i18n-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/living-career-audit.json",
       "ok": true,
       "detail": ""
     },
@@ -186,6 +246,11 @@
     },
     {
       "name": "json:test-results/npm-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/operations-audit.json",
       "ok": true,
       "detail": ""
     },
@@ -210,6 +275,11 @@
       "detail": ""
     },
     {
+      "name": "json:test-results/release-candidate-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "json:test-results/sporting-data-audit.json",
       "ok": true,
       "detail": ""
@@ -221,6 +291,11 @@
     },
     {
       "name": "json:test-results/strategy-ai-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/track-visual-audit.json",
       "ok": true,
       "detail": ""
     },
@@ -365,6 +440,86 @@
       "detail": ""
     },
     {
+      "name": "syntax:data/balance-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/balance-simulator.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/visual-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/track-visual-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/audio-ui-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/audio-ui-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/living-career-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/living-career-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/backend-launch-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/backend-launch-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/release-candidate-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/release-candidate-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/deployment-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/deployment-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/operations-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/operations-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "app-shell:index.html",
       "ok": true,
       "detail": ""
@@ -485,6 +640,66 @@
       "detail": ""
     },
     {
+      "name": "app-shell:data/balance-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/balance-simulator.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/visual-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/track-visual-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/audio-ui-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/audio-ui-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/living-career-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/living-career-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/backend-launch-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/backend-launch-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/release-candidate-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/release-candidate-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "app-shell:data/game-data.js",
       "ok": true,
       "detail": ""
@@ -515,6 +730,26 @@
       "detail": ""
     },
     {
+      "name": "app-shell:data/deployment-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/deployment-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/operations-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/operations-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "assets:no-binaries-in-phase-zip",
       "ok": true,
       "detail": ""
@@ -522,12 +757,12 @@
     {
       "name": "assets:manifest-build",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "assets:manifest-version",
       "ok": true,
-      "detail": "12"
+      "detail": "20"
     },
     {
       "name": "assets:original-catalogue",
@@ -602,7 +837,7 @@
     {
       "name": "build:save-schema",
       "ok": true,
-      "detail": "12"
+      "detail": "20"
     },
     {
       "name": "system:tab-visible",
@@ -652,7 +887,7 @@
     {
       "name": "browser:current-build",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "performance:audit-pass",
@@ -662,7 +897,7 @@
     {
       "name": "performance:current-build",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "mobile:audit-pass",
@@ -672,7 +907,7 @@
     {
       "name": "mobile:current-build",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "i18n:audit-pass",
@@ -682,17 +917,17 @@
     {
       "name": "i18n:current-build",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "visual:audit-pass",
       "ok": true,
-      "detail": "52 passed, 0 failed"
+      "detail": "91 passed, 0 failed"
     },
     {
       "name": "visual:current-build",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "ci:audit-pass",
@@ -702,7 +937,7 @@
     {
       "name": "ci:current-build",
       "ok": true,
-      "detail": "F1M3D-0.21.0-F12"
+      "detail": "F1M3D-0.29.0-F20"
     },
     {
       "name": "ci:workflow-present",
@@ -768,6 +1003,126 @@
       "name": "strategy:ui-present",
       "ok": true,
       "detail": "system card + action"
+    },
+    {
+      "name": "balance:data-present",
+      "ok": true,
+      "detail": "balance simulator"
+    },
+    {
+      "name": "balance:audit-present",
+      "ok": true,
+      "detail": "balance audit"
+    },
+    {
+      "name": "balance:ui-present",
+      "ok": true,
+      "detail": "system card + monte carlo"
+    },
+    {
+      "name": "visual3d:data-present",
+      "ok": true,
+      "detail": "track visual system"
+    },
+    {
+      "name": "visual3d:audit-present",
+      "ok": true,
+      "detail": "track visual audit"
+    },
+    {
+      "name": "visual3d:ui-present",
+      "ok": true,
+      "detail": "system card + renderer hooks"
+    },
+    {
+      "name": "audio-ui:data-present",
+      "ok": true,
+      "detail": "audio ui system"
+    },
+    {
+      "name": "audio-ui:audit-present",
+      "ok": true,
+      "detail": "audio ui audit"
+    },
+    {
+      "name": "audio-ui:ui-present",
+      "ok": true,
+      "detail": "system card + accessibility css"
+    },
+    {
+      "name": "living-career:data-present",
+      "ok": true,
+      "detail": "living career system"
+    },
+    {
+      "name": "living-career:audit-present",
+      "ok": true,
+      "detail": "living career audit"
+    },
+    {
+      "name": "living-career:ui-present",
+      "ok": true,
+      "detail": "system card + review"
+    },
+    {
+      "name": "backend-launch:data-present",
+      "ok": true,
+      "detail": "backend launch system"
+    },
+    {
+      "name": "backend-launch:audit-present",
+      "ok": true,
+      "detail": "backend launch audit"
+    },
+    {
+      "name": "backend-launch:ui-present",
+      "ok": true,
+      "detail": "system card + RC"
+    },
+    {
+      "name": "release-candidate:data-present",
+      "ok": true,
+      "detail": "release candidate system"
+    },
+    {
+      "name": "release-candidate:audit-present",
+      "ok": true,
+      "detail": "release candidate audit"
+    },
+    {
+      "name": "release-candidate:ui-present",
+      "ok": true,
+      "detail": "system card + commercial package"
+    },
+    {
+      "name": "deployment:data-present",
+      "ok": true,
+      "detail": "deployment system"
+    },
+    {
+      "name": "deployment:audit-present",
+      "ok": true,
+      "detail": "deployment audit"
+    },
+    {
+      "name": "deployment:ui-present",
+      "ok": true,
+      "detail": "system card + beta"
+    },
+    {
+      "name": "operations:data-present",
+      "ok": true,
+      "detail": "operations system"
+    },
+    {
+      "name": "operations:audit-present",
+      "ok": true,
+      "detail": "operations audit"
+    },
+    {
+      "name": "operations:ui-present",
+      "ok": true,
+      "detail": "system card + hotfix"
     },
     {
       "name": "scroll:creator-fix-present",

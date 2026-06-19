@@ -1,8 +1,8 @@
 (() => {
   const DATA = window.F1M_DATA;
   const CORE = window.F1M_CORE || {};
-  const SAVE_SCHEMA = Number(DATA.build?.save_schema || 12);
-  const SAVE_KEYS = ['f1_manager_career_2026_v0210', 'f1_manager_career_2026_v0200', 'f1_manager_career_2026_v0190', 'f1_manager_career_2026_v0180', 'f1_manager_career_2026_v0170', 'f1_manager_career_2026_v0160', 'f1_manager_career_2026_v0150', 'f1_manager_career_2026_v0140', 'f1_manager_career_2026_v0130', 'f1_manager_career_2026_v0120', 'f1_manager_career_2026_v0110', 'f1_manager_career_2026_v0100', 'f1_manager_career_2026_v090', 'f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
+  const SAVE_SCHEMA = Number(DATA.build?.save_schema || 20);
+  const SAVE_KEYS = ['f1_manager_career_2026_v0290', 'f1_manager_career_2026_v0280', 'f1_manager_career_2026_v0270', 'f1_manager_career_2026_v0260', 'f1_manager_career_2026_v0250', 'f1_manager_career_2026_v0240', 'f1_manager_career_2026_v0230', 'f1_manager_career_2026_v0220', 'f1_manager_career_2026_v0210', 'f1_manager_career_2026_v0200', 'f1_manager_career_2026_v0190', 'f1_manager_career_2026_v0180', 'f1_manager_career_2026_v0170', 'f1_manager_career_2026_v0160', 'f1_manager_career_2026_v0150', 'f1_manager_career_2026_v0140', 'f1_manager_career_2026_v0130', 'f1_manager_career_2026_v0120', 'f1_manager_career_2026_v0110', 'f1_manager_career_2026_v0100', 'f1_manager_career_2026_v090', 'f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
   const ACTIVE_SAVE_KEY = SAVE_KEYS[0];
   const RUNTIME_ERROR_KEY = `${ACTIVE_SAVE_KEY}_runtime_errors`;
   const ASSET_ROOTS = ['assets/'];
@@ -47,6 +47,61 @@
     vehiclePhysics,
     regulationEngine,
     sportingDb
+  }) || null;
+
+  const balanceSimulator = CORE.balance?.createBalanceSimulator?.({
+    data:window.F1M_BALANCE_DATA || DATA.balanceData || {},
+    sportingDb,
+    regulationEngine,
+    vehiclePhysics,
+    strategyAI
+  }) || null;
+
+  const visualSystem = CORE.visual3d?.createTrackVisualSystem?.({
+    data:window.F1M_VISUAL_DATA || DATA.visualData || {}
+  }) || null;
+
+  const audioUI = CORE.audioUI?.createAudioUISystem?.({
+    data:window.F1M_AUDIO_UI_DATA || DATA.audioUiData || {},
+    window,
+    document,
+    events:appEvents,
+    onError:(error,context)=>reportRuntimeError(error,context)
+  }) || null;
+
+  const livingCareer = CORE.livingCareer?.createLivingCareerSystem?.({
+    data:window.F1M_LIVING_CAREER_DATA || DATA.livingCareerData || {},
+    events:appEvents
+  }) || null;
+
+  const backendLaunch = CORE.launch?.createBackendLaunchSystem?.({
+    data:window.F1M_BACKEND_LAUNCH_DATA || DATA.backendLaunchData || {},
+    events:appEvents,
+    persistence
+  }) || null;
+
+  const releaseCandidate = CORE.releaseCandidate?.createReleaseCandidateSystem?.({
+    data:window.F1M_RELEASE_CANDIDATE_DATA || DATA.releaseCandidateData || {},
+    events:appEvents,
+    launchSystem:backendLaunch,
+    persistence
+  }) || null;
+
+  const deployValidation = CORE.deployValidation?.createDeploymentValidationSystem?.({
+    data:window.F1M_DEPLOYMENT_DATA || DATA.deploymentData || {},
+    events:appEvents,
+    assetRegistry,
+    persistence,
+    releaseCandidate
+  }) || null;
+
+  const operationsSystem = CORE.operations?.createOperationsSystem?.({
+    data:window.F1M_OPERATIONS_DATA || DATA.operationsData || {},
+    events:appEvents,
+    assetRegistry,
+    persistence,
+    releaseCandidate,
+    deployValidation
   }) || null;
 
   let state = loadState() || createInitialState();
@@ -238,6 +293,16 @@
     state.setup = state.setup || { preset:'balanced', aeroBalance:50, engineMode:50, suspension:50, tyrePressure:50 };
     state.weekend = state.weekend || { practiceDone:false, setupConfidence:50, tyreKnowledge:50, qualyFocus:'balanced', engineerNote:'Aguardando treino livre.' };
     state.staff = {...{ designers:1, mechanics:1, strategists:1, raceEngineers:1, scouts:1, pitCrew:1 }, ...(state.staff||{})};
+    livingCareer?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_LIVING_CAREER_DATA || {} });
+    // state.livingCareer é mantido pelo módulo F16 para carreira viva multi-temporada.
+    backendLaunch?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_BACKEND_LAUNCH_DATA || {} });
+    // state.backendLaunch é mantido pelo módulo F17 para backend, segurança e lançamento.
+    releaseCandidate?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_RELEASE_CANDIDATE_DATA || {} });
+    // state.releaseCandidate é mantido pelo módulo F18 para RC comercial e homologação final.
+    deployValidation?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_DEPLOYMENT_DATA || {} });
+    // state.deployment é mantido pelo módulo F19 para deploy seguro e beta público.
+    operationsSystem?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_OPERATIONS_DATA || {} });
+    // state.operations é mantido pelo módulo F20 para feedback beta, triagem e hotfix controlado.
     ensureRosters();
     state.car = state.car || { aero:50, engine:50, chassis:50, reliability:55, tyreWear:55, pitStop:55, fuel:55 };
     ensureStandings();
@@ -628,6 +693,7 @@
     bindViewportFixes();
     updateBuildBadges();
     ensureCareerSystems();
+    audioUI?.applyDesignTokens?.();
     screenBackgrounds();
     bindGlobalActions();
     initNavLabels();
@@ -647,7 +713,7 @@
       const nav = ev.target.closest('[data-nav]');
       if(nav){ showScreen(nav.dataset.nav); return; }
       const act = ev.target.closest('[data-action]');
-      if(act) handleAction(act.dataset.action, act);
+      if(act){ audioUI?.unlock?.(); audioUI?.emit?.('ui.click', { action:act.dataset.action }); handleAction(act.dataset.action, act); }
       const tab = ev.target.closest('[data-tab]');
       if(tab){
         const tabName = tab.dataset.tab;
@@ -702,13 +768,13 @@
       startQualifying(){ simulateQualifying(); },
       simulateSprint(){ simulateSupportSession('sprint'); },
       simulateFeature(){ simulateSupportSession('feature'); },
-      startRaceDirect(){ const sel=document.getElementById('quickRaceSelect'); if(sel) state.roundIndex=Number(sel.value)||0; setupRace(true); showScreen('race'); },
-      startRace(){ setupRace(false); showScreen('race'); },
+      startRaceDirect(){ const sel=document.getElementById('quickRaceSelect'); if(sel) state.roundIndex=Number(sel.value)||0; setupRace(true); audioUI?.emit?.('race.start'); showScreen('race'); },
+      startRace(){ setupRace(false); audioUI?.emit?.('race.start'); showScreen('race'); },
       setPace(){ if(race){ race.playerPace[Number(el.dataset.driver)] = el.dataset.pace; updateRaceHud(); } },
-      pitDriver(){ if(race) requestPit(Number(el.dataset.driver)); },
+      pitDriver(){ if(race){ requestPit(Number(el.dataset.driver)); audioUI?.emit?.('race.pit'); } },
       chooseStrategy(){ chooseRaceStrategy(el.dataset.strategy); },
       toggleRaceSpeed(){ if(race){ race.speed = race.speed === 1 ? 2 : race.speed === 2 ? 4 : race.speed === 4 ? 8 : race.speed === 8 ? 16 : 1; $('#speedLabel').textContent = race.speed; } },
-      toggleRaceCamera(){ if(race){ race.cameraMode = race.cameraMode === 'tv' ? 'follow' : race.cameraMode === 'follow' ? 'overhead' : 'tv'; race.raceLog.unshift('Câmera: '+cameraLabel(race.cameraMode)); } },
+      toggleRaceCamera(){ if(race){ const modes=['tv','follow','onboard','pitwall','overhead','replay']; const idx=modes.indexOf(race.cameraMode||'tv'); race.cameraMode=modes[(idx+1)%modes.length]; race.raceLog.unshift('Câmera: '+cameraLabel(race.cameraMode)); updateRaceHud(); } },
       finishRaceNow(){ if(race) finishRace(); },
       returnLobbyAfterRace(){ showScreen('lobby'); },
       nextRaceFromResults(){ advanceToNextRaceScreen(); },
@@ -739,6 +805,25 @@
       runPerformanceAudit(){ runPerformanceAudit(); },
       runVehiclePhysicsAudit(){ runVehiclePhysicsAudit(); },
       runStrategyAIAudit(){ runStrategyAIAudit(); },
+      runBalanceAudit(){ runBalanceAudit(); },
+      runBalanceMonteCarlo(){ runBalanceMonteCarlo(); },
+      runVisual3DAudit(){ runVisual3DAudit(); },
+      runAudioUIAudit(){ runAudioUIAudit(); },
+      toggleAudioMute(){ toggleAudioMute(); },
+      runLivingCareerAudit(){ runLivingCareerAudit(); },
+      runLivingCareerReview(){ runLivingCareerReview(); },
+      runBackendLaunchAudit(){ runBackendLaunchAudit(); },
+      prepareReleaseCandidate(){ prepareReleaseCandidate(); },
+      toggleTelemetryConsent(){ toggleTelemetryConsent(); },
+      runReleaseCandidateAudit(){ runReleaseCandidateAudit(); },
+      prepareCommercialPackage(){ prepareCommercialPackage(); },
+      exportStoreChecklist(){ exportStoreChecklist(); },
+      runDeploymentAudit(){ runDeploymentAudit(); },
+      preparePublicBeta(){ preparePublicBeta(); },
+      generateAssetRestorePlan(){ generateAssetRestorePlan(); },
+      runOperationsAudit(){ runOperationsAudit(); },
+      addBetaFeedbackSample(){ addBetaFeedbackSample(); },
+      prepareHotfixPlan(){ prepareHotfixPlan(); },
       runAssetAudit(){ hydrateAssets(document); setTimeout(renderAssetChecklist, 120); },
       exportAssetReport(){ exportAssetReport(); },
       clearRuntimeErrors(){ clearRuntimeErrors(); },
@@ -1091,13 +1176,21 @@
       const errors = runtimeGuard?.list?.() || [];
       const buildCheck = CORE.build?.consistency?.(DATA.build);
       content.innerHTML = `<div class="cards-grid system-grid">
-        <article class="dash-card glass-panel wide system-hero"><h3>Central Antiquebra e Diagnóstico</h3><p>Verifica build, dados, save, armazenamento, PWA, viewport, registro central de assets, performance mobile e erros reais do navegador.</p><p>Build ativa: <b>${DATA.build?.build_code || 'dev'}</b> • Save schema <b>${SAVE_SCHEMA}</b> • Resultado: <b>${report ? report.score + '/100' : 'não executado'}</b></p><button class="primary" data-action="runSystemDiagnostics" ${diagnosticsRunning?'disabled':''}>${diagnosticsRunning?'ANALISANDO…':'RODAR DIAGNÓSTICO COMPLETO'}</button><button class="secondary" data-action="runPerformanceAudit">MEDIR PERFORMANCE</button><button class="secondary" data-action="exportDiagnostics">EXPORTAR RELATÓRIO</button></article>
+        <article class="dash-card glass-panel wide system-hero"><h3>Central Antiquebra e Diagnóstico</h3><p>Verifica build, dados, save, armazenamento, PWA, viewport, registro central de assets, performance mobile, balanceamento científico, corrida 3D profissional, áudio/interface/acessibilidade, carreira viva profunda, backend/segurança/lançamento, deploy/beta público, operação beta F20 e erros reais do navegador.</p><p>Build ativa: <b>${DATA.build?.build_code || 'dev'}</b> • Save schema <b>${SAVE_SCHEMA}</b> • Resultado: <b>${report ? report.score + '/100' : 'não executado'}</b></p><button class="primary" data-action="runSystemDiagnostics" ${diagnosticsRunning?'disabled':''}>${diagnosticsRunning?'ANALISANDO…':'RODAR DIAGNÓSTICO COMPLETO'}</button><button class="secondary" data-action="runPerformanceAudit">MEDIR PERFORMANCE</button><button class="secondary" data-action="exportDiagnostics">EXPORTAR RELATÓRIO</button></article>
         <article class="dash-card glass-panel"><h3>Orçamento mobile</h3>${performanceMiniHTML()}</article>
         <article class="dash-card glass-panel"><h3>Idioma e região</h3>${i18nMiniHTML()}<div class="i18n-switcher-row" data-i18n-switcher></div></article>
         <article class="dash-card glass-panel"><h3>Banco esportivo 2026</h3>${sportingMiniHTML()}</article>
         <article class="dash-card glass-panel"><h3>Regulamento e sessões</h3>${regulationMiniHTML()}</article>
         <article class="dash-card glass-panel"><h3>Física do veículo</h3>${vehicleMiniHTML()}<button class="secondary" data-action="runVehiclePhysicsAudit">AUDITAR FÍSICA</button></article>
         <article class="dash-card glass-panel"><h3>IA e estratégia F12</h3>${strategyMiniHTML()}<button class="secondary" data-action="runStrategyAIAudit">AUDITAR IA</button></article>
+        <article class="dash-card glass-panel"><h3>Balanceamento F13</h3>${balanceMiniHTML()}<button class="secondary" data-action="runBalanceAudit">AUDITAR BALANCEAMENTO</button><button class="secondary" data-action="runBalanceMonteCarlo">RODAR MONTE CARLO</button></article>
+        <article class="dash-card glass-panel"><h3>Corrida 3D F14</h3>${visual3dMiniHTML()}<button class="secondary" data-action="runVisual3DAudit">AUDITAR 3D</button></article>
+        <article class="dash-card glass-panel"><h3>Áudio, UI e acessibilidade F15</h3>${audioUiMiniHTML()}<button class="secondary" data-action="runAudioUIAudit">AUDITAR ÁUDIO/UI</button><button class="secondary" data-action="toggleAudioMute">ÁUDIO ON/OFF</button></article>
+        <article class="dash-card glass-panel living-career-card"><h3>Carreira viva F16</h3>${livingCareerMiniHTML()}<button class="secondary" data-action="runLivingCareerAudit">AUDITAR CARREIRA</button><button class="secondary" data-action="runLivingCareerReview">REVISÃO DO CONSELHO</button></article>
+        <article class="dash-card glass-panel backend-launch-card"><h3>Backend, segurança e lançamento F17</h3>${backendLaunchMiniHTML()}<button class="secondary" data-action="runBackendLaunchAudit">AUDITAR LANÇAMENTO</button><button class="secondary" data-action="prepareReleaseCandidate">PREPARAR RC</button><button class="secondary" data-action="toggleTelemetryConsent">CONSENTIMENTO</button></article>
+        <article class="dash-card glass-panel release-candidate-card"><h3>Release Candidate comercial F18</h3>${releaseCandidateMiniHTML()}<button class="secondary" data-action="runReleaseCandidateAudit">AUDITAR RC</button><button class="secondary" data-action="prepareCommercialPackage">PACOTE FINAL</button><button class="secondary" data-action="exportStoreChecklist">CHECKLIST LOJAS</button></article>
+        <article class="dash-card glass-panel deploy-card"><h3>Deploy e Beta Público F19</h3>${deploymentMiniHTML()}<button class="secondary" data-action="runDeploymentAudit">AUDITAR DEPLOY</button><button class="secondary" data-action="preparePublicBeta">PREPARAR BETA</button><button class="secondary" data-action="generateAssetRestorePlan">PLANO ASSETS</button></article>
+        <article class="dash-card glass-panel operations-card"><h3>Operação beta F20</h3>${operationsMiniHTML()}<button class="secondary" data-action="runOperationsAudit">AUDITAR OPERAÇÃO</button><button class="secondary" data-action="addBetaFeedbackSample">SIMULAR FEEDBACK</button><button class="secondary" data-action="prepareHotfixPlan">PLANO HOTFIX</button></article>
         <article class="dash-card glass-panel"><h3>Imagens e caminhos</h3><p>Os binários pesados ficam fora do ZIP por regra do projeto, mas os caminhos continuam preservados. Restaure a pasta assets real no GitHub/Vercel para as imagens aparecerem.</p><p class="muted-small">Ex.: assets/avatars/selectable/avatar_01.png</p></article>
         <article class="dash-card glass-panel"><h3>Mobile, fullscreen e safe area</h3>${viewportMiniHTML()}<button class="secondary" data-action="enterFullscreen">ATIVAR FULLSCREEN</button><button class="secondary" data-action="cycleHudMode">ALTERNAR HUD</button></article>
         <article class="dash-card glass-panel"><h3>Fonte única de build</h3><p>${buildCheck?.ok ? '✓ Sincronizada' : '⚠ Divergência detectada'}</p><p>${CORE.build?.format?.(DATA.build, true) || DATA.build?.label || ''}</p><small>HTML, runtime, dados, PWA, pacote e manifesto são auditados na geração.</small></article>
@@ -2331,6 +2424,241 @@
     addInboxMessage('qa','IA e Estratégia', audit?.score >= 92 ? 'Estratégia de corrida aprovada' : 'Estratégia de corrida requer revisão', `Fase 12: ${audit?.score ?? 0}/100 • ${audit?.passed ?? 0} verificações aprovadas.`, { score:audit?.score || 0 });
     saveState(); renderTab('system'); updateHud();
   }
+
+  function balanceMiniHTML(){
+    const audit = balanceSimulator?.audit?.() || { score:0, passed:0, failed:1, checks:[] };
+    const report = state.quality?.balanceMonteCarlo || null;
+    const score = report?.score ? `${report.score}/100` : `${audit.score}/100`;
+    const runs = report?.runs || (window.F1M_BALANCE_DATA?.monteCarlo?.quickRuns || 80);
+    const dnf = report?.metrics?.dnfRate !== undefined ? `${Math.round(report.metrics.dnfRate*1000)/10}% DNF` : 'DNF alvo auditável';
+    const overtakes = report?.metrics?.overtakesPerRace !== undefined ? `${Math.round(report.metrics.overtakesPerRace)} ultrapassagens/corrida` : 'ultrapassagens alvo';
+    return `<p><b>${score}</b> • ${audit.passed} sistemas aprovados</p><p>${runs} simulações • ${dnf}</p><p class="muted-small">Monte Carlo • abandono • pits • gaps • progressão • dificuldade sem trapaça invisível • ${overtakes}</p>`;
+  }
+
+  function balanceSimulationInputs(){
+    const series = state.currentSeries || selectedSeries || 'F2';
+    const teams = series === 'F1' ? DATA.f1Teams2026 : DATA.f2Teams;
+    const drivers = allDriversForSeries(series);
+    return { series, teams, drivers, difficulty:difficultyKey(), seed:132026 + Number(state.completedRaces||0), laps:(activeCalendar(series)[state.roundIndex||0]?.laps || 26) };
+  }
+
+  function runBalanceAudit(){
+    const audit = balanceSimulator?.audit?.();
+    state.quality = state.quality || {};
+    state.quality.balanceAudit = audit || { score:0, passed:0, failed:1, checks:[] };
+    addInboxMessage('qa','Balanceamento F13', audit?.score >= 92 ? 'Modelo científico aprovado' : 'Modelo científico requer revisão', `Fase 13: ${audit?.score ?? 0}/100 • ${audit?.passed ?? 0} verificações aprovadas.`, { score:audit?.score || 0 });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function runBalanceMonteCarlo(){
+    const input = balanceSimulationInputs();
+    const quickRuns = Number(window.F1M_BALANCE_DATA?.monteCarlo?.quickRuns || 80);
+    const report = balanceSimulator?.simulateMonteCarlo?.({ ...input, runs:quickRuns });
+    state.quality = state.quality || {};
+    state.quality.balanceMonteCarlo = report || null;
+    const txt = report ? `${report.runs} corridas simuladas • score ${report.score}/100 • DNF ${Math.round((report.metrics?.dnfRate||0)*1000)/10}% • ${Math.round(report.metrics?.overtakesPerRace||0)} ultrapassagens/corrida.` : 'Balanceador indisponível.';
+    addInboxMessage('qa','Monte Carlo F13','Relatório de balanceamento gerado', txt, { score:report?.score || 0 });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function visual3dMiniHTML(){
+    const audit = visualSystem?.audit?.() || { score:0, passed:0, failed:1, checks:[] };
+    const model = visualSystem?.createTrackModel?.(activeCalendar()[state.roundIndex] || {}, { width:window.innerWidth, height:window.innerHeight, dpr:window.devicePixelRatio || 1 }) || null;
+    const cameras = Object.keys(audit.cameraPresets || {}).length;
+    return `<p><b>${audit.score}/100</b> • ${audit.passed} aprovados • ${audit.failed} pendentes</p><p>${model?.name || 'Circuito procedural'} • largura ${model?.widthMeters || 0}m • ${model?.sectors?.length || 0} setores • ${model?.drsZones?.length || 0} DRS</p><p class="muted-small">${cameras} câmeras • replay ${model?.replay?.enabled ? 'ativo' : 'n/d'} • visual procedural sem binários pesados</p>`;
+  }
+
+  function runVisual3DAudit(){
+    const audit = visualSystem?.audit?.() || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.visual3dAudit = audit;
+    addInboxMessage('qa','Corrida 3D F14', audit.score >= 94 ? 'Renderização profissional aprovada' : 'Renderização 3D requer revisão', `Fase 14: ${audit.score}/100 • pista larga, elevação, pit lane, setores, DRS, racing lines, LOD, danos, chuva, câmeras e replay.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+
+  function audioUiMiniHTML(){
+    const audit = audioUI?.audit?.() || { score:0, passed:0, failed:1, channels:[], muted:true, enabled:false, checks:[] };
+    const mix = audioUI?.raceMix?.(race || { weather:'dry' }) || {};
+    const status = audit.muted ? 'mutado até toque do usuário' : (audit.enabled ? 'ativo' : 'pronto');
+    return `<p><b>${audit.score}/100</b> • ${audit.passed} aprovados • ${audit.failed} pendentes</p><p>${audit.channels?.length || 0} canais • ${status}</p><p class="muted-small">Motor ${mix.engine ?? 'n/d'} • Rádio ${mix.radio ?? 'n/d'} • Box ${mix.pit ?? 'n/d'} • UI ${mix.ui ?? 'n/d'} • sem arquivos pesados</p>`;
+  }
+
+  function runAudioUIAudit(){
+    const audit = audioUI?.audit?.() || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.audioUI = audit;
+    addInboxMessage('qa','Áudio e Interface F15', audit.score >= 96 ? 'Sistema de áudio/UI aprovado' : 'Sistema de áudio/UI requer revisão', `Fase 15: ${audit.score}/100 • áudio procedural, rádio/box, design system, tutorial contextual e acessibilidade.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function toggleAudioMute(){
+    const currentlyMuted = audioUI?.muted !== false;
+    audioUI?.setMuted?.(!currentlyMuted);
+    audioUI?.unlock?.();
+    audioUI?.emit?.(currentlyMuted ? 'ui.confirm' : 'ui.warning');
+    state.settings = {...(state.settings||{}), audioMuted:!currentlyMuted};
+    addInboxMessage('system','Áudio F15', currentlyMuted ? 'Áudio procedural ativado' : 'Áudio procedural mutado', 'O sistema usa Web Audio procedural e não adiciona arquivos pesados ao ZIP.', {});
+    saveState(); renderTab('system');
+  }
+
+
+  function livingCareerMiniHTML(){
+    const audit = livingCareer?.audit?.({ state }) || { score:0, passed:0, failed:1, checks:[], board:{confidence:0,status:'indisponível'}, recommendations:[], projection:[] };
+    const board = audit.board || livingCareer?.evaluateBoard?.(state) || { confidence:0, status:'n/d', budget:0, facilities:0, departments:0 };
+    const projection = audit.projection || livingCareer?.projectMultiSeason?.(state) || [];
+    const next = (audit.recommendations || livingCareer?.recommendActions?.(state) || [])[0];
+    return `<p><b>${audit.score}/100</b> • ${audit.passed} aprovados • ${audit.failed} pendentes</p><div class="living-metric-grid"><span>Conselho <b>${board.confidence || 0}</b></span><span>Fábrica <b>${board.facilities || 0}</b></span><span>Deptos <b>${board.departments || 0}</b></span><span>Caixa <b>${board.budget || 0}</b></span></div><p>${board.status || 'status n/d'} • ${next ? next.title : 'plano estável'}</p><p class="muted-small">Staff profundo • fábricas • P&D • patrocinadores • política interna • academia • mercado • imprensa • rivalidades • regulamentos • ${projection[1]?.expectedIdentity || 'multi-temporada'}</p>`;
+  }
+
+  function runLivingCareerAudit(){
+    const audit = livingCareer?.audit?.({ state }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.livingCareerAudit = audit;
+    addInboxMessage('qa','Carreira Viva F16', audit.score >= 96 ? 'Carreira viva aprovada' : 'Carreira viva requer revisão', `Fase 16: ${audit.score}/100 • staff, fábricas, P&D, patrocinadores, política, academia, mercado, imprensa, rivalidades e múltiplas temporadas.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function runLivingCareerReview(){
+    ensureCareerSystems();
+    const board = livingCareer?.evaluateBoard?.(state) || { confidence:0, status:'indisponível' };
+    const reg = livingCareer?.forecastRegulationImpact?.(state) || [];
+    const actions = livingCareer?.recommendActions?.(state) || [];
+    const projection = livingCareer?.projectMultiSeason?.(state) || [];
+    state.quality = state.quality || {};
+    state.quality.livingCareerReview = { board, regulation:reg, actions, projection, generatedAt:new Date().toISOString() };
+    const topRisk = reg.slice().sort((a,b)=>(b.risk||0)-(a.risk||0))[0];
+    addInboxMessage('board','Conselho da Equipe',`Revisão do conselho: ${board.status || 'n/d'}`, `Confiança ${board.confidence || 0}/100. Próxima ação: ${actions[0]?.title || 'manter plano'}. ${topRisk ? 'Risco regulatório: '+topRisk.label+' ('+topRisk.risk+'/100).' : ''}`, { confidence:board.confidence || 0 });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+
+  function backendLaunchMiniHTML(){
+    const audit = backendLaunch?.audit?.({ state }) || { score:0, passed:0, failed:1, status:{ launchScore:0, channels:[], platforms:[], telemetry:'n/d', cloudSave:'n/d' }, checks:[] };
+    const status = audit.status || backendLaunch?.status?.(state) || { launchScore:0, channels:[], platforms:[], cloudSave:'n/d', telemetry:'n/d', liveOps:'n/d' };
+    const consent = state.privacy?.telemetryConsent ? 'consentido' : 'desligado por padrão';
+    return `<p><b>${audit.score}/100</b> • ${audit.passed} aprovados • ${audit.failed} pendentes</p><div class="backend-metric-grid"><span>Canais <b>${status.channels?.length || 0}</b></span><span>Plataformas <b>${status.platforms?.length || 0}</b></span><span>Cloud <b>${status.cloudSave || 'n/d'}</b></span><span>Telemetria <b>${consent}</b></span></div><p class="muted-small">Contas • cloud save • conflitos • crash report • remote config • rollback • privacidade • lojas • suporte • live ops</p>`;
+  }
+
+  function runBackendLaunchAudit(){
+    ensureCareerSystems();
+    const audit = backendLaunch?.audit?.({ state }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.backendLaunch = audit;
+    addInboxMessage('qa','Backend e lançamento F17', audit.score >= 96 ? 'Fundação de lançamento aprovada' : 'Fundação de lançamento requer revisão', `Fase 17: ${audit.score}/100 • contas, cloud save, telemetria consentida, crash report, config remota, rollback e live ops.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function prepareReleaseCandidate(){
+    ensureCareerSystems();
+    const rc = backendLaunch?.prepareReleaseCandidate?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || { candidate:'RC-LOCAL', checklist:[] };
+    state.quality = state.quality || {};
+    state.quality.releaseCandidate = rc;
+    const pendingAssets = (rc.checklist || []).filter(item => item.type === 'asset' && !item.done).length;
+    addInboxMessage('release','Preparação de lançamento',`Candidato ${rc.candidate || 'RC local'} preparado`, `${rc.checklist?.length || 0} itens no checklist. Assets pendentes: ${pendingAssets}. Backend real permanece por adaptador, sem expor segredos no cliente.`, { candidate:rc.candidate });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function toggleTelemetryConsent(){
+    ensureCareerSystems();
+    const granted = !Boolean(state.privacy?.telemetryConsent);
+    const privacy = backendLaunch?.setTelemetryConsent?.(state, granted, { buildCode:DATA.build?.build_code || 'dev' }) || { telemetryConsent:granted };
+    addInboxMessage('privacy','Consentimento de telemetria', granted ? 'Telemetria consentida localmente' : 'Telemetria desligada', `Status: ${privacy.telemetryConsent ? 'ativo com consentimento' : 'inativo por padrão'}. Nenhum dado é vendido e nenhum envio real ocorre sem backend configurado.`, { telemetryConsent:privacy.telemetryConsent });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+
+  function releaseCandidateMiniHTML(){
+    const audit = releaseCandidate?.audit?.({ state, buildCode:DATA.build?.build_code || 'dev' }) || { score:0, passed:0, failed:1, status:{ channel:'n/d', physicalDevices:0, stores:0, blockers:1 }, checks:[] };
+    const status = audit.status || releaseCandidate?.status?.(state) || { channel:'n/d', physicalDevices:0, stores:0, blockers:0, packageReady:false };
+    return `<p><b>${audit.score}/100</b> • ${audit.passed} aprovados • ${audit.failed} pendentes</p><div class="release-metric-grid"><span>Canal <b>${status.channel || 'RC'}</b></span><span>Aparelhos <b>${status.physicalDevices || 0}</b></span><span>Lojas <b>${status.stores || 0}</b></span><span>Bloqueios <b>${status.blockers || 0}</b></span></div><p class="muted-small">Homologação física • lojas • privacidade • suporte • jurídico • pacote final • performance real</p>`;
+  }
+
+  function runReleaseCandidateAudit(){
+    ensureCareerSystems();
+    const audit = releaseCandidate?.audit?.({ state, buildCode:DATA.build?.build_code || 'dev' }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.releaseCandidateF18 = audit;
+    addInboxMessage('qa','Release Candidate F18', audit.score >= 96 ? 'RC comercial aprovado para revisão manual' : 'RC comercial requer revisão', `Fase 18: ${audit.score}/100 • homologação física, lojas, privacidade, suporte, jurídico e pacote final.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function prepareCommercialPackage(){
+    ensureCareerSystems();
+    const pkg = releaseCandidate?.prepareCommercialPackage?.(state, { buildCode:DATA.build?.build_code || 'dev', version:DATA.build?.version || 'dev' }) || { packageId:'F1M-RC-LOCAL', blockers:[] };
+    state.quality = state.quality || {};
+    state.quality.commercialPackage = pkg;
+    addInboxMessage('release','Pacote comercial RC', pkg.blockers?.length ? 'Pacote preparado com pendências' : 'Pacote final preparado', `${pkg.packageId || 'RC local'} • ${pkg.files?.length || 0} artefatos lógicos • ${pkg.blockers?.length || 0} bloqueios.`, { packageId:pkg.packageId });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function exportStoreChecklist(){
+    ensureCareerSystems();
+    const checklist = releaseCandidate?.storeChecklist?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || [];
+    state.quality = state.quality || {};
+    state.quality.storeChecklistF18 = { generatedAt:new Date().toISOString(), items:checklist };
+    addInboxMessage('release','Checklist de lojas', 'Checklist comercial atualizado', `${checklist.length} itens para PWA, Android, iOS e Windows. Requer revisão jurídica antes de publicação.`, { items:checklist.length });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function deploymentMiniHTML(){
+    const st = deployValidation?.status?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || { score:0, envs:0, docs:0, blockers:0, channel:'n/d', productionBlocked:true };
+    const audit = state.quality?.deploymentF19;
+    return `<p><b>${audit?.score ?? st.score}/100</b> • ${st.channel}</p><p>Ambientes: <b>${st.envs}</b> • docs assets: <b>${st.docs}</b> • bloqueios: <b>${st.blockers}</b></p><p class="muted-small">Produção ${st.productionBlocked ? 'bloqueada por segurança' : 'liberável'} até restaurar assets e validar preview.</p>`;
+  }
+  function runDeploymentAudit(){
+    ensureCareerSystems();
+    const audit = deployValidation?.audit?.({ state, buildCode:DATA.build?.build_code || 'dev' }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.deploymentF19 = { status:audit.failed ? 'review' : 'approved', score:audit.score, passed:audit.passed, failed:audit.failed, checks:audit.checks, generatedAt:audit.generatedAt };
+    addInboxMessage('qa','Deploy F19', audit.failed ? 'Deploy requer revisão' : 'Deploy seguro validado', `Fase 19: ${audit.score}/100 • ${audit.passed} checks aprovados e ${audit.failed} pendentes.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function preparePublicBeta(){
+    ensureCareerSystems();
+    const pkg = deployValidation?.preparePublicBeta?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || { packageId:'F1M3D-F19-LOCAL', blockers:[] };
+    state.quality = state.quality || {};
+    state.quality.publicBetaF19 = pkg;
+    addInboxMessage('qa','Beta público controlado F19','Pacote lógico preparado',`${pkg.packageId} • publicação final segue bloqueada até assets, preview, dispositivos e jurídico.`,{ pkg });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function generateAssetRestorePlan(){
+    ensureCareerSystems();
+    const plan = deployValidation?.assetRestorePlan?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || { requiredDocs:[], samplePaths:[], restoreSteps:[] };
+    state.quality = state.quality || {};
+    state.quality.assetRestorePlanF19 = plan;
+    addInboxMessage('qa','Plano de assets F19','Caminhos preservados',`Plano gerado com ${plan.requiredDocs.length} documentos e ${plan.samplePaths.length} caminhos de amostra.`,{ plan });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function operationsMiniHTML(){
+    const st = operationsSystem?.status?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || { score:0, channel:'n/d', feedbackCount:0, critical:0, high:0, devices:0, productionBlocked:true };
+    const audit = state.quality?.operationsF20;
+    return `<p><b>${audit?.score ?? st.score}/100</b> • ${st.channel}</p><p>Feedbacks: <b>${st.feedbackCount}</b> • críticos: <b>${st.critical}</b> • altos: <b>${st.high}</b> • aparelhos: <b>${st.devices}</b></p><p class="muted-small">Coleta local, triagem, hotfix e rollback. Produção permanece bloqueada por segurança.</p>`;
+  }
+  function runOperationsAudit(){
+    ensureCareerSystems();
+    const audit = operationsSystem?.audit?.({ state, buildCode:DATA.build?.build_code || 'dev' }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.operationsF20 = { status:audit.failed ? 'review' : 'approved', score:audit.score, passed:audit.passed, failed:audit.failed, checks:audit.checks, generatedAt:audit.generatedAt };
+    addInboxMessage('qa','Operação beta F20', audit.failed ? 'Operação requer revisão' : 'Operação beta validada', `Fase 20: ${audit.score}/100 • ${audit.passed} checks aprovados e ${audit.failed} pendentes.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function addBetaFeedbackSample(){
+    ensureCareerSystems();
+    const item = operationsSystem?.addFeedback?.(state, { category:'mobile-scroll', severity:'high', screen:'Criar Carreira', description:'Validação manual: checar rolagem, caminhos de imagem e botões de toque no beta.', device:navigator.userAgent || 'browser', language:i18nManager?.getLanguage?.() || 'pt-BR' }, { buildCode:DATA.build?.build_code || 'dev' }) || null;
+    addInboxMessage('qa','Feedback beta F20','Feedback local registrado', item ? `${item.id} • ${item.category} • ${item.severity}` : 'Sistema de feedback indisponível.', { item });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function prepareHotfixPlan(){
+    ensureCareerSystems();
+    const plan = operationsSystem?.prepareHotfixPlan?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || { id:'F20-HOTFIX-LOCAL', blockers:['sistema indisponível'], artifacts:[], gates:[] };
+    state.quality = state.quality || {};
+    state.quality.hotfixPlanF20 = plan;
+    addInboxMessage('qa','Plano de hotfix F20','Hotfix controlado preparado', `${plan.id} • ${plan.artifacts?.length || 0} artefatos • ${plan.blockers?.length || 0} bloqueios.`, { plan });
+    saveState(); renderTab('system'); updateHud();
+  }
+
   function vehicleTelemetryText(e){
     const snap = vehiclePhysics?.snapshot?.(e) || { tyreLife:e.tyre, fuelMass:e.fuel, reliabilityHealth:e.condition, ers:e.ers, drs:e.drs, brakeTemperature:e.brakeTemp, engineTemperature:e.engineTemp, damage:e.damage };
     return `${compoundLabel(e.compound)} ${Math.round(snap.tyreLife||0)}% • ${Math.round(snap.tyreTemperature||0)}°C • ERS ${Math.round(snap.ers||0)}%${snap.drs?' • DRS':''} • Freio ${Math.round(snap.brakeTemperature||0)}°C • Motor ${Math.round(snap.engineTemperature||0)}°C • Dano ${Math.round(snap.damage||0)} • Comb ${Math.round(snap.fuelMass||0)}%`;
@@ -2363,7 +2691,7 @@
   }
 
   function isPlayerDriver(short){ return driversForTeam(state.currentTeam).some(d=>d.short===short); }
-  function cameraLabel(mode){ return mode === 'follow' ? 'foco no carro' : mode === 'overhead' ? 'visão aérea' : 'transmissão'; }
+  function cameraLabel(mode){ return ({tv:'TV dinâmica',follow:'Follow',overhead:'Helicóptero',onboard:'Onboard',pitwall:'Pit wall',replay:'Replay'})[mode] || 'TV dinâmica'; }
 
 
   function aiStrategyFor(d,t,currentRace,gridPos){
@@ -2397,7 +2725,7 @@
       if(vehiclePhysics) entry.vehicle = vehiclePhysics.initialState({ compound, fuel:100, condition:100, car, track:currentRace });
       return entry;
     });
-    race = { quick, entries, laps:currentRace.laps || 22, trackState:vehiclePhysics?.trackState?.({ weather:currentRace.weather || 'dry', laps:currentRace.laps || 22 }) || null, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:currentRace.weather || 'dry', tick:0, trackInfo:currentRace, safetyCar:0, vsc:0, redFlag:0, restartTimer:0, cameraMode:'tv', raceLog:['Largada autorizada — IA estratégica F12 ativa: tráfego, undercut/overcut, SC/VSC e relargadas monitorados.'], regulation:regulationEngine?.activeSessionPlan?.(state.currentSeries, currentRace) || null, strategyState:{ pitLaneBusy:0, redFlags:0, safetyCarDeployments:0, vscDeployments:0, lastNeutralizedAt:0 } };
+    race = { quick, entries, laps:currentRace.laps || 22, trackState:vehiclePhysics?.trackState?.({ weather:currentRace.weather || 'dry', laps:currentRace.laps || 22 }) || null, visualModel:visualSystem?.createTrackModel?.(currentRace,{ width:window.innerWidth, height:window.innerHeight, dpr:window.devicePixelRatio || 1, weather:currentRace.weather || 'dry' }) || null, replayBuffer:visualSystem?.createReplayBuffer?.() || null, lastReplayCapture:0, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:currentRace.weather || 'dry', tick:0, trackInfo:currentRace, safetyCar:0, vsc:0, redFlag:0, restartTimer:0, cameraMode:'tv', raceLog:['Largada autorizada — F15 ativo: 3D profissional, áudio procedural, rádio/box, mixagem dinâmica e acessibilidade monitorados.'], regulation:regulationEngine?.activeSessionPlan?.(state.currentSeries, currentRace) || null, strategyState:{ pitLaneBusy:0, redFlags:0, safetyCarDeployments:0, vscDeployments:0, lastNeutralizedAt:0 } };
     appEvents?.emit('race:created', { track:currentRace.name, laps:race.laps, entries:entries.length, quick:Boolean(quick) });
     updateRaceHud();
   }
@@ -2441,7 +2769,7 @@
         const fallback = document.createElement('div');
         fallback.id = 'raceRendererFallback';
         fallback.className = 'glass-panel race-fallback';
-        fallback.innerHTML = '<h2>Modo de simulação segura</h2><p>O motor 3D não carregou, mas a corrida continua normalmente pela telemetria e pelo placar. O resultado não depende da CDN gráfica.</p>';
+        fallback.innerHTML = '<h2>Modo de simulação segura</h2><p>O motor 3D não carregou, mas a corrida continua normalmente pela telemetria, estratégia e placar. O resultado não depende da CDN gráfica.</p><p class="muted-small">F15 mantém pista, setores, DRS, replay lógico e áudio/UI procedural mesmo sem WebGL.</p>';
         wrap.appendChild(fallback);
       }
     } else {
@@ -2457,7 +2785,7 @@
       this.canvas=canvas; this.race=race; this.scene=new THREE.Scene(); this.scene.background=new THREE.Color(0x06101b);
       this.camera=new THREE.PerspectiveCamera(55, canvas.clientWidth/canvas.clientHeight, .1, 1000); this.camera.position.set(0,32,32); this.camera.lookAt(0,0,0);
       this.renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false}); this.renderer.setSize(canvas.clientWidth,canvas.clientHeight,false); this.renderer.setPixelRatio(Math.min(1.6,window.devicePixelRatio||1));
-      this.cars=[]; this.trackPoints=this.createTrackPoints(); this.addLights(); this.addTrack(); this.addEnvironment(); this.addCars(); this.onResize=()=>this.resize(); window.addEventListener('resize',this.onResize,{passive:true});
+      this.cars=[]; this.replayTick=0; this.trackPoints=this.createTrackPoints(); this.visualModel=this.race.visualModel || visualSystem?.createTrackModel?.(this.race.trackInfo,{width:canvas.clientWidth,height:canvas.clientHeight,dpr:window.devicePixelRatio||1,weather:this.race.weather}) || null; this.applyElevationProfile(); this.addLights(); this.addTrack(); this.addProfessionalVisuals(); this.addEnvironment(); this.addCars(); this.onResize=()=>this.resize(); window.addEventListener('resize',this.onResize,{passive:true});
     }
     createTrackPoints(){
       const info = this.race.trackInfo || activeCalendar()[state.roundIndex] || {};
@@ -2498,7 +2826,7 @@
       const curbRed=new THREE.MeshStandardMaterial({color:0xd10012,roughness:.42});
       const curbWhite=new THREE.MeshStandardMaterial({color:0xf5f5f0,roughness:.42});
       const barrierMat=new THREE.MeshStandardMaterial({color:0x9aa3b3,roughness:.5,metalness:.15});
-      const width=4.85, edgeWidth=.18;
+      const width=this.visualModel?.worldWidth || 4.85, edgeWidth=.18;
       const roadVerts=[], roadIdx=[], leftEdge=[], rightEdge=[];
       for(let i=0;i<this.trackPoints.length;i++){
         const p=this.trackPoints[i];
@@ -2657,7 +2985,52 @@
         });
       }
     }
+    addRacingLines(){
+      if(!this.visualModel) return;
+      const mkLine=(offset,color)=>{
+        const pts=this.trackPoints.map((p,i)=>p.clone().add(this.normalAt(i).multiplyScalar(offset)).add(new THREE.Vector3(0,.07,0)));
+        const geo=new THREE.BufferGeometry().setFromPoints(pts.concat([pts[0]]));
+        const line=new THREE.Line(geo,new THREE.LineBasicMaterial({color,transparent:true,opacity:.62}));
+        this.scene.add(line);
+      };
+      mkLine(0,0x62f7ff); mkLine(-.86,0xffd166); mkLine(.86,0xff4d6d);
+    }
+    addSectorAndDrsMarkers(){
+      if(!this.visualModel) return;
+      const boardMat=new THREE.MeshStandardMaterial({color:0x07111f,roughness:.45,metalness:.12});
+      const drsMat=new THREE.MeshStandardMaterial({color:0x13ff88,roughness:.28,emissive:0x064e2c,emissiveIntensity:.35});
+      const width=this.visualModel.worldWidth || 4.8;
+      (this.visualModel.sectors||[]).forEach(sec=>{
+        const i=Math.floor(sec.start*this.trackPoints.length)%this.trackPoints.length;
+        const p=this.trackPoints[i], dir=this.tangentAt(i), normal=this.normalAt(i);
+        const panel=new THREE.Mesh(new THREE.BoxGeometry(.12,1.2,2.4),boardMat);
+        const pos=p.clone().add(normal.multiplyScalar(width/2+2.25)); panel.position.set(pos.x,1.0,pos.z); panel.rotation.y=Math.atan2(dir.x,dir.z); this.scene.add(panel);
+      });
+      (this.visualModel.drsZones||[]).forEach(zone=>{
+        const start=Math.floor(zone.start*this.trackPoints.length), end=Math.floor(zone.end*this.trackPoints.length);
+        for(let i=start;i<end;i+=6){
+          const idx=i%this.trackPoints.length; const p=this.trackPoints[idx]; const dir=this.tangentAt(idx); const normal=this.normalAt(idx);
+          const strip=new THREE.Mesh(new THREE.BoxGeometry(.38,.045,1.25),drsMat);
+          const pos=p.clone().add(normal.multiplyScalar(-width/2-.34)); strip.position.set(pos.x,p.y+.12,pos.z); strip.rotation.y=Math.atan2(dir.x,dir.z); this.scene.add(strip);
+        }
+      });
+    }
+    addWeatherAndSpray(){
+      const wet=this.race.weather==='variable' || this.race.trackState?.wetness > 15;
+      if(!wet) return;
+      const rainMat=new THREE.MeshBasicMaterial({color:0x9bdcff,transparent:true,opacity:.32});
+      for(let i=0;i<42;i++){
+        const drop=new THREE.Mesh(new THREE.BoxGeometry(.025,.9,.025),rainMat);
+        drop.position.set(rnd(-36,36),rnd(5,18),rnd(-24,24)); drop.rotation.z=.35; this.scene.add(drop);
+      }
+      this.sprayMat=new THREE.MeshBasicMaterial({color:0xd9f3ff,transparent:true,opacity:.26});
+    }
+    addReplayAndCameraRig(){
+      this.cameraRig={ mode:'tv', lastMarker:null };
+      if(this.race.replayBuffer && this.visualModel) this.race.replayBuffer.push(visualSystem.captureFrame(this.race,this.visualModel));
+    }
     addCars(){ this.race.entries.forEach((e,i)=>{ const car=this.makeCar(e.color,e.secondary); this.scene.add(car); this.cars.push(car); this.placeCar(car,e,i); }); }
+
     makeCar(color,secondary){
       const g=new THREE.Group();
       const mainMat=new THREE.MeshStandardMaterial({color,roughness:.28,metalness:.16});
@@ -2678,11 +3051,31 @@
         const rim=new THREE.Mesh(new THREE.CylinderGeometry(.11,.11,.19,14),secMat); rim.rotation.z=Math.PI/2; rim.position.set(...p); g.add(rim);
       });
       const stripe=new THREE.Mesh(new THREE.BoxGeometry(.08,.025,1.75),secMat); stripe.position.set(0,.435,.2); g.add(stripe);
+      const damage=new THREE.Mesh(new THREE.BoxGeometry(.38,.05,.34),new THREE.MeshBasicMaterial({color:0xff3b30,transparent:true,opacity:.72})); damage.name='damageVisual'; damage.position.set(0,.74,1.55); damage.visible=false; g.add(damage);
+      const lodBadge=new THREE.Mesh(new THREE.BoxGeometry(.18,.03,.18),new THREE.MeshBasicMaterial({color:0x65ffda,transparent:true,opacity:.55})); lodBadge.name='lodBadge'; lodBadge.position.set(.42,.56,-.2); g.add(lodBadge);
       g.scale.set(.78,.78,.78); return g;
     }
-    placeCar(car,e,offset){ const prog=(e.progress%1+1)%1; const exact=prog*this.trackPoints.length; const i=Math.floor(exact)%this.trackPoints.length; const j=(i+1)%this.trackPoints.length; const p=this.trackPoints[i].clone().lerp(this.trackPoints[j],exact-i); const n=this.trackPoints[j]; car.position.copy(p); car.position.y=.25+(offset%2)*.04; car.rotation.y=Math.atan2(n.x-p.x,n.z-p.z); }
-    renderFrame(){ if(!this.renderer || !this.race) return; this.race.entries.forEach((e,i)=>this.placeCar(this.cars[i],e,i)); this.updateCameraMode(); this.renderer.render(this.scene,this.camera); }
-    updateCameraMode(){ const mode=this.race.cameraMode||'tv'; if(mode==='overhead'){ this.camera.position.lerp(new THREE.Vector3(0,42,1),.035); this.camera.lookAt(0,0,0); return; } const targetEntry = this.race.entries.find(e=>isPlayerDriver(e.driver.short)) || this.race.entries[0]; const idx=this.race.entries.indexOf(targetEntry); const car=this.cars[Math.max(0,idx)]; if(!car) return; const pos=car.position.clone(); if(mode==='follow'){ this.camera.position.lerp(new THREE.Vector3(pos.x-6,8,pos.z+9),.055); this.camera.lookAt(pos.x,0,pos.z); } else { this.camera.position.lerp(new THREE.Vector3(pos.x+12,18,pos.z+15),.025); this.camera.lookAt(pos.x,0,pos.z); } }
+    placeCar(car,e,offset){ const prog=(e.progress%1+1)%1; const exact=prog*this.trackPoints.length; const i=Math.floor(exact)%this.trackPoints.length; const j=(i+1)%this.trackPoints.length; const p=this.trackPoints[i].clone().lerp(this.trackPoints[j],exact-i); const n=this.trackPoints[j]; car.position.copy(p); car.position.y=(p.y||0)+.25+(offset%2)*.04; car.rotation.y=Math.atan2(n.x-p.x,n.z-p.z); }
+    renderFrame(){ if(!this.renderer || !this.race) return; this.race.entries.forEach((e,i)=>{ const car=this.cars[i]; this.placeCar(car,e,i); if(car){ const dmg=car.getObjectByName('damageVisual'); if(dmg) dmg.visible=((e.vehicle?.aeroDamage||0)+(e.vehicle?.chassisDamage||0))>10; const lod=car.getObjectByName('lodBadge'); if(lod) lod.visible=i<((this.visualModel?.qualityHint?.maxCarsHighDetail)||18); } }); this.recordReplayFrame(); this.updateCameraMode(); this.renderer.render(this.scene,this.camera); }
+    updateCameraMode(){
+      const mode=this.race.cameraMode||'tv';
+      const targetEntry = this.race.entries.find(e=>isPlayerDriver(e.driver.short)) || this.race.entries[0];
+      const idx=this.race.entries.indexOf(targetEntry); const car=this.cars[Math.max(0,idx)]; if(!car) return;
+      const pos=car.position.clone(); const preset=visualSystem?.data?.cameraPresets?.[mode] || {stiffness:.04};
+      if(mode==='overhead'){ this.camera.position.lerp(new THREE.Vector3(0,43,1),preset.stiffness||.035); this.camera.lookAt(0,0,0); return; }
+      if(mode==='onboard'){ const fwd=new THREE.Vector3(0,0,1).applyEuler(car.rotation); const eye=pos.clone().add(new THREE.Vector3(0,1.05,0)).add(fwd.clone().multiplyScalar(.7)); this.camera.position.lerp(eye,.22); this.camera.lookAt(pos.x+fwd.x*7,pos.y+.45,pos.z+fwd.z*7); return; }
+      if(mode==='pitwall'){ this.camera.position.lerp(new THREE.Vector3(6,7,-20),.04); this.camera.lookAt(pos.x,0,pos.z); return; }
+      if(mode==='replay'){ const replay=this.race.replayBuffer?.latest?.(1)?.[0]; const offset=(replay?.tick||0)%8; this.camera.position.lerp(new THREE.Vector3(pos.x+18-Math.sin(offset)*8,13,pos.z+12+Math.cos(offset)*8),.06); this.camera.lookAt(pos.x,0,pos.z); return; }
+      if(mode==='follow'){ this.camera.position.lerp(new THREE.Vector3(pos.x-6,8,pos.z+9),preset.stiffness||.055); this.camera.lookAt(pos.x,0,pos.z); return; }
+      this.camera.position.lerp(new THREE.Vector3(pos.x+12,18,pos.z+15),preset.stiffness||.025); this.camera.lookAt(pos.x,0,pos.z);
+    }
+    recordReplayFrame(){
+      if(!visualSystem || !this.race.replayBuffer || !this.visualModel) return;
+      if((this.race.tick||0) - (this.race.lastReplayCapture||0) < (this.visualModel.replay?.captureEveryTicks || .38)) return;
+      this.race.lastReplayCapture=this.race.tick||0;
+      const frame=visualSystem.captureFrame(this.race,this.visualModel);
+      this.race.replayBuffer.push(frame);
+    }
     resize(){ if(!this.renderer) return; const w=this.canvas.clientWidth,h=this.canvas.clientHeight; this.camera.aspect=w/h; this.camera.updateProjectionMatrix(); this.renderer.setSize(w,h,false); }
     dispose(){
       if(this.onResize) window.removeEventListener('resize',this.onResize);
@@ -2736,6 +3129,7 @@
         const pitResult = autoPitEntry(e);
         race.raceLog.unshift(`${e.driver.short} ${pitResult?.label || 'parou nos boxes por estratégia'}`);
       }
+      if(decision?.radio) audioUI?.radio?.(decision.radio);
       if(decision?.defending) e.aiIntent = 'defesa';
       else if(decision?.attacking) e.aiIntent = 'ataque';
       else if(decision?.traffic) e.aiIntent = 'tráfego';
@@ -2805,6 +3199,7 @@
     if($('#weatherLabel')) $('#weatherLabel').textContent = race.safetyCar>0 ? `🟨 VSC ${Math.ceil(race.safetyCar)}s` : `${race.weather === 'variable' ? '☁ Variável' : '☀ Seco'} • pista ${Math.round((race.trackState?.grip||1)*100)}%`; 
     if($('#raceBuildStamp')) $('#raceBuildStamp').textContent = (DATA.build&&DATA.build.label)||'';
     if($('#speedLabel')) $('#speedLabel').textContent = race.speed;
+    if($('#cameraLabel')) $('#cameraLabel').textContent = cameraLabel(race.cameraMode||'tv');
     const statusPanel = $('#raceStatusPanel');
     if(statusPanel){
       const playerBest = race.entries.filter(e=>isPlayerDriver(e.driver.short)).sort((a,b)=>a.pos-b.pos)[0];

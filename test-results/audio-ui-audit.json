@@ -1,0 +1,88 @@
+{
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:15:53.787Z",
+  "passed": 16,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/audio-ui-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/audio-ui-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "audio:data-loaded",
+      "ok": true,
+      "detail": "schema 1"
+    },
+    {
+      "name": "audio:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "audio:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "audio:channels",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "name": "audio:procedural-no-binary",
+      "ok": true,
+      "detail": "procedural-no-binary-assets"
+    },
+    {
+      "name": "audio:radio-messages",
+      "ok": true,
+      "detail": "5"
+    },
+    {
+      "name": "ui:design-tokens",
+      "ok": true,
+      "detail": "focus/touch"
+    },
+    {
+      "name": "ui:tutorials",
+      "ok": true,
+      "detail": "3"
+    },
+    {
+      "name": "ui:accessibility",
+      "ok": true,
+      "detail": "teclado/aria"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F15"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:audio-instance",
+      "ok": true,
+      "detail": "runtime"
+    },
+    {
+      "name": "css:premium-ui",
+      "ok": true,
+      "detail": "design/accessibility"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:audio-ui"
+    }
+  ]
+}

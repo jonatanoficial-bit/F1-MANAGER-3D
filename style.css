@@ -546,3 +546,57 @@ html,body{overflow:hidden!important;position:fixed!important;inset:0!important;}
   .avatar-option .asset-path-hint{display:none;}
 }
 .strategy-ai-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;background:rgba(182,255,53,.12);border:1px solid rgba(182,255,53,.25);color:#dfff9c;font-size:10px;font-weight:900;}
+
+
+/* F15 — áudio, interface premium, tutorial e acessibilidade */
+:root {
+  --f15-motion-fast: 120ms;
+  --f15-motion-normal: 220ms;
+  --f15-focus-ring: 0 0 0 3px rgba(101,255,218,.45);
+}
+button, .dash-card, .glass-panel, .driver-control, .team-card { transition: transform var(--f15-motion-fast) ease, border-color var(--f15-motion-normal) ease, box-shadow var(--f15-motion-normal) ease; }
+button:active { transform: translateY(1px) scale(.99); }
+button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focus-visible { outline: none; box-shadow: var(--f15-focus-ring); border-color: rgba(101,255,218,.92) !important; }
+.dash-card:hover, .glass-panel:hover { border-color: rgba(101,255,218,.22); }
+.tutorial-coach { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(72px, env(safe-area-inset-bottom)); z-index: 80; max-width: min(360px, 90vw); padding: 14px; border: 1px solid rgba(101,255,218,.26); border-radius: 18px; background: rgba(6,10,18,.88); backdrop-filter: blur(16px); box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+.audio-meter { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+.audio-meter span { padding: 8px; border-radius: 12px; background: rgba(255,255,255,.06); text-align: center; }
+.audio-meter b { display: block; color: #65ffda; font-size: 1.05rem; }
+.system-grid [data-action="toggleAudioMute"] { margin-left: 8px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; } }
+@media (max-width: 920px) { .tutorial-coach { left: max(12px, env(safe-area-inset-left)); right: max(12px, env(safe-area-inset-right)); bottom: max(64px, env(safe-area-inset-bottom)); max-width: none; } .audio-meter { grid-template-columns: repeat(2, 1fr); } }
+
+
+/* F16 — carreira viva profunda */
+.living-career-card{ position:relative; overflow:hidden; }
+.living-career-card::after{ content:""; position:absolute; inset:auto -20% -45% auto; width:180px; height:180px; border-radius:50%; background:rgba(255,255,255,.06); pointer-events:none; }
+.living-metric-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin:10px 0; }
+.living-metric-grid span{ border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:8px; background:rgba(0,0,0,.18); font-size:.82rem; }
+.living-metric-grid b{ display:block; font-size:1.1rem; }
+@media (max-width: 760px){ .living-metric-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+
+/* F17 — backend, segurança e lançamento */
+.backend-launch-card{ position:relative; overflow:hidden; border-color:rgba(134,211,255,.24); }
+.backend-launch-card::after{ content:""; position:absolute; right:-54px; bottom:-54px; width:168px; height:168px; border-radius:40px; transform:rotate(24deg); background:linear-gradient(135deg,rgba(90,188,255,.11),rgba(101,255,218,.05)); pointer-events:none; }
+.backend-metric-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin:10px 0; }
+.backend-metric-grid span{ border:1px solid rgba(134,211,255,.16); border-radius:12px; padding:8px; background:rgba(0,0,0,.18); font-size:.78rem; min-width:0; overflow:hidden; text-overflow:ellipsis; }
+.backend-metric-grid b{ display:block; font-size:.95rem; color:#86d3ff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+@media (max-width: 760px){ .backend-metric-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+/* F18 — Release Candidate comercial e homologação final */
+.release-candidate-card{ position:relative; overflow:hidden; border-color:rgba(255,215,100,.28); }
+.release-candidate-card::after{ content:"RC"; position:absolute; right:12px; bottom:8px; font-size:42px; font-weight:1000; letter-spacing:-.08em; color:rgba(255,215,100,.08); pointer-events:none; }
+.release-metric-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin:10px 0; }
+.release-metric-grid span{ border:1px solid rgba(255,215,100,.16); border-radius:12px; padding:8px; background:rgba(0,0,0,.18); font-size:.78rem; min-width:0; overflow:hidden; text-overflow:ellipsis; }
+.release-metric-grid b{ display:block; font-size:.95rem; color:#ffd764; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+@media (max-width:760px){ .release-metric-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+/* F20 — operação beta, feedback e hotfix controlado */
+.operations-card{border-color:rgba(96,165,250,.36);box-shadow:0 0 0 1px rgba(96,165,250,.12),0 14px 42px rgba(15,23,42,.28)}
+.operations-card h3::after{content:'F20';margin-left:.55rem;font-size:.72rem;padding:.12rem .45rem;border-radius:999px;background:rgba(96,165,250,.16);color:#bfdbfe;border:1px solid rgba(147,197,253,.24)}
+.beta-ops-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.65rem}
+.beta-ops-grid span{display:flex;justify-content:space-between;gap:.5rem;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:.55rem .65rem;background:rgba(2,6,23,.22)}
+/* F19 — deploy seguro e beta público controlado */
+.deploy-card{border-color:rgba(34,197,94,.34);box-shadow:0 0 0 1px rgba(34,197,94,.10),0 14px 42px rgba(15,23,42,.24)}
+.deploy-card h3::after{content:'F19';margin-left:.55rem;font-size:.72rem;padding:.12rem .45rem;border-radius:999px;background:rgba(34,197,94,.14);color:#bbf7d0;border:1px solid rgba(134,239,172,.22)}

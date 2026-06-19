@@ -1,0 +1,103 @@
+{
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:15:54.707Z",
+  "passed": 19,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/release-candidate-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/release-candidate-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "rc:data-loaded",
+      "ok": true,
+      "detail": "schema 1"
+    },
+    {
+      "name": "rc:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "rc:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "rc:physical-devices",
+      "ok": true,
+      "detail": "5"
+    },
+    {
+      "name": "rc:store-targets",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "name": "rc:privacy-docs",
+      "ok": true,
+      "detail": "5"
+    },
+    {
+      "name": "rc:performance-targets",
+      "ok": true,
+      "detail": "mobile,tablet,desktop"
+    },
+    {
+      "name": "rc:legal-blockers-visible",
+      "ok": true,
+      "detail": "5"
+    },
+    {
+      "name": "rc:checklist",
+      "ok": true,
+      "detail": "32"
+    },
+    {
+      "name": "rc:commercial-package",
+      "ok": true,
+      "detail": "{\"packageId\":\"F1M3D-RC-TEST-F18-MQLB793K\",\"version\":\"0.27.0\",\"files\":[\"BUILD_INFO.json\",\"AUDIT_REPORT.md\",\"CHANGELOG.md\",\"KNOWN_ISSUES.md\",\"FILE_MANIFEST.sha256\",\"assets/ASSET_PATHS_REQUIRED.txt\",\"assets/ASSET_MANIFEST.json\",\"manifest.webmanifest\",\"service-worker.js\"],\"evidenceFolders\":[\"test-results\",\"docs\",\"support\",\"store-listing\"],\"blockers\":[{\"item\":\"assets-pesados-restaurados\",\"resolved\":false},{\"item\":\"homologacao-fisica-pendente\",\"resolved\":false},{\"item\":\"revisao-juridica-pendente\",\"resolved\":false},{\"item\":\"backend-real-nao-conectado\",\"resolved\":false}],\"generatedAt\":\"2026-06-19T19:15:54.704Z\",\"publishAllowed\":false}"
+    },
+    {
+      "name": "rc:status",
+      "ok": true,
+      "detail": "{\"score\":79,\"channel\":\"release-candidate\",\"physicalDevices\":5,\"stores\":4,\"privacyDocs\":5,\"perfProfiles\":3,\"blockers\":9,\"packageReady\":false,\"legalMode\":\"requires-professional-review\"}"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F18"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:state-init",
+      "ok": true,
+      "detail": "runtime state"
+    },
+    {
+      "name": "script:actions",
+      "ok": true,
+      "detail": "actions"
+    },
+    {
+      "name": "css:release-candidate",
+      "ok": true,
+      "detail": "css"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:release-candidate"
+    }
+  ]
+}

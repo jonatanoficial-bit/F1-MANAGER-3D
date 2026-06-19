@@ -19,6 +19,9 @@ const sources={
   ci:read('test-results/ci-readiness-audit.json'),
   vehicle:read('test-results/vehicle-physics-audit.json'),
   strategy:read('test-results/strategy-ai-audit.json'),
+  balance:read('test-results/balance-audit.json'),
+  visual3d:read('test-results/track-visual-audit.json'),
+  audio_ui:read('test-results/audio-ui-audit.json'),
   project:read('test-results/project-audit.json')
 };
 const count=(value,key)=>Array.isArray(value?.[key])?{
@@ -39,6 +42,9 @@ const sections={
   ci:{passed:Number(sources.ci.passed||0),failed:Number(sources.ci.failed||0)},
   vehicle:{passed:Number(sources.vehicle.passed||0),failed:Number(sources.vehicle.failed||0)},
   strategy:{passed:Number(sources.strategy.passed||0),failed:Number(sources.strategy.failed||0)},
+  balance:{passed:Number(sources.balance.passed||0),failed:Number(sources.balance.failed||0)},
+  visual3d:{passed:Number(sources.visual3d.passed||0),failed:Number(sources.visual3d.failed||0)},
+  audio_ui:{passed:Number(sources.audio_ui.passed||0),failed:Number(sources.audio_ui.failed||0)},
   project:{passed:Number(sources.project.passed||0),failed:Number(sources.project.failed||0)}
 };
 const total={passed:Object.values(sections).reduce((sum,item)=>sum+item.passed,0),failed:Object.values(sections).reduce((sum,item)=>sum+item.failed,0)};

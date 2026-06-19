@@ -1,0 +1,45 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const results=[]; const add=(name,ok,detail='')=>{results.push({name,ok:Boolean(ok),detail}); if(!ok) process.exitCode=1;};
+const read=rel=>fs.readFileSync(path.join(root,rel),'utf8');
+for(const rel of ['data/release-candidate-data.js','src/core/release-candidate-system.js']){
+  try{ new vm.Script(read(rel),{filename:rel}); add(`syntax:${rel}`,true); } catch(error){ add(`syntax:${rel}`,false,error.message); }
+}
+const sandbox = { globalThis:{}, window:{} };
+sandbox.globalThis = sandbox; sandbox.window = sandbox;
+vm.createContext(sandbox);
+vm.runInContext(read('data/release-candidate-data.js'), sandbox);
+vm.runInContext(read('src/core/release-candidate-system.js'), sandbox);
+const api = sandbox.F1M_CORE?.releaseCandidate?.createReleaseCandidateSystem?.({ data:sandbox.F1M_RELEASE_CANDIDATE_DATA });
+const state = { money:2500000, reputation:65, saveSchema:18, release:{}, privacy:{ telemetryConsent:false } };
+api?.initializeState?.(state, { buildCode:'TEST-F18' });
+const audit = api?.audit?.({ state, buildCode:'TEST-F18' });
+const status = api?.status?.(state);
+const checklist = api?.storeChecklist?.(state);
+const pkg = api?.prepareCommercialPackage?.(state, { buildCode:'TEST-F18', version:'0.27.0' });
+add('rc:data-loaded', Number(sandbox.F1M_RELEASE_CANDIDATE_DATA?.schema) >= 1, 'schema '+sandbox.F1M_RELEASE_CANDIDATE_DATA?.schema);
+add('rc:core-api', Boolean(api?.initializeState && api?.audit && api?.status && api?.storeChecklist && api?.prepareCommercialPackage), 'api completa');
+add('rc:audit-score', Number(audit?.score || 0) >= 100, `${audit?.score || 0}/100`);
+add('rc:physical-devices', (sandbox.F1M_RELEASE_CANDIDATE_DATA?.physicalHomologation?.minimumDevices || []).length >= 5, String((sandbox.F1M_RELEASE_CANDIDATE_DATA?.physicalHomologation?.minimumDevices || []).length));
+add('rc:store-targets', (sandbox.F1M_RELEASE_CANDIDATE_DATA?.storeTargets || []).length >= 4, String((sandbox.F1M_RELEASE_CANDIDATE_DATA?.storeTargets || []).length));
+add('rc:privacy-docs', (sandbox.F1M_RELEASE_CANDIDATE_DATA?.privacySupport?.documents || []).length >= 5, String((sandbox.F1M_RELEASE_CANDIDATE_DATA?.privacySupport?.documents || []).length));
+add('rc:performance-targets', Object.keys(sandbox.F1M_RELEASE_CANDIDATE_DATA?.performanceTargets || {}).length >= 3, Object.keys(sandbox.F1M_RELEASE_CANDIDATE_DATA?.performanceTargets || {}).join(','));
+add('rc:legal-blockers-visible', (sandbox.F1M_RELEASE_CANDIDATE_DATA?.legalReadiness?.blockers || []).length >= 5, String((sandbox.F1M_RELEASE_CANDIDATE_DATA?.legalReadiness?.blockers || []).length));
+add('rc:checklist', Array.isArray(checklist) && checklist.length >= 20, String(checklist?.length || 0));
+add('rc:commercial-package', Boolean(pkg?.packageId) && (pkg?.files || []).length >= 8 && (pkg?.blockers || []).length >= 4, JSON.stringify(pkg || {}));
+add('rc:status', status?.physicalDevices >= 5 && status?.stores >= 4 && status?.blockers >= 4, JSON.stringify(status || {}));
+const index = read('index.html'); const script = read('script.js'); const css = read('style.css'); const pkgJson = JSON.parse(read('package.json'));
+add('index:scripts', index.includes('data/release-candidate-data.js') && index.includes('src/core/release-candidate-system.js'), 'scripts F18');
+add('script:system-card', script.includes('releaseCandidateMiniHTML') && script.includes('runReleaseCandidateAudit') && script.includes('prepareCommercialPackage'), 'central sistema');
+add('script:state-init', script.includes('releaseCandidate?.initializeState') && script.includes('state.releaseCandidate'), 'runtime state');
+add('script:actions', script.includes('runReleaseCandidateAudit(){ runReleaseCandidateAudit(); }') && script.includes('prepareCommercialPackage(){ prepareCommercialPackage(); }'), 'actions');
+add('css:release-candidate', css.includes('F18') && css.includes('release-candidate-card') && css.includes('release-metric-grid'), 'css');
+add('package:script', Boolean(pkgJson.scripts?.['test:release-candidate']), 'test:release-candidate');
+const summary={build:JSON.parse(read('BUILD_INFO.json')).build_code, generatedAt:new Date().toISOString(), passed:results.filter(r=>r.ok).length, failed:results.filter(r=>!r.ok).length, results};
+fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
+fs.writeFileSync(path.join(root,'test-results/release-candidate-audit.json'),JSON.stringify(summary,null,2)+'\n');
+console.log(results.map(r=>`${r.ok?'PASS':'FAIL'} ${r.name}${r.detail?' — '+r.detail:''}`).join('\n'));
+console.log(`TOTAL: ${summary.passed} passed, ${summary.failed} failed`);

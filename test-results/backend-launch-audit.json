@@ -1,0 +1,123 @@
+{
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:15:54.429Z",
+  "passed": 23,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/backend-launch-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/backend-launch-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "backend:data-loaded",
+      "ok": true,
+      "detail": "schema 1"
+    },
+    {
+      "name": "backend:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "backend:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "backend:accounts",
+      "ok": true,
+      "detail": "adapter-ready"
+    },
+    {
+      "name": "backend:cloud-save",
+      "ok": true,
+      "detail": "{\"envelope\":\"F1M_PORTABLE_SAVE_V1\",\"queue\":\"F1M_SYNC_QUEUE_V1\",\"enabled\":false,\"reason\":\"backend real ainda não conectado nesta fase; adaptador seguro preparado\",\"conflictPolicies\":[\"newest-valid\",\"highest-season-progress\",\"manual-choice\",\"keep-both-copy\"],\"validation\":[\"checksum\",\"schema-migration\",\"build-compatibility\",\"backup-before-import\"]}"
+    },
+    {
+      "name": "backend:telemetry-consent",
+      "ok": true,
+      "detail": "{\"telemetryConsent\":true,\"dataSale\":false,\"telemetryConsentVersion\":\"F1M_TELEMETRY_CONSENT_V1\",\"updatedAt\":\"2026-06-19T19:15:54.426Z\"}"
+    },
+    {
+      "name": "backend:crash-reporting",
+      "ok": true,
+      "detail": "local-buffer-ready"
+    },
+    {
+      "name": "backend:remote-config",
+      "ok": true,
+      "detail": "F1M_REMOTE_CONFIG_V1"
+    },
+    {
+      "name": "backend:rollback",
+      "ok": true,
+      "detail": "schema 17"
+    },
+    {
+      "name": "backend:security",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "name": "backend:release-channels",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "name": "backend:platform-targets",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "name": "backend:rc-checklist",
+      "ok": true,
+      "detail": "15"
+    },
+    {
+      "name": "backend:store-docs",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "name": "backend:live-ops",
+      "ok": true,
+      "detail": "6"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F17"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:state-init",
+      "ok": true,
+      "detail": "runtime state"
+    },
+    {
+      "name": "script:actions",
+      "ok": true,
+      "detail": "actions"
+    },
+    {
+      "name": "css:backend-launch",
+      "ok": true,
+      "detail": "css"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:backend-launch"
+    }
+  ]
+}

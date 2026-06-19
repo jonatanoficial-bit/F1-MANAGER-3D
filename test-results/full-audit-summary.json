@@ -1,18 +1,18 @@
 {
-  "build": "F1M3D-0.21.0-F12",
-  "version": "0.21.0",
-  "phase": 12,
-  "generated_at": "2026-06-18T22:05:46.022Z",
+  "build": "F1M3D-0.29.0-F20",
+  "version": "0.29.0",
+  "phase": 20,
+  "generated_at": "2026-06-19T19:16:10.826Z",
   "static": {
-    "passed": 47,
+    "passed": 62,
     "failed": 0
   },
   "build_consistency": {
-    "passed": 49,
+    "passed": 65,
     "failed": 0
   },
   "modules": {
-    "passed": 41,
+    "passed": 65,
     "failed": 0
   },
   "contracts": {
@@ -40,7 +40,7 @@
     "failed": 0
   },
   "visual": {
-    "passed": 52,
+    "passed": 91,
     "failed": 0
   },
   "ci": {
@@ -55,12 +55,24 @@
     "passed": 23,
     "failed": 0
   },
+  "balance": {
+    "passed": 25,
+    "failed": 0
+  },
+  "visual3d": {
+    "passed": 31,
+    "failed": 0
+  },
+  "audio_ui": {
+    "passed": 16,
+    "failed": 0
+  },
   "project": {
-    "passed": 156,
+    "passed": 227,
     "failed": 0
   },
   "total": {
-    "passed": 520,
+    "passed": 757,
     "failed": 0
   },
   "result": "approved"

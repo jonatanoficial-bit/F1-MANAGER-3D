@@ -1,6 +1,6 @@
 {
-  "build": "F1M3D-0.21.0-F12",
-  "generatedAt": "2026-06-18T22:03:19.158Z",
+  "build": "F1M3D-0.29.0-F20",
+  "generatedAt": "2026-06-19T19:15:52.906Z",
   "passed": 23,
   "failed": 0,
   "results": [
@@ -107,17 +107,17 @@
     {
       "name": "strategy:safety-car-deploys",
       "ok": true,
-      "detail": "20.14898011444739"
+      "detail": "21.129226208293577"
     },
     {
       "name": "strategy:red-flag-deploys",
       "ok": true,
-      "detail": "9.702388060159716"
+      "detail": "8.81313031030509"
     },
     {
       "name": "strategy:overtake-safe",
       "ok": true,
-      "detail": "2.118807990836883/2.11"
+      "detail": "2.1183718228639496/2.11"
     }
   ],
   "audit": {

@@ -1,41 +1,32 @@
-# F1 Manager 3D — v0.19.0-F10
+# F1 Manager 3D — v0.29.0-F20
 
-Build `F1M3D-0.19.0-F10` da Fase 10. Projeto mobile-first/PWA com carreira F2/F1, internacionalização PT-BR/EN/ES, assets externos por manifesto, save vault e auditoria antiquebra.
+Build mobile-first/PWA do F1 Manager 3D.
 
-## Destaque da fase
+## Fase atual
 
-A Fase 10 adiciona a primeira camada oficial de sessões e regulamento: F1 Grand Prix com Q1/Q2/Q3, F1 Sprint, F2 Sprint/Feature, pontuação separada, pole points F2, punições, bandeiras, parque fechado e classificação oficial.
+**Fase 20 — Operação beta, feedback, triagem e hotfix controlado**
 
-## Rodar auditoria
+- Feedback local de beta.
+- Triagem de crashes e bugs.
+- Plano de hotfix controlado.
+- Matriz de aparelhos.
+- Rollback e gates de produção.
+- Assets pesados fora do ZIP, com caminhos preservados.
+
+## Comandos
 
 ```bash
 npm install
 npm run audit
 ```
 
-Resultado desta entrega: 438 verificações aprovadas e 0 falhas.
-
-## Assets
-
-O ZIP de fase não inclui imagens, áudios, vídeos ou modelos 3D pesados. Use `assets/ASSET_PATHS_REQUIRED.txt` e `assets/ASSET_MANIFEST.json` para restaurar os binários no caminho exato.
-
-## Build atual — v0.21.0-F12
-
-Fase 12 adiciona IA estratégica de corrida: undercut/overcut, tráfego, ataque, defesa, erro humano, pit crew, double stacking, unsafe release, Safety Car, VSC, bandeira vermelha e relargadas. Também corrige a rolagem da tela Criar Carreira e torna os caminhos de assets visíveis nos placeholders.
-
-Para auditar:
+## Upload Git Bash
 
 ```bash
-npm run audit
+cd "/c/Users/jonat/Desktop/GAME/¨2026/F1 Manager 3D"
+git add .
+git commit -m "Fase 20 v0.29.0-F20 - operacao beta feedback triagem hotfix"
+git push -u origin main
 ```
 
-Para testar somente a física:
-
-```bash
-npm run test:vehicle
-```
-
-
-## Assets no Vercel/GitHub
-
-Por regra do projeto, os ZIPs de fase não incluem imagens, áudios, vídeos ou modelos 3D pesados. Os caminhos permanecem preservados em `assets/ASSET_PATHS_REQUIRED.txt` e `assets/ASSET_MANIFEST.json`. Se o deploy exibir placeholders, copie a pasta `assets` real para os caminhos documentados.
+Repositório: `https://github.com/jonatanoficial-bit/F1-MANAGER-3D.git`

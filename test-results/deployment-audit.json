@@ -1,0 +1,131 @@
+{
+  "generated_at": "2026-06-19T19:15:54.979Z",
+  "passed": 7,
+  "failed": 0,
+  "checks": [
+    {
+      "id": "audit-score",
+      "ok": true,
+      "detail": "100"
+    },
+    {
+      "id": "audit-checks",
+      "ok": true,
+      "detail": "14/0"
+    },
+    {
+      "id": "asset-docs",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "id": "asset-sample-paths",
+      "ok": true,
+      "detail": "assets/backgrounds/ui/global_lobby.png,assets/avatars/selectable/avatar_01.png,assets/tracks/svg/bahrein.svg,assets/icons/app/icon-192.png"
+    },
+    {
+      "id": "beta-blocked-production",
+      "ok": true,
+      "detail": "F1M3D-F19-BETA-AUDIT-MQLB79B6"
+    },
+    {
+      "id": "state-migrated",
+      "ok": true,
+      "detail": "public-beta-candidate"
+    },
+    {
+      "id": "github-path-memory",
+      "ok": true,
+      "detail": "/c/Users/jonat/Desktop/GAME/¨2026/F1 Manager 3D"
+    }
+  ],
+  "audit": {
+    "score": 100,
+    "passed": 14,
+    "failed": 0,
+    "checks": [
+      {
+        "id": "schema",
+        "ok": true,
+        "detail": "schema 1"
+      },
+      {
+        "id": "channel",
+        "ok": true,
+        "detail": "public-beta-candidate"
+      },
+      {
+        "id": "environments",
+        "ok": true,
+        "detail": "4"
+      },
+      {
+        "id": "asset-documents",
+        "ok": true,
+        "detail": "assets/ASSET_PATHS_REQUIRED.txt, assets/ASSET_MANIFEST.json, README_ASSETS_SEM_BINARIOS.txt, docs/RESTORE_ASSETS.md"
+      },
+      {
+        "id": "sample-paths",
+        "ok": true,
+        "detail": "4"
+      },
+      {
+        "id": "zip-assets-policy",
+        "ok": true,
+        "detail": "zip leve / produção exige restauração"
+      },
+      {
+        "id": "cache-bust",
+        "ok": true,
+        "detail": "19"
+      },
+      {
+        "id": "runtime-files",
+        "ok": true,
+        "detail": "data/deployment-data.js, src/core/deployment-system.js, tests/deployment-audit.mjs"
+      },
+      {
+        "id": "beta-evidence",
+        "ok": true,
+        "detail": "6"
+      },
+      {
+        "id": "telemetry-opt-in",
+        "ok": true,
+        "detail": "consentimento obrigatório"
+      },
+      {
+        "id": "production-blocked",
+        "ok": true,
+        "detail": "publicação automática bloqueada"
+      },
+      {
+        "id": "rollback",
+        "ok": true,
+        "detail": "17,18,19"
+      },
+      {
+        "id": "upload-memory",
+        "ok": true,
+        "detail": "https://github.com/jonatanoficial-bit/F1-MANAGER-3D.git"
+      },
+      {
+        "id": "systems-covered",
+        "ok": true,
+        "detail": "10"
+      }
+    ],
+    "status": {
+      "score": 100,
+      "envs": 4,
+      "docs": 4,
+      "paths": 4,
+      "evidence": 6,
+      "rollbackSchemas": 3,
+      "blockers": 4,
+      "channel": "public-beta-candidate",
+      "productionBlocked": true
+    },
+    "generatedAt": "2026-06-19T19:15:54.978Z"
+  }
+}

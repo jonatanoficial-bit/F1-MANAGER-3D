@@ -1,0 +1,45 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const results=[]; const add=(name,ok,detail='')=>{results.push({name,ok:Boolean(ok),detail}); if(!ok) process.exitCode=1;};
+const read=rel=>fs.readFileSync(path.join(root,rel),'utf8');
+for(const rel of ['data/operations-data.js','src/core/operations-system.js']){
+  try{ new vm.Script(read(rel),{filename:rel}); add(`syntax:${rel}`,true); } catch(error){ add(`syntax:${rel}`,false,error.message); }
+}
+const sandbox = { globalThis:{}, window:{}, console };
+sandbox.globalThis = sandbox; sandbox.window = sandbox;
+vm.createContext(sandbox);
+vm.runInContext(read('data/operations-data.js'), sandbox);
+vm.runInContext(read('src/core/operations-system.js'), sandbox);
+const api = sandbox.F1M_CORE?.operations?.createOperationsSystem?.({ data:sandbox.F1M_OPERATIONS_DATA });
+const state = { saveSchema:20, quality:{}, operations:{} };
+api?.initializeState?.(state, { buildCode:'TEST-F20' });
+const feedback = api?.addFeedback?.(state, { category:'mobile-scroll', severity:'critical', screen:'Criar Carreira', description:'token=abc123 rolagem travada no mobile', device:'audit', language:'pt-BR' }, { buildCode:'TEST-F20' });
+const triage = api?.triage?.(state, { buildCode:'TEST-F20' });
+const hotfix = api?.prepareHotfixPlan?.(state, { buildCode:'TEST-F20' });
+const audit = api?.audit?.({ state, buildCode:'TEST-F20' });
+const status = api?.status?.(state, { buildCode:'TEST-F20' });
+add('ops:data-loaded', Number(sandbox.F1M_OPERATIONS_DATA?.schema) >= 1, 'schema '+sandbox.F1M_OPERATIONS_DATA?.schema);
+add('ops:core-api', Boolean(api?.initializeState && api?.audit && api?.addFeedback && api?.triage && api?.prepareHotfixPlan && api?.status), 'api completa');
+add('ops:audit-score', Number(audit?.score || 0) >= 100, `${audit?.score || 0}/100`);
+add('ops:feedback-categories', (sandbox.F1M_OPERATIONS_DATA?.feedback?.categories || []).length >= 8, String((sandbox.F1M_OPERATIONS_DATA?.feedback?.categories || []).length));
+add('ops:redaction', feedback?.description?.includes('[redacted]') && !feedback?.description?.includes('abc123'), feedback?.description || 'sem feedback');
+add('ops:triage', triage?.total >= 1 && Object.keys(triage?.buckets || {}).length >= 1, JSON.stringify(triage || {}));
+add('ops:hotfix-plan', Boolean(hotfix?.id) && hotfix.productionAllowed === false && (hotfix.artifacts || []).length >= 5 && (hotfix.rollbackSchemas || []).includes(20), JSON.stringify(hotfix || {}));
+add('ops:device-matrix', (sandbox.F1M_OPERATIONS_DATA?.deviceMatrix || []).length >= 5, String((sandbox.F1M_OPERATIONS_DATA?.deviceMatrix || []).length));
+add('ops:checklist', (sandbox.F1M_OPERATIONS_DATA?.betaOpsChecklist || []).length >= 8, String((sandbox.F1M_OPERATIONS_DATA?.betaOpsChecklist || []).length));
+add('ops:status', status?.productionBlocked === true && status?.devices >= 5, JSON.stringify(status || {}));
+const index=read('index.html'); const script=read('script.js'); const css=read('style.css'); const pkg=JSON.parse(read('package.json'));
+add('index:scripts', index.includes('data/operations-data.js') && index.includes('src/core/operations-system.js'), 'scripts F20');
+add('script:system-card', script.includes('operationsMiniHTML') && script.includes('runOperationsAudit') && script.includes('prepareHotfixPlan'), 'central sistema');
+add('script:state-init', script.includes('operationsSystem?.initializeState') && script.includes('state.operations'), 'runtime state');
+add('script:actions', script.includes('runOperationsAudit(){ runOperationsAudit(); }') && script.includes('addBetaFeedbackSample(){ addBetaFeedbackSample(); }'), 'actions');
+add('css:operations', css.includes('F20') && css.includes('operations-card'), 'css');
+add('package:script', Boolean(pkg.scripts?.['test:operations']), 'test:operations');
+const summary={build:JSON.parse(read('BUILD_INFO.json')).build_code, generatedAt:new Date().toISOString(), passed:results.filter(r=>r.ok).length, failed:results.filter(r=>!r.ok).length, results};
+fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
+fs.writeFileSync(path.join(root,'test-results/operations-audit.json'),JSON.stringify(summary,null,2)+'\n');
+console.log(results.map(r=>`${r.ok?'PASS':'FAIL'} ${r.name}${r.detail?' — '+r.detail:''}`).join('\n'));
+console.log(`TOTAL: ${summary.passed} passed, ${summary.failed} failed`);

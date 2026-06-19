@@ -1,0 +1,14 @@
+{
+  "phase": 20,
+  "version": "0.29.0",
+  "build_code": "F1M3D-0.29.0-F20",
+  "name": "Operação beta, feedback, triagem e hotfix controlado",
+  "status": "approved",
+  "summary": "Coleta local de feedback, triagem de crash, plano de hotfix controlado, matriz de aparelhos, rollback e produção bloqueada até homologação manual.",
+  "audit": {
+    "passed": 757,
+    "failed": 0
+  },
+  "assets_policy": "sem assets binários; caminhos preservados",
+  "save_schema": 20
+}
