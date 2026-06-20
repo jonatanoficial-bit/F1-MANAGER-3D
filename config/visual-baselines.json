@@ -1,5 +1,5 @@
 {
-  "build": "F1M3D-0.29.0-F20",
+  "build": "F1M3D-0.31.0-F22",
   "schema": 1,
   "viewports": {
     "mobile_landscape": {
@@ -98,7 +98,10 @@
     "SIMULAR FEEDBACK",
     "PLANO HOTFIX",
     "feedback",
-    "hotfix"
+    "hotfix",
+    "Hotfix visual F22",
+    "AUDITAR VISUAL",
+    "REGISTRAR EVIDÊNCIA"
   ],
   "protectedSelectors": [
     "#homeBuildPill",

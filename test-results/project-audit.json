@@ -1,7 +1,7 @@
 {
-  "build": "F1M3D-0.29.0-F20",
-  "generatedAt": "2026-06-19T19:16:10.493Z",
-  "passed": 227,
+  "build": "F1M3D-0.31.0-F22",
+  "generatedAt": "2026-06-20T15:54:30.113Z",
+  "passed": 247,
   "failed": 0,
   "results": [
     {
@@ -100,6 +100,21 @@
       "detail": ""
     },
     {
+      "name": "json:PHASE_20_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_21_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_22_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "json:assets/ASSET_MANIFEST.json",
       "ok": true,
       "detail": ""
@@ -166,6 +181,11 @@
     },
     {
       "name": "json:package.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/asset-restore-audit.json",
       "ok": true,
       "detail": ""
     },
@@ -301,6 +321,11 @@
     },
     {
       "name": "json:test-results/vehicle-physics-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/visual-hotfix-audit.json",
       "ok": true,
       "detail": ""
     },
@@ -520,6 +545,26 @@
       "detail": ""
     },
     {
+      "name": "syntax:data/asset-restore-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/asset-restore-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:data/visual-hotfix-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/visual-hotfix-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "app-shell:index.html",
       "ok": true,
       "detail": ""
@@ -700,6 +745,16 @@
       "detail": ""
     },
     {
+      "name": "app-shell:data/visual-hotfix-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/visual-hotfix-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "app-shell:data/game-data.js",
       "ok": true,
       "detail": ""
@@ -750,6 +805,16 @@
       "detail": ""
     },
     {
+      "name": "app-shell:src/core/asset-restore-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/asset-restore-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "assets:no-binaries-in-phase-zip",
       "ok": true,
       "detail": ""
@@ -757,12 +822,12 @@
     {
       "name": "assets:manifest-build",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "assets:manifest-version",
       "ok": true,
-      "detail": "20"
+      "detail": "22"
     },
     {
       "name": "assets:original-catalogue",
@@ -837,7 +902,7 @@
     {
       "name": "build:save-schema",
       "ok": true,
-      "detail": "20"
+      "detail": "22"
     },
     {
       "name": "system:tab-visible",
@@ -887,7 +952,7 @@
     {
       "name": "browser:current-build",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "performance:audit-pass",
@@ -897,7 +962,7 @@
     {
       "name": "performance:current-build",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "mobile:audit-pass",
@@ -907,7 +972,7 @@
     {
       "name": "mobile:current-build",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "i18n:audit-pass",
@@ -917,17 +982,17 @@
     {
       "name": "i18n:current-build",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "visual:audit-pass",
       "ok": true,
-      "detail": "91 passed, 0 failed"
+      "detail": "94 passed, 0 failed"
     },
     {
       "name": "visual:current-build",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "ci:audit-pass",
@@ -937,7 +1002,7 @@
     {
       "name": "ci:current-build",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "ci:workflow-present",
@@ -1123,6 +1188,41 @@
       "name": "operations:ui-present",
       "ok": true,
       "detail": "system card + hotfix"
+    },
+    {
+      "name": "asset-restore:data-present",
+      "ok": true,
+      "detail": "asset restore system"
+    },
+    {
+      "name": "asset-restore:audit-present",
+      "ok": true,
+      "detail": "asset restore audit"
+    },
+    {
+      "name": "asset-restore:ui-present",
+      "ok": true,
+      "detail": "system card + restore plan"
+    },
+    {
+      "name": "asset-restore:guide-present",
+      "ok": true,
+      "detail": "docs/ASSET_RESTORE_GUIDE_F21.md"
+    },
+    {
+      "name": "visual-hotfix:data-present",
+      "ok": true,
+      "detail": "visual hotfix system"
+    },
+    {
+      "name": "visual-hotfix:audit-present",
+      "ok": true,
+      "detail": "visual hotfix audit"
+    },
+    {
+      "name": "visual-hotfix:ui-present",
+      "ok": true,
+      "detail": "system card + scroll"
     },
     {
       "name": "scroll:creator-fix-present",

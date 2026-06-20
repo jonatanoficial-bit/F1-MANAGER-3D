@@ -1,0 +1,103 @@
+{
+  "build": "F1M3D-0.31.0-F22",
+  "generatedAt": "2026-06-20T15:54:13.838Z",
+  "passed": 19,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/asset-restore-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/asset-restore-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "restore:data-loaded",
+      "ok": true,
+      "detail": "phase 21"
+    },
+    {
+      "name": "restore:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "restore:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "restore:plan",
+      "ok": true,
+      "detail": "{\"id\":\"F1M3D-F21-ASSETS-MQMJFQOB\",\"steps\":12,\"samples\":22}"
+    },
+    {
+      "name": "restore:preview-health",
+      "ok": true,
+      "detail": "{\"targets\":5,\"samples\":10}"
+    },
+    {
+      "name": "restore:status",
+      "ok": true,
+      "detail": "{\"score\":100,\"channel\":\"public-beta-assets-restore\",\"cataloguedPaths\":519,\"originalBinaryFiles\":416,\"runtimeReferenced\":168,\"restoreSteps\":12,\"samplePaths\":10,\"previewTargets\":5,\"knownMissing\":7,\"productionBlocked\":true,\"plans\":2}"
+    },
+    {
+      "name": "restore:known-missing",
+      "ok": true,
+      "detail": "7"
+    },
+    {
+      "name": "restore:checklist",
+      "ok": true,
+      "detail": "12"
+    },
+    {
+      "name": "restore:sample-avatar",
+      "ok": true,
+      "detail": "avatar sample"
+    },
+    {
+      "name": "restore:sample-track",
+      "ok": true,
+      "detail": "track sample"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F21"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:state-init",
+      "ok": true,
+      "detail": "runtime state"
+    },
+    {
+      "name": "script:actions",
+      "ok": true,
+      "detail": "actions"
+    },
+    {
+      "name": "css:asset-restore",
+      "ok": true,
+      "detail": "css F21"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:asset-restore"
+    },
+    {
+      "name": "docs:guide",
+      "ok": true,
+      "detail": "guide F21"
+    }
+  ]
+}

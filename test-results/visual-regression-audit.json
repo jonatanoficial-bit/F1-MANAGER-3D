@@ -1,14 +1,14 @@
 {
-  "build": "F1M3D-0.29.0-F20",
-  "generatedAt": "2026-06-19T19:16:09.809Z",
-  "snapshotHash": "5ba223f4f2ae3b5f2173b1cd227f67ebb9206d877b10d81a7328971dec8383f9",
-  "passed": 91,
+  "build": "F1M3D-0.31.0-F22",
+  "generatedAt": "2026-06-20T15:54:29.432Z",
+  "snapshotHash": "c322fde53e8e43b31622cec9e42a8e859817fea2c98b35640161db0525641b36",
+  "passed": 94,
   "failed": 0,
   "results": [
     {
       "name": "visual:baseline-current",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20/F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22/F1M3D-0.31.0-F22"
     },
     {
       "name": "visual:protected-selector:#homeBuildPill",
@@ -361,6 +361,21 @@
       "detail": "texto base"
     },
     {
+      "name": "visual:text:Hotfix visual F22",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:AUDITAR VISUAL",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:REGISTRAR EVIDÊNCIA",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
       "name": "visual:responsive-css",
       "ok": true,
       "detail": "media queries presentes"
@@ -383,7 +398,7 @@
     {
       "name": "visual:browser-build",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "visual:viewport-executed:mobile_landscape",

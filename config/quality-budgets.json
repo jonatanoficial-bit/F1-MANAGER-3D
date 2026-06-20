@@ -1,12 +1,12 @@
 {
-  "build": "F1M3D-0.29.0-F20",
+  "build": "F1M3D-0.31.0-F22",
   "profile": "mobile-first",
   "budgets": {
     "directory_bytes_without_assets": 2200000,
-    "javascript_bytes": 940000,
+    "javascript_bytes": 980000,
     "css_bytes": 98000,
     "html_bytes": 30000,
-    "app_shell_files_max": 50,
+    "app_shell_files_max": 52,
     "asset_binary_files_in_phase_zip": 0,
     "dom_nodes": 2200,
     "buttons": 260,
@@ -40,6 +40,8 @@
     "Fase 17 adiciona fundação de backend/lançamento, adaptadores de cloud save, consentimento de telemetria, segurança, rollback, checklist de lojas e live ops sem novos binários.",
     "Fase 18 adiciona Release Candidate comercial, homologação física, checklist de lojas, privacidade/suporte final, revisão jurídica e pacote de publicação sem novos binários.",
     "Fase 19 adiciona deploy seguro, beta público controlado, assistente de restauração de assets, validação de GitHub/Vercel/PWA/cache e bloqueios contra publicação acidental.",
-    "Fase 20 adiciona operação beta pública controlada, feedback local, triagem de crash, plano de hotfix, matriz de dispositivos e rollback sem publicar em produção."
+    "Fase 20 adiciona operação beta pública controlada, feedback local, triagem de crash, plano de hotfix, matriz de dispositivos e rollback sem publicar em produção.",
+    "Fase 21 adiciona restauração guiada de assets reais, validação de preview GitHub/Vercel/PWA/cache, evidências manuais e bloqueio de produção até assets obrigatórios aparecerem.",
+    "Fase 22 adiciona hotfix visual final de rolagem PC/mobile, caminhos de assets visíveis, fundos restauráveis, legibilidade e validação para beta público com assets reais."
   ]
 }

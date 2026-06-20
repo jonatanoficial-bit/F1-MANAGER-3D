@@ -1,6 +1,6 @@
 {
-  "build": "F1M3D-0.29.0-F20",
-  "generatedAt": "2026-06-19T19:15:51.024Z",
+  "build": "F1M3D-0.31.0-F22",
+  "generatedAt": "2026-06-20T15:54:09.593Z",
   "passed": 14,
   "failed": 0,
   "results": [
@@ -17,7 +17,7 @@
     {
       "name": "save:schema-current",
       "ok": true,
-      "detail": "20"
+      "detail": "22"
     },
     {
       "name": "save:journal-created",
@@ -47,7 +47,7 @@
     {
       "name": "recovery:auto-loads-backup",
       "ok": true,
-      "detail": "{\"profile\":{\"name\":\"Auditoria Save\"},\"currentSeries\":\"F2\",\"currentTeam\":\"prema\",\"completedRaces\":4,\"money\":1004,\"saveSchema\":20,\"updatedAt\":\"2026-06-19T19:15:51.017Z\",\"saveVault\":{\"format\":\"F1M_SAVE_ENVELOPE_V2\",\"journal\":\"F1M_SAVE_JOURNAL_V1\",\"backups\":5,\"lastWriteAt\":\"2026-06-19T19:15:51.017Z\",\"buildCode\":\"F1M3D-0.29.0-F20\"}}"
+      "detail": "{\"profile\":{\"name\":\"Auditoria Save\"},\"currentSeries\":\"F2\",\"currentTeam\":\"prema\",\"completedRaces\":4,\"money\":1004,\"saveSchema\":22,\"updatedAt\":\"2026-06-20T15:54:09.585Z\",\"saveVault\":{\"format\":\"F1M_SAVE_ENVELOPE_V2\",\"journal\":\"F1M_SAVE_JOURNAL_V1\",\"backups\":5,\"lastWriteAt\":\"2026-06-20T15:54:09.585Z\",\"buildCode\":\"F1M3D-0.31.0-F22\"}}"
     },
     {
       "name": "recovery:active-restored",
@@ -62,7 +62,7 @@
     {
       "name": "export:checksum-valid",
       "ok": true,
-      "detail": "7e156d48"
+      "detail": "59eae620"
     },
     {
       "name": "import:portable-ok",

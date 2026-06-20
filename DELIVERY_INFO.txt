@@ -1,1 +1,1 @@
-F1 Manager 3D v0.29.0-F20 — ZIP completo sem assets binários pesados. Build F1M3D-0.29.0-F20. Auditoria 757/0.
+v0.31.0-F22 • ZIP completo sem assets binários pesados • 949 checks aprovados • Git Bash: cd "/c/Users/jonat/Desktop/GAME/¨2026/F1 Manager 3D"

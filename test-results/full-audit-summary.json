@@ -1,18 +1,18 @@
 {
-  "build": "F1M3D-0.29.0-F20",
-  "version": "0.29.0",
-  "phase": 20,
-  "generated_at": "2026-06-19T19:16:10.826Z",
+  "build": "F1M3D-0.31.0-F22",
+  "version": "0.31.0",
+  "phase": 22,
+  "generated_at": "2026-06-20T15:54:30.375Z",
   "static": {
-    "passed": 62,
+    "passed": 64,
     "failed": 0
   },
   "build_consistency": {
-    "passed": 65,
+    "passed": 69,
     "failed": 0
   },
   "modules": {
-    "passed": 65,
+    "passed": 71,
     "failed": 0
   },
   "contracts": {
@@ -27,10 +27,6 @@
     "passed": 14,
     "failed": 0
   },
-  "browser_cases": {
-    "passed": 3,
-    "failed": 0
-  },
   "performance": {
     "passed": 14,
     "failed": 0
@@ -39,12 +35,16 @@
     "passed": 19,
     "failed": 0
   },
-  "visual": {
-    "passed": 91,
+  "i18n": {
+    "passed": 16,
     "failed": 0
   },
-  "ci": {
-    "passed": 42,
+  "sporting": {
+    "passed": 17,
+    "failed": 0
+  },
+  "regulations": {
+    "passed": 17,
     "failed": 0
   },
   "vehicle": {
@@ -67,12 +67,48 @@
     "passed": 16,
     "failed": 0
   },
+  "living_career": {
+    "passed": 21,
+    "failed": 0
+  },
+  "backend_launch": {
+    "passed": 23,
+    "failed": 0
+  },
+  "release_candidate": {
+    "passed": 19,
+    "failed": 0
+  },
+  "deployment": {
+    "passed": 7,
+    "failed": 0
+  },
+  "operations": {
+    "passed": 18,
+    "failed": 0
+  },
+  "asset_restore": {
+    "passed": 19,
+    "failed": 0
+  },
+  "browser_cases": {
+    "passed": 3,
+    "failed": 0
+  },
+  "visual": {
+    "passed": 94,
+    "failed": 0
+  },
+  "ci": {
+    "passed": 42,
+    "failed": 0
+  },
   "project": {
-    "passed": 227,
+    "passed": 247,
     "failed": 0
   },
   "total": {
-    "passed": 757,
+    "passed": 949,
     "failed": 0
   },
   "result": "approved"

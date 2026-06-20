@@ -1,0 +1,46 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const results=[]; const add=(name,ok,detail='')=>{results.push({name,ok:Boolean(ok),detail}); if(!ok) process.exitCode=1;};
+const read=rel=>fs.readFileSync(path.join(root,rel),'utf8');
+for(const rel of ['data/asset-restore-data.js','src/core/asset-restore-system.js']){
+  try{ new vm.Script(read(rel),{filename:rel}); add(`syntax:${rel}`,true); } catch(error){ add(`syntax:${rel}`,false,error.message); }
+}
+const sandbox = { globalThis:{}, window:{}, console };
+sandbox.globalThis = sandbox; sandbox.window = sandbox;
+vm.createContext(sandbox);
+vm.runInContext(read('data/asset-catalog.js'), sandbox);
+vm.runInContext(read('data/asset-restore-data.js'), sandbox);
+vm.runInContext(read('src/core/asset-restore-system.js'), sandbox);
+const api = sandbox.F1M_CORE?.assetRestore?.createAssetRestoreSystem?.({ data:sandbox.F1M_ASSET_RESTORE_DATA, catalog:sandbox.F1M_ASSET_CATALOG });
+const state = { saveSchema:21, quality:{}, assetRestore:{} };
+api?.initializeState?.(state, { buildCode:'TEST-F21' });
+const plan = api?.buildPlan?.(state, { buildCode:'TEST-F21' });
+const health = api?.previewHealth?.(state, { buildCode:'TEST-F21' });
+const audit = api?.audit?.({ state, buildCode:'TEST-F21' });
+const status = api?.status?.(state, { buildCode:'TEST-F21' });
+add('restore:data-loaded', Number(sandbox.F1M_ASSET_RESTORE_DATA?.phase) === 21, 'phase '+sandbox.F1M_ASSET_RESTORE_DATA?.phase);
+add('restore:core-api', Boolean(api?.initializeState && api?.audit && api?.buildPlan && api?.previewHealth && api?.status), 'api completa');
+add('restore:audit-score', Number(audit?.score || 0) >= 100, `${audit?.score || 0}/100`);
+add('restore:plan', Boolean(plan?.id) && (plan.restoreSteps || []).length >= 12 && (plan.samplePaths || []).length >= 10 && plan.productionAllowed === false, JSON.stringify({ id:plan?.id, steps:plan?.restoreSteps?.length, samples:plan?.samplePaths?.length }));
+add('restore:preview-health', (health?.previewTargets || []).length >= 5 && (health?.runtimeSamples || []).length >= 10 && health.productionAllowed === false, JSON.stringify({ targets:health?.previewTargets?.length, samples:health?.runtimeSamples?.length }));
+add('restore:status', status?.productionBlocked === true && status?.cataloguedPaths >= 519 && status?.originalBinaryFiles >= 416, JSON.stringify(status || {}));
+add('restore:known-missing', (sandbox.F1M_ASSET_RESTORE_DATA?.missingKnownFromOriginal || []).length >= 7, String((sandbox.F1M_ASSET_RESTORE_DATA?.missingKnownFromOriginal || []).length));
+add('restore:checklist', (sandbox.F1M_ASSET_RESTORE_DATA?.restoreChecklist || []).length >= 12, String((sandbox.F1M_ASSET_RESTORE_DATA?.restoreChecklist || []).length));
+add('restore:sample-avatar', (sandbox.F1M_ASSET_RESTORE_DATA?.requiredRuntimeSamples || []).includes('assets/avatars/selectable/avatar_01.png'), 'avatar sample');
+add('restore:sample-track', (sandbox.F1M_ASSET_RESTORE_DATA?.requiredRuntimeSamples || []).includes('assets/tracks/svg/australia.svg'), 'track sample');
+const index=read('index.html'); const script=read('script.js'); const css=read('style.css'); const pkg=JSON.parse(read('package.json'));
+add('index:scripts', index.includes('data/asset-restore-data.js') && index.includes('src/core/asset-restore-system.js'), 'scripts F21');
+add('script:system-card', script.includes('assetRestoreMiniHTML') && script.includes('runAssetRestoreAudit') && script.includes('prepareGuidedAssetRestore') && script.includes('verifyAssetPreview'), 'central sistema');
+add('script:state-init', script.includes('assetRestoreSystem?.initializeState') && script.includes('state.assetRestore'), 'runtime state');
+add('script:actions', script.includes('runAssetRestoreAudit(){ runAssetRestoreAudit(); }') && script.includes('prepareGuidedAssetRestore(){ prepareGuidedAssetRestore(); }') && script.includes('verifyAssetPreview(){ verifyAssetPreview(); }'), 'actions');
+add('css:asset-restore', css.includes('asset-restore-card') && css.includes('F21'), 'css F21');
+add('package:script', Boolean(pkg.scripts?.['test:asset-restore']), 'test:asset-restore');
+add('docs:guide', fs.existsSync(path.join(root,'docs/ASSET_RESTORE_GUIDE_F21.md')), 'guide F21');
+const summary={build:JSON.parse(read('BUILD_INFO.json')).build_code, generatedAt:new Date().toISOString(), passed:results.filter(r=>r.ok).length, failed:results.filter(r=>!r.ok).length, results};
+fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
+fs.writeFileSync(path.join(root,'test-results/asset-restore-audit.json'),JSON.stringify(summary,null,2)+'\n');
+console.log(results.map(r=>`${r.ok?'PASS':'FAIL'} ${r.name}${r.detail?' — '+r.detail:''}`).join('\n'));
+console.log(`TOTAL: ${summary.passed} passed, ${summary.failed} failed`);

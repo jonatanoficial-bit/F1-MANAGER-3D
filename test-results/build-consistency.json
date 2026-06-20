@@ -1,76 +1,76 @@
 {
-  "build": "F1M3D-0.29.0-F20",
-  "generatedAt": "2026-06-19T19:15:49.836Z",
+  "build": "F1M3D-0.31.0-F22",
+  "generatedAt": "2026-06-20T15:54:08.402Z",
   "results": [
     {
       "name": "version:source",
       "ok": true,
-      "detail": "0.29.0"
+      "detail": "0.31.0"
     },
     {
       "name": "version:root",
       "ok": true,
-      "detail": "0.29.0"
+      "detail": "0.31.0"
     },
     {
       "name": "version:data",
       "ok": true,
-      "detail": "0.29.0"
+      "detail": "0.31.0"
     },
     {
       "name": "version:runtime",
       "ok": true,
-      "detail": "0.29.0"
+      "detail": "0.31.0"
     },
     {
       "name": "version:package",
       "ok": true,
-      "detail": "0.29.0"
+      "detail": "0.31.0"
     },
     {
       "name": "version:manifest",
       "ok": true,
-      "detail": "0.29.0"
+      "detail": "0.31.0"
     },
     {
       "name": "version:assets",
       "ok": true,
-      "detail": "0.29.0"
+      "detail": "0.31.0"
     },
     {
       "name": "version:package-lock",
       "ok": true,
-      "detail": "0.29.0/0.29.0"
+      "detail": "0.31.0/0.31.0"
     },
     {
       "name": "code:source",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "code:root",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "code:data",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "code:runtime",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "code:assets",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "code:shell",
       "ok": true,
-      "detail": "F1M3D-0.29.0-F20"
+      "detail": "F1M3D-0.31.0-F22"
     },
     {
       "name": "html:build-code",
@@ -85,17 +85,17 @@
     {
       "name": "schema:save",
       "ok": true,
-      "detail": "20"
+      "detail": "22"
     },
     {
       "name": "schema:asset-manifest",
       "ok": true,
-      "detail": "20"
+      "detail": "22"
     },
     {
       "name": "schema:app-shell",
       "ok": true,
-      "detail": "20"
+      "detail": "22"
     },
     {
       "name": "shell:./index.html",
@@ -278,6 +278,16 @@
       "detail": "./src/core/release-candidate-system.js"
     },
     {
+      "name": "shell:./data/visual-hotfix-data.js",
+      "ok": true,
+      "detail": "./data/visual-hotfix-data.js"
+    },
+    {
+      "name": "shell:./src/core/visual-hotfix-system.js",
+      "ok": true,
+      "detail": "./src/core/visual-hotfix-system.js"
+    },
+    {
       "name": "shell:./data/game-data.js",
       "ok": true,
       "detail": "./data/game-data.js"
@@ -326,6 +336,16 @@
       "name": "shell:./src/core/operations-system.js",
       "ok": true,
       "detail": "./src/core/operations-system.js"
+    },
+    {
+      "name": "shell:./src/core/asset-restore-system.js",
+      "ok": true,
+      "detail": "./src/core/asset-restore-system.js"
+    },
+    {
+      "name": "shell:./data/asset-restore-data.js",
+      "ok": true,
+      "detail": "./data/asset-restore-data.js"
     }
   ]
 }

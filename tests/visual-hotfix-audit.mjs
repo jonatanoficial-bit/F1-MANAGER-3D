@@ -1,0 +1,41 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const results=[]; const add=(name,ok,detail='')=>{results.push({name,ok:Boolean(ok),detail}); if(!ok) process.exitCode=1;};
+const read=rel=>fs.readFileSync(path.join(root,rel),'utf8');
+for(const rel of ['data/visual-hotfix-data.js','src/core/visual-hotfix-system.js']){
+  try{ new vm.Script(read(rel),{filename:rel}); add(`syntax:${rel}`,true); } catch(error){ add(`syntax:${rel}`,false,error.message); }
+}
+const sandbox = { globalThis:{}, window:{}, console, document:{ documentElement:{dataset:{}}, querySelectorAll(){ return []; } } };
+sandbox.globalThis = sandbox; sandbox.window = sandbox;
+vm.createContext(sandbox);
+vm.runInContext(read('data/visual-hotfix-data.js'), sandbox);
+vm.runInContext(read('src/core/visual-hotfix-system.js'), sandbox);
+const api = sandbox.F1M_CORE?.visualHotfix?.createVisualHotfixSystem?.({ data:sandbox.F1M_VISUAL_HOTFIX_DATA });
+const state = { saveSchema:22, quality:{}, visualHotfix:{} };
+api?.initializeState?.(state, { buildCode:'TEST-F22' });
+api?.recordEvidence?.(state, { id:'mobile-scroll-ok' }, { buildCode:'TEST-F22' });
+const audit = api?.audit?.({ state, buildCode:'TEST-F22' });
+const status = api?.status?.(state, { buildCode:'TEST-F22' });
+add('hotfix:data-loaded', Number(sandbox.F1M_VISUAL_HOTFIX_DATA?.phase) === 22, 'phase '+sandbox.F1M_VISUAL_HOTFIX_DATA?.phase);
+add('hotfix:core-api', Boolean(api?.initializeState && api?.audit && api?.status && api?.recordEvidence && api?.applyHotfixes), 'api completa');
+add('hotfix:audit-score', Number(audit?.score || 0) >= 100, `${audit?.score || 0}/100`);
+add('hotfix:status', status?.productionBlocked === true && status?.screenCount >= 9 && status?.scrollCount >= 8, JSON.stringify(status || {}));
+add('hotfix:backgrounds', (sandbox.F1M_VISUAL_HOTFIX_DATA?.assetBackgrounds || []).some(b=>b.path === 'assets/backgrounds/ui/global_lobby.png'), 'global_lobby');
+add('hotfix:scroll-contracts', (sandbox.F1M_VISUAL_HOTFIX_DATA?.scrollContracts || []).some(s=>s.id === 'career-create') && (sandbox.F1M_VISUAL_HOTFIX_DATA?.scrollContracts || []).some(s=>s.id === 'race-hud'), 'career + race');
+add('hotfix:checklist', (sandbox.F1M_VISUAL_HOTFIX_DATA?.betaPublicChecklist || []).length >= 8, String((sandbox.F1M_VISUAL_HOTFIX_DATA?.betaPublicChecklist || []).length));
+const index=read('index.html'); const script=read('script.js'); const css=read('style.css'); const pkg=JSON.parse(read('package.json'));
+add('index:scripts', index.includes('data/visual-hotfix-data.js') && index.includes('src/core/visual-hotfix-system.js'), 'scripts F22');
+add('script:system-card', script.includes('visualHotfixMiniHTML') && script.includes('runVisualHotfixAudit') && script.includes('recordVisualEvidence'), 'central sistema');
+add('script:state-init', script.includes('visualHotfix?.initializeState') && script.includes('state.visualHotfix'), 'runtime state');
+add('script:actions', script.includes('runVisualHotfixAudit(){ runVisualHotfixAudit(); }') && script.includes('recordVisualEvidence(){ recordVisualEvidence(); }'), 'actions');
+add('css:hotfix', css.includes('F22') && css.includes('visual-hotfix-card') && css.includes('f22-scroll-zone'), 'css F22');
+add('package:script', Boolean(pkg.scripts?.['test:visual-hotfix']), 'test:visual-hotfix');
+add('docs:guide', fs.existsSync(path.join(root,'docs/VISUAL_HOTFIX_F22.md')), 'guide F22');
+const summary={build:JSON.parse(read('BUILD_INFO.json')).build_code, generatedAt:new Date().toISOString(), passed:results.filter(r=>r.ok).length, failed:results.filter(r=>!r.ok).length, results};
+fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
+fs.writeFileSync(path.join(root,'test-results/visual-hotfix-audit.json'),JSON.stringify(summary,null,2)+'\n');
+console.log(results.map(r=>`${r.ok?'PASS':'FAIL'} ${r.name}${r.detail?' — '+r.detail:''}`).join('\n'));
+console.log(`TOTAL: ${summary.passed} passed, ${summary.failed} failed`);

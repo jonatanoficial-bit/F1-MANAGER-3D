@@ -1,6 +1,6 @@
 {
-  "build": "F1M3D-0.29.0-F20",
-  "generatedAt": "2026-06-19T19:15:55.263Z",
+  "build": "F1M3D-0.31.0-F22",
+  "generatedAt": "2026-06-20T15:54:13.578Z",
   "passed": 18,
   "failed": 0,
   "results": [
@@ -42,12 +42,12 @@
     {
       "name": "ops:triage",
       "ok": true,
-      "detail": "{\"generatedAt\":\"2026-06-19T19:15:55.259Z\",\"buckets\":{\"mobile-viewport\":{\"count\":1,\"priority\":100,\"critical\":1,\"high\":0,\"items\":[\"FB-MQLB79IZ-UQ5E\"]}},\"total\":1}"
+      "detail": "{\"generatedAt\":\"2026-06-20T15:54:13.574Z\",\"buckets\":{\"mobile-viewport\":{\"count\":1,\"priority\":100,\"critical\":1,\"high\":0,\"items\":[\"FB-MQMJFQH1-75WE\"]}},\"total\":1}"
     },
     {
       "name": "ops:hotfix-plan",
       "ok": true,
-      "detail": "{\"id\":\"F1M3D-F20-HOTFIX-MQLB79IZ\",\"buildCode\":\"TEST-F20\",\"generatedAt\":\"2026-06-19T19:15:55.259Z\",\"channel\":\"public-beta-ops\",\"artifacts\":[\"CHANGELOG.md\",\"AUDIT_REPORT.md\",\"FILE_MANIFEST.sha256\",\"test-results/full-audit-summary.json\",\"F1-MANAGER-3D-FASE-20-RESUMO.md\"],\"gates\":[\"sem regressão mobile\",\"sem erro de console crítico\",\"assets obrigatórios documentados\",\"save migrado\",\"rollback disponível\",\"telemetria opt-in\"],\"rollbackSchemas\":[18,19,20],\"triage\":{\"generatedAt\":\"2026-06-19T19:15:55.259Z\",\"buckets\":{\"mobile-viewport\":{\"count\":1,\"priority\":100,\"critical\":1,\"high\":0,\"items\":[\"FB-MQLB79IZ-UQ5E\"]}},\"total\":1},\"blockers\":[\"existem críticos pendentes\",\"produção continua bloqueada até homologação física e revisão jurídica\"],\"productionAllowed\":false}"
+      "detail": "{\"id\":\"F1M3D-F20-HOTFIX-MQMJFQH2\",\"buildCode\":\"TEST-F20\",\"generatedAt\":\"2026-06-20T15:54:13.574Z\",\"channel\":\"public-beta-ops\",\"artifacts\":[\"CHANGELOG.md\",\"AUDIT_REPORT.md\",\"FILE_MANIFEST.sha256\",\"test-results/full-audit-summary.json\",\"F1-MANAGER-3D-FASE-20-RESUMO.md\"],\"gates\":[\"sem regressão mobile\",\"sem erro de console crítico\",\"assets obrigatórios documentados\",\"save migrado\",\"rollback disponível\",\"telemetria opt-in\"],\"rollbackSchemas\":[18,19,20],\"triage\":{\"generatedAt\":\"2026-06-20T15:54:13.574Z\",\"buckets\":{\"mobile-viewport\":{\"count\":1,\"priority\":100,\"critical\":1,\"high\":0,\"items\":[\"FB-MQMJFQH1-75WE\"]}},\"total\":1},\"blockers\":[\"existem críticos pendentes\",\"produção continua bloqueada até homologação física e revisão jurídica\"],\"productionAllowed\":false}"
     },
     {
       "name": "ops:device-matrix",

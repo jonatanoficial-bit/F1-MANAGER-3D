@@ -1,0 +1,88 @@
+{
+  "build": "F1M3D-0.31.0-F22",
+  "generatedAt": "2026-06-20T15:54:14.101Z",
+  "passed": 16,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/visual-hotfix-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/visual-hotfix-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "hotfix:data-loaded",
+      "ok": true,
+      "detail": "phase 22"
+    },
+    {
+      "name": "hotfix:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "hotfix:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "hotfix:status",
+      "ok": true,
+      "detail": "{\"score\":100,\"channel\":\"public-beta-visual-hotfix\",\"screenCount\":9,\"scrollCount\":8,\"backgrounds\":8,\"rules\":6,\"evidence\":1,\"productionBlocked\":true}"
+    },
+    {
+      "name": "hotfix:backgrounds",
+      "ok": true,
+      "detail": "global_lobby"
+    },
+    {
+      "name": "hotfix:scroll-contracts",
+      "ok": true,
+      "detail": "career + race"
+    },
+    {
+      "name": "hotfix:checklist",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F22"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:state-init",
+      "ok": true,
+      "detail": "runtime state"
+    },
+    {
+      "name": "script:actions",
+      "ok": true,
+      "detail": "actions"
+    },
+    {
+      "name": "css:hotfix",
+      "ok": true,
+      "detail": "css F22"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:visual-hotfix"
+    },
+    {
+      "name": "docs:guide",
+      "ok": true,
+      "detail": "guide F22"
+    }
+  ]
+}

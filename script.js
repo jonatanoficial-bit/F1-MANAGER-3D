@@ -1,8 +1,8 @@
 (() => {
   const DATA = window.F1M_DATA;
   const CORE = window.F1M_CORE || {};
-  const SAVE_SCHEMA = Number(DATA.build?.save_schema || 20);
-  const SAVE_KEYS = ['f1_manager_career_2026_v0290', 'f1_manager_career_2026_v0280', 'f1_manager_career_2026_v0270', 'f1_manager_career_2026_v0260', 'f1_manager_career_2026_v0250', 'f1_manager_career_2026_v0240', 'f1_manager_career_2026_v0230', 'f1_manager_career_2026_v0220', 'f1_manager_career_2026_v0210', 'f1_manager_career_2026_v0200', 'f1_manager_career_2026_v0190', 'f1_manager_career_2026_v0180', 'f1_manager_career_2026_v0170', 'f1_manager_career_2026_v0160', 'f1_manager_career_2026_v0150', 'f1_manager_career_2026_v0140', 'f1_manager_career_2026_v0130', 'f1_manager_career_2026_v0120', 'f1_manager_career_2026_v0110', 'f1_manager_career_2026_v0100', 'f1_manager_career_2026_v090', 'f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
+  const SAVE_SCHEMA = Number(DATA.build?.save_schema || 22);
+  const SAVE_KEYS = ['f1_manager_career_2026_v0310', 'f1_manager_career_2026_v0300', 'f1_manager_career_2026_v0290', 'f1_manager_career_2026_v0280', 'f1_manager_career_2026_v0270', 'f1_manager_career_2026_v0260', 'f1_manager_career_2026_v0250', 'f1_manager_career_2026_v0240', 'f1_manager_career_2026_v0230', 'f1_manager_career_2026_v0220', 'f1_manager_career_2026_v0210', 'f1_manager_career_2026_v0200', 'f1_manager_career_2026_v0190', 'f1_manager_career_2026_v0180', 'f1_manager_career_2026_v0170', 'f1_manager_career_2026_v0160', 'f1_manager_career_2026_v0150', 'f1_manager_career_2026_v0140', 'f1_manager_career_2026_v0130', 'f1_manager_career_2026_v0120', 'f1_manager_career_2026_v0110', 'f1_manager_career_2026_v0100', 'f1_manager_career_2026_v090', 'f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
   const ACTIVE_SAVE_KEY = SAVE_KEYS[0];
   const RUNTIME_ERROR_KEY = `${ACTIVE_SAVE_KEY}_runtime_errors`;
   const ASSET_ROOTS = ['assets/'];
@@ -102,6 +102,22 @@
     persistence,
     releaseCandidate,
     deployValidation
+  }) || null;
+
+  const assetRestoreSystem = CORE.assetRestore?.createAssetRestoreSystem?.({
+    data:window.F1M_ASSET_RESTORE_DATA || DATA.assetRestoreData || {},
+    catalog:ASSET_CATALOG,
+    events:appEvents,
+    assetRegistry,
+    deployValidation,
+    operationsSystem
+  }) || null;
+
+  const visualHotfix = CORE.visualHotfix?.createVisualHotfixSystem?.({
+    data:window.F1M_VISUAL_HOTFIX_DATA || DATA.visualHotfixData || {},
+    events:appEvents,
+    assetRegistry,
+    viewportController:null
   }) || null;
 
   let state = loadState() || createInitialState();
@@ -303,6 +319,10 @@
     // state.deployment é mantido pelo módulo F19 para deploy seguro e beta público.
     operationsSystem?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_OPERATIONS_DATA || {} });
     // state.operations é mantido pelo módulo F20 para feedback beta, triagem e hotfix controlado.
+    assetRestoreSystem?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_ASSET_RESTORE_DATA || {}, catalog:ASSET_CATALOG });
+    state.visualHotfix = state.visualHotfix || {};
+    visualHotfix?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_VISUAL_HOTFIX_DATA || {} });
+    // state.assetRestore é mantido pelo módulo F21 para restauração guiada de assets reais e validação de preview.
     ensureRosters();
     state.car = state.car || { aero:50, engine:50, chassis:50, reliability:55, tyreWear:55, pitStop:55, fuel:55 };
     ensureStandings();
@@ -661,6 +681,7 @@
     if(name === 'race') setTimeout(startRaceRenderer, 60);
     if(name === 'assets-check') renderAssetChecklist();
     if(name === 'results') renderResults();
+    visualHotfix?.applyHotfixes?.(document, { screen:name, buildCode:DATA.build?.build_code || 'dev' });
   }
 
   function updateBuildBadges(){
@@ -695,6 +716,7 @@
     ensureCareerSystems();
     audioUI?.applyDesignTokens?.();
     screenBackgrounds();
+    visualHotfix?.applyHotfixes?.(document, { buildCode:DATA.build?.build_code || 'dev' });
     bindGlobalActions();
     initNavLabels();
     renderCreator();
@@ -824,6 +846,11 @@
       runOperationsAudit(){ runOperationsAudit(); },
       addBetaFeedbackSample(){ addBetaFeedbackSample(); },
       prepareHotfixPlan(){ prepareHotfixPlan(); },
+      runAssetRestoreAudit(){ runAssetRestoreAudit(); },
+      prepareGuidedAssetRestore(){ prepareGuidedAssetRestore(); },
+      verifyAssetPreview(){ verifyAssetPreview(); },
+      runVisualHotfixAudit(){ runVisualHotfixAudit(); },
+      recordVisualEvidence(){ recordVisualEvidence(); },
       runAssetAudit(){ hydrateAssets(document); setTimeout(renderAssetChecklist, 120); },
       exportAssetReport(){ exportAssetReport(); },
       clearRuntimeErrors(){ clearRuntimeErrors(); },
@@ -1176,7 +1203,7 @@
       const errors = runtimeGuard?.list?.() || [];
       const buildCheck = CORE.build?.consistency?.(DATA.build);
       content.innerHTML = `<div class="cards-grid system-grid">
-        <article class="dash-card glass-panel wide system-hero"><h3>Central Antiquebra e Diagnóstico</h3><p>Verifica build, dados, save, armazenamento, PWA, viewport, registro central de assets, performance mobile, balanceamento científico, corrida 3D profissional, áudio/interface/acessibilidade, carreira viva profunda, backend/segurança/lançamento, deploy/beta público, operação beta F20 e erros reais do navegador.</p><p>Build ativa: <b>${DATA.build?.build_code || 'dev'}</b> • Save schema <b>${SAVE_SCHEMA}</b> • Resultado: <b>${report ? report.score + '/100' : 'não executado'}</b></p><button class="primary" data-action="runSystemDiagnostics" ${diagnosticsRunning?'disabled':''}>${diagnosticsRunning?'ANALISANDO…':'RODAR DIAGNÓSTICO COMPLETO'}</button><button class="secondary" data-action="runPerformanceAudit">MEDIR PERFORMANCE</button><button class="secondary" data-action="exportDiagnostics">EXPORTAR RELATÓRIO</button></article>
+        <article class="dash-card glass-panel wide system-hero"><h3>Central Antiquebra e Diagnóstico</h3><p>Verifica build, dados, save, armazenamento, PWA, viewport, registro central de assets, performance mobile, balanceamento científico, corrida 3D profissional, áudio/interface/acessibilidade, carreira viva profunda, backend/segurança/lançamento, deploy/beta público, operação beta F20, restauração de assets F21, hotfix visual F22 e erros reais do navegador.</p><p>Build ativa: <b>${DATA.build?.build_code || 'dev'}</b> • Save schema <b>${SAVE_SCHEMA}</b> • Resultado: <b>${report ? report.score + '/100' : 'não executado'}</b></p><button class="primary" data-action="runSystemDiagnostics" ${diagnosticsRunning?'disabled':''}>${diagnosticsRunning?'ANALISANDO…':'RODAR DIAGNÓSTICO COMPLETO'}</button><button class="secondary" data-action="runPerformanceAudit">MEDIR PERFORMANCE</button><button class="secondary" data-action="exportDiagnostics">EXPORTAR RELATÓRIO</button></article>
         <article class="dash-card glass-panel"><h3>Orçamento mobile</h3>${performanceMiniHTML()}</article>
         <article class="dash-card glass-panel"><h3>Idioma e região</h3>${i18nMiniHTML()}<div class="i18n-switcher-row" data-i18n-switcher></div></article>
         <article class="dash-card glass-panel"><h3>Banco esportivo 2026</h3>${sportingMiniHTML()}</article>
@@ -1191,6 +1218,8 @@
         <article class="dash-card glass-panel release-candidate-card"><h3>Release Candidate comercial F18</h3>${releaseCandidateMiniHTML()}<button class="secondary" data-action="runReleaseCandidateAudit">AUDITAR RC</button><button class="secondary" data-action="prepareCommercialPackage">PACOTE FINAL</button><button class="secondary" data-action="exportStoreChecklist">CHECKLIST LOJAS</button></article>
         <article class="dash-card glass-panel deploy-card"><h3>Deploy e Beta Público F19</h3>${deploymentMiniHTML()}<button class="secondary" data-action="runDeploymentAudit">AUDITAR DEPLOY</button><button class="secondary" data-action="preparePublicBeta">PREPARAR BETA</button><button class="secondary" data-action="generateAssetRestorePlan">PLANO ASSETS</button></article>
         <article class="dash-card glass-panel operations-card"><h3>Operação beta F20</h3>${operationsMiniHTML()}<button class="secondary" data-action="runOperationsAudit">AUDITAR OPERAÇÃO</button><button class="secondary" data-action="addBetaFeedbackSample">SIMULAR FEEDBACK</button><button class="secondary" data-action="prepareHotfixPlan">PLANO HOTFIX</button></article>
+        <article class="dash-card glass-panel asset-restore-card"><h3>Assets reais e preview F21</h3>${assetRestoreMiniHTML()}<button class="secondary" data-action="runAssetRestoreAudit">AUDITAR ASSETS F21</button><button class="secondary" data-action="prepareGuidedAssetRestore">PLANO RESTAURAÇÃO</button><button class="secondary" data-action="verifyAssetPreview">VERIFICAR PREVIEW</button></article>
+        <article class="dash-card glass-panel visual-hotfix-card"><h3>Hotfix visual F22</h3>${visualHotfixMiniHTML()}<button class="secondary" data-action="runVisualHotfixAudit">AUDITAR VISUAL</button><button class="secondary" data-action="recordVisualEvidence">REGISTRAR EVIDÊNCIA</button></article>
         <article class="dash-card glass-panel"><h3>Imagens e caminhos</h3><p>Os binários pesados ficam fora do ZIP por regra do projeto, mas os caminhos continuam preservados. Restaure a pasta assets real no GitHub/Vercel para as imagens aparecerem.</p><p class="muted-small">Ex.: assets/avatars/selectable/avatar_01.png</p></article>
         <article class="dash-card glass-panel"><h3>Mobile, fullscreen e safe area</h3>${viewportMiniHTML()}<button class="secondary" data-action="enterFullscreen">ATIVAR FULLSCREEN</button><button class="secondary" data-action="cycleHudMode">ALTERNAR HUD</button></article>
         <article class="dash-card glass-panel"><h3>Fonte única de build</h3><p>${buildCheck?.ok ? '✓ Sincronizada' : '⚠ Divergência detectada'}</p><p>${CORE.build?.format?.(DATA.build, true) || DATA.build?.label || ''}</p><small>HTML, runtime, dados, PWA, pacote e manifesto são auditados na geração.</small></article>
@@ -2656,6 +2685,59 @@
     state.quality = state.quality || {};
     state.quality.hotfixPlanF20 = plan;
     addInboxMessage('qa','Plano de hotfix F20','Hotfix controlado preparado', `${plan.id} • ${plan.artifacts?.length || 0} artefatos • ${plan.blockers?.length || 0} bloqueios.`, { plan });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function assetRestoreMiniHTML(){
+    const st = assetRestoreSystem?.status?.(state, { buildCode:DATA.build?.build_code || 'dev', catalog:ASSET_CATALOG }) || { score:0, channel:'n/d', cataloguedPaths:0, originalBinaryFiles:0, restoreSteps:0, previewTargets:0, knownMissing:0, productionBlocked:true };
+    const audit = state.quality?.assetRestoreF21;
+    return `<p><b>${audit?.score ?? st.score}/100</b> • ${st.channel}</p><p>Caminhos: <b>${st.cataloguedPaths}</b> • binários originais: <b>${st.originalBinaryFiles}</b> • passos: <b>${st.restoreSteps}</b> • preview: <b>${st.previewTargets}</b></p><p class="muted-small">Produção bloqueada até restaurar assets reais, limpar cache PWA e validar GitHub/Vercel/mobile.</p>`;
+  }
+  function runAssetRestoreAudit(){
+    ensureCareerSystems();
+    const audit = assetRestoreSystem?.audit?.({ state, buildCode:DATA.build?.build_code || 'dev', catalog:ASSET_CATALOG }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.assetRestoreF21 = { status:audit.failed ? 'review' : 'approved', score:audit.score, passed:audit.passed, failed:audit.failed, checks:audit.checks, generatedAt:audit.generatedAt };
+    addInboxMessage('qa','Assets reais F21', audit.failed ? 'Restauração requer revisão' : 'Restauração guiada validada', `Fase 21: ${audit.score}/100 • ${audit.passed} checks aprovados e ${audit.failed} pendentes.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function prepareGuidedAssetRestore(){
+    ensureCareerSystems();
+    const plan = assetRestoreSystem?.buildPlan?.(state, { buildCode:DATA.build?.build_code || 'dev', catalog:ASSET_CATALOG }) || { id:'F21-ASSETS-LOCAL', requiredDocs:[], restoreSteps:[], samplePaths:[], blocker:'sistema indisponível' };
+    state.quality = state.quality || {};
+    state.quality.assetRestorePlanF21 = plan;
+    addInboxMessage('qa','Plano de assets F21','Restauração guiada preparada', `${plan.id} • ${plan.restoreSteps?.length || 0} passos • ${plan.samplePaths?.length || 0} caminhos de amostra.`, { plan });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function verifyAssetPreview(){
+    ensureCareerSystems();
+    const health = assetRestoreSystem?.previewHealth?.(state, { buildCode:DATA.build?.build_code || 'dev', catalog:ASSET_CATALOG }) || { previewTargets:[], runtimeSamples:[], productionAllowed:false };
+    state.quality = state.quality || {};
+    state.quality.assetPreviewF21 = health;
+    addInboxMessage('qa','Preview F21','Verificação manual registrada', `Targets: ${health.previewTargets?.length || 0} • samples: ${health.runtimeSamples?.length || 0} • produção bloqueada.`, { health });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+
+
+  function visualHotfixMiniHTML(){
+    const st = visualHotfix?.status?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || { score:0, channel:'n/d', screenCount:0, scrollCount:0, backgrounds:0, evidence:0, productionBlocked:true };
+    const audit = state.quality?.visualHotfixF22;
+    return `<p><b>${audit?.score ?? st.score}/100</b> • ${st.channel}</p><p>Telas: <b>${st.screenCount}</b> • rolagem: <b>${st.scrollCount}</b> • fundos: <b>${st.backgrounds}</b> • evidências: <b>${st.evidence}</b></p><p class="muted-small">Scroll PC/mobile • paths visíveis • fundos restauráveis • beta público com assets reais.</p>`;
+  }
+  function runVisualHotfixAudit(){
+    ensureCareerSystems();
+    const audit = visualHotfix?.audit?.({ state, buildCode:DATA.build?.build_code || 'dev' }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.visualHotfixF22 = { status:audit.failed ? 'review' : 'approved', score:audit.score, passed:audit.passed, failed:audit.failed, checks:audit.checks, generatedAt:audit.generatedAt };
+    visualHotfix?.applyHotfixes?.(document, { buildCode:DATA.build?.build_code || 'dev' });
+    addInboxMessage('qa','Hotfix visual F22', audit.failed ? 'Hotfix visual requer revisão' : 'Hotfix visual validado', `Fase 22: ${audit.score}/100 • ${audit.passed} checks aprovados e ${audit.failed} pendentes.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function recordVisualEvidence(){
+    ensureCareerSystems();
+    const ev = visualHotfix?.recordEvidence?.(state, { id:'manual-scroll-asset-check', label:'Validação manual de scroll e caminhos de assets', status:'pending-physical-device' }, { buildCode:DATA.build?.build_code || 'dev' }) || null;
+    addInboxMessage('qa','Evidência visual F22','Checklist registrado', ev ? `${ev.id} • ${ev.status}` : 'Sistema visual indisponível.', { ev });
     saveState(); renderTab('system'); updateHud();
   }
 

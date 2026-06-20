@@ -39,6 +39,8 @@ const APP_SHELL = [
   "./src/core/backend-launch-system.js",
   "./data/release-candidate-data.js",
   "./src/core/release-candidate-system.js",
+  "./data/visual-hotfix-data.js",
+  "./src/core/visual-hotfix-system.js",
   "./data/game-data.js",
   "./data/track-layouts.js",
   "./script.js",
@@ -48,7 +50,9 @@ const APP_SHELL = [
   "./data/deployment-data.js",
   "./src/core/deployment-system.js",
   "./data/operations-data.js",
-  "./src/core/operations-system.js"
+  "./src/core/operations-system.js",
+  "./src/core/asset-restore-system.js",
+  "./data/asset-restore-data.js"
 ];
 
 self.addEventListener('install', event => {

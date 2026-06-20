@@ -420,6 +420,46 @@
       current = 20; applied.push(20);
     }
 
+    if(current < 21 && targetSchema >= 21){
+      state.assetRestore = state.assetRestore || {};
+      state.assetRestore = {
+        dataPack:'asset-restore-preview-2026-06-20',
+        channel:'public-beta-assets-restore',
+        productionBlocked:true,
+        previewChecks:Array.isArray(state.assetRestore?.previewChecks) ? state.assetRestore.previewChecks : [],
+        restorePlans:Array.isArray(state.assetRestore?.restorePlans) ? state.assetRestore.restorePlans : [],
+        manualEvidence:Array.isArray(state.assetRestore?.manualEvidence) ? state.assetRestore.manualEvidence : [],
+        lastAuditAt:state.assetRestore?.lastAuditAt || null,
+        lastPlanAt:state.assetRestore?.lastPlanAt || null,
+        lastPreviewAt:state.assetRestore?.lastPreviewAt || null,
+        migratedBy:String(options.buildCode || 'dev'),
+        ...state.assetRestore
+      };
+      state.quality = state.quality || {};
+      state.quality.assetRestoreF21 = state.quality.assetRestoreF21 || { status:'not-run', score:null, systems:10, guidedRestore:true, preview:true, productionBlocked:true, migratedBy:String(options.buildCode || 'dev') };
+      state.architecture = {...(state.architecture || {}), version:19, assetRestoreF21:1, previewValidation:1, pwaCacheInvalidation:1, modules:[...new Set([...(state.architecture?.modules || []),'asset-restore-f21','guided-restore-plan','preview-health','case-sensitive-paths','pwa-cache-invalidation','github-vercel-check','manual-evidence','production-blocker'])], migratedAt:new Date().toISOString(), migratedBy:String(options.buildCode || 'dev')};
+      current = 21; applied.push(21);
+    }
+
+
+    if(current < 22 && targetSchema >= 22){
+      state.visualHotfix = state.visualHotfix || {};
+      state.visualHotfix = {
+        dataPack:'visual-hotfix-scroll-assets-2026-06-20',
+        channel:'public-beta-visual-hotfix',
+        productionBlocked:true,
+        evidence:Array.isArray(state.visualHotfix?.evidence) ? state.visualHotfix.evidence : [],
+        auditHistory:Array.isArray(state.visualHotfix?.auditHistory) ? state.visualHotfix.auditHistory : [],
+        lastAuditAt:state.visualHotfix?.lastAuditAt || null,
+        migratedBy:String(options.buildCode || 'dev'),
+        ...state.visualHotfix
+      };
+      state.quality = state.quality || {};
+      state.quality.visualHotfixF22 = state.quality.visualHotfixF22 || { status:'not-run', score:null, scroll:true, assets:true, mobile:true, productionBlocked:true, migratedBy:String(options.buildCode || 'dev') };
+      state.architecture = {...(state.architecture || {}), version:20, visualHotfixF22:1, scrollAudit:1, assetPathVisibility:1, modules:[...new Set([...(state.architecture?.modules || []),'visual-hotfix-f22','scroll-audit','asset-path-visibility','background-restore','mobile-desktop-polish','beta-asset-validation'])], migratedAt:new Date().toISOString(), migratedBy:String(options.buildCode || 'dev')};
+      current = 22; applied.push(22);
+    }
+
         state.saveSchema = Math.min(targetSchema, Math.max(current, Number(state.saveSchema || 0)));
     return { state, from:Number(input?.saveSchema || 0), to:state.saveSchema, applied };
   }
@@ -448,7 +488,9 @@
       { id:'backend-launch', ok:Number(targetSchema) < 17 || Boolean(state?.backendLaunch?.cloudSaveAdapterReady) || Number(state?.architecture?.backendLaunch || 0) >= 1, detail:Number(targetSchema) < 17 ? 'não exigido' : (state?.backendLaunch?.dataPack || 'registrado') },
       { id:'release-candidate', ok:Number(targetSchema) < 18 || Boolean(state?.releaseCandidate?.legalReviewRequired) || Number(state?.architecture?.releaseCandidate || 0) >= 1, detail:Number(targetSchema) < 18 ? 'não exigido' : (state?.releaseCandidate?.dataPack || 'registrado') },
       { id:'deployment-validation', ok:Number(targetSchema) < 19 || Boolean(state?.deployment?.productionBlocked) || Number(state?.architecture?.deploymentValidation || 0) >= 1, detail:Number(targetSchema) < 19 ? 'não exigido' : (state?.deployment?.dataPack || 'registrado') },
-      { id:'beta-operations', ok:Number(targetSchema) < 20 || Boolean(state?.operations?.productionBlocked) || Number(state?.architecture?.betaOperations || 0) >= 1, detail:Number(targetSchema) < 20 ? 'não exigido' : (state?.operations?.dataPack || 'registrado') }
+      { id:'beta-operations', ok:Number(targetSchema) < 20 || Boolean(state?.operations?.productionBlocked) || Number(state?.architecture?.betaOperations || 0) >= 1, detail:Number(targetSchema) < 20 ? 'não exigido' : (state?.operations?.dataPack || 'registrado') },
+      { id:'asset-restore-f21', ok:Number(targetSchema) < 21 || Boolean(state?.assetRestore?.productionBlocked) || Number(state?.architecture?.assetRestoreF21 || 0) >= 1, detail:Number(targetSchema) < 21 ? 'não exigido' : (state?.assetRestore?.dataPack || 'registrado') },
+      { id:'visual-hotfix-f22', ok:Number(targetSchema) < 22 || Boolean(state?.visualHotfix?.productionBlocked) || Number(state?.architecture?.visualHotfixF22 || 0) >= 1, detail:Number(targetSchema) < 22 ? 'não exigido' : (state?.visualHotfix?.dataPack || 'registrado') }
     ];
     return { ok:checks.every(check => check.ok), checks };
   }

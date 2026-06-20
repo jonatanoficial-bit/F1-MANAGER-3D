@@ -1,6 +1,6 @@
 {
-  "build": "F1M3D-0.29.0-F20",
-  "generatedAt": "2026-06-19T19:15:54.429Z",
+  "build": "F1M3D-0.31.0-F22",
+  "generatedAt": "2026-06-20T15:54:12.791Z",
   "passed": 23,
   "failed": 0,
   "results": [
@@ -42,7 +42,7 @@
     {
       "name": "backend:telemetry-consent",
       "ok": true,
-      "detail": "{\"telemetryConsent\":true,\"dataSale\":false,\"telemetryConsentVersion\":\"F1M_TELEMETRY_CONSENT_V1\",\"updatedAt\":\"2026-06-19T19:15:54.426Z\"}"
+      "detail": "{\"telemetryConsent\":true,\"dataSale\":false,\"telemetryConsentVersion\":\"F1M_TELEMETRY_CONSENT_V1\",\"updatedAt\":\"2026-06-20T15:54:12.788Z\"}"
     },
     {
       "name": "backend:crash-reporting",

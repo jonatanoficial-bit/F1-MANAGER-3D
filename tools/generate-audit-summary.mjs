@@ -5,48 +5,44 @@ import { fileURLToPath } from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=rel=>JSON.parse(fs.readFileSync(path.join(root,rel),'utf8'));
 const build=read('BUILD_INFO.json');
-const sources={
-  static:read('test-results/static-audit.json'),
-  build_consistency:read('test-results/build-consistency.json'),
-  modules:read('test-results/module-audit.json'),
-  contracts:read('test-results/contracts-audit.json'),
-  assets:read('test-results/assets-audit.json'),
-  persistence:read('test-results/persistence-audit.json'),
-  browser:read('test-results/browser-audit.json'),
-  performance:read('test-results/performance-audit.json'),
-  mobile:read('test-results/mobile-ux-audit.json'),
-  visual:read('test-results/visual-regression-audit.json'),
-  ci:read('test-results/ci-readiness-audit.json'),
-  vehicle:read('test-results/vehicle-physics-audit.json'),
-  strategy:read('test-results/strategy-ai-audit.json'),
-  balance:read('test-results/balance-audit.json'),
-  visual3d:read('test-results/track-visual-audit.json'),
-  audio_ui:read('test-results/audio-ui-audit.json'),
-  project:read('test-results/project-audit.json')
-};
+const sourceList=[
+  ['static','test-results/static-audit.json','checks'],
+  ['build_consistency','test-results/build-consistency.json','results'],
+  ['modules','test-results/module-audit.json','results'],
+  ['contracts','test-results/contracts-audit.json','results'],
+  ['assets','test-results/assets-audit.json','results'],
+  ['persistence','test-results/persistence-audit.json','results'],
+  ['performance','test-results/performance-audit.json',null],
+  ['mobile','test-results/mobile-ux-audit.json',null],
+  ['i18n','test-results/i18n-audit.json',null],
+  ['sporting','test-results/sporting-data-audit.json',null],
+  ['regulations','test-results/regulation-audit.json',null],
+  ['vehicle','test-results/vehicle-physics-audit.json',null],
+  ['strategy','test-results/strategy-ai-audit.json',null],
+  ['balance','test-results/balance-audit.json',null],
+  ['visual3d','test-results/track-visual-audit.json',null],
+  ['audio_ui','test-results/audio-ui-audit.json',null],
+  ['living_career','test-results/living-career-audit.json',null],
+  ['backend_launch','test-results/backend-launch-audit.json',null],
+  ['release_candidate','test-results/release-candidate-audit.json',null],
+  ['deployment','test-results/deployment-audit.json',null],
+  ['operations','test-results/operations-audit.json',null],
+  ['asset_restore','test-results/asset-restore-audit.json',null],
+  ['browser_cases','test-results/browser-audit.json','cases'],
+  ['visual','test-results/visual-regression-audit.json',null],
+  ['ci','test-results/ci-readiness-audit.json',null],
+  ['project','test-results/project-audit.json',null]
+];
 const count=(value,key)=>Array.isArray(value?.[key])?{
   passed:value[key].filter(item=>item.ok!==false&&item.passed!==false).length,
   failed:value[key].filter(item=>item.ok===false||item.passed===false).length
 }:{passed:Number(value?.passed||0),failed:Number(value?.failed||0)};
-const sections={
-  static:count(sources.static,'checks'),
-  build_consistency:count(sources.build_consistency,'results'),
-  modules:count(sources.modules,'results'),
-  contracts:count(sources.contracts,'results'),
-  assets:count(sources.assets,'results'),
-  persistence:count(sources.persistence,'results'),
-  browser_cases:count(sources.browser,'cases'),
-  performance:{passed:Number(sources.performance.passed||0),failed:Number(sources.performance.failed||0)},
-  mobile:{passed:Number(sources.mobile.passed||0),failed:Number(sources.mobile.failed||0)},
-  visual:{passed:Number(sources.visual.passed||0),failed:Number(sources.visual.failed||0)},
-  ci:{passed:Number(sources.ci.passed||0),failed:Number(sources.ci.failed||0)},
-  vehicle:{passed:Number(sources.vehicle.passed||0),failed:Number(sources.vehicle.failed||0)},
-  strategy:{passed:Number(sources.strategy.passed||0),failed:Number(sources.strategy.failed||0)},
-  balance:{passed:Number(sources.balance.passed||0),failed:Number(sources.balance.failed||0)},
-  visual3d:{passed:Number(sources.visual3d.passed||0),failed:Number(sources.visual3d.failed||0)},
-  audio_ui:{passed:Number(sources.audio_ui.passed||0),failed:Number(sources.audio_ui.failed||0)},
-  project:{passed:Number(sources.project.passed||0),failed:Number(sources.project.failed||0)}
-};
+const sections={};
+for(const [name,rel,key] of sourceList){
+  const file=path.join(root,rel);
+  if(!fs.existsSync(file)) sections[name]={passed:0,failed:1,missing:true};
+  else sections[name]=count(read(rel),key);
+}
 const total={passed:Object.values(sections).reduce((sum,item)=>sum+item.passed,0),failed:Object.values(sections).reduce((sum,item)=>sum+item.failed,0)};
 const summary={build:build.build_code,version:build.version,phase:build.phase,generated_at:new Date().toISOString(),...sections,total,result:total.failed===0?'approved':'failed'};
 fs.writeFileSync(path.join(root,'test-results/full-audit-summary.json'),JSON.stringify(summary,null,2)+'\n');
