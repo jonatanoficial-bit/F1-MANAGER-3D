@@ -1,14 +1,14 @@
 {
-  "build": "F1M3D-0.31.0-F22",
-  "version": "0.31.0",
-  "phase": 22,
-  "generated_at": "2026-06-20T15:54:30.375Z",
+  "build": "F1M3D-0.33.0-F24",
+  "version": "0.33.0",
+  "phase": 24,
+  "generated_at": "2026-06-23T13:34:10.017Z",
   "static": {
     "passed": 64,
     "failed": 0
   },
   "build_consistency": {
-    "passed": 69,
+    "passed": 73,
     "failed": 0
   },
   "modules": {
@@ -91,12 +91,24 @@
     "passed": 19,
     "failed": 0
   },
+  "visual_hotfix": {
+    "passed": 16,
+    "failed": 0
+  },
+  "public_beta_assets": {
+    "passed": 15,
+    "failed": 0
+  },
+  "gameplay_polish": {
+    "passed": 16,
+    "failed": 0
+  },
   "browser_cases": {
     "passed": 3,
     "failed": 0
   },
   "visual": {
-    "passed": 94,
+    "passed": 99,
     "failed": 0
   },
   "ci": {
@@ -104,11 +116,11 @@
     "failed": 0
   },
   "project": {
-    "passed": 247,
+    "passed": 254,
     "failed": 0
   },
   "total": {
-    "passed": 949,
+    "passed": 1012,
     "failed": 0
   },
   "result": "approved"

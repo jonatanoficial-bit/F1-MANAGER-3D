@@ -1,6 +1,6 @@
 {
-  "schema": 22,
-  "build_code": "F1M3D-0.31.0-F22",
+  "schema": 24,
+  "build_code": "F1M3D-0.33.0-F24",
   "files": [
     "./",
     "./index.html",
@@ -41,6 +41,10 @@
     "./src/core/release-candidate-system.js",
     "./data/visual-hotfix-data.js",
     "./src/core/visual-hotfix-system.js",
+    "./src/core/public-beta-assets-system.js",
+    "./data/public-beta-assets-data.js",
+    "./src/core/gameplay-polish-system.js",
+    "./data/gameplay-polish-data.js",
     "./data/game-data.js",
     "./data/track-layouts.js",
     "./script.js",

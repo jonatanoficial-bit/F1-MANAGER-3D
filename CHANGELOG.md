@@ -1,4 +1,18 @@
 
+## v0.33.0-F24 — Gameplay perfeita
+
+- Adicionado gameplay polish F24, pit wall, battle director, perfis realista/cinematográfico/hardcore e telemetria mais legível.
+- Auditoria consolidada: 1012 aprovadas / 0 falhas.
+
+
+## v0.32.0-F23 — Beta público com assets reais restaurados
+
+- Adicionada Central Sistema: Beta assets reais F23.
+- Adicionado fluxo de validação GitHub/Vercel/PWA/cache para assets reais.
+- Adicionados dados, módulo e teste `test:public-beta-assets`.
+- Produção segue bloqueada até validação manual, assets reais, mobile físico e revisão jurídica.
+
+
 ## v0.31.0-F22 — Hotfix visual final mobile/desktop
 
 - Adicionado sistema F22 de hotfix visual.

@@ -39,6 +39,10 @@
     "./src/core/release-candidate-system.js",
     "./data/visual-hotfix-data.js",
     "./src/core/visual-hotfix-system.js",
+    "./src/core/public-beta-assets-system.js",
+    "./data/public-beta-assets-data.js",
+    "./src/core/gameplay-polish-system.js",
+    "./data/gameplay-polish-data.js",
     "./data/game-data.js",
     "./data/track-layouts.js",
     "./script.js",
@@ -51,5 +55,6 @@
     "./src/core/operations-system.js",
     "./src/core/asset-restore-system.js",
     "./data/asset-restore-data.js"
-  ]
+  ],
+  "schema": 24
 }

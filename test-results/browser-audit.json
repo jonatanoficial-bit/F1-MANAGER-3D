@@ -1,7 +1,7 @@
 {
   "mode": "chromium-cdp-inline-memory-no-three",
-  "build": "F1M3D-0.31.0-F22",
-  "generatedAt": "2026-06-20T15:54:28.997Z",
+  "build": "F1M3D-0.33.0-F24",
+  "generatedAt": "2026-06-23T13:32:48.736Z",
   "cases": [
     {
       "name": "mobile_landscape",
@@ -12,9 +12,9 @@
       "steps": [
         {
           "home": true,
-          "build": "Build v0.31.0-F22 • 20/06/2026 • 13:25 BRT",
+          "build": "Build v0.33.0-F24 • 20/06/2026 • 15:02 BRT",
           "core": true,
-          "buildCode": "F1M3D-0.31.0-F22",
+          "buildCode": "F1M3D-0.33.0-F24",
           "activeScreen": "home"
         },
         {
@@ -30,7 +30,7 @@
         {
           "career_started": true,
           "round": "T1 2026 • Corrida 1/14 • ✉ 2",
-          "saveSchema": 22,
+          "saveSchema": 24,
           "saveFormat": "F1M_SAVE_ENVELOPE_V2"
         },
         {
@@ -86,9 +86,9 @@
       "steps": [
         {
           "home": true,
-          "build": "Build v0.31.0-F22 • 20/06/2026 • 13:25 BRT",
+          "build": "Build v0.33.0-F24 • 20/06/2026 • 15:02 BRT",
           "core": true,
-          "buildCode": "F1M3D-0.31.0-F22",
+          "buildCode": "F1M3D-0.33.0-F24",
           "activeScreen": "home"
         },
         {
@@ -104,7 +104,7 @@
         {
           "career_started": true,
           "round": "T1 2026 • Corrida 1/14 • ✉ 2",
-          "saveSchema": 22,
+          "saveSchema": 24,
           "saveFormat": "F1M_SAVE_ENVELOPE_V2"
         },
         {
@@ -160,9 +160,9 @@
       "steps": [
         {
           "home": true,
-          "build": "Build v0.31.0-F22 • 20/06/2026 • 13:25 BRT",
+          "build": "Build v0.33.0-F24 • 20/06/2026 • 15:02 BRT",
           "core": true,
-          "buildCode": "F1M3D-0.31.0-F22",
+          "buildCode": "F1M3D-0.33.0-F24",
           "activeScreen": "home"
         },
         {
@@ -178,7 +178,7 @@
         {
           "career_started": true,
           "round": "T1 2026 • Corrida 1/14 • ✉ 2",
-          "saveSchema": 22,
+          "saveSchema": 24,
           "saveFormat": "F1M_SAVE_ENVELOPE_V2"
         },
         {

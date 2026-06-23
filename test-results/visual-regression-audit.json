@@ -1,14 +1,14 @@
 {
-  "build": "F1M3D-0.31.0-F22",
-  "generatedAt": "2026-06-20T15:54:29.432Z",
-  "snapshotHash": "c322fde53e8e43b31622cec9e42a8e859817fea2c98b35640161db0525641b36",
-  "passed": 94,
+  "build": "F1M3D-0.33.0-F24",
+  "generatedAt": "2026-06-23T13:33:05.361Z",
+  "snapshotHash": "449d1accad1636e0d720d95efbb4919d77ac4003abbcea15a24289a14c29e5f9",
+  "passed": 99,
   "failed": 0,
   "results": [
     {
       "name": "visual:baseline-current",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22/F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24/F1M3D-0.33.0-F24"
     },
     {
       "name": "visual:protected-selector:#homeBuildPill",
@@ -376,6 +376,31 @@
       "detail": "texto base"
     },
     {
+      "name": "visual:text:Beta assets reais F23",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:AUDITAR BETA",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:PLANO PREVIEW",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:REGISTRAR PRINT",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:GitHub/Vercel",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
       "name": "visual:responsive-css",
       "ok": true,
       "detail": "media queries presentes"
@@ -398,7 +423,7 @@
     {
       "name": "visual:browser-build",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "visual:viewport-executed:mobile_landscape",

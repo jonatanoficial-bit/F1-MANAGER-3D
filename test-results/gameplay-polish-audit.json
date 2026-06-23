@@ -1,0 +1,88 @@
+{
+  "build": "F1M3D-0.33.0-F24",
+  "generatedAt": "2026-06-23T13:31:56.230Z",
+  "passed": 16,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/gameplay-polish-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/gameplay-polish-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "f24:data-loaded",
+      "ok": true,
+      "detail": "phase 24"
+    },
+    {
+      "name": "f24:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "f24:modifier",
+      "ok": true,
+      "detail": "{\"paceMultiplier\":1.056858,\"riskMultiplier\":1.0672,\"battle\":1.45,\"tyreOffset\":25,\"advice\":{\"code\":\"attack-window\",\"label\":\"ATAQUE COM DRS/ERS\",\"priority\":74,\"reason\":\"gap baixo e pneus vivos\"},\"action\":\"batalha RIV\"}"
+    },
+    {
+      "name": "f24:pit-advice",
+      "ok": true,
+      "detail": "{\"code\":\"box-now\",\"label\":\"BOX AGORA\",\"priority\":96,\"reason\":\"pneu/condição em zona crítica\"}"
+    },
+    {
+      "name": "f24:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "f24:status",
+      "ok": true,
+      "detail": "{\"score\":100,\"profile\":\"realistic\",\"profileLabel\":\"Realista\",\"battleTriggers\":5,\"pitWallRules\":5,\"fairnessRules\":5,\"hudSignals\":6,\"evidence\":1,\"productionBlocked\":true}"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F24"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:state-init",
+      "ok": true,
+      "detail": "state init"
+    },
+    {
+      "name": "script:race-hooks",
+      "ok": true,
+      "detail": "race hooks"
+    },
+    {
+      "name": "script:actions",
+      "ok": true,
+      "detail": "actions"
+    },
+    {
+      "name": "css:f24",
+      "ok": true,
+      "detail": "css F24"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:gameplay-polish"
+    },
+    {
+      "name": "docs:guide",
+      "ok": true,
+      "detail": "guide F24"
+    }
+  ]
+}

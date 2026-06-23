@@ -1,12 +1,12 @@
 {
-  "build": "F1M3D-0.31.0-F22",
+  "build": "F1M3D-0.33.0-F24",
   "profile": "mobile-first",
   "budgets": {
     "directory_bytes_without_assets": 2200000,
-    "javascript_bytes": 980000,
+    "javascript_bytes": 1000000,
     "css_bytes": 98000,
     "html_bytes": 30000,
-    "app_shell_files_max": 52,
+    "app_shell_files_max": 55,
     "asset_binary_files_in_phase_zip": 0,
     "dom_nodes": 2200,
     "buttons": 260,
@@ -42,6 +42,8 @@
     "Fase 19 adiciona deploy seguro, beta público controlado, assistente de restauração de assets, validação de GitHub/Vercel/PWA/cache e bloqueios contra publicação acidental.",
     "Fase 20 adiciona operação beta pública controlada, feedback local, triagem de crash, plano de hotfix, matriz de dispositivos e rollback sem publicar em produção.",
     "Fase 21 adiciona restauração guiada de assets reais, validação de preview GitHub/Vercel/PWA/cache, evidências manuais e bloqueio de produção até assets obrigatórios aparecerem.",
-    "Fase 22 adiciona hotfix visual final de rolagem PC/mobile, caminhos de assets visíveis, fundos restauráveis, legibilidade e validação para beta público com assets reais."
+    "Fase 22 adiciona hotfix visual final de rolagem PC/mobile, caminhos de assets visíveis, fundos restauráveis, legibilidade e validação para beta público com assets reais.",
+    "Fase 23 adiciona beta público com assets reais restaurados, validação GitHub/Vercel/PWA/cache, evidências manuais e bloqueios de produção até validação real.",
+    "Fase 24 adiciona gameplay perfeita, pit wall, battle director, decisões auditáveis do jogador, telemetria legível e fairness sem catch-up invisível."
   ]
 }

@@ -1,76 +1,76 @@
 {
-  "build": "F1M3D-0.31.0-F22",
-  "generatedAt": "2026-06-20T15:54:08.402Z",
+  "build": "F1M3D-0.33.0-F24",
+  "generatedAt": "2026-06-23T13:31:44.629Z",
   "results": [
     {
       "name": "version:source",
       "ok": true,
-      "detail": "0.31.0"
+      "detail": "0.33.0"
     },
     {
       "name": "version:root",
       "ok": true,
-      "detail": "0.31.0"
+      "detail": "0.33.0"
     },
     {
       "name": "version:data",
       "ok": true,
-      "detail": "0.31.0"
+      "detail": "0.33.0"
     },
     {
       "name": "version:runtime",
       "ok": true,
-      "detail": "0.31.0"
+      "detail": "0.33.0"
     },
     {
       "name": "version:package",
       "ok": true,
-      "detail": "0.31.0"
+      "detail": "0.33.0"
     },
     {
       "name": "version:manifest",
       "ok": true,
-      "detail": "0.31.0"
+      "detail": "0.33.0"
     },
     {
       "name": "version:assets",
       "ok": true,
-      "detail": "0.31.0"
+      "detail": "0.33.0"
     },
     {
       "name": "version:package-lock",
       "ok": true,
-      "detail": "0.31.0/0.31.0"
+      "detail": "0.33.0/0.33.0"
     },
     {
       "name": "code:source",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "code:root",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "code:data",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "code:runtime",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "code:assets",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "code:shell",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "html:build-code",
@@ -85,17 +85,17 @@
     {
       "name": "schema:save",
       "ok": true,
-      "detail": "22"
+      "detail": "24"
     },
     {
       "name": "schema:asset-manifest",
       "ok": true,
-      "detail": "22"
+      "detail": "24"
     },
     {
       "name": "schema:app-shell",
       "ok": true,
-      "detail": "22"
+      "detail": "24"
     },
     {
       "name": "shell:./index.html",
@@ -286,6 +286,26 @@
       "name": "shell:./src/core/visual-hotfix-system.js",
       "ok": true,
       "detail": "./src/core/visual-hotfix-system.js"
+    },
+    {
+      "name": "shell:./src/core/public-beta-assets-system.js",
+      "ok": true,
+      "detail": "./src/core/public-beta-assets-system.js"
+    },
+    {
+      "name": "shell:./data/public-beta-assets-data.js",
+      "ok": true,
+      "detail": "./data/public-beta-assets-data.js"
+    },
+    {
+      "name": "shell:./src/core/gameplay-polish-system.js",
+      "ok": true,
+      "detail": "./src/core/gameplay-polish-system.js"
+    },
+    {
+      "name": "shell:./data/gameplay-polish-data.js",
+      "ok": true,
+      "detail": "./data/gameplay-polish-data.js"
     },
     {
       "name": "shell:./data/game-data.js",

@@ -1,0 +1,41 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const results=[]; const add=(name,ok,detail='')=>{results.push({name,ok:Boolean(ok),detail}); if(!ok) process.exitCode=1;};
+const read=rel=>fs.readFileSync(path.join(root,rel),'utf8');
+for(const rel of ['data/public-beta-assets-data.js','src/core/public-beta-assets-system.js']){
+  try{ new vm.Script(read(rel),{filename:rel}); add(`syntax:${rel}`,true); } catch(error){ add(`syntax:${rel}`,false,error.message); }
+}
+const sandbox = { globalThis:{}, window:{}, console };
+sandbox.globalThis = sandbox; sandbox.window = sandbox;
+vm.createContext(sandbox);
+vm.runInContext(read('data/public-beta-assets-data.js'), sandbox);
+vm.runInContext(read('src/core/public-beta-assets-system.js'), sandbox);
+const api = sandbox.F1M_CORE?.publicBetaAssets?.createPublicBetaAssetsSystem?.({ data:sandbox.F1M_PUBLIC_BETA_ASSETS_DATA });
+const state = { saveSchema:23, quality:{}, publicBetaAssets:{} };
+api?.initializeState?.(state, { buildCode:'TEST-F23' });
+api?.registerEvidence?.(state, { id:'print-mobile-scroll-844x390', screen:'mobile' }, { buildCode:'TEST-F23' });
+const audit = api?.audit?.({ state, buildCode:'TEST-F23' });
+const status = api?.status?.(state, { buildCode:'TEST-F23' });
+const plan = api?.previewPlan?.(state, { buildCode:'TEST-F23' });
+add('f23:data-loaded', Number(sandbox.F1M_PUBLIC_BETA_ASSETS_DATA?.phase) === 23, 'phase '+sandbox.F1M_PUBLIC_BETA_ASSETS_DATA?.phase);
+add('f23:core-api', Boolean(api?.initializeState && api?.audit && api?.status && api?.registerEvidence && api?.previewPlan), 'api completa');
+add('f23:audit-score', Number(audit?.score || 0) >= 100, `${audit?.score || 0}/100`);
+add('f23:status', status?.productionBlocked === true && status?.groupCount >= 5 && status?.previewCount >= 6, JSON.stringify(status || {}));
+add('f23:plan', plan?.productionBlocked === true && (plan?.restoreWorkflow || []).length >= 8 && (plan?.previewTargets || []).length >= 6, 'plano preview');
+add('f23:critical-assets', (sandbox.F1M_PUBLIC_BETA_ASSETS_DATA?.requiredAssetGroups || []).some(g=>(g.examples||[]).includes('assets/backgrounds/ui/global_lobby.png')) && (sandbox.F1M_PUBLIC_BETA_ASSETS_DATA?.requiredAssetGroups || []).some(g=>(g.examples||[]).includes('assets/icons/app/icon-512.png')), 'paths críticos');
+const index=read('index.html'); const script=read('script.js'); const pkg=JSON.parse(read('package.json')); const css=read('style.css');
+add('index:scripts', index.includes('data/public-beta-assets-data.js') && index.includes('src/core/public-beta-assets-system.js'), 'scripts F23');
+add('script:system-card', script.includes('publicBetaAssetsMiniHTML') && script.includes('runPublicBetaAssetsAudit') && script.includes('registerPublicBetaEvidence'), 'central sistema');
+add('script:state-init', script.includes('publicBetaAssets?.initializeState') && script.includes('state.publicBetaAssets'), 'state init');
+add('script:actions', script.includes('runPublicBetaAssetsAudit(){ runPublicBetaAssetsAudit(); }') && script.includes('preparePublicBetaAssetsPreview(){ preparePublicBetaAssetsPreview(); }'), 'actions');
+add('css:f23', css.includes('public-beta-assets-card') && css.includes('F23'), 'css F23');
+add('package:script', Boolean(pkg.scripts?.['test:public-beta-assets']), 'test:public-beta-assets');
+add('docs:guide', fs.existsSync(path.join(root,'docs/PUBLIC_BETA_ASSETS_F23.md')), 'guide F23');
+const summary={build:JSON.parse(read('BUILD_INFO.json')).build_code, generatedAt:new Date().toISOString(), passed:results.filter(r=>r.ok).length, failed:results.filter(r=>!r.ok).length, results};
+fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
+fs.writeFileSync(path.join(root,'test-results/public-beta-assets-audit.json'),JSON.stringify(summary,null,2)+'\n');
+console.log(results.map(r=>`${r.ok?'PASS':'FAIL'} ${r.name}${r.detail?' — '+r.detail:''}`).join('\n'));
+console.log(`TOTAL: ${summary.passed} passed, ${summary.failed} failed`);

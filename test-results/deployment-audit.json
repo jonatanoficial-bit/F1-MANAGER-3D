@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T15:54:13.316Z",
+  "generated_at": "2026-06-23T13:31:53.860Z",
   "passed": 7,
   "failed": 0,
   "checks": [
@@ -26,7 +26,7 @@
     {
       "id": "beta-blocked-production",
       "ok": true,
-      "detail": "F1M3D-F19-BETA-AUDIT-MQMJFQ9V"
+      "detail": "F1M3D-F19-BETA-AUDIT-MQQOO96S"
     },
     {
       "id": "state-migrated",
@@ -126,6 +126,6 @@
       "channel": "public-beta-candidate",
       "productionBlocked": true
     },
-    "generatedAt": "2026-06-20T15:54:13.315Z"
+    "generatedAt": "2026-06-23T13:31:53.859Z"
   }
 }

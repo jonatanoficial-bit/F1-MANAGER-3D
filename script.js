@@ -1,8 +1,8 @@
 (() => {
   const DATA = window.F1M_DATA;
   const CORE = window.F1M_CORE || {};
-  const SAVE_SCHEMA = Number(DATA.build?.save_schema || 22);
-  const SAVE_KEYS = ['f1_manager_career_2026_v0310', 'f1_manager_career_2026_v0300', 'f1_manager_career_2026_v0290', 'f1_manager_career_2026_v0280', 'f1_manager_career_2026_v0270', 'f1_manager_career_2026_v0260', 'f1_manager_career_2026_v0250', 'f1_manager_career_2026_v0240', 'f1_manager_career_2026_v0230', 'f1_manager_career_2026_v0220', 'f1_manager_career_2026_v0210', 'f1_manager_career_2026_v0200', 'f1_manager_career_2026_v0190', 'f1_manager_career_2026_v0180', 'f1_manager_career_2026_v0170', 'f1_manager_career_2026_v0160', 'f1_manager_career_2026_v0150', 'f1_manager_career_2026_v0140', 'f1_manager_career_2026_v0130', 'f1_manager_career_2026_v0120', 'f1_manager_career_2026_v0110', 'f1_manager_career_2026_v0100', 'f1_manager_career_2026_v090', 'f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
+  const SAVE_SCHEMA = Number(DATA.build?.save_schema || 24);
+  const SAVE_KEYS = ['f1_manager_career_2026_v0330', 'f1_manager_career_2026_v0320', 'f1_manager_career_2026_v0310', 'f1_manager_career_2026_v0300', 'f1_manager_career_2026_v0290', 'f1_manager_career_2026_v0280', 'f1_manager_career_2026_v0270', 'f1_manager_career_2026_v0260', 'f1_manager_career_2026_v0250', 'f1_manager_career_2026_v0240', 'f1_manager_career_2026_v0230', 'f1_manager_career_2026_v0220', 'f1_manager_career_2026_v0210', 'f1_manager_career_2026_v0200', 'f1_manager_career_2026_v0190', 'f1_manager_career_2026_v0180', 'f1_manager_career_2026_v0170', 'f1_manager_career_2026_v0160', 'f1_manager_career_2026_v0150', 'f1_manager_career_2026_v0140', 'f1_manager_career_2026_v0130', 'f1_manager_career_2026_v0120', 'f1_manager_career_2026_v0110', 'f1_manager_career_2026_v0100', 'f1_manager_career_2026_v090', 'f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
   const ACTIVE_SAVE_KEY = SAVE_KEYS[0];
   const RUNTIME_ERROR_KEY = `${ACTIVE_SAVE_KEY}_runtime_errors`;
   const ASSET_ROOTS = ['assets/'];
@@ -118,6 +118,24 @@
     events:appEvents,
     assetRegistry,
     viewportController:null
+  }) || null;
+
+  const publicBetaAssets = CORE.publicBetaAssets?.createPublicBetaAssetsSystem?.({
+    data:window.F1M_PUBLIC_BETA_ASSETS_DATA || DATA.publicBetaAssetsData || {},
+    events:appEvents,
+    assetRegistry,
+    assetRestoreSystem,
+    visualHotfix
+  }) || null;
+
+  const gameplayPolish = CORE.gameplayPolish?.createGameplayPolishSystem?.({
+    data:window.F1M_GAMEPLAY_POLISH_DATA || DATA.gameplayPolishData || {},
+    events:appEvents,
+    vehiclePhysics,
+    strategyAI,
+    regulationEngine,
+    visualSystem,
+    audioUI
   }) || null;
 
   let state = loadState() || createInitialState();
@@ -322,7 +340,11 @@
     assetRestoreSystem?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_ASSET_RESTORE_DATA || {}, catalog:ASSET_CATALOG });
     state.visualHotfix = state.visualHotfix || {};
     visualHotfix?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_VISUAL_HOTFIX_DATA || {} });
+    publicBetaAssets?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_PUBLIC_BETA_ASSETS_DATA || {}, catalog:ASSET_CATALOG });
+    gameplayPolish?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_GAMEPLAY_POLISH_DATA || {} });
     // state.assetRestore é mantido pelo módulo F21 para restauração guiada de assets reais e validação de preview.
+    // state.publicBetaAssets é mantido pelo módulo F23 para beta público com assets reais restaurados.
+    // state.gameplayPolish é mantido pelo módulo F24 para gameplay perfeita, pit wall, battles e telemetria legível.
     ensureRosters();
     state.car = state.car || { aero:50, engine:50, chassis:50, reliability:55, tyreWear:55, pitStop:55, fuel:55 };
     ensureStandings();
@@ -851,6 +873,12 @@
       verifyAssetPreview(){ verifyAssetPreview(); },
       runVisualHotfixAudit(){ runVisualHotfixAudit(); },
       recordVisualEvidence(){ recordVisualEvidence(); },
+      runPublicBetaAssetsAudit(){ runPublicBetaAssetsAudit(); },
+      preparePublicBetaAssetsPreview(){ preparePublicBetaAssetsPreview(); },
+      registerPublicBetaEvidence(){ registerPublicBetaEvidence(); },
+      runGameplayPolishAudit(){ runGameplayPolishAudit(); },
+      registerGameplayEvidence(){ registerGameplayEvidence(); },
+      toggleGameplayProfile(){ toggleGameplayProfile(); },
       runAssetAudit(){ hydrateAssets(document); setTimeout(renderAssetChecklist, 120); },
       exportAssetReport(){ exportAssetReport(); },
       clearRuntimeErrors(){ clearRuntimeErrors(); },
@@ -1203,7 +1231,7 @@
       const errors = runtimeGuard?.list?.() || [];
       const buildCheck = CORE.build?.consistency?.(DATA.build);
       content.innerHTML = `<div class="cards-grid system-grid">
-        <article class="dash-card glass-panel wide system-hero"><h3>Central Antiquebra e Diagnóstico</h3><p>Verifica build, dados, save, armazenamento, PWA, viewport, registro central de assets, performance mobile, balanceamento científico, corrida 3D profissional, áudio/interface/acessibilidade, carreira viva profunda, backend/segurança/lançamento, deploy/beta público, operação beta F20, restauração de assets F21, hotfix visual F22 e erros reais do navegador.</p><p>Build ativa: <b>${DATA.build?.build_code || 'dev'}</b> • Save schema <b>${SAVE_SCHEMA}</b> • Resultado: <b>${report ? report.score + '/100' : 'não executado'}</b></p><button class="primary" data-action="runSystemDiagnostics" ${diagnosticsRunning?'disabled':''}>${diagnosticsRunning?'ANALISANDO…':'RODAR DIAGNÓSTICO COMPLETO'}</button><button class="secondary" data-action="runPerformanceAudit">MEDIR PERFORMANCE</button><button class="secondary" data-action="exportDiagnostics">EXPORTAR RELATÓRIO</button></article>
+        <article class="dash-card glass-panel wide system-hero"><h3>Central Antiquebra e Diagnóstico</h3><p>Verifica build, dados, save, armazenamento, PWA, viewport, registro central de assets, performance mobile, balanceamento científico, corrida 3D profissional, áudio/interface/acessibilidade, carreira viva profunda, backend/segurança/lançamento, deploy/beta público, operação beta F20, restauração de assets F21, hotfix visual F22, beta público com assets reais F23, gameplay perfeita F24 e erros reais do navegador.</p><p>Build ativa: <b>${DATA.build?.build_code || 'dev'}</b> • Save schema <b>${SAVE_SCHEMA}</b> • Resultado: <b>${report ? report.score + '/100' : 'não executado'}</b></p><button class="primary" data-action="runSystemDiagnostics" ${diagnosticsRunning?'disabled':''}>${diagnosticsRunning?'ANALISANDO…':'RODAR DIAGNÓSTICO COMPLETO'}</button><button class="secondary" data-action="runPerformanceAudit">MEDIR PERFORMANCE</button><button class="secondary" data-action="exportDiagnostics">EXPORTAR RELATÓRIO</button></article>
         <article class="dash-card glass-panel"><h3>Orçamento mobile</h3>${performanceMiniHTML()}</article>
         <article class="dash-card glass-panel"><h3>Idioma e região</h3>${i18nMiniHTML()}<div class="i18n-switcher-row" data-i18n-switcher></div></article>
         <article class="dash-card glass-panel"><h3>Banco esportivo 2026</h3>${sportingMiniHTML()}</article>
@@ -1220,6 +1248,8 @@
         <article class="dash-card glass-panel operations-card"><h3>Operação beta F20</h3>${operationsMiniHTML()}<button class="secondary" data-action="runOperationsAudit">AUDITAR OPERAÇÃO</button><button class="secondary" data-action="addBetaFeedbackSample">SIMULAR FEEDBACK</button><button class="secondary" data-action="prepareHotfixPlan">PLANO HOTFIX</button></article>
         <article class="dash-card glass-panel asset-restore-card"><h3>Assets reais e preview F21</h3>${assetRestoreMiniHTML()}<button class="secondary" data-action="runAssetRestoreAudit">AUDITAR ASSETS F21</button><button class="secondary" data-action="prepareGuidedAssetRestore">PLANO RESTAURAÇÃO</button><button class="secondary" data-action="verifyAssetPreview">VERIFICAR PREVIEW</button></article>
         <article class="dash-card glass-panel visual-hotfix-card"><h3>Hotfix visual F22</h3>${visualHotfixMiniHTML()}<button class="secondary" data-action="runVisualHotfixAudit">AUDITAR VISUAL</button><button class="secondary" data-action="recordVisualEvidence">REGISTRAR EVIDÊNCIA</button></article>
+        <article class="dash-card glass-panel public-beta-assets-card"><h3>Beta assets reais F23</h3>${publicBetaAssetsMiniHTML()}<button class="secondary" data-action="runPublicBetaAssetsAudit">AUDITAR BETA</button><button class="secondary" data-action="preparePublicBetaAssetsPreview">PLANO PREVIEW</button><button class="secondary" data-action="registerPublicBetaEvidence">REGISTRAR PRINT</button></article>
+        <article class="dash-card glass-panel gameplay-polish-card"><h3>Gameplay perfeita F24</h3>${gameplayPolishMiniHTML()}<button class="secondary" data-action="runGameplayPolishAudit">AUDITAR GAMEPLAY</button><button class="secondary" data-action="toggleGameplayProfile">TROCAR PERFIL</button><button class="secondary" data-action="registerGameplayEvidence">REGISTRAR TESTE</button></article>
         <article class="dash-card glass-panel"><h3>Imagens e caminhos</h3><p>Os binários pesados ficam fora do ZIP por regra do projeto, mas os caminhos continuam preservados. Restaure a pasta assets real no GitHub/Vercel para as imagens aparecerem.</p><p class="muted-small">Ex.: assets/avatars/selectable/avatar_01.png</p></article>
         <article class="dash-card glass-panel"><h3>Mobile, fullscreen e safe area</h3>${viewportMiniHTML()}<button class="secondary" data-action="enterFullscreen">ATIVAR FULLSCREEN</button><button class="secondary" data-action="cycleHudMode">ALTERNAR HUD</button></article>
         <article class="dash-card glass-panel"><h3>Fonte única de build</h3><p>${buildCheck?.ok ? '✓ Sincronizada' : '⚠ Divergência detectada'}</p><p>${CORE.build?.format?.(DATA.build, true) || DATA.build?.label || ''}</p><small>HTML, runtime, dados, PWA, pacote e manifesto são auditados na geração.</small></article>
@@ -2741,6 +2771,65 @@
     saveState(); renderTab('system'); updateHud();
   }
 
+
+
+  function publicBetaAssetsMiniHTML(){
+    const st = publicBetaAssets?.status?.(state, { buildCode:DATA.build?.build_code || 'dev', catalog:ASSET_CATALOG }) || { score:0, channel:'n/d', groupCount:0, previewCount:0, evidenceCount:0, productionBlocked:true };
+    const audit = state.quality?.publicBetaAssetsF23;
+    return `<p><b>${audit?.score ?? st.score}/100</b> • ${st.channel}</p><p>Grupos: <b>${st.groupCount}</b> • preview: <b>${st.previewCount}</b> • evidências: <b>${st.evidenceCount}</b> • paths: <b>${st.cataloguedPaths || 0}</b></p><p class="muted-small">Beta público F23: GitHub/Vercel, assets reais restaurados, cache PWA limpo e produção bloqueada até validação manual.</p>`;
+  }
+  function runPublicBetaAssetsAudit(){
+    ensureCareerSystems();
+    const audit = publicBetaAssets?.audit?.({ state, buildCode:DATA.build?.build_code || 'dev', catalog:ASSET_CATALOG }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.publicBetaAssetsF23 = { status:audit.failed ? 'review' : 'approved', score:audit.score, passed:audit.passed, failed:audit.failed, checks:audit.checks, generatedAt:audit.generatedAt };
+    addInboxMessage('qa','Beta assets reais F23', audit.failed ? 'Beta público requer revisão' : 'Beta público validado para preview controlado', `Fase 23: ${audit.score}/100 • ${audit.passed} checks aprovados e ${audit.failed} pendentes.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function preparePublicBetaAssetsPreview(){
+    ensureCareerSystems();
+    const plan = publicBetaAssets?.previewPlan?.(state, { buildCode:DATA.build?.build_code || 'dev', catalog:ASSET_CATALOG }) || { id:'F23-PREVIEW-LOCAL', restoreWorkflow:[], previewTargets:[], productionBlocked:true };
+    state.quality = state.quality || {};
+    state.quality.publicBetaPreviewPlanF23 = plan;
+    addInboxMessage('qa','Plano preview F23','Plano de beta público preparado', `${plan.id} • ${plan.restoreWorkflow?.length || 0} passos • ${plan.previewTargets?.length || 0} alvos. Produção segue bloqueada.`, { plan });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function registerPublicBetaEvidence(){
+    ensureCareerSystems();
+    const ev = publicBetaAssets?.registerEvidence?.(state, { id:'manual-preview-evidence', label:'Print de preview GitHub/Vercel e assets reais', screen:'preview', status:'pending-upload-or-manual-check' }, { buildCode:DATA.build?.build_code || 'dev' }) || null;
+    addInboxMessage('qa','Evidência beta F23','Evidência manual registrada', ev ? `${ev.id} • ${ev.status}` : 'Sistema F23 indisponível.', { ev });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function gameplayPolishMiniHTML(){
+    const st = gameplayPolish?.status?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || { score:0, profile:'n/d', profileLabel:'n/d', battleTriggers:0, hudSignals:0, productionBlocked:true };
+    const audit = state.quality?.gameplayPolishF24;
+    return `<p><b>${audit ? audit.score + '/100' : st.score + '/100'}</b> • ${st.profileLabel || st.profile}</p><p>${st.battleTriggers} gatilhos de batalha • ${st.hudSignals} sinais HUD</p><p class="muted-small">Pit wall • DRS • pneus • risco • agência do jogador • sem catch-up invisível</p>`;
+  }
+  function runGameplayPolishAudit(){
+    ensureCareerSystems();
+    const audit = gameplayPolish?.audit?.({ state, buildCode:DATA.build?.build_code || 'dev' }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.gameplayPolishF24 = { status:audit.failed ? 'review' : 'approved', score:audit.score, passed:audit.passed, failed:audit.failed, checks:audit.checks, generatedAt:audit.generatedAt };
+    addInboxMessage('qa','Gameplay perfeita F24', audit.failed ? 'Gameplay requer revisão' : 'Gameplay aprovada para beta controlado', `Fase 24: ${audit.score}/100 • ${audit.passed} checks aprovados e ${audit.failed} pendentes.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function registerGameplayEvidence(){
+    ensureCareerSystems();
+    const ev = gameplayPolish?.registerEvidence?.(state, { id:'manual-gameplay-race-test', label:'Teste manual: batalha, pit wall, pneus e ritmo de corrida', screen:'race', status:'pending-physical-device' }, { buildCode:DATA.build?.build_code || 'dev' }) || null;
+    addInboxMessage('qa','Evidência gameplay F24','Teste manual registrado', ev ? `${ev.id} • ${ev.status}` : 'Sistema F24 indisponível.', { ev });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function toggleGameplayProfile(){
+    ensureCareerSystems();
+    const order = ['realistic','cinematic','hardcore'];
+    state.gameplayPolish = state.gameplayPolish || { profile:'realistic' };
+    const idx = order.indexOf(state.gameplayPolish.profile || 'realistic');
+    state.gameplayPolish.profile = order[(idx+1+order.length)%order.length];
+    addInboxMessage('qa','Gameplay F24','Perfil de gameplay alterado', `Perfil ativo: ${state.gameplayPolish.profile}. Realista preserva simulação, cinematográfico aumenta batalhas e hardcore aumenta risco.`, { profile:state.gameplayPolish.profile });
+    saveState(); renderTab('system'); updateHud();
+  }
+
   function vehicleTelemetryText(e){
     const snap = vehiclePhysics?.snapshot?.(e) || { tyreLife:e.tyre, fuelMass:e.fuel, reliabilityHealth:e.condition, ers:e.ers, drs:e.drs, brakeTemperature:e.brakeTemp, engineTemperature:e.engineTemp, damage:e.damage };
     return `${compoundLabel(e.compound)} ${Math.round(snap.tyreLife||0)}% • ${Math.round(snap.tyreTemperature||0)}°C • ERS ${Math.round(snap.ers||0)}%${snap.drs?' • DRS':''} • Freio ${Math.round(snap.brakeTemperature||0)}°C • Motor ${Math.round(snap.engineTemperature||0)}°C • Dano ${Math.round(snap.damage||0)} • Comb ${Math.round(snap.fuelMass||0)}%`;
@@ -2807,7 +2896,7 @@
       if(vehiclePhysics) entry.vehicle = vehiclePhysics.initialState({ compound, fuel:100, condition:100, car, track:currentRace });
       return entry;
     });
-    race = { quick, entries, laps:currentRace.laps || 22, trackState:vehiclePhysics?.trackState?.({ weather:currentRace.weather || 'dry', laps:currentRace.laps || 22 }) || null, visualModel:visualSystem?.createTrackModel?.(currentRace,{ width:window.innerWidth, height:window.innerHeight, dpr:window.devicePixelRatio || 1, weather:currentRace.weather || 'dry' }) || null, replayBuffer:visualSystem?.createReplayBuffer?.() || null, lastReplayCapture:0, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:currentRace.weather || 'dry', tick:0, trackInfo:currentRace, safetyCar:0, vsc:0, redFlag:0, restartTimer:0, cameraMode:'tv', raceLog:['Largada autorizada — F15 ativo: 3D profissional, áudio procedural, rádio/box, mixagem dinâmica e acessibilidade monitorados.'], regulation:regulationEngine?.activeSessionPlan?.(state.currentSeries, currentRace) || null, strategyState:{ pitLaneBusy:0, redFlags:0, safetyCarDeployments:0, vscDeployments:0, lastNeutralizedAt:0 } };
+    race = { quick, entries, laps:currentRace.laps || 22, trackState:vehiclePhysics?.trackState?.({ weather:currentRace.weather || 'dry', laps:currentRace.laps || 22 }) || null, visualModel:visualSystem?.createTrackModel?.(currentRace,{ width:window.innerWidth, height:window.innerHeight, dpr:window.devicePixelRatio || 1, weather:currentRace.weather || 'dry' }) || null, replayBuffer:visualSystem?.createReplayBuffer?.() || null, lastReplayCapture:0, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:currentRace.weather || 'dry', tick:0, trackInfo:currentRace, safetyCar:0, vsc:0, redFlag:0, restartTimer:0, cameraMode:'tv', raceLog:['Largada autorizada — F24 ativo: gameplay perfeita, pit wall, battles, pneus e telemetria legível.'], regulation:regulationEngine?.activeSessionPlan?.(state.currentSeries, currentRace) || null, strategyState:{ pitLaneBusy:0, redFlags:0, safetyCarDeployments:0, vscDeployments:0, lastNeutralizedAt:0 }, gameplayContext:null, lastGameplayAdvice:null };
     appEvents?.emit('race:created', { track:currentRace.name, laps:race.laps, entries:entries.length, quick:Boolean(quick) });
     updateRaceHud();
   }
@@ -3203,6 +3292,7 @@
     if(vehiclePhysics && race.trackState) vehiclePhysics.updateTrack(race.trackState, { dt, speed:race.speed, cars:race.entries.length, weather:race.weather });
     const previousOrder = new Map(race.entries.map(e => [e.driver.short, e.pos]));
     const strategyContext = strategyAI?.updateRaceState?.(race, { dt, speed:race.speed, vehiclePhysics }) || { safetyMultiplier:race.safetyCar>0?0.70:1 };
+    race.gameplayContext = gameplayPolish?.raceContext?.(race, { state, buildCode:DATA.build?.build_code || 'dev', isPlayer:isPlayerDriver, dt }) || { battleIntensity:0 };
     race.entries.forEach((e, idx)=>{
       const isPlayer = isPlayerDriver(e.driver.short);
       const decision = strategyAI?.driverDecision?.(e, race, { index:idx, isPlayer, dt, vehiclePhysics, regulationEngine, state, context:strategyContext });
@@ -3230,12 +3320,15 @@
       const randomRaceNoise = 1 + Math.sin((race.tick+e.pos)*0.7)*0.002 + driverConsistency;
       const physicsPace = physics?.paceMultiplier || legacyPace;
       const staffPace = 1 + (strategist-1)*0.0015;
-      e.progress += e.baseSpeed * physicsPace * staffPace * randomRaceNoise * dt * race.speed;
+      const gameplayFx = gameplayPolish?.entryModifier?.(e, race, { state, index:idx, isPlayer, buildCode:DATA.build?.build_code || 'dev', raceContext:race.gameplayContext }) || { paceMultiplier:1, riskMultiplier:1, battle:0, advice:null };
+      if(isPlayer && gameplayFx.advice && (!race.lastGameplayAdvice || race.tick - (race.lastGameplayAdvice.tick||0) > 7)){ race.lastGameplayAdvice = { tick:race.tick, advice:gameplayFx.advice }; e.aiIntent = gameplayFx.advice.label || e.aiIntent; }
+      if(gameplayFx.action && race.tick - (e.lastGameplayLog||0) > 8){ e.lastGameplayLog = race.tick; e.lastAction = gameplayFx.action; if(isPlayer || gameplayFx.battle > .9) race.raceLog.unshift(`${e.driver.short}: ${gameplayFx.action}`); }
+      e.progress += e.baseSpeed * physicsPace * staffPace * randomRaceNoise * (gameplayFx.paceMultiplier || 1) * dt * race.speed;
       e.distance = e.progress;
       const conditionLoss = vehiclePhysics ? 0 : Math.max(.003, (104-reliability)/3300) * (e.pace==='attack'?1.35:1) * (track.rain>1.05?1.13:1);
       if(!vehiclePhysics) e.condition = Math.max(0,e.condition - dt*race.speed*conditionLoss);
       const physicalRisk = physics?.risk || 0;
-      const errorChance = dt*race.speed*Math.max(0, (82-reliability))/28000 * (e.pace==='attack'?1.72:1) * (100-(e.driver.consistency||70))/45 + physicalRisk;
+      const errorChance = (dt*race.speed*Math.max(0, (82-reliability))/28000 * (e.pace==='attack'?1.72:1) * (100-(e.driver.consistency||70))/45 + physicalRisk) * (gameplayFx.riskMultiplier || 1);
       if(!e.incident && Math.random() < errorChance){
         e.progress -= 0.018 + Math.random()*0.030;
         if(e.vehicle){ e.vehicle.aeroDamage = Math.min(100,(e.vehicle.aeroDamage||0)+6+Math.random()*12); e.vehicle.reliabilityHealth = Math.max(8,(e.vehicle.reliabilityHealth||e.condition||100)-8); }
@@ -3286,7 +3379,8 @@
     if(statusPanel){
       const playerBest = race.entries.filter(e=>isPlayerDriver(e.driver.short)).sort((a,b)=>a.pos-b.pos)[0];
       const neutralLabel = race.redFlag>0 ? 'BANDEIRA VERMELHA' : race.safetyCar>0 ? 'SAFETY CAR / VSC' : 'RITMO DE CORRIDA';
-      const stratText = playerBest ? `${playerBest.aiIntent || 'ritmo'} • ${compoundLabel(playerBest.compound)} ${Math.round(playerBest.tyre)}% • Pit ${playerBest.pits}` : 'Sem piloto';
+      const pitAdvice = race.lastGameplayAdvice?.advice?.label || gameplayPolish?.pitAdvice?.(playerBest || {}, race, { state })?.label || 'RITMO';
+      const stratText = playerBest ? `${pitAdvice} • ${compoundLabel(playerBest.compound)} ${Math.round(playerBest.tyre)}% • Pit ${playerBest.pits}` : 'Sem piloto';
       statusPanel.innerHTML = `<div><b>${neutralLabel}</b><span>${race.trackInfo?.name||'GP'} • Câmera ${cameraLabel(race.cameraMode)}</span></div><div><b>${playerBest ? 'P'+playerBest.pos+' '+playerBest.driver.short : 'Equipe'}</b><span>${stratText}</span></div><div class="race-log-mini">${(race.raceLog||[]).slice(0,3).map(x=>`<small>${x}</small>`).join('')}</div>`;
     }
     $('#raceLeaderboard').innerHTML = race.entries.slice(0,22).map((e,i)=>{
@@ -3295,7 +3389,7 @@
       return `<div class="race-row ${isPlayerDriver(e.driver.short)?'highlight':''}"><span class="race-pos">${i+1}<small>${deltaText}</small></span>${driverAvatarHTML(e.driver)}${teamLogoHTML(e.team,'team-logo-mini')}<span class="race-name"><b>${e.driver.short}</b><small>${e.team.name}</small></span><span class="race-tyre">${compoundLabel(e.compound).slice(0,1)} ${Math.round(e.tyre)}% ${e.drs?'DRS':''}</span><span class="race-pits">${e.pits}P • ${String(e.aiIntent||'ritmo').slice(0,7)} • ${i===0?'LÍDER':'+'+e.gap.toFixed(1)}</span></div>`;
     }).join('');
     hydrateAssets($('#raceLeaderboard'));
-    const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const card=document.getElementById(`controlCard${i+1}`), name=document.getElementById(`controlDriver${i+1}`), cond=document.getElementById(`cond${i+1}`); if(e){ if(name) name.innerHTML = `<span class="control-head">${driverAvatarChip(d,'driver-avatar-inline small')}${teamLogoHTML(teamById(driverCurrentTeamId(d.short)||d.team),'team-logo-inline small')}<span><b>${e.pos}º | ${d.short}</b><small>${teamById(driverCurrentTeamId(d.short)||d.team).name}</small></span></span>`; if(cond) cond.style.width = `${Math.round(e.condition)}%`; if(card){ card.querySelectorAll('[data-pace]').forEach(btn=>btn.classList.toggle('active', btn.dataset.pace === (race.playerPace[i]||'normal'))); const status=card.querySelector('.pilot-status') || document.createElement('div'); status.className='pilot-status'; status.textContent = `Modo: ${(race.playerPace[i]||'normal').toUpperCase()} • ${vehicleTelemetryText(e)} • Gap ${e.gap.toFixed(1)}s • S${e.sector} • Pit V${e.plannedPitLap} • ${(e.aiIntent||'ritmo').toUpperCase()}`; if(!status.parentElement) card.appendChild(status); hydrateAssets(card); } } });
+    const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const card=document.getElementById(`controlCard${i+1}`), name=document.getElementById(`controlDriver${i+1}`), cond=document.getElementById(`cond${i+1}`); if(e){ if(name) name.innerHTML = `<span class="control-head">${driverAvatarChip(d,'driver-avatar-inline small')}${teamLogoHTML(teamById(driverCurrentTeamId(d.short)||d.team),'team-logo-inline small')}<span><b>${e.pos}º | ${d.short}</b><small>${teamById(driverCurrentTeamId(d.short)||d.team).name}</small></span></span>`; if(cond) cond.style.width = `${Math.round(e.condition)}%`; if(card){ card.querySelectorAll('[data-pace]').forEach(btn=>btn.classList.toggle('active', btn.dataset.pace === (race.playerPace[i]||'normal'))); const status=card.querySelector('.pilot-status') || document.createElement('div'); status.className='pilot-status'; const advice = gameplayPolish?.pitAdvice?.(e, race, { state, isPlayer:true })?.label || (e.aiIntent||'ritmo').toUpperCase(); status.textContent = `Modo: ${(race.playerPace[i]||'normal').toUpperCase()} • ${vehicleTelemetryText(e)} • Gap ${e.gap.toFixed(1)}s • S${e.sector} • Pit V${e.plannedPitLap} • Pit wall: ${advice}`; if(!status.parentElement) card.appendChild(status); hydrateAssets(card); } } });
   }
   function finishRace(){
     if(!race) return;

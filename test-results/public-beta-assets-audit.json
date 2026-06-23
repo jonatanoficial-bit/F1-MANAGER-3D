@@ -1,0 +1,83 @@
+{
+  "build": "F1M3D-0.33.0-F24",
+  "generatedAt": "2026-06-23T13:31:55.747Z",
+  "passed": 15,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/public-beta-assets-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/public-beta-assets-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "f23:data-loaded",
+      "ok": true,
+      "detail": "phase 23"
+    },
+    {
+      "name": "f23:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "f23:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "f23:status",
+      "ok": true,
+      "detail": "{\"score\":100,\"channel\":\"public-beta-assets-real\",\"groupCount\":5,\"workflowCount\":8,\"previewCount\":6,\"evidenceCount\":1,\"cataloguedPaths\":0,\"betaReady\":false,\"productionBlocked\":true}"
+    },
+    {
+      "name": "f23:plan",
+      "ok": true,
+      "detail": "plano preview"
+    },
+    {
+      "name": "f23:critical-assets",
+      "ok": true,
+      "detail": "paths críticos"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F23"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:state-init",
+      "ok": true,
+      "detail": "state init"
+    },
+    {
+      "name": "script:actions",
+      "ok": true,
+      "detail": "actions"
+    },
+    {
+      "name": "css:f23",
+      "ok": true,
+      "detail": "css F23"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:public-beta-assets"
+    },
+    {
+      "name": "docs:guide",
+      "ok": true,
+      "detail": "guide F23"
+    }
+  ]
+}

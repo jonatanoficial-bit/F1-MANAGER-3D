@@ -1,3 +1,11 @@
+# F1 Manager 3D — v0.33.0-F24
+
+Fase 24: gameplay perfeita com pit wall, battles, ritmo de corrida, decisões do jogador e auditoria total.
+
+# F1 Manager 3D — v0.32.0-F23
+
+Build F23: beta público com assets reais restaurados e validação GitHub/Vercel.
+
 # F1 Manager 3D — v0.30.0-F21
 
 Build com restauração guiada de assets reais, validação de preview GitHub/Vercel/PWA e bloqueio de produção até homologação manual. A pasta `assets` do ZIP continua sem imagens pesadas; restaure os binários seguindo `docs/ASSET_RESTORE_GUIDE_F21.md`.

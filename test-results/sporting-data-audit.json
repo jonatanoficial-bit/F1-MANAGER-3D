@@ -1,13 +1,13 @@
 {
-  "build": "F1M3D-0.31.0-F22",
-  "generatedAt": "2026-06-20T15:54:10.652Z",
+  "build": "F1M3D-0.33.0-F24",
+  "generatedAt": "2026-06-23T13:31:48.651Z",
   "passed": 17,
   "failed": 0,
   "results": [
     {
       "name": "build:phase-at-least-10",
       "ok": true,
-      "detail": "22"
+      "detail": "24"
     },
     {
       "name": "f1:calendar-22",

@@ -1,1 +1,3 @@
-v0.31.0-F22 • ZIP completo sem assets binários pesados • 949 checks aprovados • Git Bash: cd "/c/Users/jonat/Desktop/GAME/¨2026/F1 Manager 3D"
+F1 Manager 3D v0.32.0-F23
+Fase 23 — Beta público com assets reais restaurados e validação GitHub/Vercel
+ZIP completo sem binários pesados de assets. Caminhos preservados.

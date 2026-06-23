@@ -1,0 +1,44 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const results=[]; const add=(name,ok,detail='')=>{results.push({name,ok:Boolean(ok),detail}); if(!ok) process.exitCode=1;};
+const read=rel=>fs.readFileSync(path.join(root,rel),'utf8');
+for(const rel of ['data/gameplay-polish-data.js','src/core/gameplay-polish-system.js']){
+  try{ new vm.Script(read(rel),{filename:rel}); add(`syntax:${rel}`,true); } catch(error){ add(`syntax:${rel}`,false,error.message); }
+}
+const sandbox = { globalThis:{}, window:{}, console };
+sandbox.globalThis = sandbox; sandbox.window = sandbox;
+vm.createContext(sandbox);
+vm.runInContext(read('data/gameplay-polish-data.js'), sandbox);
+vm.runInContext(read('src/core/gameplay-polish-system.js'), sandbox);
+const api = sandbox.F1M_CORE?.gameplayPolish?.createGameplayPolishSystem?.({ data:sandbox.F1M_GAMEPLAY_POLISH_DATA });
+const state = { saveSchema:24, quality:{}, gameplayPolish:{} };
+api?.initializeState?.(state, { buildCode:'TEST-F24' });
+const race = { laps:22, weather:'dry', speed:4, entries:[{ driver:{short:'PLY'}, pos:2, distance:.410, tyre:74, condition:91, pace:'attack', lap:8, gap:.8, plannedPitLap:12 },{ driver:{short:'RIV'}, pos:1, distance:.420, tyre:49, condition:88, pace:'normal', lap:8, plannedPitLap:13 }] };
+const mod = api?.entryModifier?.(race.entries[0], race, { state, index:1, isPlayer:true });
+const advice = api?.pitAdvice?.({ tyre:15, condition:88, lap:15, plannedPitLap:12 }, race, { state });
+api?.registerEvidence?.(state, { id:'race-battle-readable', label:'Batalha com telemetria clara' }, { buildCode:'TEST-F24' });
+const audit = api?.audit?.({ state, buildCode:'TEST-F24' });
+const status = api?.status?.(state, { buildCode:'TEST-F24' });
+add('f24:data-loaded', Number(sandbox.F1M_GAMEPLAY_POLISH_DATA?.phase) === 24, 'phase '+sandbox.F1M_GAMEPLAY_POLISH_DATA?.phase);
+add('f24:core-api', Boolean(api?.initializeState && api?.audit && api?.entryModifier && api?.pitAdvice && api?.raceContext), 'api completa');
+add('f24:modifier', Number(mod?.paceMultiplier || 0) > 1 && Number(mod?.riskMultiplier || 0) > 0, JSON.stringify(mod || {}));
+add('f24:pit-advice', advice?.code === 'box-now', JSON.stringify(advice || {}));
+add('f24:audit-score', Number(audit?.score || 0) >= 100 && Number(audit?.failed ?? 1) === 0, `${audit?.score || 0}/100`);
+add('f24:status', status?.productionBlocked === true && status?.battleTriggers >= 5 && status?.hudSignals >= 6, JSON.stringify(status || {}));
+const index=read('index.html'); const script=read('script.js'); const pkg=JSON.parse(read('package.json')); const css=read('style.css');
+add('index:scripts', index.includes('data/gameplay-polish-data.js') && index.includes('src/core/gameplay-polish-system.js'), 'scripts F24');
+add('script:system-card', script.includes('gameplayPolishMiniHTML') && script.includes('runGameplayPolishAudit') && script.includes('registerGameplayEvidence'), 'central sistema');
+add('script:state-init', script.includes('gameplayPolish?.initializeState') && script.includes('state.gameplayPolish'), 'state init');
+add('script:race-hooks', script.includes('gameplayPolish?.entryModifier') && script.includes('race.gameplayContext') && script.includes('pitAdvice'), 'race hooks');
+add('script:actions', script.includes('runGameplayPolishAudit(){ runGameplayPolishAudit(); }') && script.includes('registerGameplayEvidence(){ registerGameplayEvidence(); }'), 'actions');
+add('css:f24', css.includes('gameplay-polish-card') && css.includes('F24'), 'css F24');
+add('package:script', Boolean(pkg.scripts?.['test:gameplay-polish']), 'test:gameplay-polish');
+add('docs:guide', fs.existsSync(path.join(root,'docs/GAMEPLAY_POLISH_F24.md')), 'guide F24');
+const summary={build:JSON.parse(read('BUILD_INFO.json')).build_code, generatedAt:new Date().toISOString(), passed:results.filter(r=>r.ok).length, failed:results.filter(r=>!r.ok).length, results};
+fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
+fs.writeFileSync(path.join(root,'test-results/gameplay-polish-audit.json'),JSON.stringify(summary,null,2)+'\n');
+console.log(results.map(r=>`${r.ok?'PASS':'FAIL'} ${r.name}${r.detail?' — '+r.detail:''}`).join('\n'));
+console.log(`TOTAL: ${summary.passed} passed, ${summary.failed} failed`);

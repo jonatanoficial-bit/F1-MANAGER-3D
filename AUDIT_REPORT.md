@@ -1,38 +1,25 @@
-# Auditoria Fase 22 — v0.31.0-F22
 
-**Build:** `F1M3D-0.31.0-F22`  
-**Resultado:** aprovado  
-**Total:** 949 aprovadas / 0 falhas
+## Fase 24 — v0.33.0-F24
+
+Resultado consolidado: **1012 aprovadas / 0 falhas**. Gameplay F24, browser, visual, mobile, assets, saves e projeto aprovados.
+
+# Auditoria Fase 23 — v0.32.0-F23
+
+Resultado consolidado: **960 aprovadas / 0 falhas**.
 
 ## Grupos validados
 
-- build e versão única;
-- módulos e sintaxe;
-- contratos de dados;
-- persistência e migração para schema 22;
-- assets e manifesto sem binários pesados;
-- performance mobile;
-- i18n;
-- regulamento, física, estratégia, balanceamento e corrida 3D;
-- áudio/UI/acessibilidade;
-- carreira viva;
-- backend/lançamento/RC/deploy/operação beta;
-- restauração guiada de assets F21;
-- hotfix visual F22;
-- rolagem mobile/desktop;
-- regressão visual;
-- navegador em mobile, tablet e desktop;
-- CI e manifesto SHA-256.
+- Sintaxe JavaScript dos novos módulos.
+- Contrato de dados F23.
+- Central Sistema e ações F23.
+- App shell PWA com novos arquivos.
+- Manifesto de assets preservado.
+- ZIP sem binários pesados.
+- Teste `npm run test:public-beta-assets`.
+- Compatibilidade com fases 1 a 22.
 
-## Resultado por grupos principais
+## Bloqueios mantidos
 
-```json
-{
-  "passed": 949,
-  "failed": 0
-}
-```
-
-## Observação
-
-A auditoria automatizada valida o funcionamento lógico, rolagem, caminhos e placeholders. A presença visual real das imagens no Vercel depende de restaurar a pasta `assets` pesada original no repositório/hosting seguindo os caminhos documentados.
+- Produção comercial bloqueada até validação manual com assets reais.
+- Revisão jurídica obrigatória para nomes, marcas, equipes, circuitos e pilotos.
+- Homologação física Android/iOS/tablet/desktop ainda exigida.

@@ -1,6 +1,6 @@
 {
-  "build": "F1M3D-0.31.0-F22",
-  "generatedAt": "2026-06-20T15:54:11.438Z",
+  "build": "F1M3D-0.33.0-F24",
+  "generatedAt": "2026-06-23T13:31:50.156Z",
   "passed": 23,
   "failed": 0,
   "results": [
@@ -102,22 +102,22 @@
     {
       "name": "strategy:pit-service",
       "ok": true,
-      "detail": "{\"label\":\"PIT ESTRATÉGICO -4.4s\",\"loss\":0.043615384615384625,\"compound\":\"medium\"}"
+      "detail": "{\"label\":\"PIT ESTRATÉGICO +UNSAFE RELEASE -4.4s\",\"loss\":0.043615384615384625,\"compound\":\"medium\"}"
     },
     {
       "name": "strategy:safety-car-deploys",
       "ok": true,
-      "detail": "24.1885549795316"
+      "detail": "21.06888706669723"
     },
     {
       "name": "strategy:red-flag-deploys",
       "ok": true,
-      "detail": "12.187037983448056"
+      "detail": "13.399956882691791"
     },
     {
       "name": "strategy:overtake-safe",
       "ok": true,
-      "detail": "2.1187750422096854/2.11"
+      "detail": "2.1188241724936057/2.11"
     }
   ],
   "audit": {

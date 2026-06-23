@@ -40,6 +40,10 @@ F1-MANAGER-3D-FASE-21-AUDITORIA.md
 F1-MANAGER-3D-FASE-21-RESUMO.md
 F1-MANAGER-3D-FASE-22-AUDITORIA.md
 F1-MANAGER-3D-FASE-22-RESUMO.md
+F1-MANAGER-3D-FASE-23-AUDITORIA.md
+F1-MANAGER-3D-FASE-23-RESUMO.md
+F1-MANAGER-3D-FASE-24-AUDITORIA.md
+F1-MANAGER-3D-FASE-24-RESUMO.md
 KNOWN_ISSUES.md
 PHASE_01_REPORT.json
 PHASE_02_REPORT.json
@@ -60,6 +64,8 @@ PHASE_19_REPORT.json
 PHASE_20_REPORT.json
 PHASE_21_REPORT.json
 PHASE_22_REPORT.json
+PHASE_23_REPORT.json
+PHASE_24_REPORT.json
 README.md
 README_ASSETS_SEM_BINARIOS.txt
 assets/ASSET_MANIFEST.json
@@ -80,9 +86,11 @@ data/build.json
 data/deployment-data.js
 data/drivers.json
 data/game-data.js
+data/gameplay-polish-data.js
 data/i18n.js
 data/living-career-data.js
 data/operations-data.js
+data/public-beta-assets-data.js
 data/regulation-data.js
 data/release-candidate-data.js
 data/sporting-data.js
@@ -135,6 +143,7 @@ docs/CHANGELOG_v0_9_37.md
 docs/DATA_LOCK_v0_9_34.md
 docs/F2_LOGOS_PENDING.md
 docs/F2_LOGO_PATHS_FOR_GAME.md
+docs/GAMEPLAY_POLISH_F24.md
 docs/OPEN_SOURCE_NOTICES.md
 docs/PHASE_01_SUMMARY.md
 docs/PHASE_02_SUMMARY.md
@@ -157,8 +166,11 @@ docs/PHASE_19_SUMMARY.md
 docs/PHASE_20_SUMMARY.md
 docs/PHASE_21_SUMMARY.md
 docs/PHASE_22_SUMMARY.md
+docs/PHASE_23_SUMMARY.md
+docs/PHASE_24_SUMMARY.md
 docs/PLAN_LOGOS_AVATARS_F2.md
 docs/PRIVACY_POLICY_DRAFT.md
+docs/PUBLIC_BETA_ASSETS_F23.md
 docs/PWA_APK_READY_v0_9_35.md
 docs/RESTORE_ASSETS.md
 docs/ROADMAP.md
@@ -182,10 +194,12 @@ src/core/data-contracts.js
 src/core/deployment-system.js
 src/core/diagnostics.js
 src/core/event-bus.js
+src/core/gameplay-polish-system.js
 src/core/i18n-system.js
 src/core/living-career-system.js
 src/core/operations-system.js
 src/core/performance-monitor.js
+src/core/public-beta-assets-system.js
 src/core/race-strategy-ai.js
 src/core/regulation-engine.js
 src/core/release-candidate-system.js
@@ -217,6 +231,7 @@ test-results/deployment-audit.json
 test-results/file-manifest-check.txt
 test-results/full-audit-output.txt
 test-results/full-audit-summary.json
+test-results/gameplay-polish-audit.json
 test-results/http-smoke.txt
 test-results/i18n-audit.json
 test-results/living-career-audit.json
@@ -228,6 +243,7 @@ test-results/operations-audit.json
 test-results/performance-audit.json
 test-results/persistence-audit.json
 test-results/project-audit.json
+test-results/public-beta-assets-audit.json
 test-results/regulation-audit.json
 test-results/release-candidate-audit.json
 test-results/sporting-data-audit.json
@@ -247,6 +263,7 @@ tests/build-consistency.mjs
 tests/ci-readiness-audit.mjs
 tests/contracts-audit.mjs
 tests/deployment-audit.mjs
+tests/gameplay-polish-audit.mjs
 tests/i18n-audit.mjs
 tests/living-career-audit.mjs
 tests/mobile-ux-audit.mjs
@@ -255,6 +272,7 @@ tests/operations-audit.mjs
 tests/performance-audit.mjs
 tests/persistence-audit.mjs
 tests/project-audit.mjs
+tests/public-beta-assets-audit.mjs
 tests/regulation-audit.mjs
 tests/release-candidate-audit.mjs
 tests/sporting-data-audit.mjs

@@ -621,3 +621,27 @@ html[data-visual-hotfix="F22"] .screen.active{min-height:0;overflow:hidden;}
 .dash-card,.glass-panel{text-shadow:0 1px 2px rgba(0,0,0,.55);}
 @media(max-width:900px){#screen-career-create .creator-grid{grid-template-columns:1fr!important;max-height:calc(var(--app-height,100vh) - 58px)!important;}#screen-career-create .glass-panel{overflow:visible!important;max-height:none!important}.avatar-option{min-height:88px}.race-left,.race-right{max-height:calc(var(--app-height,100vh) - 92px);overflow:auto!important}.race-toolbar{max-width:96vw;overflow:auto}.visual-hotfix-card .secondary{min-height:44px}}
 @media(max-height:430px){#screen-career-create .creator-grid,#screen-qualifying .split-layout,#screen-results .results-grid{gap:8px!important;padding-top:8px!important}.avatar-list{grid-template-columns:repeat(4,minmax(64px,1fr))!important}.avatar-option .asset-path-hint{display:none}.topbar h2{font-size:18px}.next{min-width:124px;font-size:13px}.race-left{width:240px}.race-right{width:200px}.dash-card{min-height:124px}}
+
+
+/* F23 — beta público com assets reais restaurados */
+.public-beta-assets-card {
+  border-color: rgba(82, 255, 184, .28);
+  box-shadow: 0 0 0 1px rgba(82,255,184,.12), 0 18px 40px rgba(0,0,0,.28);
+}
+.public-beta-assets-card h3::after {
+  content: ' F23';
+  display: inline-block;
+  margin-left: .45rem;
+  font-size: .68rem;
+  letter-spacing: .08em;
+  color: var(--ok, #7CFFB2);
+}
+.f23-preview-gate, .public-beta-assets-card .muted-small {
+  overflow-wrap: anywhere;
+}
+
+/* F24 gameplay polish: cards and race readability */
+.gameplay-polish-card{border-color:rgba(255,214,102,.32);box-shadow:0 0 0 1px rgba(255,214,102,.10),0 18px 42px rgba(0,0,0,.28)}
+.gameplay-polish-card h3::after{content:'F24';font-size:.68rem;margin-left:.5rem;padding:.18rem .45rem;border-radius:999px;background:rgba(255,214,102,.16);color:#ffe08a;border:1px solid rgba(255,214,102,.24)}
+.race-log-mini small{display:block;line-height:1.25;margin:.12rem 0;opacity:.92}
+.pilot-status{font-size:.78rem;line-height:1.35;margin-top:.55rem;color:rgba(236,244,255,.86)}

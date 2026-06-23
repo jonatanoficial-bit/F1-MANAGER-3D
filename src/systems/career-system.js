@@ -460,6 +460,46 @@
       current = 22; applied.push(22);
     }
 
+
+    if(current < 23 && targetSchema >= 23){
+      state.publicBetaAssets = state.publicBetaAssets || {};
+      state.publicBetaAssets = {
+        dataPack:'public-beta-assets-real-2026-06-20',
+        channel:'public-beta-assets-real',
+        productionBlocked:true,
+        evidence:Array.isArray(state.publicBetaAssets?.evidence) ? state.publicBetaAssets.evidence : [],
+        previewChecks:Array.isArray(state.publicBetaAssets?.previewChecks) ? state.publicBetaAssets.previewChecks : [],
+        auditHistory:Array.isArray(state.publicBetaAssets?.auditHistory) ? state.publicBetaAssets.auditHistory : [],
+        lastAuditAt:state.publicBetaAssets?.lastAuditAt || null,
+        migratedBy:String(options.buildCode || 'dev'),
+        ...state.publicBetaAssets
+      };
+      state.quality = state.quality || {};
+      state.quality.publicBetaAssetsF23 = state.quality.publicBetaAssetsF23 || { status:'not-run', score:null, github:true, vercel:true, pwaCache:true, evidence:true, productionBlocked:true, migratedBy:String(options.buildCode || 'dev') };
+      state.architecture = {...(state.architecture || {}), version:21, publicBetaAssetsF23:1, previewValidationF23:1, modules:[...new Set([...(state.architecture?.modules || []),'public-beta-assets-f23','github-vercel-preview','real-assets-validation','pwa-cache-clean','beta-evidence-gate'])], migratedAt:new Date().toISOString(), migratedBy:String(options.buildCode || 'dev')};
+      current = 23; applied.push(23);
+    }
+
+    if(current < 24 && targetSchema >= 24){
+      state.gameplayPolish = state.gameplayPolish || {};
+      state.gameplayPolish = {
+        dataPack:'gameplay-perfect-beta-2026-06-20',
+        channel:'gameplay-perfect-beta',
+        profile:state.gameplayPolish?.profile || 'realistic',
+        productionBlocked:true,
+        evidence:Array.isArray(state.gameplayPolish?.evidence) ? state.gameplayPolish.evidence : [],
+        raceNotes:Array.isArray(state.gameplayPolish?.raceNotes) ? state.gameplayPolish.raceNotes : [],
+        auditHistory:Array.isArray(state.gameplayPolish?.auditHistory) ? state.gameplayPolish.auditHistory : [],
+        lastAuditAt:state.gameplayPolish?.lastAuditAt || null,
+        migratedBy:String(options.buildCode || 'dev'),
+        ...state.gameplayPolish
+      };
+      state.quality = state.quality || {};
+      state.quality.gameplayPolishF24 = state.quality.gameplayPolishF24 || { status:'not-run', score:null, pitWall:true, battles:true, fairness:true, telemetry:true, productionBlocked:true, migratedBy:String(options.buildCode || 'dev') };
+      state.architecture = {...(state.architecture || {}), version:22, gameplayPolishF24:1, pitWallF24:1, battleDirectorF24:1, modules:[...new Set([...(state.architecture?.modules || []),'gameplay-polish-f24','pit-wall-advice','battle-director','fairness-guard','race-telemetry-readable','player-agency'])], migratedAt:new Date().toISOString(), migratedBy:String(options.buildCode || 'dev')};
+      current = 24; applied.push(24);
+    }
+
         state.saveSchema = Math.min(targetSchema, Math.max(current, Number(state.saveSchema || 0)));
     return { state, from:Number(input?.saveSchema || 0), to:state.saveSchema, applied };
   }
@@ -490,7 +530,9 @@
       { id:'deployment-validation', ok:Number(targetSchema) < 19 || Boolean(state?.deployment?.productionBlocked) || Number(state?.architecture?.deploymentValidation || 0) >= 1, detail:Number(targetSchema) < 19 ? 'não exigido' : (state?.deployment?.dataPack || 'registrado') },
       { id:'beta-operations', ok:Number(targetSchema) < 20 || Boolean(state?.operations?.productionBlocked) || Number(state?.architecture?.betaOperations || 0) >= 1, detail:Number(targetSchema) < 20 ? 'não exigido' : (state?.operations?.dataPack || 'registrado') },
       { id:'asset-restore-f21', ok:Number(targetSchema) < 21 || Boolean(state?.assetRestore?.productionBlocked) || Number(state?.architecture?.assetRestoreF21 || 0) >= 1, detail:Number(targetSchema) < 21 ? 'não exigido' : (state?.assetRestore?.dataPack || 'registrado') },
-      { id:'visual-hotfix-f22', ok:Number(targetSchema) < 22 || Boolean(state?.visualHotfix?.productionBlocked) || Number(state?.architecture?.visualHotfixF22 || 0) >= 1, detail:Number(targetSchema) < 22 ? 'não exigido' : (state?.visualHotfix?.dataPack || 'registrado') }
+      { id:'visual-hotfix-f22', ok:Number(targetSchema) < 22 || Boolean(state?.visualHotfix?.productionBlocked) || Number(state?.architecture?.visualHotfixF22 || 0) >= 1, detail:Number(targetSchema) < 22 ? 'não exigido' : (state?.visualHotfix?.dataPack || 'registrado') },
+      { id:'public-beta-assets-f23', ok:Number(targetSchema) < 23 || Boolean(state?.publicBetaAssets?.productionBlocked) || Number(state?.architecture?.publicBetaAssetsF23 || 0) >= 1, detail:Number(targetSchema) < 23 ? 'não exigido' : (state?.publicBetaAssets?.dataPack || 'registrado') },
+      { id:'gameplay-polish-f24', ok:Number(targetSchema) < 24 || Boolean(state?.gameplayPolish?.productionBlocked) || Number(state?.architecture?.gameplayPolishF24 || 0) >= 1, detail:Number(targetSchema) < 24 ? 'não exigido' : (state?.gameplayPolish?.dataPack || 'registrado') }
     ];
     return { ok:checks.every(check => check.ok), checks };
   }

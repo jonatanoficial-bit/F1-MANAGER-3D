@@ -1,7 +1,7 @@
 {
-  "build": "F1M3D-0.31.0-F22",
-  "generatedAt": "2026-06-20T15:54:30.113Z",
-  "passed": 247,
+  "build": "F1M3D-0.33.0-F24",
+  "generatedAt": "2026-06-23T13:33:06.392Z",
+  "passed": 254,
   "failed": 0,
   "results": [
     {
@@ -111,6 +111,11 @@
     },
     {
       "name": "json:PHASE_22_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_23_REPORT.json",
       "ok": true,
       "detail": ""
     },
@@ -245,6 +250,11 @@
       "detail": ""
     },
     {
+      "name": "json:test-results/gameplay-polish-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "json:test-results/i18n-audit.json",
       "ok": true,
       "detail": ""
@@ -286,6 +296,11 @@
     },
     {
       "name": "json:test-results/project-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/public-beta-assets-audit.json",
       "ok": true,
       "detail": ""
     },
@@ -755,6 +770,26 @@
       "detail": ""
     },
     {
+      "name": "app-shell:src/core/public-beta-assets-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/public-beta-assets-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/gameplay-polish-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/gameplay-polish-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "app-shell:data/game-data.js",
       "ok": true,
       "detail": ""
@@ -822,12 +857,12 @@
     {
       "name": "assets:manifest-build",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "assets:manifest-version",
       "ok": true,
-      "detail": "22"
+      "detail": "24"
     },
     {
       "name": "assets:original-catalogue",
@@ -902,7 +937,7 @@
     {
       "name": "build:save-schema",
       "ok": true,
-      "detail": "22"
+      "detail": "24"
     },
     {
       "name": "system:tab-visible",
@@ -952,7 +987,7 @@
     {
       "name": "browser:current-build",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "performance:audit-pass",
@@ -962,7 +997,7 @@
     {
       "name": "performance:current-build",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "mobile:audit-pass",
@@ -972,7 +1007,7 @@
     {
       "name": "mobile:current-build",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "i18n:audit-pass",
@@ -982,17 +1017,17 @@
     {
       "name": "i18n:current-build",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "visual:audit-pass",
       "ok": true,
-      "detail": "94 passed, 0 failed"
+      "detail": "99 passed, 0 failed"
     },
     {
       "name": "visual:current-build",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "ci:audit-pass",
@@ -1002,7 +1037,7 @@
     {
       "name": "ci:current-build",
       "ok": true,
-      "detail": "F1M3D-0.31.0-F22"
+      "detail": "F1M3D-0.33.0-F24"
     },
     {
       "name": "ci:workflow-present",

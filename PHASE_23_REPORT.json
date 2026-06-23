@@ -1,0 +1,9 @@
+{
+  "phase": 23,
+  "version": "0.32.0",
+  "build_code": "F1M3D-0.32.0-F23",
+  "approved": 960,
+  "failed": 0,
+  "focus": "beta público com assets reais restaurados e validação GitHub/Vercel",
+  "assets": "sem binários pesados; caminhos preservados"
+}

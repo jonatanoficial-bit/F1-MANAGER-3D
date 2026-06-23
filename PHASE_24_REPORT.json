@@ -1,0 +1,21 @@
+{
+  "phase": 24,
+  "version": "0.33.0",
+  "build_code": "F1M3D-0.33.0-F24",
+  "base": "v0.32.0-F23",
+  "name": "Gameplay perfeita: ritmo de corrida, decisões do jogador e drama esportivo",
+  "save_schema": 24,
+  "audit": {
+    "passed": 1012,
+    "failed": 0
+  },
+  "new_files": [
+    "data/gameplay-polish-data.js",
+    "src/core/gameplay-polish-system.js",
+    "tests/gameplay-polish-audit.mjs",
+    "docs/GAMEPLAY_POLISH_F24.md"
+  ],
+  "assets_policy": "sem assets binários pesados; caminhos preservados",
+  "production_allowed": false,
+  "generated_at": "2026-06-23T13:35:00Z"
+}
