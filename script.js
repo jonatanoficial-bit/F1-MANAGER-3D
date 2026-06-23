@@ -1,8 +1,8 @@
 (() => {
   const DATA = window.F1M_DATA;
   const CORE = window.F1M_CORE || {};
-  const SAVE_SCHEMA = Number(DATA.build?.save_schema || 24);
-  const SAVE_KEYS = ['f1_manager_career_2026_v0330', 'f1_manager_career_2026_v0320', 'f1_manager_career_2026_v0310', 'f1_manager_career_2026_v0300', 'f1_manager_career_2026_v0290', 'f1_manager_career_2026_v0280', 'f1_manager_career_2026_v0270', 'f1_manager_career_2026_v0260', 'f1_manager_career_2026_v0250', 'f1_manager_career_2026_v0240', 'f1_manager_career_2026_v0230', 'f1_manager_career_2026_v0220', 'f1_manager_career_2026_v0210', 'f1_manager_career_2026_v0200', 'f1_manager_career_2026_v0190', 'f1_manager_career_2026_v0180', 'f1_manager_career_2026_v0170', 'f1_manager_career_2026_v0160', 'f1_manager_career_2026_v0150', 'f1_manager_career_2026_v0140', 'f1_manager_career_2026_v0130', 'f1_manager_career_2026_v0120', 'f1_manager_career_2026_v0110', 'f1_manager_career_2026_v0100', 'f1_manager_career_2026_v090', 'f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
+  const SAVE_SCHEMA = Number(DATA.build?.save_schema || 26);
+  const SAVE_KEYS = ['f1_manager_career_2026_v0360', 'f1_manager_career_2026_v0350', 'f1_manager_career_2026_v0340', 'f1_manager_career_2026_v0330', 'f1_manager_career_2026_v0320', 'f1_manager_career_2026_v0310', 'f1_manager_career_2026_v0300', 'f1_manager_career_2026_v0290', 'f1_manager_career_2026_v0280', 'f1_manager_career_2026_v0270', 'f1_manager_career_2026_v0260', 'f1_manager_career_2026_v0250', 'f1_manager_career_2026_v0240', 'f1_manager_career_2026_v0230', 'f1_manager_career_2026_v0220', 'f1_manager_career_2026_v0210', 'f1_manager_career_2026_v0200', 'f1_manager_career_2026_v0190', 'f1_manager_career_2026_v0180', 'f1_manager_career_2026_v0170', 'f1_manager_career_2026_v0160', 'f1_manager_career_2026_v0150', 'f1_manager_career_2026_v0140', 'f1_manager_career_2026_v0130', 'f1_manager_career_2026_v0120', 'f1_manager_career_2026_v0110', 'f1_manager_career_2026_v0100', 'f1_manager_career_2026_v090', 'f1_manager_career_2026_v070', 'f1_manager_career_2026_v060', 'f1_manager_career_2026_v050', 'f1_manager_career_2026_v040', 'f1_manager_career_2026_v020'];
   const ACTIVE_SAVE_KEY = SAVE_KEYS[0];
   const RUNTIME_ERROR_KEY = `${ACTIVE_SAVE_KEY}_runtime_errors`;
   const ASSET_ROOTS = ['assets/'];
@@ -138,7 +138,39 @@
     audioUI
   }) || null;
 
+  const telemetrySystem = CORE.telemetry?.createTelemetrySystem?.({
+    data:window.F1M_TELEMETRY_DATA || DATA.telemetryData || {},
+    events:appEvents,
+    vehiclePhysics,
+    strategyAI,
+    regulationEngine,
+    gameplayPolish
+  }) || null;
+
+  const setupEngineering = CORE.setupEngineering?.createSetupEngineeringSystem?.({
+    data:window.F1M_SETUP_ENGINEERING_DATA || DATA.setupEngineeringData || {},
+    events:appEvents,
+    telemetrySystem,
+    vehiclePhysics,
+    strategyAI,
+    regulationEngine,
+    gameplayPolish
+  }) || null;
+
+  const tyreStint = CORE.tyreStint?.createTyreStintSystem?.({
+    data:window.F1M_TYRE_STINT_DATA || DATA.tyreStintData || {},
+    events:appEvents,
+    telemetrySystem,
+    vehiclePhysics,
+    strategyAI,
+    regulationEngine,
+    gameplayPolish,
+    setupEngineering
+  }) || null;
+
   let state = loadState() || createInitialState();
+  setupEngineering?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev' });
+  tyreStint?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev' });
   let selectedAvatar = 0;
   let selectedMode = 'realistic';
   let selectedSeries = 'F2';
@@ -342,9 +374,15 @@
     visualHotfix?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_VISUAL_HOTFIX_DATA || {} });
     publicBetaAssets?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_PUBLIC_BETA_ASSETS_DATA || {}, catalog:ASSET_CATALOG });
     gameplayPolish?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_GAMEPLAY_POLISH_DATA || {} });
+    telemetrySystem?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_TELEMETRY_DATA || {} });
+    setupEngineering?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_SETUP_ENGINEERING_DATA || {} });
+    tyreStint?.initializeState?.(state, { buildCode:DATA.build?.build_code || 'dev', data:window.F1M_TYRE_STINT_DATA || {} });
     // state.assetRestore é mantido pelo módulo F21 para restauração guiada de assets reais e validação de preview.
     // state.publicBetaAssets é mantido pelo módulo F23 para beta público com assets reais restaurados.
     // state.gameplayPolish é mantido pelo módulo F24 para gameplay perfeita, pit wall, battles e telemetria legível.
+    // state.telemetry é mantido pelo módulo F25 para telemetria realista, sensores, diagnóstico e engenharia de corrida.
+    // state.setupEngineering é mantido pelo módulo F26 para setup avançado, treinos e correlação telemétrica.
+    // state.tyreStint é mantido pelo módulo F27 para pneus, stint, degradação, graining/blistering e pit wall realista.
     ensureRosters();
     state.car = state.car || { aero:50, engine:50, chassis:50, reliability:55, tyreWear:55, pitStop:55, fuel:55 };
     ensureStandings();
@@ -879,6 +917,15 @@
       runGameplayPolishAudit(){ runGameplayPolishAudit(); },
       registerGameplayEvidence(){ registerGameplayEvidence(); },
       toggleGameplayProfile(){ toggleGameplayProfile(); },
+      runTelemetryAudit(){ runTelemetryAudit(); },
+      exportTelemetrySession(){ exportTelemetrySession(); },
+      runTelemetryDiagnosis(){ runTelemetryDiagnosis(); },
+      runSetupEngineeringAudit(){ runSetupEngineeringAudit(); },
+      runSetupCorrelation(){ runSetupCorrelation(); },
+      simulateSetupPractice(){ simulateSetupPractice(); },
+      runTyreStintAudit(){ runTyreStintAudit(); },
+      runTyreStintAnalysis(){ runTyreStintAnalysis(); },
+      prepareTyrePitPlan(){ prepareTyrePitPlan(); },
       runAssetAudit(){ hydrateAssets(document); setTimeout(renderAssetChecklist, 120); },
       exportAssetReport(){ exportAssetReport(); },
       clearRuntimeErrors(){ clearRuntimeErrors(); },
@@ -1231,7 +1278,7 @@
       const errors = runtimeGuard?.list?.() || [];
       const buildCheck = CORE.build?.consistency?.(DATA.build);
       content.innerHTML = `<div class="cards-grid system-grid">
-        <article class="dash-card glass-panel wide system-hero"><h3>Central Antiquebra e Diagnóstico</h3><p>Verifica build, dados, save, armazenamento, PWA, viewport, registro central de assets, performance mobile, balanceamento científico, corrida 3D profissional, áudio/interface/acessibilidade, carreira viva profunda, backend/segurança/lançamento, deploy/beta público, operação beta F20, restauração de assets F21, hotfix visual F22, beta público com assets reais F23, gameplay perfeita F24 e erros reais do navegador.</p><p>Build ativa: <b>${DATA.build?.build_code || 'dev'}</b> • Save schema <b>${SAVE_SCHEMA}</b> • Resultado: <b>${report ? report.score + '/100' : 'não executado'}</b></p><button class="primary" data-action="runSystemDiagnostics" ${diagnosticsRunning?'disabled':''}>${diagnosticsRunning?'ANALISANDO…':'RODAR DIAGNÓSTICO COMPLETO'}</button><button class="secondary" data-action="runPerformanceAudit">MEDIR PERFORMANCE</button><button class="secondary" data-action="exportDiagnostics">EXPORTAR RELATÓRIO</button></article>
+        <article class="dash-card glass-panel wide system-hero"><h3>Central Antiquebra e Diagnóstico</h3><p>Verifica build, dados, save, armazenamento, PWA, viewport, registro central de assets, performance mobile, balanceamento científico, corrida 3D profissional, áudio/interface/acessibilidade, carreira viva profunda, backend/segurança/lançamento, deploy/beta público, operação beta F20, restauração de assets F21, hotfix visual F22, beta público com assets reais F23, gameplay perfeita F24, telemetria realista F25, setup avançado F26, pneus/stint F27 e erros reais do navegador.</p><p>Build ativa: <b>${DATA.build?.build_code || 'dev'}</b> • Save schema <b>${SAVE_SCHEMA}</b> • Resultado: <b>${report ? report.score + '/100' : 'não executado'}</b></p><button class="primary" data-action="runSystemDiagnostics" ${diagnosticsRunning?'disabled':''}>${diagnosticsRunning?'ANALISANDO…':'RODAR DIAGNÓSTICO COMPLETO'}</button><button class="secondary" data-action="runPerformanceAudit">MEDIR PERFORMANCE</button><button class="secondary" data-action="exportDiagnostics">EXPORTAR RELATÓRIO</button></article>
         <article class="dash-card glass-panel"><h3>Orçamento mobile</h3>${performanceMiniHTML()}</article>
         <article class="dash-card glass-panel"><h3>Idioma e região</h3>${i18nMiniHTML()}<div class="i18n-switcher-row" data-i18n-switcher></div></article>
         <article class="dash-card glass-panel"><h3>Banco esportivo 2026</h3>${sportingMiniHTML()}</article>
@@ -1250,6 +1297,9 @@
         <article class="dash-card glass-panel visual-hotfix-card"><h3>Hotfix visual F22</h3>${visualHotfixMiniHTML()}<button class="secondary" data-action="runVisualHotfixAudit">AUDITAR VISUAL</button><button class="secondary" data-action="recordVisualEvidence">REGISTRAR EVIDÊNCIA</button></article>
         <article class="dash-card glass-panel public-beta-assets-card"><h3>Beta assets reais F23</h3>${publicBetaAssetsMiniHTML()}<button class="secondary" data-action="runPublicBetaAssetsAudit">AUDITAR BETA</button><button class="secondary" data-action="preparePublicBetaAssetsPreview">PLANO PREVIEW</button><button class="secondary" data-action="registerPublicBetaEvidence">REGISTRAR PRINT</button></article>
         <article class="dash-card glass-panel gameplay-polish-card"><h3>Gameplay perfeita F24</h3>${gameplayPolishMiniHTML()}<button class="secondary" data-action="runGameplayPolishAudit">AUDITAR GAMEPLAY</button><button class="secondary" data-action="toggleGameplayProfile">TROCAR PERFIL</button><button class="secondary" data-action="registerGameplayEvidence">REGISTRAR TESTE</button></article>
+        <article class="dash-card glass-panel telemetry-card"><h3>Telemetria realista F25</h3>${telemetryMiniHTML()}<button class="secondary" data-action="runTelemetryAudit">AUDITAR TELEMETRIA</button><button class="secondary" data-action="runTelemetryDiagnosis">DIAGNÓSTICO</button><button class="secondary" data-action="exportTelemetrySession">EXPORTAR SESSÃO</button></article>
+        <article class="dash-card glass-panel setup-engineering-card"><h3>Setup avançado F26</h3>${setupEngineeringMiniHTML()}<button class="secondary" data-action="runSetupEngineeringAudit">AUDITAR SETUP</button><button class="secondary" data-action="runSetupCorrelation">CORRELACIONAR</button><button class="secondary" data-action="simulateSetupPractice">SIMULAR TREINO</button></article>
+        <article class="dash-card glass-panel tyre-stint-card"><h3>Pneus e stint F27</h3>${tyreStintMiniHTML()}<button class="secondary" data-action="runTyreStintAudit">AUDITAR PNEUS</button><button class="secondary" data-action="runTyreStintAnalysis">ANALISAR STINT</button><button class="secondary" data-action="prepareTyrePitPlan">PLANO PIT</button></article>
         <article class="dash-card glass-panel"><h3>Imagens e caminhos</h3><p>Os binários pesados ficam fora do ZIP por regra do projeto, mas os caminhos continuam preservados. Restaure a pasta assets real no GitHub/Vercel para as imagens aparecerem.</p><p class="muted-small">Ex.: assets/avatars/selectable/avatar_01.png</p></article>
         <article class="dash-card glass-panel"><h3>Mobile, fullscreen e safe area</h3>${viewportMiniHTML()}<button class="secondary" data-action="enterFullscreen">ATIVAR FULLSCREEN</button><button class="secondary" data-action="cycleHudMode">ALTERNAR HUD</button></article>
         <article class="dash-card glass-panel"><h3>Fonte única de build</h3><p>${buildCheck?.ok ? '✓ Sincronizada' : '⚠ Divergência detectada'}</p><p>${CORE.build?.format?.(DATA.build, true) || DATA.build?.label || ''}</p><small>HTML, runtime, dados, PWA, pacote e manifesto são auditados na geração.</small></article>
@@ -2830,6 +2880,131 @@
     saveState(); renderTab('system'); updateHud();
   }
 
+
+  function telemetryMiniHTML(){
+    const st = telemetrySystem?.status?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || { score:0, signals:0, diagnosis:0, views:0, hz:0, samples:0, productionBlocked:true };
+    const audit = state.quality?.telemetryF25;
+    return `<p><b>${audit ? audit.score + '/100' : st.score + '/100'}</b> • ${st.signals} sinais • ${st.hz}Hz lógico</p><p>${st.diagnosis} regras de diagnóstico • ${st.views} visões de engenharia • ${st.samples} pacotes locais</p><p class="muted-small">RPM • marcha • acelerador/freio • pneus superfície/carcaça/pressão • freios • combustível • ERS/DRS • ar sujo • delta por setor</p>`;
+  }
+  function runTelemetryAudit(){
+    ensureCareerSystems();
+    const audit = telemetrySystem?.audit?.({ state, buildCode:DATA.build?.build_code || 'dev' }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.telemetryF25 = { status:audit.failed ? 'review' : 'approved', score:audit.score, passed:audit.passed, failed:audit.failed, checks:audit.checks, generatedAt:audit.generatedAt };
+    addInboxMessage('qa','Telemetria realista F25', audit.failed ? 'Telemetria requer revisão' : 'Telemetria técnica aprovada', `Fase 25: ${audit.score}/100 • ${audit.passed} checks aprovados e ${audit.failed} pendentes. Sinais: RPM, marcha, pneus, freios, combustível, ERS/DRS, ar sujo e delta por setor.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function runTelemetryDiagnosis(){
+    ensureCareerSystems();
+    const entry = race?.entries?.filter(e=>isPlayerDriver(e.driver.short)).sort((a,b)=>a.pos-b.pos)[0] || null;
+    const diagnosis = entry ? telemetrySystem?.diagnose?.(entry, race, { state, sample:entry.telemetry, buildCode:DATA.build?.build_code || 'dev' }) : null;
+    const top = diagnosis?.top || { label:'sem corrida ativa', advice:'inicie uma corrida para gerar telemetria realista' };
+    addInboxMessage('engenharia','Engenheiro de corrida F25', top.label, top.advice, { diagnosis });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function exportTelemetrySession(){
+    ensureCareerSystems();
+    const session = telemetrySystem?.exportSession?.(state, race || {}, { buildCode:DATA.build?.build_code || 'dev' }) || { format:'F1M_TELEMETRY_SESSION_V1', samples:[] };
+    state.quality = state.quality || {};
+    state.quality.lastTelemetryExport = { generatedAt:session.generatedAt || new Date().toISOString(), samples:session.samples?.length || 0, raceName:session.raceName || 'sem corrida' };
+    addInboxMessage('engenharia','Exportação de telemetria F25','Sessão de telemetria preparada', `${session.samples?.length || 0} pacotes • ${session.diagnosis?.length || 0} diagnósticos • formato ${session.format}.`, { telemetryExport:session });
+    saveState(); renderTab('system'); updateHud();
+  }
+  function setupEngineeringMiniHTML(){
+    const st = setupEngineering?.status?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || { score:0, parameters:0, programmes:0, correlations:0, practiceRuns:0, productionBlocked:true };
+    const audit = state.quality?.setupEngineeringF26;
+    return `<p><b>${audit?.score ?? st.score}/100</b> • ${st.parameters} parâmetros • ${st.programmes} programas de treino</p><p>${st.correlations} correlações telemétricas • ${st.practiceRuns} treinos registrados</p><p class="muted-small">Asa • altura • suspensão • cambagem • toe • diferencial • brake bias • pressão • motor</p>`;
+  }
+
+  function currentSetupEngineeringContext(){
+    const track = activeCalendar()?.[state.roundIndex || 0] || { name:'GP de teste' };
+    const baseSetup = state.setupEngineering?.activeSetup || setupEngineering?.defaultSetup?.() || {};
+    const sample = race?.entries?.find(e => driversForTeam(state.currentTeam).some(d => d.short === e.driver?.short))?.telemetry || {};
+    return { track, baseSetup, sample };
+  }
+
+  function runSetupEngineeringAudit(){
+    state.setupEngineering = state.setupEngineering || {};
+    const audit = setupEngineering?.audit?.({ state, buildCode:DATA.build?.build_code || 'dev' }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.setupEngineeringF26 = { status:audit.failed ? 'review' : 'approved', score:audit.score, passed:audit.passed, failed:audit.failed, checks:audit.checks, generatedAt:audit.generatedAt };
+    addInboxMessage('engenharia','Setup avançado F26', audit.failed ? 'Setup requer revisão' : 'Setup técnico aprovado', `Fase 26: ${audit.score}/100 • ${audit.passed} checks aprovados e ${audit.failed} pendentes.`, { score:audit.score });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function runSetupCorrelation(){
+    state.setupEngineering = state.setupEngineering || {};
+    const { track, baseSetup, sample } = currentSetupEngineeringContext();
+    const result = setupEngineering?.correlateTelemetry?.(baseSetup, sample, track, { state, buildCode:DATA.build?.build_code || 'dev' }) || { top:{ label:'sem dados', advice:'inicie uma corrida ou simule um treino' }, issues:[] };
+    state.setupEngineering.lastCorrelation = result;
+    state.setupEngineering.correlationHistory = Array.isArray(state.setupEngineering.correlationHistory) ? state.setupEngineering.correlationHistory : [];
+    state.setupEngineering.correlationHistory.unshift(result);
+    state.setupEngineering.correlationHistory = state.setupEngineering.correlationHistory.slice(0,20);
+    addInboxMessage('engenharia','Correlação setup/telemetria F26', result.top?.label || 'correlação preparada', result.top?.advice || 'Use treino livre para aumentar confiança de acerto.', { setupCorrelation:result });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function simulateSetupPractice(){
+    state.setupEngineering = state.setupEngineering || {};
+    const { track, baseSetup } = currentSetupEngineeringContext();
+    const sequence = ['baseline','long-run','qualy-sim','race-start'];
+    const next = sequence[(state.setupEngineering.practiceRuns?.length || 0) % sequence.length];
+    const practice = setupEngineering?.simulatePractice?.(next, baseSetup, track, { state, buildCode:DATA.build?.build_code || 'dev' }) || { label:'Treino', setupScore:0, confidence:0, lapDelta:0, recommendation:'sem módulo' };
+    state.setupEngineering.practiceRuns = Array.isArray(state.setupEngineering.practiceRuns) ? state.setupEngineering.practiceRuns : [];
+    state.setupEngineering.practiceRuns.unshift(practice);
+    state.setupEngineering.practiceRuns = state.setupEngineering.practiceRuns.slice(0,20);
+    addInboxMessage('engenharia','Treino livre F26', `${practice.label}: confiança ${practice.confidence}/100`, `Score setup ${practice.setupScore}/100 • delta estimado ${practice.lapDelta}s • recomendação: ${practice.recommendation}.`, { practice });
+    saveState(); renderTab('system'); updateHud();
+  }
+
+  function tyreStintMiniHTML(){
+    const st = tyreStint?.status?.(state, { buildCode:DATA.build?.build_code || 'dev' }) || { score:0, compounds:0, signals:0, factors:0, analyses:0, productionBlocked:true };
+    const audit = state.quality?.tyreStintF27;
+    return `<p><b>${st.score}/100</b> • ${st.compounds} compostos • ${st.signals} sinais</p><p>Fatores: <b>${st.factors}</b> • análises: <b>${st.analyses}</b></p><p class="muted-small">graining, blistering, flat spot, pressão, janela térmica, undercut e overcut. ${audit ? `Último: ${audit.score}/100` : 'Ainda não auditado.'}</p>`;
+  }
+
+  function runTyreStintAudit(){
+    state.tyreStint = state.tyreStint || {};
+    const audit = tyreStint?.audit?.({ state, buildCode:DATA.build?.build_code || 'dev' }) || { score:0, passed:0, failed:1, checks:[] };
+    state.quality = state.quality || {};
+    state.quality.tyreStintF27 = { status:audit.failed ? 'review' : 'approved', score:audit.score, passed:audit.passed, failed:audit.failed, checks:audit.checks, generatedAt:audit.generatedAt, productionBlocked:true };
+    addInboxMessage('engenharia','Pneus e stint F27', audit.failed ? 'Pneus requerem revisão' : 'Engenharia de pneus aprovada', `Fase 27: ${audit.score}/100 • ${audit.passed} checks aprovados e ${audit.failed} pendentes.`, { score:audit.score });
+    saveState(); renderTab('system');
+  }
+
+  function runTyreStintAnalysis(){
+    state.tyreStint = state.tyreStint || {};
+    const player = race?.entries?.find(e => driversForTeam(state.currentTeam).some(d => d.short === e.driver?.short));
+    const input = player ? { compound:player.compound, ageLaps:Math.max(0, (race.tick||0)/80), wearPct:100-(player.tyre||75), surfaceTempC:player.telemetry?.tyreSurfaceC, carcassTempC:player.telemetry?.tyreCarcassC, pressurePsi:player.telemetry?.pressurePsi || 22.4, dirtyAirPct:player.telemetry?.dirtyAirPct || 0, fuelKg:player.fuel || 45, slidingEnergy:player.telemetry?.lateralG ? Math.abs(player.telemetry.lateralG)*18 : 35 } : { compound:selectedCompound || 'medium', ageLaps:8, wearPct:28, surfaceTempC:103, carcassTempC:98, pressurePsi:22.7, dirtyAirPct:15, fuelKg:48, slidingEnergy:42 };
+    const analysis = tyreStint?.analyseTyre?.(input, { state, buildCode:DATA.build?.build_code || 'dev' }) || null;
+    if(analysis){
+      state.tyreStint.analysisHistory = Array.isArray(state.tyreStint.analysisHistory) ? state.tyreStint.analysisHistory : [];
+      state.tyreStint.analysisHistory.unshift(analysis);
+      state.tyreStint.analysisHistory = state.tyreStint.analysisHistory.slice(0,30);
+      addInboxMessage('engenharia','Análise de stint F27', `${analysis.compoundLabel}: saúde ${analysis.tyreHealth}/100`, `Deg ${analysis.degradationPerLap}s/volta • cliff ${analysis.cliffRisk}% • graining ${analysis.grainingPct}% • blistering ${analysis.blisteringPct}% • janela ${analysis.window}.`, { tyreAnalysis:analysis });
+    }
+    saveState(); renderTab('system');
+  }
+
+  function prepareTyrePitPlan(){
+    state.tyreStint = state.tyreStint || {};
+    const player = race?.entries?.find(e => driversForTeam(state.currentTeam).some(d => d.short === e.driver?.short));
+    const currentLap = race ? Math.max(1, Math.round((race.tick||0)/80)) : Math.max(1, (state.completedRaces||0)+1);
+    const plan = tyreStint?.planStint?.({ compound:player?.compound || selectedCompound || 'medium', currentLap, lapsTotal:race?.laps || activeCalendar()?.[state.roundIndex||0]?.laps || 50, ageLaps:player ? Math.max(0,(race.tick||0)/80) : 10, wearPct:player ? 100-(player.tyre||74) : 34, surfaceTempC:player?.telemetry?.tyreSurfaceC || 101, carcassTempC:player?.telemetry?.tyreCarcassC || 96, pressurePsi:player?.telemetry?.pressurePsi || 22.5, dirtyAirPct:player?.telemetry?.dirtyAirPct || 8, fuelKg:player?.fuel || 52 }, { state, buildCode:DATA.build?.build_code || 'dev' }) || null;
+    const advice = plan ? tyreStint?.pitWallAdvice?.(plan, { state, buildCode:DATA.build?.build_code || 'dev' }) : null;
+    if(plan){
+      state.tyreStint.activePlans = Array.isArray(state.tyreStint.activePlans) ? state.tyreStint.activePlans : [];
+      state.tyreStint.activePlans.unshift({ ...plan, advice });
+      state.tyreStint.activePlans = state.tyreStint.activePlans.slice(0,20);
+      addInboxMessage('pitwall','Plano de pit F27', advice?.label || 'Plano de stint preparado', `Pit recomendado volta ${plan.recommendedPitLap} • alvo ${plan.target} • confiança ${plan.confidence}/100. ${advice?.advice || ''}`, { tyrePitPlan:plan, tyreAdvice:advice });
+    }
+    saveState(); renderTab('system');
+  }
+
+  function telemetryLine(e){
+    return telemetrySystem?.compactLine?.(e?.telemetry) || vehicleTelemetryText(e || {});
+  }
+
   function vehicleTelemetryText(e){
     const snap = vehiclePhysics?.snapshot?.(e) || { tyreLife:e.tyre, fuelMass:e.fuel, reliabilityHealth:e.condition, ers:e.ers, drs:e.drs, brakeTemperature:e.brakeTemp, engineTemperature:e.engineTemp, damage:e.damage };
     return `${compoundLabel(e.compound)} ${Math.round(snap.tyreLife||0)}% • ${Math.round(snap.tyreTemperature||0)}°C • ERS ${Math.round(snap.ers||0)}%${snap.drs?' • DRS':''} • Freio ${Math.round(snap.brakeTemperature||0)}°C • Motor ${Math.round(snap.engineTemperature||0)}°C • Dano ${Math.round(snap.damage||0)} • Comb ${Math.round(snap.fuelMass||0)}%`;
@@ -2896,7 +3071,7 @@
       if(vehiclePhysics) entry.vehicle = vehiclePhysics.initialState({ compound, fuel:100, condition:100, car, track:currentRace });
       return entry;
     });
-    race = { quick, entries, laps:currentRace.laps || 22, trackState:vehiclePhysics?.trackState?.({ weather:currentRace.weather || 'dry', laps:currentRace.laps || 22 }) || null, visualModel:visualSystem?.createTrackModel?.(currentRace,{ width:window.innerWidth, height:window.innerHeight, dpr:window.devicePixelRatio || 1, weather:currentRace.weather || 'dry' }) || null, replayBuffer:visualSystem?.createReplayBuffer?.() || null, lastReplayCapture:0, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:currentRace.weather || 'dry', tick:0, trackInfo:currentRace, safetyCar:0, vsc:0, redFlag:0, restartTimer:0, cameraMode:'tv', raceLog:['Largada autorizada — F24 ativo: gameplay perfeita, pit wall, battles, pneus e telemetria legível.'], regulation:regulationEngine?.activeSessionPlan?.(state.currentSeries, currentRace) || null, strategyState:{ pitLaneBusy:0, redFlags:0, safetyCarDeployments:0, vscDeployments:0, lastNeutralizedAt:0 }, gameplayContext:null, lastGameplayAdvice:null };
+    race = { quick, entries, laps:currentRace.laps || 22, trackState:vehiclePhysics?.trackState?.({ weather:currentRace.weather || 'dry', laps:currentRace.laps || 22 }) || null, visualModel:visualSystem?.createTrackModel?.(currentRace,{ width:window.innerWidth, height:window.innerHeight, dpr:window.devicePixelRatio || 1, weather:currentRace.weather || 'dry' }) || null, replayBuffer:visualSystem?.createReplayBuffer?.() || null, lastReplayCapture:0, speed:1, playerPace:driversForTeam(state.currentTeam).map(()=> 'normal'), started:Date.now(), weather:currentRace.weather || 'dry', tick:0, trackInfo:currentRace, safetyCar:0, vsc:0, redFlag:0, restartTimer:0, cameraMode:'tv', raceLog:['Largada autorizada — F27 ativo: simulador técnico com pneus, stint, telemetria e setup correlacionados.'], regulation:regulationEngine?.activeSessionPlan?.(state.currentSeries, currentRace) || null, strategyState:{ pitLaneBusy:0, redFlags:0, safetyCarDeployments:0, vscDeployments:0, lastNeutralizedAt:0 }, gameplayContext:null, lastGameplayAdvice:null };
     appEvents?.emit('race:created', { track:currentRace.name, laps:race.laps, entries:entries.length, quick:Boolean(quick) });
     updateRaceHud();
   }
@@ -3293,6 +3468,7 @@
     const previousOrder = new Map(race.entries.map(e => [e.driver.short, e.pos]));
     const strategyContext = strategyAI?.updateRaceState?.(race, { dt, speed:race.speed, vehiclePhysics }) || { safetyMultiplier:race.safetyCar>0?0.70:1 };
     race.gameplayContext = gameplayPolish?.raceContext?.(race, { state, buildCode:DATA.build?.build_code || 'dev', isPlayer:isPlayerDriver, dt }) || { battleIntensity:0 };
+    race.telemetryContext = telemetrySystem?.raceContext?.(race, { state, buildCode:DATA.build?.build_code || 'dev', dt }) || { avgTyre:0, avgCondition:0 };
     race.entries.forEach((e, idx)=>{
       const isPlayer = isPlayerDriver(e.driver.short);
       const decision = strategyAI?.driverDecision?.(e, race, { index:idx, isPlayer, dt, vehiclePhysics, regulationEngine, state, context:strategyContext });
@@ -3321,6 +3497,26 @@
       const physicsPace = physics?.paceMultiplier || legacyPace;
       const staffPace = 1 + (strategist-1)*0.0015;
       const gameplayFx = gameplayPolish?.entryModifier?.(e, race, { state, index:idx, isPlayer, buildCode:DATA.build?.build_code || 'dev', raceContext:race.gameplayContext }) || { paceMultiplier:1, riskMultiplier:1, battle:0, advice:null };
+      const telemetryPacket = telemetrySystem?.sample?.(e, race, { state, index:idx, isPlayer, physics, gameplayFx, traffic, trackProfile:track, dt, buildCode:DATA.build?.build_code || 'dev' }) || null;
+      if(telemetryPacket){
+        e.telemetry = telemetryPacket;
+        race.telemetrySamples = Array.isArray(race.telemetrySamples) ? race.telemetrySamples : [];
+        if(isPlayer){ race.telemetrySamples.unshift(telemetryPacket); race.telemetrySamples = race.telemetrySamples.slice(0, 60); }
+        const diagnosis = telemetrySystem?.diagnose?.(e, race, { state, sample:telemetryPacket, buildCode:DATA.build?.build_code || 'dev' }) || null;
+        e.engineerDiagnosis = diagnosis;
+        if(isPlayer && diagnosis?.priority >= 78 && race.tick - (e.lastTelemetryLog||0) > 10){ e.lastTelemetryLog = race.tick; race.raceLog.unshift(`${e.driver.short}: ${diagnosis.top.label}`); }
+      }
+      if(tyreStint){
+        const tyreAnalysis = tyreStint.sampleEntry?.(e, race, { state, buildCode:DATA.build?.build_code || 'dev' }) || null;
+        if(tyreAnalysis){
+          e.tyreAnalysis = tyreAnalysis;
+          if(isPlayer && (tyreAnalysis.cliffRisk > 72 || tyreAnalysis.blisteringPct > 36 || tyreAnalysis.grainingPct > 38) && race.tick - (e.lastTyreLog||0) > 12){
+            e.lastTyreLog = race.tick;
+            const tyreAdvice = tyreStint.pitWallAdvice?.({ analysis:tyreAnalysis, currentLap:Math.max(1, Math.round((race.tick||0)/80)), lapsTotal:race.laps || 50 }, { state, buildCode:DATA.build?.build_code || 'dev' }) || null;
+            if(tyreAdvice) race.raceLog.unshift(`Pneus ${e.driver.short}: ${tyreAdvice.label} — ${tyreAdvice.advice}`);
+          }
+        }
+      }
       if(isPlayer && gameplayFx.advice && (!race.lastGameplayAdvice || race.tick - (race.lastGameplayAdvice.tick||0) > 7)){ race.lastGameplayAdvice = { tick:race.tick, advice:gameplayFx.advice }; e.aiIntent = gameplayFx.advice.label || e.aiIntent; }
       if(gameplayFx.action && race.tick - (e.lastGameplayLog||0) > 8){ e.lastGameplayLog = race.tick; e.lastAction = gameplayFx.action; if(isPlayer || gameplayFx.battle > .9) race.raceLog.unshift(`${e.driver.short}: ${gameplayFx.action}`); }
       e.progress += e.baseSpeed * physicsPace * staffPace * randomRaceNoise * (gameplayFx.paceMultiplier || 1) * dt * race.speed;
@@ -3381,7 +3577,8 @@
       const neutralLabel = race.redFlag>0 ? 'BANDEIRA VERMELHA' : race.safetyCar>0 ? 'SAFETY CAR / VSC' : 'RITMO DE CORRIDA';
       const pitAdvice = race.lastGameplayAdvice?.advice?.label || gameplayPolish?.pitAdvice?.(playerBest || {}, race, { state })?.label || 'RITMO';
       const stratText = playerBest ? `${pitAdvice} • ${compoundLabel(playerBest.compound)} ${Math.round(playerBest.tyre)}% • Pit ${playerBest.pits}` : 'Sem piloto';
-      statusPanel.innerHTML = `<div><b>${neutralLabel}</b><span>${race.trackInfo?.name||'GP'} • Câmera ${cameraLabel(race.cameraMode)}</span></div><div><b>${playerBest ? 'P'+playerBest.pos+' '+playerBest.driver.short : 'Equipe'}</b><span>${stratText}</span></div><div class="race-log-mini">${(race.raceLog||[]).slice(0,3).map(x=>`<small>${x}</small>`).join('')}</div>`;
+      const diagText = playerBest?.engineerDiagnosis?.top?.label || 'telemetria estabilizando';
+      statusPanel.innerHTML = `<div><b>${neutralLabel}</b><span>${race.trackInfo?.name||'GP'} • Câmera ${cameraLabel(race.cameraMode)}</span></div><div><b>${playerBest ? 'P'+playerBest.pos+' '+playerBest.driver.short : 'Equipe'}</b><span>${stratText}</span><small class="telemetry-inline">${playerBest ? telemetryLine(playerBest) : ''}</small><small class="telemetry-inline">Engenharia: ${diagText}</small></div><div class="race-log-mini">${(race.raceLog||[]).slice(0,3).map(x=>`<small>${x}</small>`).join('')}</div>`;
     }
     $('#raceLeaderboard').innerHTML = race.entries.slice(0,22).map((e,i)=>{
       const delta = (e.previousPos||e.pos)-e.pos;
@@ -3389,7 +3586,7 @@
       return `<div class="race-row ${isPlayerDriver(e.driver.short)?'highlight':''}"><span class="race-pos">${i+1}<small>${deltaText}</small></span>${driverAvatarHTML(e.driver)}${teamLogoHTML(e.team,'team-logo-mini')}<span class="race-name"><b>${e.driver.short}</b><small>${e.team.name}</small></span><span class="race-tyre">${compoundLabel(e.compound).slice(0,1)} ${Math.round(e.tyre)}% ${e.drs?'DRS':''}</span><span class="race-pits">${e.pits}P • ${String(e.aiIntent||'ritmo').slice(0,7)} • ${i===0?'LÍDER':'+'+e.gap.toFixed(1)}</span></div>`;
     }).join('');
     hydrateAssets($('#raceLeaderboard'));
-    const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const card=document.getElementById(`controlCard${i+1}`), name=document.getElementById(`controlDriver${i+1}`), cond=document.getElementById(`cond${i+1}`); if(e){ if(name) name.innerHTML = `<span class="control-head">${driverAvatarChip(d,'driver-avatar-inline small')}${teamLogoHTML(teamById(driverCurrentTeamId(d.short)||d.team),'team-logo-inline small')}<span><b>${e.pos}º | ${d.short}</b><small>${teamById(driverCurrentTeamId(d.short)||d.team).name}</small></span></span>`; if(cond) cond.style.width = `${Math.round(e.condition)}%`; if(card){ card.querySelectorAll('[data-pace]').forEach(btn=>btn.classList.toggle('active', btn.dataset.pace === (race.playerPace[i]||'normal'))); const status=card.querySelector('.pilot-status') || document.createElement('div'); status.className='pilot-status'; const advice = gameplayPolish?.pitAdvice?.(e, race, { state, isPlayer:true })?.label || (e.aiIntent||'ritmo').toUpperCase(); status.textContent = `Modo: ${(race.playerPace[i]||'normal').toUpperCase()} • ${vehicleTelemetryText(e)} • Gap ${e.gap.toFixed(1)}s • S${e.sector} • Pit V${e.plannedPitLap} • Pit wall: ${advice}`; if(!status.parentElement) card.appendChild(status); hydrateAssets(card); } } });
+    const pDrivers = driversForTeam(state.currentTeam); [0,1].forEach(i=>{ const d=pDrivers[i]; if(!d) return; const e=race.entries.find(x=>x.driver.short===d.short); const card=document.getElementById(`controlCard${i+1}`), name=document.getElementById(`controlDriver${i+1}`), cond=document.getElementById(`cond${i+1}`); if(e){ if(name) name.innerHTML = `<span class="control-head">${driverAvatarChip(d,'driver-avatar-inline small')}${teamLogoHTML(teamById(driverCurrentTeamId(d.short)||d.team),'team-logo-inline small')}<span><b>${e.pos}º | ${d.short}</b><small>${teamById(driverCurrentTeamId(d.short)||d.team).name}</small></span></span>`; if(cond) cond.style.width = `${Math.round(e.condition)}%`; if(card){ card.querySelectorAll('[data-pace]').forEach(btn=>btn.classList.toggle('active', btn.dataset.pace === (race.playerPace[i]||'normal'))); const status=card.querySelector('.pilot-status') || document.createElement('div'); status.className='pilot-status'; const advice = gameplayPolish?.pitAdvice?.(e, race, { state, isPlayer:true })?.label || (e.aiIntent||'ritmo').toUpperCase(); const tyreLine = e.tyreAnalysis ? ` • Pneu ${e.tyreAnalysis.tyreHealth}/100 cliff ${e.tyreAnalysis.cliffRisk}%` : ''; status.textContent = `Modo: ${(race.playerPace[i]||'normal').toUpperCase()} • ${telemetryLine(e)}${tyreLine} • Gap ${e.gap.toFixed(1)}s • S${e.sector} • Pit V${e.plannedPitLap} • Pit wall: ${advice} • Eng: ${e.engineerDiagnosis?.top?.label || 'ok'}`; if(!status.parentElement) card.appendChild(status); hydrateAssets(card); } } });
   }
   function finishRace(){
     if(!race) return;

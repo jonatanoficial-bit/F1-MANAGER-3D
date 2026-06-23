@@ -1,6 +1,6 @@
 {
-  "manifest_version": 24,
-  "build_code": "F1M3D-0.33.0-F24",
+  "manifest_version": 27,
+  "build_code": "F1M3D-0.36.0-F27",
   "generated_at": "2026-06-17T17:10:00-03:00",
   "policy": "ZIP de fase sem assets binários. Sobrepor a pasta assets original seguindo caminhos e hashes.",
   "counts": {
@@ -9483,8 +9483,8 @@
       ]
     }
   ],
-  "build_version": "0.33.0",
-  "updated_at": "2026-06-20T15:02:00-03:00",
+  "build_version": "0.36.0",
+  "updated_at": "2026-06-20T17:45:00-03:00",
   "phase": 23,
   "schema": 23
 }

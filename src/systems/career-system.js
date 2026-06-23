@@ -43,7 +43,7 @@
       seasonStats:{ races:0, bestFinish:null, podiums:0, wins:0, objectiveProgress:0 },
       completedRaces:0,
       saveSchema:Number(options.saveSchema || 0),
-      architecture:{ version:18, persistence:'F1M_SAVE_ENVELOPE_V2', dataContracts:1, qualityGate:1, sportingDatabase:1, regulationEngine:1, vehiclePhysics:1, modules:['career','race','persistence','ui','assets','save-vault','performance','ci-gate','viewport','mobile-ux','safe-area','i18n','localization','sporting-db','calendar-f1-f2','rules-engine','weekend-sessions','official-classification','vehicle-physics','tyre-model','ers-drs','damage-model','track-evolution','strategy-ai','overtake-model','pit-strategy','neutralization-model','balance-simulator','monte-carlo','difficulty-fairness','track-visual-system','professional-3d','replay-buffer','camera-director','audio-ui','radio-box','dynamic-mix','design-system','accessibility','tutorial-contextual','living-career','factories','research-and-development','sponsor-portfolio','board-politics','academy-pipeline','multi-season-projection','backend-launch','accounts-adapter','cloud-save-adapter','telemetry-consent','crash-reporting','remote-config','rollback','release-channels','platform-targets','privacy-support','live-ops','release-candidate','commercial-rc','physical-homologation','store-checklist','legal-review','publishing-package','deployment-validation','public-beta-gate','asset-restore-wizard','vercel-preview','github-upload-memory','beta-ops','feedback-local','crash-triage','hotfix-plan','device-matrix','operations-center'] },
+      architecture:{ version:25, persistence:'F1M_SAVE_ENVELOPE_V2', dataContracts:1, qualityGate:1, sportingDatabase:1, regulationEngine:1, vehiclePhysics:1, modules:['career','race','persistence','ui','assets','save-vault','performance','ci-gate','viewport','mobile-ux','safe-area','i18n','localization','sporting-db','calendar-f1-f2','rules-engine','weekend-sessions','official-classification','vehicle-physics','tyre-model','ers-drs','damage-model','track-evolution','strategy-ai','overtake-model','pit-strategy','neutralization-model','balance-simulator','monte-carlo','difficulty-fairness','track-visual-system','professional-3d','replay-buffer','camera-director','audio-ui','radio-box','dynamic-mix','design-system','accessibility','tutorial-contextual','living-career','factories','research-and-development','sponsor-portfolio','board-politics','academy-pipeline','multi-season-projection','backend-launch','accounts-adapter','cloud-save-adapter','telemetry-consent','crash-reporting','remote-config','rollback','release-channels','platform-targets','privacy-support','live-ops','release-candidate','commercial-rc','physical-homologation','store-checklist','legal-review','publishing-package','deployment-validation','public-beta-gate','asset-restore-wizard','vercel-preview','github-upload-memory','beta-ops','feedback-local','crash-triage','hotfix-plan','device-matrix','operations-center','tyre-stint-f27','compound-window','degradation-curve','graining-blistering','undercut-overcut-tyre','pit-wall-tyre-plan'] },
       saveVault:{ format:'F1M_SAVE_ENVELOPE_V2', backups:5, journal:'F1M_SAVE_JOURNAL_V1', lastVerifiedAt:null },
       createdAt:new Date().toISOString()
     };
@@ -374,7 +374,7 @@
       };
       state.quality = state.quality || {};
       state.quality.releaseCandidateF18 = state.quality.releaseCandidateF18 || { status:'not-run', systems:12, physicalHomologation:'manual-required', storeChecklist:true, legalReviewRequired:true, migratedBy:String(options.buildCode || 'dev') };
-      state.architecture = {...(state.architecture || {}), version:16, releaseCandidate:1, commercialReadiness:1, modules:[...new Set([...(state.architecture?.modules || []),'release-candidate','commercial-rc','physical-homologation','store-checklist','privacy-support-final','legal-review','performance-device-matrix','publishing-package','deployment-validation','public-beta-gate','asset-restore-wizard','vercel-preview','github-upload-memory','beta-ops','feedback-local','crash-triage','hotfix-plan','device-matrix','operations-center'])], migratedAt:new Date().toISOString(), migratedBy:String(options.buildCode || 'dev')};
+      state.architecture = {...(state.architecture || {}), version:16, releaseCandidate:1, commercialReadiness:1, modules:[...new Set([...(state.architecture?.modules || []),'release-candidate','commercial-rc','physical-homologation','store-checklist','privacy-support-final','legal-review','performance-device-matrix','publishing-package','deployment-validation','public-beta-gate','asset-restore-wizard','vercel-preview','github-upload-memory','beta-ops','feedback-local','crash-triage','hotfix-plan','device-matrix','operations-center','tyre-stint-f27','compound-window','degradation-curve','graining-blistering','undercut-overcut-tyre','pit-wall-tyre-plan'])], migratedAt:new Date().toISOString(), migratedBy:String(options.buildCode || 'dev')};
       current = 18; applied.push(18);
     }
 
@@ -416,7 +416,7 @@
       };
       state.quality = state.quality || {};
       state.quality.operationsF20 = state.quality.operationsF20 || { status:'not-run', score:null, systems:10, feedback:true, hotfix:true, productionBlocked:true, migratedBy:String(options.buildCode || 'dev') };
-      state.architecture = {...(state.architecture || {}), version:18, betaOperations:1, feedbackOps:1, hotfixControl:1, modules:[...new Set([...(state.architecture?.modules || []),'beta-ops','feedback-local','crash-triage','hotfix-plan','device-matrix','rollback-control','manual-evidence','operations-center'])], migratedAt:new Date().toISOString(), migratedBy:String(options.buildCode || 'dev')};
+      state.architecture = {...(state.architecture || {}), version:18, betaOperations:1, feedbackOps:1, hotfixControl:1, modules:[...new Set([...(state.architecture?.modules || []),'beta-ops','feedback-local','crash-triage','hotfix-plan','device-matrix','rollback-control','manual-evidence','operations-center','tyre-stint-f27','compound-window','degradation-curve','graining-blistering','undercut-overcut-tyre','pit-wall-tyre-plan'])], migratedAt:new Date().toISOString(), migratedBy:String(options.buildCode || 'dev')};
       current = 20; applied.push(20);
     }
 
@@ -500,6 +500,67 @@
       current = 24; applied.push(24);
     }
 
+    if(current < 25 && targetSchema >= 25){
+      state.telemetry = state.telemetry || {};
+      state.telemetry = {
+        dataPack:'realistic-telemetry-simulator-2026-06-20',
+        channel:'realistic-telemetry-simulator',
+        enabled:true,
+        productionBlocked:true,
+        samples:Array.isArray(state.telemetry?.samples) ? state.telemetry.samples : [],
+        sessions:Array.isArray(state.telemetry?.sessions) ? state.telemetry.sessions : [],
+        diagnosisHistory:Array.isArray(state.telemetry?.diagnosisHistory) ? state.telemetry.diagnosisHistory : [],
+        auditHistory:Array.isArray(state.telemetry?.auditHistory) ? state.telemetry.auditHistory : [],
+        lastAuditAt:state.telemetry?.lastAuditAt || null,
+        migratedBy:String(options.buildCode || 'dev'),
+        ...state.telemetry
+      };
+      state.quality = state.quality || {};
+      state.quality.telemetryF25 = state.quality.telemetryF25 || { status:'not-run', score:null, sensors:true, tyres:true, brakes:true, fuel:true, ers:true, diagnosis:true, productionBlocked:true, migratedBy:String(options.buildCode || 'dev') };
+      state.architecture = {...(state.architecture || {}), version:23, telemetryF25:1, raceEngineeringF25:1, modules:[...new Set([...(state.architecture?.modules || []),'telemetry-f25','realistic-sensors','race-engineering-diagnosis','tyre-thermal-map','brake-window','ers-harvest-deploy','fuel-corrected-pace','dirty-air-telemetry','sector-delta-analysis','setup-engineering-f26','free-practice-programmes','setup-telemetry-correlation','aero-mechanical-balance','race-engineering-workbench'])], migratedAt:new Date().toISOString(), migratedBy:String(options.buildCode || 'dev')};
+      current = 25; applied.push(25);
+    }
+
+    if(current < 26 && targetSchema >= 26){
+      state.setupEngineering = state.setupEngineering || {};
+      state.setupEngineering = {
+        dataPack:'advanced-setup-engineering-2026-06-20',
+        channel:'advanced-setup-engineering',
+        productionBlocked:true,
+        activeSetup:state.setupEngineering?.activeSetup || {},
+        practiceRuns:Array.isArray(state.setupEngineering?.practiceRuns) ? state.setupEngineering.practiceRuns : [],
+        correlationHistory:Array.isArray(state.setupEngineering?.correlationHistory) ? state.setupEngineering.correlationHistory : [],
+        auditHistory:Array.isArray(state.setupEngineering?.auditHistory) ? state.setupEngineering.auditHistory : [],
+        lastAuditAt:state.setupEngineering?.lastAuditAt || null,
+        migratedBy:String(options.buildCode || 'dev'),
+        ...state.setupEngineering
+      };
+      state.quality = state.quality || {};
+      state.quality.setupEngineeringF26 = state.quality.setupEngineeringF26 || { status:'not-run', score:null, setup:true, practice:true, telemetryCorrelation:true, noArcadeBoost:true, productionBlocked:true, migratedBy:String(options.buildCode || 'dev') };
+      state.architecture = {...(state.architecture || {}), version:24, setupEngineeringF26:1, freePracticeF26:1, telemetryCorrelationF26:1, modules:[...new Set([...(state.architecture?.modules || []),'setup-engineering-f26','free-practice-programmes','setup-telemetry-correlation','aero-mechanical-balance','tyre-pressure-model','differential-brake-bias','engine-map-strategy','race-engineering-workbench'])], migratedAt:new Date().toISOString(), migratedBy:String(options.buildCode || 'dev')};
+      current = 26; applied.push(26);
+    }
+
+    if(current < 27 && targetSchema >= 27){
+      state.tyreStint = state.tyreStint || {};
+      state.tyreStint = {
+        dataPack:'tyre-stint-degradation-2026-06-20',
+        channel:'tyre-stint-degradation-simulator',
+        productionBlocked:true,
+        activePlans:Array.isArray(state.tyreStint?.activePlans) ? state.tyreStint.activePlans : [],
+        analysisHistory:Array.isArray(state.tyreStint?.analysisHistory) ? state.tyreStint.analysisHistory : [],
+        pitWallHistory:Array.isArray(state.tyreStint?.pitWallHistory) ? state.tyreStint.pitWallHistory : [],
+        auditHistory:Array.isArray(state.tyreStint?.auditHistory) ? state.tyreStint.auditHistory : [],
+        lastAuditAt:state.tyreStint?.lastAuditAt || null,
+        migratedBy:String(options.buildCode || 'dev'),
+        ...state.tyreStint
+      };
+      state.quality = state.quality || {};
+      state.quality.tyreStintF27 = state.quality.tyreStintF27 || { status:'not-run', score:null, compounds:true, thermalWindow:true, degradation:true, graining:true, blistering:true, flatSpot:true, undercutOvercut:true, productionBlocked:true, migratedBy:String(options.buildCode || 'dev') };
+      state.architecture = {...(state.architecture || {}), version:25, tyreStintF27:1, tyreDegradationF27:1, pitWallTyreF27:1, modules:[...new Set([...(state.architecture?.modules || []),'tyre-stint-f27','compound-window','degradation-curve','graining-blistering','flatspot-model','fuel-corrected-pace','undercut-overcut-tyre','pit-wall-tyre-plan','realistic-stint-engineering'])], migratedAt:new Date().toISOString(), migratedBy:String(options.buildCode || 'dev')};
+      current = 27; applied.push(27);
+    }
+
         state.saveSchema = Math.min(targetSchema, Math.max(current, Number(state.saveSchema || 0)));
     return { state, from:Number(input?.saveSchema || 0), to:state.saveSchema, applied };
   }
@@ -532,7 +593,10 @@
       { id:'asset-restore-f21', ok:Number(targetSchema) < 21 || Boolean(state?.assetRestore?.productionBlocked) || Number(state?.architecture?.assetRestoreF21 || 0) >= 1, detail:Number(targetSchema) < 21 ? 'não exigido' : (state?.assetRestore?.dataPack || 'registrado') },
       { id:'visual-hotfix-f22', ok:Number(targetSchema) < 22 || Boolean(state?.visualHotfix?.productionBlocked) || Number(state?.architecture?.visualHotfixF22 || 0) >= 1, detail:Number(targetSchema) < 22 ? 'não exigido' : (state?.visualHotfix?.dataPack || 'registrado') },
       { id:'public-beta-assets-f23', ok:Number(targetSchema) < 23 || Boolean(state?.publicBetaAssets?.productionBlocked) || Number(state?.architecture?.publicBetaAssetsF23 || 0) >= 1, detail:Number(targetSchema) < 23 ? 'não exigido' : (state?.publicBetaAssets?.dataPack || 'registrado') },
-      { id:'gameplay-polish-f24', ok:Number(targetSchema) < 24 || Boolean(state?.gameplayPolish?.productionBlocked) || Number(state?.architecture?.gameplayPolishF24 || 0) >= 1, detail:Number(targetSchema) < 24 ? 'não exigido' : (state?.gameplayPolish?.dataPack || 'registrado') }
+      { id:'gameplay-polish-f24', ok:Number(targetSchema) < 24 || Boolean(state?.gameplayPolish?.productionBlocked) || Number(state?.architecture?.gameplayPolishF24 || 0) >= 1, detail:Number(targetSchema) < 24 ? 'não exigido' : (state?.gameplayPolish?.dataPack || 'registrado') },
+      { id:'telemetry-f25', ok:Number(targetSchema) < 25 || Boolean(state?.telemetry?.enabled) || Number(state?.architecture?.telemetryF25 || 0) >= 1, detail:Number(targetSchema) < 25 ? 'não exigido' : (state?.telemetry?.dataPack || 'registrado') },
+      { id:'setup-engineering-f26', ok:Number(targetSchema) < 26 || Boolean(state?.setupEngineering?.productionBlocked) || Number(state?.architecture?.setupEngineeringF26 || 0) >= 1, detail:Number(targetSchema) < 26 ? 'não exigido' : (state?.setupEngineering?.dataPack || 'registrado') },
+      { id:'tyre-stint-f27', ok:Number(targetSchema) < 27 || Boolean(state?.tyreStint?.productionBlocked) || Number(state?.architecture?.tyreStintF27 || 0) >= 1, detail:Number(targetSchema) < 27 ? 'não exigido' : (state?.tyreStint?.dataPack || 'registrado') }
     ];
     return { ok:checks.every(check => check.ok), checks };
   }

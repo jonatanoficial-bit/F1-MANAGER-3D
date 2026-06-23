@@ -1,12 +1,12 @@
 {
-  "build": "F1M3D-0.33.0-F24",
+  "build": "F1M3D-0.36.0-F27",
   "profile": "mobile-first",
   "budgets": {
     "directory_bytes_without_assets": 2200000,
-    "javascript_bytes": 1000000,
+    "javascript_bytes": 1120000,
     "css_bytes": 98000,
     "html_bytes": 30000,
-    "app_shell_files_max": 55,
+    "app_shell_files_max": 62,
     "asset_binary_files_in_phase_zip": 0,
     "dom_nodes": 2200,
     "buttons": 260,
@@ -44,6 +44,13 @@
     "Fase 21 adiciona restauração guiada de assets reais, validação de preview GitHub/Vercel/PWA/cache, evidências manuais e bloqueio de produção até assets obrigatórios aparecerem.",
     "Fase 22 adiciona hotfix visual final de rolagem PC/mobile, caminhos de assets visíveis, fundos restauráveis, legibilidade e validação para beta público com assets reais.",
     "Fase 23 adiciona beta público com assets reais restaurados, validação GitHub/Vercel/PWA/cache, evidências manuais e bloqueios de produção até validação real.",
-    "Fase 24 adiciona gameplay perfeita, pit wall, battle director, decisões auditáveis do jogador, telemetria legível e fairness sem catch-up invisível."
-  ]
+    "Fase 24 adiciona gameplay perfeita, pit wall, battle director, decisões auditáveis do jogador, telemetria legível e fairness sem catch-up invisível.",
+    "Fase 25 adiciona telemetria realista com sensores, diagnóstico de engenharia, exportação de sessão, pneus/freios/combustível/ERS/DRS/ar sujo e mantém ZIP sem binários; orçamento JS/app-shell ajustado com justificativa auditável.",
+    "Fase 26 adiciona setup avançado e engenharia de fim de semana, com correlação direta entre acerto, treinos livres e telemetria realista; app-shell ajustado para incluir data/core sem binários.",
+    "Fase 27 adiciona engenharia profunda de pneus e stint: janelas térmicas por composto, graining, blistering, flat spot, fuel-corrected pace, undercut/overcut e recomendações técnicas de pit wall sem assets binários."
+  ],
+  "build_code": "F1M3D-0.36.0-F27",
+  "version": "0.36.0",
+  "phase": 27,
+  "schema": 27
 }

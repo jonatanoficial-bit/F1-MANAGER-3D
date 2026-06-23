@@ -1,0 +1,21 @@
+{
+  "phase": 27,
+  "version": "0.36.0",
+  "build_code": "F1M3D-0.36.0-F27",
+  "title": "Engenharia de pneus, stints e degradação profunda realista",
+  "base": "v0.35.0-F26",
+  "save_schema": 27,
+  "result": "approved",
+  "audit": {
+    "passed": 1089,
+    "failed": 0,
+    "tyre_stint_passed": 21,
+    "tyre_stint_failed": 0
+  },
+  "assets": "sem binários pesados; caminhos preservados",
+  "notes": [
+    "Modelo técnico plausível para simulador; sem telemetria proprietária oficial.",
+    "Integração com telemetria, setup, pit wall e corrida.",
+    "Produção comercial segue dependente de assets reais, homologação física e revisão jurídica."
+  ]
+}

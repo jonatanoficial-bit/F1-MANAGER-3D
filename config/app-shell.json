@@ -43,6 +43,12 @@
     "./data/public-beta-assets-data.js",
     "./src/core/gameplay-polish-system.js",
     "./data/gameplay-polish-data.js",
+    "./src/core/telemetry-system.js",
+    "./data/telemetry-data.js",
+    "./data/setup-engineering-data.js",
+    "./src/core/setup-engineering-system.js",
+    "./src/core/tyre-stint-system.js",
+    "./data/tyre-stint-data.js",
     "./data/game-data.js",
     "./data/track-layouts.js",
     "./script.js",
@@ -56,5 +62,5 @@
     "./src/core/asset-restore-system.js",
     "./data/asset-restore-data.js"
   ],
-  "schema": 24
+  "schema": 27
 }

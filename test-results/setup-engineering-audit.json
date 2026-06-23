@@ -1,0 +1,98 @@
+{
+  "build": "F1M3D-0.36.0-F27",
+  "generatedAt": "2026-06-23T18:06:43.398Z",
+  "passed": 18,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/setup-engineering-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/setup-engineering-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "f26:data-loaded",
+      "ok": true,
+      "detail": "phase 26"
+    },
+    {
+      "name": "f26:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "f26:parameters",
+      "ok": true,
+      "detail": "{\"score\":100,\"parameters\":18,\"programmes\":4,\"correlations\":9,\"trackArchetypes\":5,\"practiceRuns\":0,\"productionBlocked\":true}"
+    },
+    {
+      "name": "f26:score-setup",
+      "ok": true,
+      "detail": "{\"score\":78,\"archetype\":\"rear-limited\",\"archetypeLabel\":\"Limitado traseiro\",\"setup\":{\"frontWing\":4,\"rearWing\":9,\"rideHeightFront\":29,\"rideHeightRear\":52,\"frontSuspension\":6,\"rearSuspension\":6,\"frontAntiRoll\":6,\"rearAntiRoll\":6,\"camberFront\":-3,\"camberRear\":-1.7,\"toeFront\":0.1,\"toeRear\":0.22,\"differentialOnThrottle\":78,\"differentialOffThrottle\":55,\"brakeBias\":59.2,\"tyrePressureFront\":22.5,\"tyrePressureRear\":23.6,\"engineMap\":5},\"penalties\":[{\"id\":\"frontWing\",\"label\":\"Asa dianteira\",\"penalty\":2.4,\"target\":6,\"current\":4},{\"id\":\"rearWing\",\"label\":\"Asa traseira\",\"penalty\":2.4,\"target\":7,\"current\":9},{\"id\":\"differentialOnThrottle\",\"label\":\"Diferencial aceleração\",\"penalty\":3,\"target\":58,\"current\":78},{\"id\":\"brakeBias\",\"label\":\"Balanço de freio\",\"penalty\":2.4,\"target\":56,\"current\":59.2},{\"id\":\"tyrePressureRear\",\"label\":\"Pressão traseira\",\"penalty\":4.8,\"target\":20.6,\"current\":23.6},{\"id\":\"engineMap\",\"label\":\"Mapa de motor\",\"penalty\":3,\"target\":3,\"current\":5}],\"metrics\":{\"aeroBalance\":-9,\"dragIndex\":59.9,\"downforceIndex\":94.6,\"tyreStressFront\":45.8,\"tyreStressRear\":62.7,\"brakeStability\":77.6,\"tractionIndex\":75.9,\"bottomingRisk\":27,\"engineStress\":74.6,\"balance\":\"traseira estável\"},\"generatedAt\":\"2026-06-23T18:06:43.390Z\"}"
+    },
+    {
+      "name": "f26:correlation",
+      "ok": true,
+      "detail": "{\"score\":78,\"metrics\":{\"aeroBalance\":-9,\"dragIndex\":59.9,\"downforceIndex\":94.6,\"tyreStressFront\":45.8,\"tyreStressRear\":62.7,\"brakeStability\":77.6,\"tractionIndex\":75.9,\"bottomingRisk\":27,\"engineStress\":74.6,\"balance\":\"traseira estável\"},\"top\":{\"id\":\"brake-window\",\"priority\":90,\"label\":\"freios ou bias em zona de risco\",\"advice\":\"corrigir brake bias e evitar ataque prolongado em tráfego\"},\"issues\":[{\"id\":\"brake-window\",\"priority\":90,\"label\":\"freios ou bias em zona de risco\",\"advice\":\"corrigir brake bias e evitar ataque prolongado em tráfego\"},{\"id\":\"rear-thermal\",\"priority\":88,\"label\":\"traseiros fora da janela térmica\",\"advice\":\"baixar pressão traseira, reduzir toe/diferencial ou aliviar ritmo\"},{\"id\":\"understeer-entry\",\"priority\":86,\"label\":\"subesterço de entrada detectado\",\"advice\":\"aumentar asa dianteira 1 click ou reduzir rigidez/barra dianteira\"},{\"id\":\"ers-engine-map\",\"priority\":74,\"label\":\"mapa agressivo drenando energia\",\"advice\":\"usar mapa 3 por uma volta e planejar deploy nos setores críticos\"}],\"generatedAt\":\"2026-06-23T18:06:43.391Z\",\"realism\":\"correlação plausível com telemetria; não usa dados proprietários oficiais\"}"
+    },
+    {
+      "name": "f26:practice-programme",
+      "ok": true,
+      "detail": "{\"id\":\"F26-PR-1782238003392\",\"programme\":\"long-run\",\"label\":\"Long run de corrida\",\"laps\":10,\"setupScore\":78,\"confidence\":86,\"tyreWindow\":91.1,\"lapDelta\":0.624,\"outputs\":[\"degradationPerLap\",\"fuelCorrectedPace\",\"thermalDrift\",\"brakeStability\"],\"metrics\":{\"aeroBalance\":-9,\"dragIndex\":59.9,\"downforceIndex\":94.6,\"tyreStressFront\":45.8,\"tyreStressRear\":62.7,\"brakeStability\":77.6,\"tractionIndex\":75.9,\"bottomingRisk\":27,\"engineStress\":74.6,\"balance\":\"traseira estável\"},\"recommendation\":\"proteger traseiros com pressão/toe/diferencial\",\"generatedAt\":\"2026-06-23T18:06:43.392Z\"}"
+    },
+    {
+      "name": "f26:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "f26:status-production-blocked",
+      "ok": true,
+      "detail": "produção bloqueada"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F26"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:state-init",
+      "ok": true,
+      "detail": "state init"
+    },
+    {
+      "name": "script:actions",
+      "ok": true,
+      "detail": "actions"
+    },
+    {
+      "name": "career:schema26",
+      "ok": true,
+      "detail": "schema 26"
+    },
+    {
+      "name": "css:f26",
+      "ok": true,
+      "detail": "css F26"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:setup-engineering"
+    },
+    {
+      "name": "docs:guide",
+      "ok": true,
+      "detail": "guide F26"
+    }
+  ]
+}

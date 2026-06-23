@@ -1,14 +1,14 @@
 {
-  "build": "F1M3D-0.33.0-F24",
-  "version": "0.33.0",
-  "phase": 24,
-  "generated_at": "2026-06-23T13:34:10.017Z",
+  "build": "F1M3D-0.36.0-F27",
+  "version": "0.36.0",
+  "phase": 27,
+  "generated_at": "2026-06-23T18:06:59.618Z",
   "static": {
     "passed": 64,
     "failed": 0
   },
   "build_consistency": {
-    "passed": 73,
+    "passed": 79,
     "failed": 0
   },
   "modules": {
@@ -103,12 +103,20 @@
     "passed": 16,
     "failed": 0
   },
+  "telemetry": {
+    "passed": 20,
+    "failed": 0
+  },
+  "setup_engineering": {
+    "passed": 18,
+    "failed": 0
+  },
   "browser_cases": {
     "passed": 3,
     "failed": 0
   },
   "visual": {
-    "passed": 99,
+    "passed": 120,
     "failed": 0
   },
   "ci": {
@@ -116,11 +124,11 @@
     "failed": 0
   },
   "project": {
-    "passed": 254,
+    "passed": 266,
     "failed": 0
   },
   "total": {
-    "passed": 1012,
+    "passed": 1089,
     "failed": 0
   },
   "result": "approved"

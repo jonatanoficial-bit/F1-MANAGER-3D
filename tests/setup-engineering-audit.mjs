@@ -1,0 +1,47 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const results=[]; const add=(name,ok,detail='')=>{results.push({name,ok:Boolean(ok),detail}); if(!ok) process.exitCode=1;};
+const read=rel=>fs.readFileSync(path.join(root,rel),'utf8');
+for(const rel of ['data/setup-engineering-data.js','src/core/setup-engineering-system.js']){
+  try{ new vm.Script(read(rel),{filename:rel}); add(`syntax:${rel}`,true); } catch(error){ add(`syntax:${rel}`,false,error.message); }
+}
+const sandbox = { globalThis:{}, window:{}, console };
+sandbox.globalThis = sandbox; sandbox.window = sandbox;
+vm.createContext(sandbox);
+vm.runInContext(read('data/setup-engineering-data.js'), sandbox);
+vm.runInContext(read('src/core/setup-engineering-system.js'), sandbox);
+const api = sandbox.F1M_CORE?.setupEngineering?.createSetupEngineeringSystem?.({ data:sandbox.F1M_SETUP_ENGINEERING_DATA });
+const state = { saveSchema:26, quality:{}, setupEngineering:{} };
+api?.initializeState?.(state, { buildCode:'TEST-F26' });
+const setup = { ...api?.defaultSetup?.(), frontWing:4, rearWing:9, rideHeightFront:29, rideHeightRear:52, brakeBias:59.2, tyrePressureRear:23.6, engineMap:5, differentialOnThrottle:78 };
+const track = { name:'Bahrain rear limited hot' };
+const scoring = api?.scoreSetup?.(setup, track, { state, buildCode:'TEST-F26' });
+const corr = api?.correlateTelemetry?.(setup, { tyreSurfaceC:112, brakeTempC:965, ersPct:12, drsGainKph:5, steer:15 }, track, { state, buildCode:'TEST-F26' });
+const practice = api?.simulatePractice?.('long-run', setup, track, { state, buildCode:'TEST-F26' });
+const audit = api?.audit?.({ state, buildCode:'TEST-F26' });
+const status = api?.status?.(state, { buildCode:'TEST-F26' });
+add('f26:data-loaded', Number(sandbox.F1M_SETUP_ENGINEERING_DATA?.phase) === 26, 'phase '+sandbox.F1M_SETUP_ENGINEERING_DATA?.phase);
+add('f26:core-api', Boolean(api?.initializeState && api?.scoreSetup && api?.correlateTelemetry && api?.simulatePractice && api?.audit), 'api completa');
+add('f26:parameters', status?.parameters >= 18 && status?.programmes >= 4, JSON.stringify(status || {}));
+add('f26:score-setup', Number(scoring?.score || -1) >= 0 && Number(scoring?.score || 101) <= 100 && Boolean(scoring?.metrics?.dragIndex), JSON.stringify(scoring || {}));
+add('f26:correlation', Array.isArray(corr?.issues) && corr.issues.length >= 2 && corr.top?.priority > 0, JSON.stringify(corr || {}));
+add('f26:practice-programme', practice?.programme === 'long-run' && practice?.laps >= 6 && Number.isFinite(practice?.lapDelta), JSON.stringify(practice || {}));
+add('f26:audit-score', Number(audit?.score || 0) >= 100 && Number(audit?.failed ?? 1) === 0, `${audit?.score || 0}/100`);
+add('f26:status-production-blocked', status?.productionBlocked === true, 'produção bloqueada');
+const index=read('index.html'); const script=read('script.js'); const pkg=JSON.parse(read('package.json')); const css=read('style.css'); const career=read('src/systems/career-system.js');
+add('index:scripts', index.includes('data/setup-engineering-data.js') && index.includes('src/core/setup-engineering-system.js'), 'scripts F26');
+add('script:system-card', script.includes('setupEngineeringMiniHTML') && script.includes('runSetupEngineeringAudit') && script.includes('runSetupCorrelation') && script.includes('simulateSetupPractice'), 'central sistema');
+add('script:state-init', script.includes('setupEngineering?.initializeState') && script.includes('state.setupEngineering'), 'state init');
+add('script:actions', script.includes('runSetupEngineeringAudit(){ runSetupEngineeringAudit(); }') && script.includes('simulateSetupPractice(){ simulateSetupPractice(); }'), 'actions');
+add('career:schema26', career.includes('if(current < 26') && career.includes('setupEngineeringF26'), 'schema 26');
+add('css:f26', css.includes('setup-engineering-card') && css.includes('F26'), 'css F26');
+add('package:script', Boolean(pkg.scripts?.['test:setup-engineering']), 'test:setup-engineering');
+add('docs:guide', fs.existsSync(path.join(root,'docs/SETUP_ENGINEERING_F26.md')), 'guide F26');
+const summary={build:JSON.parse(read('BUILD_INFO.json')).build_code, generatedAt:new Date().toISOString(), passed:results.filter(r=>r.ok).length, failed:results.filter(r=>!r.ok).length, results};
+fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
+fs.writeFileSync(path.join(root,'test-results/setup-engineering-audit.json'),JSON.stringify(summary,null,2)+'\n');
+console.log(results.map(r=>`${r.ok?'PASS':'FAIL'} ${r.name}${r.detail?' — '+r.detail:''}`).join('\n'));
+console.log(`TOTAL: ${summary.passed} passed, ${summary.failed} failed`);

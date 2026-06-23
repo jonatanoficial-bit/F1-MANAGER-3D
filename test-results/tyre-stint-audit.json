@@ -1,0 +1,113 @@
+{
+  "build": "F1M3D-0.36.0-F27",
+  "generatedAt": "2026-06-23T18:06:43.683Z",
+  "passed": 21,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/tyre-stint-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/tyre-stint-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "f27:data-loaded",
+      "ok": true,
+      "detail": "phase 27"
+    },
+    {
+      "name": "f27:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "f27:compound-count",
+      "ok": true,
+      "detail": "{\"score\":100,\"compounds\":5,\"signals\":20,\"factors\":9,\"plans\":0,\"analyses\":0,\"productionBlocked\":true}"
+    },
+    {
+      "name": "f27:hot-soft-risk",
+      "ok": true,
+      "detail": "{\"compound\":\"soft\",\"compoundLabel\":\"Macio\",\"surfaceTempC\":115,\"carcassTempC\":107,\"pressurePsi\":24.2,\"ageLaps\":14,\"wearPct\":58,\"surfaceScore\":29,\"carcassScore\":35,\"grainingPct\":16.8,\"blisteringPct\":60.7,\"flatSpotPct\":15.7,\"degradationPerLap\":0.403,\"cliffRisk\":100,\"punctureRisk\":0,\"fuelCorrectedPace\":1.566,\"undercutPower\":100,\"overcutResistance\":0,\"tyreHealth\":25,\"window\":\"92-108°C superfície / 88-102°C carcaça\",\"generatedAt\":\"2026-06-23T18:06:43.677Z\"}"
+    },
+    {
+      "name": "f27:cool-hard-stability",
+      "ok": true,
+      "detail": "{\"compound\":\"hard\",\"compoundLabel\":\"Duro\",\"surfaceTempC\":88,\"carcassTempC\":90,\"pressurePsi\":22.2,\"ageLaps\":8,\"wearPct\":16,\"surfaceScore\":81,\"carcassScore\":95,\"grainingPct\":2.9,\"blisteringPct\":1.6,\"flatSpotPct\":0,\"degradationPerLap\":0.076,\"cliffRisk\":0,\"punctureRisk\":0,\"fuelCorrectedPace\":-1.833,\"undercutPower\":12,\"overcutResistance\":100,\"tyreHealth\":88,\"window\":\"84-100°C superfície / 84-98°C carcaça\",\"generatedAt\":\"2026-06-23T18:06:43.677Z\"}"
+    },
+    {
+      "name": "f27:stint-plan",
+      "ok": true,
+      "detail": "{\"id\":\"F27-ST-1782238003677\",\"compound\":\"soft\",\"compoundLabel\":\"Macio\",\"currentLap\":22,\"lapsTotal\":57,\"stintAge\":14,\"recommendedPitLap\":23,\"target\":\"box-now\",\"confidence\":77,\"analysis\":{\"compound\":\"soft\",\"compoundLabel\":\"Macio\",\"surfaceTempC\":115,\"carcassTempC\":107,\"pressurePsi\":24.2,\"ageLaps\":14,\"wearPct\":58,\"surfaceScore\":29,\"carcassScore\":35,\"grainingPct\":16.8,\"blisteringPct\":60.7,\"flatSpotPct\":4.9,\"degradationPerLap\":0.388,\"cliffRisk\":100,\"punctureRisk\":0,\"fuelCorrectedPace\":0.695,\"undercutPower\":100,\"overcutResistance\":0,\"tyreHealth\":27,\"window\":\"92-108°C superfície / 88-102°C carcaça\",\"generatedAt\":\"2026-06-23T18:06:43.677Z\"},\"pitWindowOpen\":true,\"generatedAt\":\"2026-06-23T18:06:43.677Z\"}"
+    },
+    {
+      "name": "f27:pit-wall-advice",
+      "ok": true,
+      "detail": "{\"label\":\"BOX AGORA\",\"priority\":96,\"advice\":\"Pneu em risco crítico: parar imediatamente para evitar penhasco ou furo.\",\"target\":\"box-now\",\"recommendedPitLap\":23,\"analysis\":{\"compound\":\"soft\",\"compoundLabel\":\"Macio\",\"surfaceTempC\":115,\"carcassTempC\":107,\"pressurePsi\":24.2,\"ageLaps\":14,\"wearPct\":58,\"surfaceScore\":29,\"carcassScore\":35,\"grainingPct\":16.8,\"blisteringPct\":60.7,\"flatSpotPct\":4.9,\"degradationPerLap\":0.388,\"cliffRisk\":100,\"punctureRisk\":0,\"fuelCorrectedPace\":0.695,\"undercutPower\":100,\"overcutResistance\":0,\"tyreHealth\":27,\"window\":\"92-108°C superfície / 88-102°C carcaça\",\"generatedAt\":\"2026-06-23T18:06:43.677Z\"},\"generatedAt\":\"2026-06-23T18:06:43.677Z\"}"
+    },
+    {
+      "name": "f27:entry-sample",
+      "ok": true,
+      "detail": "{\"compound\":\"medium\",\"compoundLabel\":\"Médio\",\"surfaceTempC\":104,\"carcassTempC\":99,\"pressurePsi\":23.1,\"ageLaps\":7.5,\"wearPct\":39,\"surfaceScore\":62,\"carcassScore\":67,\"grainingPct\":15.6,\"blisteringPct\":14.3,\"flatSpotPct\":2.1,\"degradationPerLap\":0.197,\"cliffRisk\":43,\"punctureRisk\":0,\"fuelCorrectedPace\":-0.842,\"undercutPower\":52,\"overcutResistance\":57,\"tyreHealth\":60,\"window\":\"88-104°C superfície / 86-100°C carcaça\",\"generatedAt\":\"2026-06-23T18:06:43.678Z\"}"
+    },
+    {
+      "name": "f27:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "f27:status-production-blocked",
+      "ok": true,
+      "detail": "produção bloqueada"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F27"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:state-init",
+      "ok": true,
+      "detail": "state init"
+    },
+    {
+      "name": "script:actions",
+      "ok": true,
+      "detail": "actions"
+    },
+    {
+      "name": "script:race-integration",
+      "ok": true,
+      "detail": "corrida integrada"
+    },
+    {
+      "name": "career:schema27",
+      "ok": true,
+      "detail": "schema 27"
+    },
+    {
+      "name": "css:f27",
+      "ok": true,
+      "detail": "css F27"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:tyre-stint"
+    },
+    {
+      "name": "docs:guide",
+      "ok": true,
+      "detail": "guide F27"
+    }
+  ]
+}

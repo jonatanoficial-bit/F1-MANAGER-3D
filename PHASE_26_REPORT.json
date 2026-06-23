@@ -1,0 +1,26 @@
+{
+  "build": "F1M3D-0.35.0-F26",
+  "version": "0.35.0",
+  "phase": 26,
+  "name": "Setup avançado e engenharia de fim de semana realista",
+  "save_schema": 26,
+  "base": "v0.34.0-F25",
+  "audit_total": {
+    "passed": 1076,
+    "failed": 0
+  },
+  "setup_engineering": {
+    "passed": 18,
+    "failed": 0
+  },
+  "systems": [
+    "setup parameters",
+    "track archetypes",
+    "practice programmes",
+    "telemetry correlation",
+    "engineering diagnosis",
+    "save schema 26"
+  ],
+  "production_blocked": true,
+  "assets_binary_included": false
+}

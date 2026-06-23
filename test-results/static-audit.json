@@ -1,26 +1,26 @@
 {
-  "build": "F1M3D-0.33.0-F24",
-  "generatedAt": "2026-06-23T13:31:44.163Z",
+  "build": "F1M3D-0.36.0-F27",
+  "generatedAt": "2026-06-23T18:06:35.632Z",
   "checks": [
     {
       "name": "build version synchronized",
       "ok": true,
-      "detail": "0.33.0/0.33.0/0.33.0"
+      "detail": "0.36.0/0.36.0/0.36.0"
     },
     {
       "name": "build code present",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
-      "name": "phase 24 build code",
+      "name": "phase 27 build code",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
-      "name": "save schema 24",
+      "name": "save schema 27",
       "ok": true,
-      "detail": "24"
+      "detail": "27"
     },
     {
       "name": "Data Lock typo removed",

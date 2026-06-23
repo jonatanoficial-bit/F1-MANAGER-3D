@@ -31,6 +31,8 @@ const sourceList=[
   ['visual_hotfix','test-results/visual-hotfix-audit.json',null],
   ['public_beta_assets','test-results/public-beta-assets-audit.json','results'],
   ['gameplay_polish','test-results/gameplay-polish-audit.json','results'],
+  ['telemetry','test-results/telemetry-audit.json','results'],
+  ['setup_engineering','test-results/setup-engineering-audit.json','results'],
   ['browser_cases','test-results/browser-audit.json','cases'],
   ['visual','test-results/visual-regression-audit.json',null],
   ['ci','test-results/ci-readiness-audit.json',null],

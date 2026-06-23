@@ -1,6 +1,6 @@
 {
-  "build": "F1M3D-0.33.0-F24",
-  "schema": 1,
+  "build": "F1M3D-0.36.0-F27",
+  "schema": 27,
   "viewports": {
     "mobile_landscape": {
       "width": 844,
@@ -106,7 +106,28 @@
     "AUDITAR BETA",
     "PLANO PREVIEW",
     "REGISTRAR PRINT",
-    "GitHub/Vercel"
+    "GitHub/Vercel",
+    "Telemetria realista F25",
+    "AUDITAR TELEMETRIA",
+    "DIAGNÓSTICO",
+    "EXPORTAR SESSÃO",
+    "RPM",
+    "Freio",
+    "Combustível",
+    "Setup avançado F26",
+    "AUDITAR SETUP",
+    "CORRELACIONAR",
+    "SIMULAR TREINO",
+    "Asa",
+    "suspensão",
+    "brake bias",
+    "Pneus e stint F27",
+    "AUDITAR PNEUS",
+    "ANALISAR STINT",
+    "PLANO PIT",
+    "graining",
+    "blistering",
+    "undercut"
   ],
   "protectedSelectors": [
     "#homeBuildPill",
@@ -125,6 +146,11 @@
     "Fase 13 adiciona card de balanceamento científico, auditoria de balanceamento e execução Monte Carlo na Central Sistema.",
     "Fase 14 adiciona corrida 3D profissional procedural, largura de pista, elevação, pit lane, setores, DRS, racing lines, câmeras TV/onboard/pit wall/helicóptero e replay lógico sem assets binários.",
     "Fase 15 adiciona card de áudio/UI/acessibilidade, Web Audio procedural, rádio/box, mixagem dinâmica, foco visível e tutorial contextual sem assets binários.",
-    "Fase 16 adiciona card de carreira viva, auditoria da carreira e revisão do conselho com staff profundo, fábricas, P&D, academia, patrocinadores e projeção multi-temporada."
-  ]
+    "Fase 16 adiciona card de carreira viva, auditoria da carreira e revisão do conselho com staff profundo, fábricas, P&D, academia, patrocinadores e projeção multi-temporada.",
+    "Fase 25 adiciona card de telemetria realista, diagnóstico de engenharia, exportação de sessão e leitura técnica de RPM, pneus, freios, combustível, ERS/DRS e ar sujo.",
+    "Fase 27 adiciona card de pneus e stint, com degradação profunda, janelas térmicas, graining/blistering/flat spot e decisão técnica de pit."
+  ],
+  "build_code": "F1M3D-0.36.0-F27",
+  "version": "0.36.0",
+  "phase": 27
 }

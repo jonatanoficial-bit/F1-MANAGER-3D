@@ -1,25 +1,13 @@
+# AUDIT REPORT — F1 Manager 3D v0.36.0-F27
 
-## Fase 24 — v0.33.0-F24
+**Build:** `F1M3D-0.36.0-F27`  
+**Resultado:** aprovado  
+**Total:** 1089 aprovadas / 0 falhas
 
-Resultado consolidado: **1012 aprovadas / 0 falhas**. Gameplay F24, browser, visual, mobile, assets, saves e projeto aprovados.
+## Fase 27
 
-# Auditoria Fase 23 — v0.32.0-F23
+Pneus, stints e degradação profunda: 21 aprovadas / 0 falhas.
 
-Resultado consolidado: **960 aprovadas / 0 falhas**.
+## Observação
 
-## Grupos validados
-
-- Sintaxe JavaScript dos novos módulos.
-- Contrato de dados F23.
-- Central Sistema e ações F23.
-- App shell PWA com novos arquivos.
-- Manifesto de assets preservado.
-- ZIP sem binários pesados.
-- Teste `npm run test:public-beta-assets`.
-- Compatibilidade com fases 1 a 22.
-
-## Bloqueios mantidos
-
-- Produção comercial bloqueada até validação manual com assets reais.
-- Revisão jurídica obrigatória para nomes, marcas, equipes, circuitos e pilotos.
-- Homologação física Android/iOS/tablet/desktop ainda exigida.
+ZIP mantém assets binários pesados fora do pacote, com caminhos preservados em manifestos.

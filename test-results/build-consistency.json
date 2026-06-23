@@ -1,76 +1,76 @@
 {
-  "build": "F1M3D-0.33.0-F24",
-  "generatedAt": "2026-06-23T13:31:44.629Z",
+  "build": "F1M3D-0.36.0-F27",
+  "generatedAt": "2026-06-23T18:06:35.934Z",
   "results": [
     {
       "name": "version:source",
       "ok": true,
-      "detail": "0.33.0"
+      "detail": "0.36.0"
     },
     {
       "name": "version:root",
       "ok": true,
-      "detail": "0.33.0"
+      "detail": "0.36.0"
     },
     {
       "name": "version:data",
       "ok": true,
-      "detail": "0.33.0"
+      "detail": "0.36.0"
     },
     {
       "name": "version:runtime",
       "ok": true,
-      "detail": "0.33.0"
+      "detail": "0.36.0"
     },
     {
       "name": "version:package",
       "ok": true,
-      "detail": "0.33.0"
+      "detail": "0.36.0"
     },
     {
       "name": "version:manifest",
       "ok": true,
-      "detail": "0.33.0"
+      "detail": "0.36.0"
     },
     {
       "name": "version:assets",
       "ok": true,
-      "detail": "0.33.0"
+      "detail": "0.36.0"
     },
     {
       "name": "version:package-lock",
       "ok": true,
-      "detail": "0.33.0/0.33.0"
+      "detail": "0.36.0/0.36.0"
     },
     {
       "name": "code:source",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "code:root",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "code:data",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "code:runtime",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "code:assets",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "code:shell",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "html:build-code",
@@ -85,17 +85,17 @@
     {
       "name": "schema:save",
       "ok": true,
-      "detail": "24"
+      "detail": "27"
     },
     {
       "name": "schema:asset-manifest",
       "ok": true,
-      "detail": "24"
+      "detail": "27"
     },
     {
       "name": "schema:app-shell",
       "ok": true,
-      "detail": "24"
+      "detail": "27"
     },
     {
       "name": "shell:./index.html",
@@ -306,6 +306,36 @@
       "name": "shell:./data/gameplay-polish-data.js",
       "ok": true,
       "detail": "./data/gameplay-polish-data.js"
+    },
+    {
+      "name": "shell:./src/core/telemetry-system.js",
+      "ok": true,
+      "detail": "./src/core/telemetry-system.js"
+    },
+    {
+      "name": "shell:./data/telemetry-data.js",
+      "ok": true,
+      "detail": "./data/telemetry-data.js"
+    },
+    {
+      "name": "shell:./data/setup-engineering-data.js",
+      "ok": true,
+      "detail": "./data/setup-engineering-data.js"
+    },
+    {
+      "name": "shell:./src/core/setup-engineering-system.js",
+      "ok": true,
+      "detail": "./src/core/setup-engineering-system.js"
+    },
+    {
+      "name": "shell:./src/core/tyre-stint-system.js",
+      "ok": true,
+      "detail": "./src/core/tyre-stint-system.js"
+    },
+    {
+      "name": "shell:./data/tyre-stint-data.js",
+      "ok": true,
+      "detail": "./data/tyre-stint-data.js"
     },
     {
       "name": "shell:./data/game-data.js",

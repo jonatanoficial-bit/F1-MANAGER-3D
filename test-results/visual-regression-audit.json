@@ -1,14 +1,14 @@
 {
-  "build": "F1M3D-0.33.0-F24",
-  "generatedAt": "2026-06-23T13:33:05.361Z",
-  "snapshotHash": "449d1accad1636e0d720d95efbb4919d77ac4003abbcea15a24289a14c29e5f9",
-  "passed": 99,
+  "build": "F1M3D-0.36.0-F27",
+  "generatedAt": "2026-06-23T18:06:58.684Z",
+  "snapshotHash": "e243c8579da76177327e2973c9bd5ad5158df66eb138ffd439de240d711525d1",
+  "passed": 120,
   "failed": 0,
   "results": [
     {
       "name": "visual:baseline-current",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24/F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27/F1M3D-0.36.0-F27"
     },
     {
       "name": "visual:protected-selector:#homeBuildPill",
@@ -401,6 +401,111 @@
       "detail": "texto base"
     },
     {
+      "name": "visual:text:Telemetria realista F25",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:AUDITAR TELEMETRIA",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:DIAGNÓSTICO",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:EXPORTAR SESSÃO",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:RPM",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Freio",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Combustível",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Setup avançado F26",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:AUDITAR SETUP",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:CORRELACIONAR",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:SIMULAR TREINO",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Asa",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:suspensão",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:brake bias",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:Pneus e stint F27",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:AUDITAR PNEUS",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:ANALISAR STINT",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:PLANO PIT",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:graining",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:blistering",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
+      "name": "visual:text:undercut",
+      "ok": true,
+      "detail": "texto base"
+    },
+    {
       "name": "visual:responsive-css",
       "ok": true,
       "detail": "media queries presentes"
@@ -423,7 +528,7 @@
     {
       "name": "visual:browser-build",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "visual:viewport-executed:mobile_landscape",

@@ -1,7 +1,7 @@
 {
-  "build": "F1M3D-0.33.0-F24",
-  "generatedAt": "2026-06-23T13:33:06.392Z",
-  "passed": 254,
+  "build": "F1M3D-0.36.0-F27",
+  "generatedAt": "2026-06-23T18:06:59.346Z",
+  "passed": 266,
   "failed": 0,
   "results": [
     {
@@ -116,6 +116,21 @@
     },
     {
       "name": "json:PHASE_23_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_24_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_25_REPORT.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:PHASE_26_REPORT.json",
       "ok": true,
       "detail": ""
     },
@@ -315,6 +330,11 @@
       "detail": ""
     },
     {
+      "name": "json:test-results/setup-engineering-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "json:test-results/sporting-data-audit.json",
       "ok": true,
       "detail": ""
@@ -330,7 +350,17 @@
       "detail": ""
     },
     {
+      "name": "json:test-results/telemetry-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "json:test-results/track-visual-audit.json",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "json:test-results/tyre-stint-audit.json",
       "ok": true,
       "detail": ""
     },
@@ -790,6 +820,36 @@
       "detail": ""
     },
     {
+      "name": "app-shell:src/core/telemetry-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/telemetry-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/setup-engineering-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/setup-engineering-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:src/core/tyre-stint-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "app-shell:data/tyre-stint-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
       "name": "app-shell:data/game-data.js",
       "ok": true,
       "detail": ""
@@ -857,12 +917,12 @@
     {
       "name": "assets:manifest-build",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "assets:manifest-version",
       "ok": true,
-      "detail": "24"
+      "detail": "27"
     },
     {
       "name": "assets:original-catalogue",
@@ -937,7 +997,7 @@
     {
       "name": "build:save-schema",
       "ok": true,
-      "detail": "24"
+      "detail": "27"
     },
     {
       "name": "system:tab-visible",
@@ -987,7 +1047,7 @@
     {
       "name": "browser:current-build",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "performance:audit-pass",
@@ -997,7 +1057,7 @@
     {
       "name": "performance:current-build",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "mobile:audit-pass",
@@ -1007,7 +1067,7 @@
     {
       "name": "mobile:current-build",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "i18n:audit-pass",
@@ -1017,17 +1077,17 @@
     {
       "name": "i18n:current-build",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "visual:audit-pass",
       "ok": true,
-      "detail": "99 passed, 0 failed"
+      "detail": "120 passed, 0 failed"
     },
     {
       "name": "visual:current-build",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "ci:audit-pass",
@@ -1037,7 +1097,7 @@
     {
       "name": "ci:current-build",
       "ok": true,
-      "detail": "F1M3D-0.33.0-F24"
+      "detail": "F1M3D-0.36.0-F27"
     },
     {
       "name": "ci:workflow-present",

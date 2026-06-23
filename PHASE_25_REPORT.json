@@ -1,0 +1,21 @@
+{
+  "phase": 25,
+  "version": "0.34.0",
+  "build_code": "F1M3D-0.34.0-F25",
+  "title": "Telemetria realista e simulador técnico de engenharia de corrida",
+  "base": "v0.33.0-F24",
+  "status": "approved",
+  "audit_total": {
+    "passed": 1046,
+    "failed": 0
+  },
+  "telemetry": {
+    "passed": 20,
+    "failed": 0
+  },
+  "browser_cases": {
+    "passed": 3,
+    "failed": 0
+  },
+  "generated_at": "2026-06-23T14:12:19.303386Z"
+}

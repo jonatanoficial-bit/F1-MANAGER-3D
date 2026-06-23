@@ -1,0 +1,108 @@
+{
+  "build": "F1M3D-0.36.0-F27",
+  "generatedAt": "2026-06-23T18:06:43.112Z",
+  "passed": 20,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax:data/telemetry-data.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "syntax:src/core/telemetry-system.js",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "f25:data-loaded",
+      "ok": true,
+      "detail": "phase 25"
+    },
+    {
+      "name": "f25:core-api",
+      "ok": true,
+      "detail": "api completa"
+    },
+    {
+      "name": "f25:packet-speed-rpm",
+      "ok": true,
+      "detail": "{\"buildCode\":\"TEST-F25\",\"driver\":\"SIM\",\"team\":\"test\",\"lap\":10,\"sector\":3,\"miniSector\":8,\"tick\":12,\"speedKph\":365,\"rpm\":13000,\"gear\":8,\"throttle\":87.1,\"brake\":4.7,\"steer\":13.7,\"lateralG\":5.5,\"longitudinalG\":1.67,\"tyreSurfaceC\":112.7,\"tyreCoreC\":109.8,\"tyrePressurePsi\":22.41,\"tyreWearPct\":62,\"brakeTempC\":1005,\"engineTempC\":111.7,\"fuelKg\":79.8,\"ersPct\":12,\"ersDeployKw\":30,\"ersHarvestKw\":0,\"drs\":true,\"drsGainKph\":7,\"dirtyAirLossPct\":9,\"downforceBalance\":51.3,\"sectorDelta\":0.674,\"generatedAt\":\"2026-06-23T18:06:43.106Z\"}"
+    },
+    {
+      "name": "f25:thermal-tyres-brakes",
+      "ok": true,
+      "detail": "112.7/1005"
+    },
+    {
+      "name": "f25:diagnosis",
+      "ok": true,
+      "detail": "{\"driver\":\"SIM\",\"lap\":10,\"sector\":3,\"priority\":92,\"top\":{\"id\":\"brake-critical\",\"label\":\"freios em temperatura crítica\",\"advice\":\"poupar frenagem e evitar ataque prolongado\",\"priority\":92},\"issues\":[{\"id\":\"rear-overheat\",\"label\":\"pneus acima da janela e tração limitada\",\"advice\":\"reduzir ataque ou antecipar pit\",\"priority\":84},{\"id\":\"brake-critical\",\"label\":\"freios em temperatura crítica\",\"advice\":\"poupar frenagem e evitar ataque prolongado\",\"priority\":92},{\"id\":\"ers-low\",\"label\":\"ERS baixo para ataque\",\"advice\":\"harvest por uma volta antes de atacar\",\"priority\":78},{\"id\":\"dirty-air\",\"label\":\"ar sujo reduzindo downforce\",\"advice\":\"sair do tráfego ou tentar undercut\",\"priority\":80}],\"generatedAt\":\"2026-06-23T18:06:43.106Z\"}"
+    },
+    {
+      "name": "f25:sector-trace",
+      "ok": true,
+      "detail": "[{\"sector\":1,\"delta\":0.594,\"tyreSurfaceC\":111.5,\"brakeTempC\":1070,\"ersPct\":12},{\"sector\":2,\"delta\":0.618,\"tyreSurfaceC\":112.7,\"brakeTempC\":970,\"ersPct\":9},{\"sector\":3,\"delta\":0.648,\"tyreSurfaceC\":113.9,\"brakeTempC\":1020,\"ersPct\":6}]"
+    },
+    {
+      "name": "f25:export-session",
+      "ok": true,
+      "detail": "{\"format\":\"F1M_TELEMETRY_SESSION_V1\",\"buildCode\":\"TEST-F25\",\"raceName\":\"Telemetry Test GP\",\"generatedAt\":\"2026-06-23T18:06:43.107Z\",\"samples\":[{\"buildCode\":\"TEST-F25\",\"driver\":\"SIM\",\"team\":\"test\",\"lap\":10,\"sector\":3,\"miniSector\":8,\"tick\":12,\"speedKph\":365,\"rpm\":13000,\"gear\":8,\"throttle\":87.1,\"brake\":4.7,\"steer\":13.7,\"lateralG\":5.5,\"longitudinalG\":1.67,\"tyreSurfaceC\":112.7,\"tyreCoreC\":109.8,\"tyrePressurePsi\":22.41,\"tyreWearPct\":62,\"brakeTempC\":1005,\"engineTempC\":111.7,\"fuelKg\":79.8,\"ersPct\":12,\"ersDeployKw\":30,\"ersHarvestKw\":0,\"drs\":true,\"drsGainKph\":7,\"dirtyAirLossPct\":9,\"downforceBalance\":51.3,\"sectorDelta\":0.674,\"generatedAt\":\"2026-06-23T18:06:43.106Z\"}],\"diagnosis\":[{\"driver\":\"SIM\",\"lap\":10,\"sector\":3,\"priority\":92,\"top\":{\"id\":\"brake-critical\",\"label\":\"freios em temperatura crítica\",\"advice\":\"poupar frenagem e evitar ataque prolongado\",\"priority\":92},\"issues\":[{\"id\":\"rear-overheat\",\"label\":\"pneus acima da janela e tração limitada\",\"advice\":\"reduzir ataque ou antecipar pit\",\"priority\":84},{\"id\":\"brake-critical\",\"label\":\"freios em temperatura crítica\",\"advice\":\"poupar frenagem e evitar ataque prolongado\",\"priority\":92},{\"id\":\"ers-low\",\"label\":\"ERS baixo para ataque\",\"advice\":\"harvest por uma volta antes de atacar\",\"priority\":78},{\"id\":\"dirty-air\",\"label\":\"ar sujo reduzindo downforce\",\"advice\":\"sair do tráfego ou tentar undercut\",\"priority\":80}],\"generatedAt\":\"2026-06-23T18:06:43.106Z\"}],\"realism\":\"plausível para simulador; não contém telemetria proprietária oficial\"}"
+    },
+    {
+      "name": "f25:audit-score",
+      "ok": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "f25:status",
+      "ok": true,
+      "detail": "{\"score\":100,\"signals\":17,\"diagnosis\":7,\"views\":10,\"realism\":6,\"sessions\":1,\"samples\":2,\"enabled\":true,\"productionBlocked\":true,\"hz\":10}"
+    },
+    {
+      "name": "index:scripts",
+      "ok": true,
+      "detail": "scripts F25"
+    },
+    {
+      "name": "script:system-card",
+      "ok": true,
+      "detail": "central sistema"
+    },
+    {
+      "name": "script:state-init",
+      "ok": true,
+      "detail": "state init"
+    },
+    {
+      "name": "script:race-hooks",
+      "ok": true,
+      "detail": "race hooks"
+    },
+    {
+      "name": "script:actions",
+      "ok": true,
+      "detail": "actions"
+    },
+    {
+      "name": "career:schema25",
+      "ok": true,
+      "detail": "schema 25"
+    },
+    {
+      "name": "css:f25",
+      "ok": true,
+      "detail": "css F25"
+    },
+    {
+      "name": "package:script",
+      "ok": true,
+      "detail": "test:telemetry"
+    },
+    {
+      "name": "docs:guide",
+      "ok": true,
+      "detail": "guide F25"
+    }
+  ]
+}

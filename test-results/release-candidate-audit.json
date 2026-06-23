@@ -1,6 +1,6 @@
 {
-  "build": "F1M3D-0.33.0-F24",
-  "generatedAt": "2026-06-23T13:31:53.406Z",
+  "build": "F1M3D-0.36.0-F27",
+  "generatedAt": "2026-06-23T18:06:41.009Z",
   "passed": 19,
   "failed": 0,
   "results": [
@@ -62,7 +62,7 @@
     {
       "name": "rc:commercial-package",
       "ok": true,
-      "detail": "{\"packageId\":\"F1M3D-RC-TEST-F18-MQQOO8U1\",\"version\":\"0.27.0\",\"files\":[\"BUILD_INFO.json\",\"AUDIT_REPORT.md\",\"CHANGELOG.md\",\"KNOWN_ISSUES.md\",\"FILE_MANIFEST.sha256\",\"assets/ASSET_PATHS_REQUIRED.txt\",\"assets/ASSET_MANIFEST.json\",\"manifest.webmanifest\",\"service-worker.js\"],\"evidenceFolders\":[\"test-results\",\"docs\",\"support\",\"store-listing\"],\"blockers\":[{\"item\":\"assets-pesados-restaurados\",\"resolved\":false},{\"item\":\"homologacao-fisica-pendente\",\"resolved\":false},{\"item\":\"revisao-juridica-pendente\",\"resolved\":false},{\"item\":\"backend-real-nao-conectado\",\"resolved\":false}],\"generatedAt\":\"2026-06-23T13:31:53.401Z\",\"publishAllowed\":false}"
+      "detail": "{\"packageId\":\"F1M3D-RC-TEST-F18-MQQYHMR1\",\"version\":\"0.27.0\",\"files\":[\"BUILD_INFO.json\",\"AUDIT_REPORT.md\",\"CHANGELOG.md\",\"KNOWN_ISSUES.md\",\"FILE_MANIFEST.sha256\",\"assets/ASSET_PATHS_REQUIRED.txt\",\"assets/ASSET_MANIFEST.json\",\"manifest.webmanifest\",\"service-worker.js\"],\"evidenceFolders\":[\"test-results\",\"docs\",\"support\",\"store-listing\"],\"blockers\":[{\"item\":\"assets-pesados-restaurados\",\"resolved\":false},{\"item\":\"homologacao-fisica-pendente\",\"resolved\":false},{\"item\":\"revisao-juridica-pendente\",\"resolved\":false},{\"item\":\"backend-real-nao-conectado\",\"resolved\":false}],\"generatedAt\":\"2026-06-23T18:06:41.005Z\",\"publishAllowed\":false}"
     },
     {
       "name": "rc:status",

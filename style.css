@@ -645,3 +645,25 @@ html[data-visual-hotfix="F22"] .screen.active{min-height:0;overflow:hidden;}
 .gameplay-polish-card h3::after{content:'F24';font-size:.68rem;margin-left:.5rem;padding:.18rem .45rem;border-radius:999px;background:rgba(255,214,102,.16);color:#ffe08a;border:1px solid rgba(255,214,102,.24)}
 .race-log-mini small{display:block;line-height:1.25;margin:.12rem 0;opacity:.92}
 .pilot-status{font-size:.78rem;line-height:1.35;margin-top:.55rem;color:rgba(236,244,255,.86)}
+
+
+/* F25 telemetry realism: engineering-grade race reading */
+.telemetry-card{border-color:rgba(80,220,255,.34);box-shadow:0 0 0 1px rgba(80,220,255,.11),0 18px 44px rgba(0,0,0,.30);background:linear-gradient(135deg,rgba(6,18,32,.96),rgba(8,11,24,.94));}
+.telemetry-card h3::after{content:'F25';font-size:.68rem;margin-left:.5rem;padding:.18rem .45rem;border-radius:999px;background:rgba(80,220,255,.16);color:#a7f3ff;border:1px solid rgba(125,231,255,.24)}
+.telemetry-inline{display:block;margin-top:.22rem;color:rgba(178,235,255,.9);font-family:ui-monospace,Consolas,monospace;font-size:.70rem;line-height:1.25;overflow-wrap:anywhere;}
+#raceStatusPanel .telemetry-inline{max-width:100%;}
+.pilot-status .telemetry-inline{font-size:.68rem;}
+@media(max-width:900px){.telemetry-card .secondary{min-height:44px}.telemetry-inline{font-size:.66rem}.race-status-panel{gap:.4rem}}
+
+
+/* F26 setup avançado e engenharia de fim de semana */
+.setup-engineering-card{position:relative;overflow:hidden;}
+.setup-engineering-card::after{content:'F26';position:absolute;right:14px;top:12px;font-size:.72rem;letter-spacing:.16em;opacity:.34;font-weight:900;}
+.setup-engineering-card .muted-small{line-height:1.35;}
+.telemetry-inline{display:block;margin-top:3px;}
+
+/* F27 pneus, stint e degradação profunda */
+.tyre-stint-card{position:relative;overflow:hidden;}
+.tyre-stint-card::after{content:'F27';position:absolute;right:14px;top:12px;font-size:.72rem;letter-spacing:.16em;opacity:.34;font-weight:900;}
+.tyre-stint-card .muted-small{line-height:1.35;}
+.tyre-stint-card b{font-variant-numeric:tabular-nums;}
